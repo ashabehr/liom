@@ -88,7 +88,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPost2.module.css"; // plasmic-import: iNHFQ5RIM3Tb/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -122,11 +121,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -205,12 +211,6 @@ function PlasmicPost2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -508,6 +508,13 @@ function PlasmicPost2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -520,7 +527,7 @@ function PlasmicPost2__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -535,17 +542,17 @@ function PlasmicPost2__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -839,15 +846,15 @@ function PlasmicPost2__RenderFunc(props: {
             }}
           />
 
-          <section className={classNames(projectcss.all, sty.section__wNehk)}>
+          <section className={classNames("all", sty.section__wNehk)}>
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__cBlY)}>
+              <div className={classNames("all", sty.freeBox__cBlY)}>
                 <XIcon
-                  className={classNames(projectcss.all, sty.svg__hxDu)}
+                  className={classNames("all", sty.svg__hxDu)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -926,7 +933,7 @@ function PlasmicPost2__RenderFunc(props: {
             className={classNames("__wab_instance", sty.getInfo)}
             errorDisplay={
               <div
-                className={classNames(projectcss.all, sty.freeBox__yfD96)}
+                className={classNames("all", sty.freeBox__yfD96)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -967,22 +974,14 @@ function PlasmicPost2__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___9C8B5
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___9C8B5)}
                 >
                   {
                     "\u062e\u0637\u0627 \u062f\u0631 \u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__anWs0
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__anWs0)}
                 >
                   {
                     "\u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u0648 \u0642\u0635\u0639 \u0628\u0648\u062f\u0646 vpn\u0645\u0637\u0645\u0626\u0646 \u0634\u062f\u0647 \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f"
@@ -1046,20 +1045,18 @@ function PlasmicPost2__RenderFunc(props: {
                   shape={"rounded"}
                   size={"minimal"}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__boqh)}
-                  >
+                  <div className={classNames("all", sty.freeBox__boqh)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__xzH2D
                       )}
                     >
                       {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
                     </div>
                     <Icon144Icon
-                      className={classNames(projectcss.all, sty.svg__l9MsU)}
+                      className={classNames("all", sty.svg__l9MsU)}
                       role={"img"}
                     />
                   </div>
@@ -1070,15 +1067,13 @@ function PlasmicPost2__RenderFunc(props: {
               <div
                 data-plasmic-name={"loding"}
                 data-plasmic-override={overrides.loding}
-                className={classNames(projectcss.all, sty.loding)}
+                className={classNames("all", sty.loding)}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__hCsIg)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___8XFxp)}
-                  >
+                <div className={classNames("all", sty.freeBox__hCsIg)}>
+                  <div className={classNames("all", sty.freeBox___8XFxp)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__d8OWl,
                         "shimmer"
                       )}
@@ -1086,61 +1081,41 @@ function PlasmicPost2__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__b96Px,
                         "shimmer"
                       )}
                     />
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__uDa1S,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__uDa1S, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__t0E0U,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__t0E0U, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__fOzy9,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__fOzy9, "shimmer")}
                   />
 
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__bhVEl)}
-                  >
+                  <div className={classNames("all", sty.freeBox__bhVEl)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__apcVq,
                         "shimmer"
                       )}
                     />
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__q73Nu,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__q73Nu, "shimmer")}
                   />
 
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__u5QeB)}
-                  >
+                  <div className={classNames("all", sty.freeBox__u5QeB)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__cHfn1,
                         "shimmer"
                       )}
@@ -1148,7 +1123,7 @@ function PlasmicPost2__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__ybSy3,
                         "shimmer"
                       )}
@@ -1156,20 +1131,18 @@ function PlasmicPost2__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__lWiX,
                         "shimmer"
                       )}
                     />
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__jjf5Y)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__vUhY)}
-                  >
+                <div className={classNames("all", sty.freeBox__jjf5Y)}>
+                  <div className={classNames("all", sty.freeBox__vUhY)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__v88LV,
                         "shimmer"
                       )}
@@ -1177,43 +1150,33 @@ function PlasmicPost2__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__mAyF5,
                         "shimmer"
                       )}
                     />
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__svTe,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__svTe, "shimmer")}
+                  />
+
+                  <div
+                    className={classNames("all", sty.freeBox__x9APb, "shimmer")}
                   />
 
                   <div
                     className={classNames(
-                      projectcss.all,
-                      sty.freeBox__x9APb,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox___2Ptqz,
                       "shimmer"
                     )}
                   />
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__qgoIj)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__wo1OL)}
-                  >
+                <div className={classNames("all", sty.freeBox__qgoIj)}>
+                  <div className={classNames("all", sty.freeBox__wo1OL)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__aRyJa,
                         "shimmer"
                       )}
@@ -1221,31 +1184,23 @@ function PlasmicPost2__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__k09WV,
                         "shimmer"
                       )}
                     />
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox___8Ht5,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox___8Ht5, "shimmer")}
+                  />
+
+                  <div
+                    className={classNames("all", sty.freeBox___9VmP, "shimmer")}
                   />
 
                   <div
                     className={classNames(
-                      projectcss.all,
-                      sty.freeBox___9VmP,
-                      "shimmer"
-                    )}
-                  />
-
-                  <div
-                    className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox___42GqH,
                       "shimmer"
                     )}
@@ -1346,9 +1301,9 @@ function PlasmicPost2__RenderFunc(props: {
             })()}
             url={"https://n8n.staas.ir/webhook/rest/social"}
           >
-            <section className={classNames(projectcss.all, sty.section__gIiNr)}>
-              <div className={classNames(projectcss.all, sty.freeBox__v5VDg)}>
-                <div className={classNames(projectcss.all, sty.freeBox__f0Ap)}>
+            <section className={classNames("all", sty.section__gIiNr)}>
+              <div className={classNames("all", sty.freeBox__v5VDg)}>
+                <div className={classNames("all", sty.freeBox__f0Ap)}>
                   <RepeatPost2
                     data-plasmic-name={"repeatPost2"}
                     data-plasmic-override={overrides.repeatPost2}
@@ -1590,11 +1545,9 @@ function PlasmicPost2__RenderFunc(props: {
                     })()}
                   />
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___6AbeA)}
-                >
+                <div className={classNames("all", sty.freeBox___6AbeA)}>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__xagh6)}
+                    className={classNames("all", sty.freeBox__xagh6)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -1639,12 +1592,7 @@ function PlasmicPost2__RenderFunc(props: {
                       arrow={true}
                       className={classNames("__wab_instance", sty.popover)}
                       content={
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__hxWiz
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__hxWiz)}>
                           {(_par =>
                             !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                             (() => {
@@ -1831,8 +1779,8 @@ function PlasmicPost2__RenderFunc(props: {
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__qROk0
                                   )}
                                 >
@@ -1860,9 +1808,9 @@ function PlasmicPost2__RenderFunc(props: {
                       }
                       contentText={"Popover contents"}
                       defaultStylesClassName={classNames(
-                        projectcss.root_reset,
-                        projectcss.plasmic_default_styles,
-                        projectcss.plasmic_mixins,
+                        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+                        "plasmic_default_styles",
+                        "plasmic_mixins",
                         styleTokensClassNames
                       )}
                       mouseEnterDelay={0}
@@ -1879,21 +1827,16 @@ function PlasmicPost2__RenderFunc(props: {
                       title={null}
                       trigger={"click"}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___5Uvo
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox___5Uvo)}>
                         <Icon184Icon
-                          className={classNames(projectcss.all, sty.svg__dDsbb)}
+                          className={classNames("all", sty.svg__dDsbb)}
                           role={"img"}
                         />
 
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__ft6Ek
                           )}
                         >
@@ -1903,8 +1846,8 @@ function PlasmicPost2__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__wXf2F
                           )}
                         >
@@ -1928,7 +1871,7 @@ function PlasmicPost2__RenderFunc(props: {
                     </AntdPopover>
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__sB24Y)}>
+                <div className={classNames("all", sty.freeBox__sB24Y)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -1948,10 +1891,7 @@ function PlasmicPost2__RenderFunc(props: {
                     const currentIndex = __plasmic_idx_0;
                     return (
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___6IsXi
-                        )}
+                        className={classNames("all", sty.freeBox___6IsXi)}
                         key={currentIndex}
                       >
                         {(() => {
@@ -2468,9 +2408,7 @@ function PlasmicPost2__RenderFunc(props: {
                       </div>
                     );
                   })}
-                  <section
-                    className={classNames(projectcss.all, sty.section__l5Nnd)}
-                  >
+                  <section className={classNames("all", sty.section__l5Nnd)}>
                     {(() => {
                       try {
                         return $state.isLoading;
@@ -2484,16 +2422,11 @@ function PlasmicPost2__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___5LnEi
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox___5LnEi)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__yfNop
                           )}
                         >
@@ -2503,14 +2436,14 @@ function PlasmicPost2__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
+                            "all",
                             sty.freeBox__wOsGe,
                             "line-container"
                           )}
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
+                              "all",
                               sty.freeBox__g18M2,
                               "line line-1"
                             )}
@@ -2518,7 +2451,7 @@ function PlasmicPost2__RenderFunc(props: {
 
                           <div
                             className={classNames(
-                              projectcss.all,
+                              "all",
                               sty.freeBox__zbB7A,
                               "line line-2"
                             )}
@@ -2539,12 +2472,7 @@ function PlasmicPost2__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__dnSli
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__dnSli)}>
                         <Reveal
                           data-plasmic-name={"reveal"}
                           data-plasmic-override={overrides.reveal}
@@ -2582,10 +2510,7 @@ function PlasmicPost2__RenderFunc(props: {
                             }
                           })() ? (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__pZ5Hb
-                              )}
+                              className={classNames("all", sty.freeBox__pZ5Hb)}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -2908,10 +2833,7 @@ function PlasmicPost2__RenderFunc(props: {
                                 }
                               })() ? (
                                 <Icon247Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__nevOy
-                                  )}
+                                  className={classNames("all", sty.svg__nevOy)}
                                   role={"img"}
                                 />
                               ) : null}
@@ -2930,10 +2852,7 @@ function PlasmicPost2__RenderFunc(props: {
                                 }
                               })() ? (
                                 <Icon11Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__q5QhQ
-                                  )}
+                                  className={classNames("all", sty.svg__q5QhQ)}
                                   role={"img"}
                                 />
                               ) : null}
@@ -2941,10 +2860,7 @@ function PlasmicPost2__RenderFunc(props: {
                           ) : null}
                         </Reveal>
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___8LXcp
-                          )}
+                          className={classNames("all", sty.freeBox___8LXcp)}
                           id={"focus_comment"}
                         >
                           {(() => {
@@ -3022,16 +2938,10 @@ function PlasmicPost2__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__wpwh6
-                            )}
+                            className={classNames("all", sty.freeBox__wpwh6)}
                           >
                             <Icon227Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__iRmL
-                              )}
+                              className={classNames("all", sty.svg__iRmL)}
                               role={"img"}
                             />
 
@@ -3059,8 +2969,8 @@ function PlasmicPost2__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__jn8Hz
                                 )}
                               >
@@ -3110,8 +3020,8 @@ function PlasmicPost2__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__ypNoJ
                                 )}
                               >
@@ -3135,10 +3045,7 @@ function PlasmicPost2__RenderFunc(props: {
                               </div>
                             </LineClomp>
                             <XIcon2
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg___0AiE2
-                              )}
+                              className={classNames("all", sty.svg___0AiE2)}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -3347,7 +3254,7 @@ function PlasmicPost2__RenderFunc(props: {
             className={classNames("__wab_instance", sty.modal)}
             closeIcon={
               <XIcon
-                className={classNames(projectcss.all, sty.svg__v9Pzm)}
+                className={classNames("all", sty.svg__v9Pzm)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -3389,9 +3296,9 @@ function PlasmicPost2__RenderFunc(props: {
               />
             }
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={true}
@@ -3404,7 +3311,7 @@ function PlasmicPost2__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["modal", "open"])}
             title={
-              <div className={classNames(projectcss.all, sty.freeBox__mbv2C)}>
+              <div className={classNames("all", sty.freeBox__mbv2C)}>
                 <PlasmicImg__
                   data-plasmic-name={"img"}
                   data-plasmic-override={overrides.img}
@@ -3426,11 +3333,7 @@ function PlasmicPost2__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__cqKgv
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__cqKgv)}
                 >
                   {
                     "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062e\u0648\u0627\u06cc \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc \u0628\u0627\u06cc\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0631\u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc.\r\n\u0647\u0631\u06a9\u062f\u0648\u0645 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u06a9\u0647 \u0628\u0627\u0647\u0627\u0634 \u0631\u0627\u062d\u062a \u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646 \u0648 \u0628\u0639\u062f \u0628\u0647 \u062c\u0645\u0639 \u062f\u062e\u062a\u0631\u0648\u0646\u0647 \u06cc \u0645\u0627\u0627\u0636\u0627\u0641\u0647 \u0634\u0648\ud83d\ude0d"
@@ -3443,10 +3346,10 @@ function PlasmicPost2__RenderFunc(props: {
               hasVariant(globalVariants, "screen", "mobile") ? `` : undefined
             }
           >
-            <div className={classNames(projectcss.all, sty.freeBox__jgZby)}>
-              <div className={classNames(projectcss.all, sty.freeBox__sW6A9)}>
+            <div className={classNames("all", sty.freeBox__jgZby)}>
+              <div className={classNames("all", sty.freeBox__sW6A9)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__nYEgS)}
+                  className={classNames("all", sty.freeBox__nYEgS)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -3493,16 +3396,12 @@ function PlasmicPost2__RenderFunc(props: {
                   }}
                 >
                   <LogoPwaSvgrepoComSvgIcon
-                    className={classNames(projectcss.all, sty.svg__hpqA)}
+                    className={classNames("all", sty.svg__hpqA)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__drcPz
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__drcPz)}
                   >
                     {
                       "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
@@ -3510,7 +3409,7 @@ function PlasmicPost2__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__eBzU7)}
+                  className={classNames("all", sty.freeBox__eBzU7)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -3557,16 +3456,12 @@ function PlasmicPost2__RenderFunc(props: {
                   }}
                 >
                   <IconSvgIcon
-                    className={classNames(projectcss.all, sty.svg___14Bd9)}
+                    className={classNames("all", sty.svg___14Bd9)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__hwaFn
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__hwaFn)}
                   >
                     {
                       "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
@@ -3574,9 +3469,9 @@ function PlasmicPost2__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__gtFi5)}>
+              <div className={classNames("all", sty.freeBox__gtFi5)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__c7CHa)}
+                  className={classNames("all", sty.freeBox__c7CHa)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -3623,16 +3518,12 @@ function PlasmicPost2__RenderFunc(props: {
                   }}
                 >
                   <CafeBazaarLogoSvgIcon
-                    className={classNames(projectcss.all, sty.svg__pnNm3)}
+                    className={classNames("all", sty.svg__pnNm3)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__jWd98
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__jWd98)}
                   >
                     {
                       "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
@@ -3640,7 +3531,7 @@ function PlasmicPost2__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___1VkT5)}
+                  className={classNames("all", sty.freeBox___1VkT5)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -3686,18 +3577,16 @@ function PlasmicPost2__RenderFunc(props: {
                     }
                   }}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__kVpCl)}
-                  >
+                  <div className={classNames("all", sty.freeBox__kVpCl)}>
                     <BrokenLink2SvgrepoComSvgIcon
-                      className={classNames(projectcss.all, sty.svg__deguc)}
+                      className={classNames("all", sty.svg__deguc)}
                       role={"img"}
                     />
 
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__eY1K
                       )}
                     >
@@ -3724,7 +3613,7 @@ function PlasmicPost2__RenderFunc(props: {
             }
           })() ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox__uqw1Q)}
+              className={classNames("all", sty.freeBox__uqw1Q)}
               onClick={async event => {
                 const $steps = {};
 
@@ -3989,9 +3878,10 @@ export const PlasmicPost2 = Object.assign(
     internalArgProps: PlasmicPost2__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/post",
       pagePath: "/post",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSeen.module.css"; // plasmic-import: JqwoohhEEPXm/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -137,10 +136,6 @@ function PlasmicSeen__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -153,6 +148,11 @@ function PlasmicSeen__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -170,10 +170,10 @@ function PlasmicSeen__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -500,7 +500,7 @@ function PlasmicSeen__RenderFunc(props: {
       />
 
       <CheckSvgIcon
-        className={classNames(projectcss.all, sty.svg__kvjwd, {
+        className={classNames("all", sty.svg__kvjwd, {
           [sty.svgunnamedGroupOfVariants__1__kvjwdIbLvO]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
@@ -516,7 +516,7 @@ function PlasmicSeen__RenderFunc(props: {
       />
 
       <Icon97Icon
-        className={classNames(projectcss.all, sty.svg__xzPo, {
+        className={classNames("all", sty.svg__xzPo, {
           [sty.svgunnamedGroupOfVariants__2__xzPoplLJs]: hasVariant(
             $state,
             "unnamedGroupOfVariants",

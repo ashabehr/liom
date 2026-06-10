@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicTextInput.module.css"; // plasmic-import: cOSV4CnhD7mN/css
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
@@ -228,10 +227,6 @@ function PlasmicTextInput__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -289,6 +284,11 @@ function PlasmicTextInput__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -314,10 +314,10 @@ function PlasmicTextInput__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -353,7 +353,7 @@ function PlasmicTextInput__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
+        className={classNames("all", sty.freeBox, {
           [sty.freeBox___focusVisibleWithin]: triggers.focusVisibleWithin_root,
           [sty.freeBox___focusVisibleWithin_style2_cycle]:
             hasVariant($state, "style2", "cycle") &&
@@ -390,7 +390,7 @@ function PlasmicTextInput__RenderFunc(props: {
         <div
           data-plasmic-name={"startIconContainer"}
           data-plasmic-override={overrides.startIconContainer}
-          className={classNames(projectcss.all, sty.startIconContainer, {
+          className={classNames("all", sty.startIconContainer, {
             [sty.startIconContainer___focusVisibleWithin]:
               triggers.focusVisibleWithin_root,
             [sty.startIconContainercolor_dark]: hasVariant(
@@ -413,7 +413,7 @@ function PlasmicTextInput__RenderFunc(props: {
           {renderPlasmicSlot({
             defaultContents: (
               <SearchSvgIcon
-                className={classNames(projectcss.all, sty.svg___8PVek)}
+                className={classNames("all", sty.svg___8PVek)}
                 role={"img"}
               />
             ),
@@ -452,7 +452,7 @@ function PlasmicTextInput__RenderFunc(props: {
         <div
           data-plasmic-name={"endIconContainer"}
           data-plasmic-override={overrides.endIconContainer}
-          className={classNames(projectcss.all, sty.endIconContainer, {
+          className={classNames("all", sty.endIconContainer, {
             [sty.endIconContainer___focusVisibleWithin]:
               triggers.focusVisibleWithin_root,
             [sty.endIconContainercolor_dark]: hasVariant(
@@ -470,7 +470,7 @@ function PlasmicTextInput__RenderFunc(props: {
           {renderPlasmicSlot({
             defaultContents: (
               <CheckSvgIcon
-                className={classNames(projectcss.all, sty.svg__e68J8)}
+                className={classNames("all", sty.svg__e68J8)}
                 role={"img"}
               />
             ),
@@ -494,7 +494,7 @@ function PlasmicTextInput__RenderFunc(props: {
       <div
         data-plasmic-name={"text"}
         data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
+        className={classNames("all", "__wab_text", sty.text, {
           [sty.texterror]: hasVariant($state, "error", "error")
         })}
       >

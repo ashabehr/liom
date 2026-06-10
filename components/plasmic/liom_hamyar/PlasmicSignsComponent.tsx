@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSignsComponent.module.css"; // plasmic-import: gsWLWidDp5XD/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -215,12 +214,6 @@ function PlasmicSignsComponent__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -736,6 +729,13 @@ function PlasmicSignsComponent__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -753,10 +753,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -764,10 +764,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
       <section
         data-plasmic-name={"section"}
         data-plasmic-override={overrides.section}
-        className={classNames(projectcss.all, sty.section)}
+        className={classNames("all", sty.section)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__jqRiN)}>
-          <div className={classNames(projectcss.all, sty.freeBox__uibYb)}>
+        <div className={classNames("all", sty.freeBox__jqRiN)}>
+          <div className={classNames("all", sty.freeBox__uibYb)}>
             <PlasmicImg__
               data-plasmic-name={"img"}
               data-plasmic-override={overrides.img}
@@ -801,39 +801,25 @@ function PlasmicSignsComponent__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__gHgbf)}>
-              <div className={classNames(projectcss.all, sty.freeBox__fkfkm)}>
+            <div className={classNames("all", sty.freeBox__gHgbf)}>
+              <div className={classNames("all", sty.freeBox__fkfkm)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__flKC,
-                    "shimmer"
-                  )}
+                  className={classNames("all", sty.freeBox__flKC, "shimmer")}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__dlJkH,
-                    "shimmer"
-                  )}
+                  className={classNames("all", sty.freeBox__dlJkH, "shimmer")}
                 />
 
-                <div className={classNames(projectcss.all, sty.freeBox__p3Zri)}>
+                <div className={classNames("all", sty.freeBox__p3Zri)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__w0Cj0,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__w0Cj0, "shimmer")}
                   />
 
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___5BtB)}
-                  >
+                  <div className={classNames("all", sty.freeBox___5BtB)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox___0MRPt,
                         "shimmer"
                       )}
@@ -841,7 +827,7 @@ function PlasmicSignsComponent__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__jUrib,
                         "shimmer"
                       )}
@@ -849,7 +835,7 @@ function PlasmicSignsComponent__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__iu56C,
                         "shimmer"
                       )}
@@ -857,7 +843,7 @@ function PlasmicSignsComponent__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__wamYl,
                         "shimmer"
                       )}
@@ -880,25 +866,13 @@ function PlasmicSignsComponent__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__mu65V)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__eySKp
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__mu65V)}>
+              <div className={classNames("all", "__wab_text", sty.text__eySKp)}>
                 {
                   "\u0639\u0644\u0627\u0626\u0645\u062a  \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc PMS \u0631\u0648 \u0628\u0627 \u0645\u0627 \u062f\u0631 \u0645\u06cc\u0648\u0646 \u0628\u0630\u0627\u0631"
                 }
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__lhew8
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__lhew8)}>
                 {
                   "\u0642\u0628\u0644 \u067e\u0631\u06cc\u0648\u062f\u062a \u0686\u0647 \u0639\u0644\u0627\u0626\u0645\u06cc \u062f\u0627\u0631\u06cc\u061f \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u0686\u0646\u062f\u062a\u0627 \u06af\u0632\u06cc\u0646\u0647 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc."
                 }
@@ -919,14 +893,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
                 <div
                   data-plasmic-name={"selectionBox"}
                   data-plasmic-override={overrides.selectionBox}
-                  className={classNames(projectcss.all, sty.selectionBox)}
+                  className={classNames("all", sty.selectionBox)}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__c7HLa
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__c7HLa)}
                   >
                     {
                       "\u0639\u0644\u0627\u0626\u0645 \u0641\u06cc\u0632\u06cc\u06a9\u06cc"
@@ -1039,14 +1009,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
                 <div
                   data-plasmic-name={"selectionBox3"}
                   data-plasmic-override={overrides.selectionBox3}
-                  className={classNames(projectcss.all, sty.selectionBox3)}
+                  className={classNames("all", sty.selectionBox3)}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__agyoR
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__agyoR)}
                   >
                     {"\u0639\u0644\u0627\u0626\u0645 \u0631\u0648\u062d\u06cc"}
                   </div>
@@ -1147,14 +1113,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
               <div
                 data-plasmic-name={"selectionBox2"}
                 data-plasmic-override={overrides.selectionBox2}
-                className={classNames(projectcss.all, sty.selectionBox2)}
+                className={classNames("all", sty.selectionBox2)}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ch9OL
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__ch9OL)}
                 >
                   {
                     "\u0648\u0642\u062a\u06cc \u067e\u0631\u06cc\u0648\u062f\u06cc \u0686\u0647 \u0639\u0644\u0627\u0626\u0645\u06cc \u062f\u0627\u0631\u06cc\u061f"
@@ -1231,14 +1193,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
               <div
                 data-plasmic-name={"selectionBox4"}
                 data-plasmic-override={overrides.selectionBox4}
-                className={classNames(projectcss.all, sty.selectionBox4)}
+                className={classNames("all", sty.selectionBox4)}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kP8Ab
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__kP8Ab)}
                 >
                   {
                     "\u062a\u0631\u0634\u062d\u0627\u062a \u0648\u0627\u0698\u0646\u062a \u0628\u0647 \u0686\u0647 \u0635\u0648\u0631\u062a\u0647\u061f"
@@ -1337,14 +1295,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
               <div
                 data-plasmic-name={"selectionBox5"}
                 data-plasmic-override={overrides.selectionBox5}
-                className={classNames(projectcss.all, sty.selectionBox5)}
+                className={classNames("all", sty.selectionBox5)}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__eaIx3
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__eaIx3)}
                 >
                   {
                     "\u0628\u06cc\u0645\u0627\u0631\u06cc \u0632\u0646\u0627\u0646"
@@ -1443,14 +1397,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
               <div
                 data-plasmic-name={"selectionBox6"}
                 data-plasmic-override={overrides.selectionBox6}
-                className={classNames(projectcss.all, sty.selectionBox6)}
+                className={classNames("all", sty.selectionBox6)}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__iq8U
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__iq8U)}
                 >
                   {
                     "\u0628\u06cc\u0645\u0627\u0631\u06cc \u0627\u0631\u062b\u06cc"
@@ -1549,14 +1499,10 @@ function PlasmicSignsComponent__RenderFunc(props: {
               <div
                 data-plasmic-name={"selectionBox7"}
                 data-plasmic-override={overrides.selectionBox7}
-                className={classNames(projectcss.all, sty.selectionBox7)}
+                className={classNames("all", sty.selectionBox7)}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___2OttP
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___2OttP)}
                 >
                   {
                     "\u0628\u06cc\u0645\u0627\u0631\u06cc \u0645\u0642\u0627\u0631\u0628\u062a\u06cc"
@@ -1902,11 +1848,7 @@ function PlasmicSignsComponent__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__cXrDa
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__cXrDa)}
                 >
                   {
                     "\u0630\u062e\u06cc\u0631\u0647 \u0639\u0644\u0627\u0626\u0645"

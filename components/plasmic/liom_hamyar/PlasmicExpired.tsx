@@ -67,7 +67,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicExpired.module.css"; // plasmic-import: OtnhoECot57j/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -85,11 +84,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -157,7 +163,7 @@ function PlasmicExpired__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -178,10 +184,10 @@ function PlasmicExpired__RenderFunc(props: {
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
         className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "all",
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames,
           sty.root
         )}
@@ -208,24 +214,12 @@ function PlasmicExpired__RenderFunc(props: {
           }}
         />
 
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__nIbZx
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__nIbZx)}>
           {
             "\u0644\u06cc\u0646\u06a9 \u0645\u0646\u0642\u0636\u06cc \u0634\u062f\u0647 \u0627\u0633\u062a"
           }
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__gIwgw
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__gIwgw)}>
           {
             "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647\u060c \u0644\u06cc\u0646\u06a9 \u0645\u0648\u0631\u062f \u0646\u0638\u0631 \u0634\u0645\u0627 \u0645\u0646\u0642\u0636\u06cc \u0634\u062f\u0647 \u0627\u0633\u062a. \u0644\u0637\u0641\u0627 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f \u06cc\u0627 \u0628\u0627 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u062a\u0645\u0627\u0633 \u0628\u06af\u06cc\u0631\u06cc\u062f."
           }
@@ -341,9 +335,10 @@ export const PlasmicExpired = Object.assign(
     internalArgProps: PlasmicExpired__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/expired",
       pagePath: "/expired",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMention.module.css"; // plasmic-import: zfK6Jl7yJcHY/css
 
 import Group4Icon from "./icons/PlasmicIcon__Group4"; // plasmic-import: lxp2dspszq0H/icon
@@ -164,10 +163,6 @@ function PlasmicMention__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -179,6 +174,11 @@ function PlasmicMention__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -196,25 +196,25 @@ function PlasmicMention__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.group40,
         { [sty.group40selected]: hasVariant($state, "selected", "selected") }
       )}
       onClick={args.onClick}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__arOz4)}>
+      <div className={classNames("all", sty.freeBox__arOz4)}>
         <div
           data-plasmic-name={"rectangle21"}
           data-plasmic-override={overrides.rectangle21}
-          className={classNames(projectcss.all, sty.rectangle21)}
+          className={classNames("all", sty.rectangle21)}
         />
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__xfiwk, {
+        className={classNames("all", sty.freeBox__xfiwk, {
           [sty.freeBoxselected__xfiwKcNw0J]: hasVariant(
             $state,
             "selected",
@@ -223,7 +223,7 @@ function PlasmicMention__RenderFunc(props: {
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__pXj6R, {
+          className={classNames("all", sty.freeBox__pXj6R, {
             [sty.freeBoxselected__pXj6RcNw0J]: hasVariant(
               $state,
               "selected",
@@ -234,7 +234,7 @@ function PlasmicMention__RenderFunc(props: {
           <div
             data-plasmic-name={"group20"}
             data-plasmic-override={overrides.group20}
-            className={classNames(projectcss.all, sty.group20, {
+            className={classNames("all", sty.group20, {
               [sty.group20selected]: hasVariant($state, "selected", "selected")
             })}
           >
@@ -244,7 +244,7 @@ function PlasmicMention__RenderFunc(props: {
                   ? Icon128Icon
                   : Group4Icon
               }
-              className={classNames(projectcss.all, sty.svg___2Nl9Z, {
+              className={classNames("all", sty.svg___2Nl9Z, {
                 [sty.svgselected___2Nl9ZcNw0J]: hasVariant(
                   $state,
                   "selected",
@@ -255,7 +255,7 @@ function PlasmicMention__RenderFunc(props: {
             />
 
             <div
-              className={classNames(projectcss.all, sty.freeBox__hzvwh, {
+              className={classNames("all", sty.freeBox__hzvwh, {
                 [sty.freeBoxselected__hzvwhcNw0J]: hasVariant(
                   $state,
                   "selected",
@@ -278,18 +278,13 @@ function PlasmicMention__RenderFunc(props: {
           </div>
           {(hasVariant($state, "selected", "selected") ? true : false) ? (
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__tEfRt,
-                {
-                  [sty.textselected__tEfRtcNw0J]: hasVariant(
-                    $state,
-                    "selected",
-                    "selected"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__tEfRt, {
+                [sty.textselected__tEfRtcNw0J]: hasVariant(
+                  $state,
+                  "selected",
+                  "selected"
+                )
+              })}
             >
               <React.Fragment>
                 {(() => {
@@ -312,7 +307,7 @@ function PlasmicMention__RenderFunc(props: {
             <div
               data-plasmic-name={"frame39"}
               data-plasmic-override={overrides.frame39}
-              className={classNames(projectcss.all, sty.frame39, {
+              className={classNames("all", sty.frame39, {
                 [sty.frame39selected]: hasVariant(
                   $state,
                   "selected",
@@ -323,20 +318,20 @@ function PlasmicMention__RenderFunc(props: {
               <div
                 data-plasmic-name={"frame4"}
                 data-plasmic-override={overrides.frame4}
-                className={classNames(projectcss.all, sty.frame4)}
+                className={classNames("all", sty.frame4)}
               >
                 <div
                   data-plasmic-name={"group4"}
                   data-plasmic-override={overrides.group4}
-                  className={classNames(projectcss.all, sty.group4)}
+                  className={classNames("all", sty.group4)}
                 >
                   <div
                     data-plasmic-name={"page3"}
                     data-plasmic-override={overrides.page3}
-                    className={classNames(projectcss.all, sty.page3)}
+                    className={classNames("all", sty.page3)}
                   >
                     <ShareIcon
-                      className={classNames(projectcss.all, sty.svg__vCufz, {
+                      className={classNames("all", sty.svg__vCufz, {
                         [sty.svgselected__vCufZcNw0J]: hasVariant(
                           $state,
                           "selected",
@@ -351,20 +346,20 @@ function PlasmicMention__RenderFunc(props: {
               <div
                 data-plasmic-name={"frame5"}
                 data-plasmic-override={overrides.frame5}
-                className={classNames(projectcss.all, sty.frame5)}
+                className={classNames("all", sty.frame5)}
               >
                 <div
                   data-plasmic-name={"group5"}
                   data-plasmic-override={overrides.group5}
-                  className={classNames(projectcss.all, sty.group5)}
+                  className={classNames("all", sty.group5)}
                 >
                   <div
                     data-plasmic-name={"page4"}
                     data-plasmic-override={overrides.page4}
-                    className={classNames(projectcss.all, sty.page4)}
+                    className={classNames("all", sty.page4)}
                   >
                     <Icon130Icon
-                      className={classNames(projectcss.all, sty.svg__eoKUf, {
+                      className={classNames("all", sty.svg__eoKUf, {
                         [sty.svgselected__eoKUfcNw0J]: hasVariant(
                           $state,
                           "selected",
@@ -379,25 +374,25 @@ function PlasmicMention__RenderFunc(props: {
               <div
                 data-plasmic-name={"frame6"}
                 data-plasmic-override={overrides.frame6}
-                className={classNames(projectcss.all, sty.frame6)}
+                className={classNames("all", sty.frame6)}
               >
                 <div
                   data-plasmic-name={"group6"}
                   data-plasmic-override={overrides.group6}
-                  className={classNames(projectcss.all, sty.group6)}
+                  className={classNames("all", sty.group6)}
                 >
                   <div
                     data-plasmic-name={"layer3"}
                     data-plasmic-override={overrides.layer3}
-                    className={classNames(projectcss.all, sty.layer3)}
+                    className={classNames("all", sty.layer3)}
                   >
                     <div
                       data-plasmic-name={"bookmark2"}
                       data-plasmic-override={overrides.bookmark2}
-                      className={classNames(projectcss.all, sty.bookmark2)}
+                      className={classNames("all", sty.bookmark2)}
                     >
                       <Icon131Icon
-                        className={classNames(projectcss.all, sty.svg__g0O4G, {
+                        className={classNames("all", sty.svg__g0O4G, {
                           [sty.svgselected__g0O4GcNw0J]: hasVariant(
                             $state,
                             "selected",
@@ -414,7 +409,7 @@ function PlasmicMention__RenderFunc(props: {
           ) : null}
         </div>
         <div
-          className={classNames(projectcss.all, sty.freeBox__hgUbL, {
+          className={classNames("all", sty.freeBox__hgUbL, {
             [sty.freeBoxselected__hgUbLcNw0J]: hasVariant(
               $state,
               "selected",
@@ -423,18 +418,13 @@ function PlasmicMention__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__yGxNs,
-              {
-                [sty.textselected__yGxNscNw0J]: hasVariant(
-                  $state,
-                  "selected",
-                  "selected"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__yGxNs, {
+              [sty.textselected__yGxNscNw0J]: hasVariant(
+                $state,
+                "selected",
+                "selected"
+              )
+            })}
           >
             <React.Fragment>
               {(() => {
@@ -453,18 +443,13 @@ function PlasmicMention__RenderFunc(props: {
             </React.Fragment>
           </div>
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___3T0U0,
-              {
-                [sty.textselected___3T0U0CNw0J]: hasVariant(
-                  $state,
-                  "selected",
-                  "selected"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text___3T0U0, {
+              [sty.textselected___3T0U0CNw0J]: hasVariant(
+                $state,
+                "selected",
+                "selected"
+              )
+            })}
           >
             <React.Fragment>
               {(() => {
@@ -483,18 +468,13 @@ function PlasmicMention__RenderFunc(props: {
             </React.Fragment>
           </div>
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__ttPi6,
-              {
-                [sty.textselected__ttPi6CNw0J]: hasVariant(
-                  $state,
-                  "selected",
-                  "selected"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__ttPi6, {
+              [sty.textselected__ttPi6CNw0J]: hasVariant(
+                $state,
+                "selected",
+                "selected"
+              )
+            })}
           >
             <React.Fragment>
               {(() => {
@@ -513,18 +493,13 @@ function PlasmicMention__RenderFunc(props: {
             </React.Fragment>
           </div>
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__bJqRr,
-              {
-                [sty.textselected__bJqRrcNw0J]: hasVariant(
-                  $state,
-                  "selected",
-                  "selected"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__bJqRr, {
+              [sty.textselected__bJqRrcNw0J]: hasVariant(
+                $state,
+                "selected",
+                "selected"
+              )
+            })}
           >
             <React.Fragment>
               {(() => {

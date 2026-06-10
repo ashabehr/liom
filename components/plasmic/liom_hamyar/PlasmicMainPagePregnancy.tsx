@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMainPagePregnancy.module.css"; // plasmic-import: R1I9CE3VIFc0/css
 
 createPlasmicElementProxy;
@@ -163,10 +162,6 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -208,6 +203,11 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -225,10 +225,10 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -358,7 +358,7 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
         <section
           data-plasmic-name={"section"}
           data-plasmic-override={overrides.section}
-          className={classNames(projectcss.all, sty.section, {
+          className={classNames("all", sty.section, {
             [sty.sectionglobal_newView_newView_page_chatBot]:
               hasVariant($state, "page", "chatBot") &&
               hasVariant(globalVariants, "newView", "newView"),
@@ -368,7 +368,7 @@ function PlasmicMainPagePregnancy__RenderFunc(props: {
           <div
             data-plasmic-name={"freeBox"}
             data-plasmic-override={overrides.freeBox}
-            className={classNames(projectcss.all, sty.freeBox)}
+            className={classNames("all", sty.freeBox)}
           >
             <Iframe
               data-plasmic-name={"iframe"}

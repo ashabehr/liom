@@ -73,7 +73,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMainHamyar.module.css"; // plasmic-import: dfIi25835BgX/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -236,10 +235,6 @@ function PlasmicMainHamyar__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -1481,6 +1476,11 @@ function PlasmicMainHamyar__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -1498,10 +1498,10 @@ function PlasmicMainHamyar__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -3314,7 +3314,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
       <section
         data-plasmic-name={"section"}
         data-plasmic-override={overrides.section}
-        className={classNames(projectcss.all, sty.section, {
+        className={classNames("all", sty.section, {
           [sty.sectionhaader]: hasVariant($state, "haader", "haader"),
           [sty.sectionhaader_page_bot]:
             hasVariant($state, "haader", "haader") &&
@@ -3323,7 +3323,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox___350JY, {
+          className={classNames("all", sty.freeBox___350JY, {
             [sty.freeBoxhaader_page_reminder___350JY6UxRFbQe0]:
               hasVariant($state, "page", "reminder") &&
               hasVariant($state, "haader", "haader"),
@@ -3415,7 +3415,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
       />
 
       <div
-        className={classNames(projectcss.all, sty.freeBox__cfliQ)}
+        className={classNames("all", sty.freeBox__cfliQ)}
         id={"pageshow"}
         onClick={async event => {
           const $steps = {};
@@ -4232,7 +4232,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
         }}
         opendialog={generateStateValueProp($state, ["telegram", "opendialog"])}
       >
-        <div className={classNames(projectcss.all, sty.freeBox___42Ev)}>
+        <div className={classNames("all", sty.freeBox___42Ev)}>
           <PlasmicImg__
             data-plasmic-name={"img"}
             data-plasmic-override={overrides.img}
@@ -4253,13 +4253,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
             }}
           />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__dtbEo
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__dtbEo)}>
             {
               "\u0648\u0631\u0648\u062f \u0628\u0647 \u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645\r"
             }
@@ -4271,16 +4265,12 @@ function PlasmicMainHamyar__RenderFunc(props: {
             text={"@liomApp_bot"}
           />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___8XNxX
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text___8XNxX)}>
             <React.Fragment>
               <span
-                className={"plasmic_default__all plasmic_default__span"}
+                className={
+                  "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
+                }
                 style={{ fontWeight: 500 }}
               >
                 {
@@ -4289,7 +4279,9 @@ function PlasmicMainHamyar__RenderFunc(props: {
               </span>
               <React.Fragment>{"\n"}</React.Fragment>
               <span
-                className={"plasmic_default__all plasmic_default__span"}
+                className={
+                  "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
+                }
                 style={{ color: "#d48806" }}
               >
                 {
@@ -4411,13 +4403,7 @@ function PlasmicMainHamyar__RenderFunc(props: {
               }
             }}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___9N9Ok
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text___9N9Ok)}>
               {
                 "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u062a\u0644\u06af\u0631\u0627\u0645"
               }

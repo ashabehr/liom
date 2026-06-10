@@ -70,7 +70,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicRangeSlider.module.css"; // plasmic-import: uJUDE33VkjVO/css
 
 createPlasmicElementProxy;
@@ -206,10 +205,6 @@ function PlasmicRangeSlider__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -235,6 +230,11 @@ function PlasmicRangeSlider__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -271,9 +271,9 @@ function PlasmicRangeSlider__RenderFunc(props: {
       aria-label={args.ariaLabel}
       className={classNames(
         "__wab_instance",
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.ariaRangeSlider,
         { [sty.ariaRangeSlidercolor_red]: hasVariant($state, "color", "red") }
@@ -293,7 +293,7 @@ function PlasmicRangeSlider__RenderFunc(props: {
       step={args.step}
       value={generateStateValueProp($state, ["ariaRangeSlider", "value"])}
     >
-      <div className={classNames(projectcss.all, sty.freeBox___6Nwiz)}>
+      <div className={classNames("all", sty.freeBox___6Nwiz)}>
         {$props.showLabel ? (
           <Label
             data-plasmic-name={"label"}
@@ -303,11 +303,7 @@ function PlasmicRangeSlider__RenderFunc(props: {
             {renderPlasmicSlot({
               defaultContents: (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gg1S2
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__gg1S2)}
                 >
                   {"Label"}
                 </div>
@@ -328,13 +324,7 @@ function PlasmicRangeSlider__RenderFunc(props: {
               )
             })}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__bw48P
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__bw48P)}>
               <React.Fragment>
                 {(() => {
                   try {
@@ -358,7 +348,7 @@ function PlasmicRangeSlider__RenderFunc(props: {
         ) : null}
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__x9OdY, {
+        className={classNames("all", sty.freeBox__x9OdY, {
           [sty.freeBoxcolor_red__x9OdYrSGqg]: hasVariant($state, "color", "red")
         })}
         style={(() => {
@@ -378,7 +368,7 @@ function PlasmicRangeSlider__RenderFunc(props: {
         <div
           data-plasmic-name={"background"}
           data-plasmic-override={overrides.background}
-          className={classNames(projectcss.all, sty.background, {
+          className={classNames("all", sty.background, {
             [sty.backgroundcolor_red]: hasVariant($state, "color", "red")
           })}
         >
@@ -393,7 +383,7 @@ function PlasmicRangeSlider__RenderFunc(props: {
                 <div
                   data-plasmic-name={"foreground"}
                   data-plasmic-override={overrides.foreground}
-                  className={classNames(projectcss.all, sty.foreground, {
+                  className={classNames("all", sty.foreground, {
                     [sty.foregroundcolor_red]: hasVariant(
                       $state,
                       "color",
@@ -402,7 +392,7 @@ function PlasmicRangeSlider__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__xxQfs, {
+                    className={classNames("all", sty.freeBox__xxQfs, {
                       [sty.freeBoxcolor_red__xxQfsrSGqg]: hasVariant(
                         $state,
                         "color",
@@ -422,17 +412,13 @@ function PlasmicRangeSlider__RenderFunc(props: {
                       })
                     })}
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__sryFg)}
-                  >
+                  <div className={classNames("all", sty.freeBox__sryFg)}>
                     {renderPlasmicSlot({
                       defaultContents: "0hghj",
                       value: args.slot2
                     })}
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__rHiqo)}
-                  >
+                  <div className={classNames("all", sty.freeBox__rHiqo)}>
                     {renderPlasmicSlot({
                       defaultContents: "0hghj",
                       value: args.slot
@@ -456,11 +442,7 @@ function PlasmicRangeSlider__RenderFunc(props: {
             })}
           </BaseSliderTrack>
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__wA06J
-            )}
+            className={classNames("all", "__wab_text", sty.text__wA06J)}
             id={"max"}
           >
             <React.Fragment>
@@ -480,11 +462,7 @@ function PlasmicRangeSlider__RenderFunc(props: {
             </React.Fragment>
           </div>
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__dal0H
-            )}
+            className={classNames("all", "__wab_text", sty.text__dal0H)}
             id={"min"}
           >
             <React.Fragment>

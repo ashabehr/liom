@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicLoginBox.module.css"; // plasmic-import: eH_yQdxVywwP/css
 
 import Icon107Icon from "./icons/PlasmicIcon__Icon107"; // plasmic-import: HFiB--0uZfh5/icon
@@ -149,10 +148,6 @@ function PlasmicLoginBox__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -164,6 +159,11 @@ function PlasmicLoginBox__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -181,10 +181,10 @@ function PlasmicLoginBox__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -202,7 +202,7 @@ function PlasmicLoginBox__RenderFunc(props: {
         ? renderPlasmicSlot({
             defaultContents: (
               <Icon107Icon
-                className={classNames(projectcss.all, sty.svg__pVgKk)}
+                className={classNames("all", sty.svg__pVgKk)}
                 role={"img"}
               />
             ),
@@ -213,7 +213,7 @@ function PlasmicLoginBox__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
+        className={classNames("all", sty.freeBox, {
           [sty.freeBoxloading]: hasVariant($state, "loading", "loading")
         })}
       >
@@ -744,7 +744,7 @@ function PlasmicLoginBox__RenderFunc(props: {
       <div
         data-plasmic-name={"text"}
         data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
+        className={classNames("all", "__wab_text", sty.text, {
           [sty.textloading]: hasVariant($state, "loading", "loading")
         })}
       >

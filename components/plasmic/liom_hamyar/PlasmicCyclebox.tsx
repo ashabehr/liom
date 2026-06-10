@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicCyclebox.module.css"; // plasmic-import: 47YEdMGPo49m/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -205,10 +204,6 @@ function PlasmicCyclebox__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -284,6 +279,11 @@ function PlasmicCyclebox__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -301,10 +301,10 @@ function PlasmicCyclebox__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -345,7 +345,7 @@ function PlasmicCyclebox__RenderFunc(props: {
       )}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__dhejs, {
+        className={classNames("all", sty.freeBox__dhejs, {
           [sty.freeBoxfertility__dhejsvlklK]: hasVariant(
             $state,
             "fertility",
@@ -366,14 +366,8 @@ function PlasmicCyclebox__RenderFunc(props: {
       >
         {renderPlasmicSlot({
           defaultContents: (
-            <div className={classNames(projectcss.all, sty.freeBox__uykBc)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yG1Pn
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__uykBc)}>
+              <div className={classNames("all", "__wab_text", sty.text__yG1Pn)}>
                 <React.Fragment>
                   {(() => {
                     try {
@@ -435,7 +429,7 @@ function PlasmicCyclebox__RenderFunc(props: {
         })}
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox___66Lnm, {
+        className={classNames("all", sty.freeBox___66Lnm, {
           [sty.freeBoxfertility___66LnmvlklK]: hasVariant(
             $state,
             "fertility",
@@ -537,7 +531,7 @@ function PlasmicCyclebox__RenderFunc(props: {
             })
           : null}
         <div
-          className={classNames(projectcss.all, sty.freeBox__nCGi, {
+          className={classNames("all", sty.freeBox__nCGi, {
             [sty.freeBoxfertility__nCGIvlklK]: hasVariant(
               $state,
               "fertility",
@@ -563,68 +557,58 @@ function PlasmicCyclebox__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__srBvc,
-              {
-                [sty.textfertility__srBvcvlklK]: hasVariant(
-                  $state,
-                  "fertility",
-                  "fertility"
-                ),
-                [sty.textnormalpms__srBvcu3BKb]: hasVariant(
-                  $state,
-                  "normalpms",
-                  "normalpms"
-                ),
-                [sty.textperiod__srBvc6AdLd]: hasVariant(
-                  $state,
-                  "period",
-                  "period"
-                ),
-                [sty.textpms__srBvcsscqc]: hasVariant($state, "pms", "pms"),
-                [sty.textpms_fertility__srBvcsscqcVlklK]:
-                  hasVariant($state, "pms", "pms") &&
-                  hasVariant($state, "fertility", "fertility")
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__srBvc, {
+              [sty.textfertility__srBvcvlklK]: hasVariant(
+                $state,
+                "fertility",
+                "fertility"
+              ),
+              [sty.textnormalpms__srBvcu3BKb]: hasVariant(
+                $state,
+                "normalpms",
+                "normalpms"
+              ),
+              [sty.textperiod__srBvc6AdLd]: hasVariant(
+                $state,
+                "period",
+                "period"
+              ),
+              [sty.textpms__srBvcsscqc]: hasVariant($state, "pms", "pms"),
+              [sty.textpms_fertility__srBvcsscqcVlklK]:
+                hasVariant($state, "pms", "pms") &&
+                hasVariant($state, "fertility", "fertility")
+            })}
           >
             {"\u0627\u062a\u0645\u0627\u0645 \u0648\u0636\u0639\u06cc\u062a:"}
           </div>
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__r4Hpw,
-              {
-                [sty.textfertility__r4HpWvlklK]: hasVariant(
-                  $state,
-                  "fertility",
-                  "fertility"
-                ),
-                [sty.textnormalpms__r4HpWu3BKb]: hasVariant(
-                  $state,
-                  "normalpms",
-                  "normalpms"
-                ),
-                [sty.textperiod__r4Hpw6AdLd]: hasVariant(
-                  $state,
-                  "period",
-                  "period"
-                ),
-                [sty.textperiod_fertility__r4Hpw6AdLdVlklK]:
-                  hasVariant($state, "fertility", "fertility") &&
-                  hasVariant($state, "period", "period"),
-                [sty.textperiod_normalpms__r4Hpw6AdLdU3BKb]:
-                  hasVariant($state, "period", "period") &&
-                  hasVariant($state, "normalpms", "normalpms"),
-                [sty.textpms__r4HpWsscqc]: hasVariant($state, "pms", "pms"),
-                [sty.textpms_fertility__r4HpWsscqcVlklK]:
-                  hasVariant($state, "pms", "pms") &&
-                  hasVariant($state, "fertility", "fertility")
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__r4Hpw, {
+              [sty.textfertility__r4HpWvlklK]: hasVariant(
+                $state,
+                "fertility",
+                "fertility"
+              ),
+              [sty.textnormalpms__r4HpWu3BKb]: hasVariant(
+                $state,
+                "normalpms",
+                "normalpms"
+              ),
+              [sty.textperiod__r4Hpw6AdLd]: hasVariant(
+                $state,
+                "period",
+                "period"
+              ),
+              [sty.textperiod_fertility__r4Hpw6AdLdVlklK]:
+                hasVariant($state, "fertility", "fertility") &&
+                hasVariant($state, "period", "period"),
+              [sty.textperiod_normalpms__r4Hpw6AdLdU3BKb]:
+                hasVariant($state, "period", "period") &&
+                hasVariant($state, "normalpms", "normalpms"),
+              [sty.textpms__r4HpWsscqc]: hasVariant($state, "pms", "pms"),
+              [sty.textpms_fertility__r4HpWsscqcVlklK]:
+                hasVariant($state, "pms", "pms") &&
+                hasVariant($state, "fertility", "fertility")
+            })}
           >
             {hasVariant($state, "pms", "pms") &&
             hasVariant(globalVariants, "screen", "mobile") ? (
@@ -1850,29 +1834,24 @@ function PlasmicCyclebox__RenderFunc(props: {
           />
 
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__l0DjV,
-              {
-                [sty.textfertility__l0DjVvlklK]: hasVariant(
-                  $state,
-                  "fertility",
-                  "fertility"
-                ),
-                [sty.textnormalpms__l0DjVu3BKb]: hasVariant(
-                  $state,
-                  "normalpms",
-                  "normalpms"
-                ),
-                [sty.textperiod__l0DjV6AdLd]: hasVariant(
-                  $state,
-                  "period",
-                  "period"
-                ),
-                [sty.textpms__l0DjVsscqc]: hasVariant($state, "pms", "pms")
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__l0DjV, {
+              [sty.textfertility__l0DjVvlklK]: hasVariant(
+                $state,
+                "fertility",
+                "fertility"
+              ),
+              [sty.textnormalpms__l0DjVu3BKb]: hasVariant(
+                $state,
+                "normalpms",
+                "normalpms"
+              ),
+              [sty.textperiod__l0DjV6AdLd]: hasVariant(
+                $state,
+                "period",
+                "period"
+              ),
+              [sty.textpms__l0DjVsscqc]: hasVariant($state, "pms", "pms")
+            })}
           >
             {hasVariant($state, "normalpms", "normalpms")
               ? "\u0645\u0645\u06a9\u0646\u0647 \u062f\u0686\u0627\u0631 \u062d\u0627\u0644\u0627\u062a pms \u0628\u0634\u0647."
@@ -1881,19 +1860,14 @@ function PlasmicCyclebox__RenderFunc(props: {
         </div>
       </div>
       <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__brqp2,
-          {
-            [sty.textfertility__brqp2VlklK]: hasVariant(
-              $state,
-              "fertility",
-              "fertility"
-            ),
-            [sty.textpms__brqp2Sscqc]: hasVariant($state, "pms", "pms")
-          }
-        )}
+        className={classNames("all", "__wab_text", sty.text__brqp2, {
+          [sty.textfertility__brqp2VlklK]: hasVariant(
+            $state,
+            "fertility",
+            "fertility"
+          ),
+          [sty.textpms__brqp2Sscqc]: hasVariant($state, "pms", "pms")
+        })}
         onClick={args.onClickDescription}
       >
         {hasVariant($state, "pms", "pms")
@@ -1901,7 +1875,7 @@ function PlasmicCyclebox__RenderFunc(props: {
           : "\u062a\u062e\u0645\u06a9 \u06af\u0630\u0627\u0631\u06cc \u0686\u06cc\u0633\u062a\u061f"}
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__mVyUm, {
+        className={classNames("all", sty.freeBox__mVyUm, {
           [sty.freeBoxpregnancy__mVyUmKiZil]: hasVariant(
             $state,
             "pregnancy",
@@ -1910,7 +1884,7 @@ function PlasmicCyclebox__RenderFunc(props: {
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__xSPpl, {
+          className={classNames("all", sty.freeBox__xSPpl, {
             [sty.freeBoxpregnancy__xSPplKiZil]: hasVariant(
               $state,
               "pregnancy",
@@ -1931,7 +1905,7 @@ function PlasmicCyclebox__RenderFunc(props: {
           })}
         </div>
         <div
-          className={classNames(projectcss.all, sty.freeBox__gqxj, {
+          className={classNames("all", sty.freeBox__gqxj, {
             [sty.freeBoxpregnancy__gqxjKiZil]: hasVariant(
               $state,
               "pregnancy",

@@ -72,7 +72,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSetNotifications.module.css"; // plasmic-import: KdAfa1icj6me/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -96,11 +95,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -168,12 +174,6 @@ function PlasmicSetNotifications__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -367,6 +367,13 @@ function PlasmicSetNotifications__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -377,7 +384,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -392,17 +399,17 @@ function PlasmicSetNotifications__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -410,16 +417,16 @@ function PlasmicSetNotifications__RenderFunc(props: {
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+            className={classNames("all", sty.section)}
           >
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__lk0Po)}>
+              <div className={classNames("all", sty.freeBox__lk0Po)}>
                 <XIcon
-                  className={classNames(projectcss.all, sty.svg___38SB)}
+                  className={classNames("all", sty.svg___38SB)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -449,11 +456,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pwMTd
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__pwMTd)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -547,7 +550,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__kx2XM)}>
+          <div className={classNames("all", sty.freeBox__kx2XM)}>
             {(() => {
               try {
                 return $state.subItems.subItems.self_care.length > 0;
@@ -561,24 +564,16 @@ function PlasmicSetNotifications__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox___3X5Jg)}>
+              <div className={classNames("all", sty.freeBox___3X5Jg)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__oLf3O
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__oLf3O)}
                 >
                   {
                     "\u062e\u0648\u062f\u200c\u0645\u0631\u0627\u0642\u0628\u062a\u06cc"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__jgKlc
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__jgKlc)}
                 >
                   {
                     "\u062e\u0648\u062f\u200c\u0645\u0631\u0627\u0642\u0628\u062a\u06cc"
@@ -603,10 +598,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                   const currentIndex = __plasmic_idx_0;
                   return (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___287Jm
-                      )}
+                      className={classNames("all", sty.freeBox___287Jm)}
                       key={currentIndex}
                       onClick={async event => {
                         const $steps = {};
@@ -714,12 +706,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                         }
                       }}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__tWtFz
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__tWtFz)}>
                         <PlasmicImg__
                           data-plasmic-name={"img"}
                           data-plasmic-override={overrides.img}
@@ -747,22 +734,12 @@ function PlasmicSetNotifications__RenderFunc(props: {
                           })()}
                         />
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__hPoPr
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__cpri5
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__hPoPr)}>
+                        <div className={classNames("all", sty.freeBox__cpri5)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text___5QiXm
                             )}
                           >
@@ -797,15 +774,12 @@ function PlasmicSetNotifications__RenderFunc(props: {
                             }
                           })() ? (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__psDKc
-                              )}
+                              className={classNames("all", sty.freeBox__psDKc)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__zvx9O
                                 )}
                               >
@@ -827,16 +801,10 @@ function PlasmicSetNotifications__RenderFunc(props: {
                             }
                           })() ? (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__gmSiT
-                              )}
+                              className={classNames("all", sty.freeBox__gmSiT)}
                             >
                               <Icon188Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__zaolf
-                                )}
+                                className={classNames("all", sty.svg__zaolf)}
                                 role={"img"}
                               />
                             </div>
@@ -844,8 +812,8 @@ function PlasmicSetNotifications__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___9CtX
                           )}
                         >
@@ -867,7 +835,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
                         </div>
                       </div>
                       <ChevronLeftIcon
-                        className={classNames(projectcss.all, sty.svg__zVZh)}
+                        className={classNames("all", sty.svg__zVZh)}
                         role={"img"}
                       />
                     </div>
@@ -900,65 +868,29 @@ function PlasmicSetNotifications__RenderFunc(props: {
               </div>
             ) : null}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__uhkhD)}>
-            <div className={classNames(projectcss.all, sty.freeBox__zgUi9)}>
+          <div className={classNames("all", sty.freeBox__uhkhD)}>
+            <div className={classNames("all", sty.freeBox__zgUi9)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__rPsS,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__rPsS, "shimmer")}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__lAmHm,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__lAmHm, "shimmer")}
               />
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__lsFhD,
-                "shimmer"
-              )}
-            />
+            <div className={classNames("all", sty.freeBox__lsFhD, "shimmer")} />
+
+            <div className={classNames("all", sty.freeBox__aasOz, "shimmer")} />
 
             <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__aasOz,
-                "shimmer"
-              )}
+              className={classNames("all", sty.freeBox___3Hacn, "shimmer")}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox___3Hacn,
-                "shimmer"
-              )}
-            />
-
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__rmagM,
-                "shimmer"
-              )}
-            />
+            <div className={classNames("all", sty.freeBox__rmagM, "shimmer")} />
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__g33Cp)}>
-            <div className={classNames(projectcss.all, sty.freeBox__wxpon)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__rDwC
-                )}
-              >
+          <div className={classNames("all", sty.freeBox__g33Cp)}>
+            <div className={classNames("all", sty.freeBox__wxpon)}>
+              <div className={classNames("all", "__wab_text", sty.text__rDwC)}>
                 {
                   "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
                 }
@@ -971,7 +903,7 @@ function PlasmicSetNotifications__RenderFunc(props: {
               color={generateStateValueProp($state, ["button2", "color"])}
               endIcon={
                 <Icon144Icon
-                  className={classNames(projectcss.all, sty.svg___5DIgs)}
+                  className={classNames("all", sty.svg___5DIgs)}
                   role={"img"}
                 />
               }
@@ -1052,18 +984,12 @@ function PlasmicSetNotifications__RenderFunc(props: {
               }}
               startIcon={
                 <ChevronRightIcon
-                  className={classNames(projectcss.all, sty.svg__cuBe)}
+                  className={classNames("all", sty.svg__cuBe)}
                   role={"img"}
                 />
               }
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__y7Xfb
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__y7Xfb)}>
                 {
                   "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
                 }
@@ -1269,9 +1195,10 @@ export const PlasmicSetNotifications = Object.assign(
     internalArgProps: PlasmicSetNotifications__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/set-notifications-2",
       pagePath: "/set-notifications-2",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

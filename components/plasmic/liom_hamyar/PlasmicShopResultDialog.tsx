@@ -69,7 +69,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShopResultDialog.module.css"; // plasmic-import: PHJcEvvFnWds/css
 
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
@@ -174,10 +173,6 @@ function PlasmicShopResultDialog__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -278,6 +273,11 @@ function PlasmicShopResultDialog__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -296,9 +296,9 @@ function PlasmicShopResultDialog__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       className={classNames(
         "__wab_instance",
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.dialog3,
         { [sty.dialog3fullpage]: hasVariant($state, "fullpage", "fullpage") }
@@ -366,9 +366,9 @@ function PlasmicShopResultDialog__RenderFunc(props: {
         )
       })}
       themeResetClass={classNames(
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames
       )}
       triggerSlot={
@@ -379,7 +379,7 @@ function PlasmicShopResultDialog__RenderFunc(props: {
           color={generateStateValueProp($state, ["button3", "color"])}
           endIcon={
             <ChevronLeftIcon
-              className={classNames(projectcss.all, sty.svg__tXkVb)}
+              className={classNames("all", sty.svg__tXkVb)}
               role={"img"}
             />
           }
@@ -432,7 +432,7 @@ function PlasmicShopResultDialog__RenderFunc(props: {
           }}
           startIcon={
             <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__ghP9T)}
+              className={classNames("all", sty.svg__ghP9T)}
               role={"img"}
             />
           }
@@ -463,9 +463,9 @@ function PlasmicShopResultDialog__RenderFunc(props: {
         }
         exitDuration={0.5}
         themeResetClass={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
       >
@@ -474,13 +474,7 @@ function PlasmicShopResultDialog__RenderFunc(props: {
           data-plasmic-override={overrides.dialogTitle}
           className={classNames("__wab_instance", sty.dialogTitle)}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__vdzx0
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__vdzx0)}>
             {"Sheet title"}
           </div>
         </DialogTitle>
@@ -497,39 +491,29 @@ function PlasmicShopResultDialog__RenderFunc(props: {
             throw e;
           }
         })() ? (
-          <div className={classNames(projectcss.all, sty.freeBox___1ZQj)}>
-            <div className={classNames(projectcss.all, sty.freeBox___87G53)}>
+          <div className={classNames("all", sty.freeBox___1ZQj)}>
+            <div className={classNames("all", sty.freeBox___87G53)}>
               <EmojiHappySquareSvgrepoComSvg2Icon
-                className={classNames(projectcss.all, sty.svg__cdXGj)}
+                className={classNames("all", sty.svg__cdXGj)}
                 role={"img"}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__yRhG)}>
+            <div className={classNames("all", sty.freeBox__yRhG)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bJwJr
-                )}
+                className={classNames("all", "__wab_text", sty.text__bJwJr)}
                 data-i18n={"chat.p.t5"}
               >
                 {
                   "\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642"
                 }
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yZbEn
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__yZbEn)}>
                 {
                   "\u0627\u0639\u062a\u0628\u0627\u0631 \u0634\u0645\u0627 \u0628\u0627 \u0645\u0648\u0641\u0642\u06cc\u062a \u0627\u0636\u0627\u0641\u0647 \u0634\u062f."
                 }
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox___7H2Ck)}>
+            <div className={classNames("all", sty.freeBox___7H2Ck)}>
               <Button
                 data-plasmic-name={"button4"}
                 data-plasmic-override={overrides.button4}
@@ -537,7 +521,7 @@ function PlasmicShopResultDialog__RenderFunc(props: {
                 color={generateStateValueProp($state, ["button4", "color"])}
                 endIcon={
                   <Icon12Icon
-                    className={classNames(projectcss.all, sty.svg___1IhRz)}
+                    className={classNames("all", sty.svg___1IhRz)}
                     role={"img"}
                   />
                 }
@@ -647,11 +631,7 @@ function PlasmicShopResultDialog__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__hBorb
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__hBorb)}
                   data-i18n={"chat.p.b1"}
                 >
                   {"\u062a\u0627\u06cc\u06cc\u062f"}
@@ -673,20 +653,16 @@ function PlasmicShopResultDialog__RenderFunc(props: {
             throw e;
           }
         })() ? (
-          <div className={classNames(projectcss.all, sty.freeBox___4TstK)}>
-            <div className={classNames(projectcss.all, sty.freeBox__wReF2)}>
+          <div className={classNames("all", sty.freeBox___4TstK)}>
+            <div className={classNames("all", sty.freeBox__wReF2)}>
               <EmojiSadSquareSvgrepoComSvgIcon
-                className={classNames(projectcss.all, sty.svg__jaixl)}
+                className={classNames("all", sty.svg__jaixl)}
                 role={"img"}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox___7FPs)}>
+            <div className={classNames("all", sty.freeBox___7FPs)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__rH9Jl
-                )}
+                className={classNames("all", "__wab_text", sty.text__rH9Jl)}
                 data-i18n={"chat.p.t2"}
               >
                 {
@@ -694,28 +670,18 @@ function PlasmicShopResultDialog__RenderFunc(props: {
                 }
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vxRfA
-                )}
+                className={classNames("all", "__wab_text", sty.text__vxRfA)}
                 data-i18n={"chat.p.t3"}
               >
                 {
                   "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f . "
                 }
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__iYl0B
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__iYl0B)}>
                 {"Enter some text"}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__x6Dcx)}>
+            <div className={classNames("all", sty.freeBox__x6Dcx)}>
               <Button
                 data-plasmic-name={"buttonLiom8"}
                 data-plasmic-override={overrides.buttonLiom8}
@@ -723,7 +689,7 @@ function PlasmicShopResultDialog__RenderFunc(props: {
                 color={generateStateValueProp($state, ["buttonLiom8", "color"])}
                 endIcon={
                   <Icon115Icon
-                    className={classNames(projectcss.all, sty.svg__dlO4W)}
+                    className={classNames("all", sty.svg__dlO4W)}
                     role={"img"}
                   />
                 }
@@ -853,11 +819,7 @@ function PlasmicShopResultDialog__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ds6J9
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__ds6J9)}
                   data-i18n={"chat.p.b3"}
                 >
                   {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
@@ -871,10 +833,7 @@ function PlasmicShopResultDialog__RenderFunc(props: {
           data-plasmic-override={overrides.dialogClose}
           className={classNames("__wab_instance", sty.dialogClose)}
         >
-          <XIcon
-            className={classNames(projectcss.all, sty.svg__yE0Nr)}
-            role={"img"}
-          />
+          <XIcon className={classNames("all", sty.svg__yE0Nr)} role={"img"} />
         </DialogClose>
       </DialogContent>
     </Dialog>

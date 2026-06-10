@@ -73,7 +73,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSubItems.module.css"; // plasmic-import: dLE_AEWFZZ04/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -97,7 +96,14 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     title: "لیوم | liom",
 
@@ -105,7 +111,7 @@ export function generateDynamicMetadata($q: any, $ctx: any) {
       title: "لیوم | liom"
     },
     twitter: {
-      card: "summary",
+      card: "summary" as const,
       title: "لیوم | liom"
     }
   };
@@ -174,12 +180,6 @@ function PlasmicSubItems__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -1033,6 +1033,13 @@ function PlasmicSubItems__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -1043,7 +1050,7 @@ function PlasmicSubItems__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -1067,17 +1074,17 @@ function PlasmicSubItems__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -1085,16 +1092,16 @@ function PlasmicSubItems__RenderFunc(props: {
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+            className={classNames("all", sty.section)}
           >
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox___5RyQ)}>
+              <div className={classNames("all", sty.freeBox___5RyQ)}>
                 <XIcon
-                  className={classNames(projectcss.all, sty.svg__xram1)}
+                  className={classNames("all", sty.svg__xram1)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -1124,11 +1131,7 @@ function PlasmicSubItems__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___7WuUj
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___7WuUj)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -1360,7 +1363,7 @@ function PlasmicSubItems__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__iNgBo)}>
+            <div className={classNames("all", sty.freeBox__iNgBo)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -1385,13 +1388,13 @@ function PlasmicSubItems__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__lJljc)}
+                    className={classNames("all", sty.freeBox__lJljc)}
                     key={currentIndex}
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__mPb45
                       )}
                     >
@@ -1440,10 +1443,7 @@ function PlasmicSubItems__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_1;
                       return (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__o9K0
-                          )}
+                          className={classNames("all", sty.freeBox__o9K0)}
                           key={currentIndex}
                           onClick={async event => {
                             const $steps = {};
@@ -1719,10 +1719,7 @@ function PlasmicSubItems__RenderFunc(props: {
                           }}
                         >
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___029QR
-                            )}
+                            className={classNames("all", sty.freeBox___029QR)}
                           >
                             <PlasmicImg__
                               data-plasmic-name={"img"}
@@ -1753,21 +1750,15 @@ function PlasmicSubItems__RenderFunc(props: {
                             />
                           </div>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__zycwe
-                            )}
+                            className={classNames("all", sty.freeBox__zycwe)}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__s3VRc
-                              )}
+                              className={classNames("all", sty.freeBox__s3VRc)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__ypf2L
                                 )}
                               >
@@ -1804,14 +1795,14 @@ function PlasmicSubItems__RenderFunc(props: {
                               })() ? (
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__asCqQ
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__mJCpl
                                     )}
                                   >
@@ -1835,13 +1826,13 @@ function PlasmicSubItems__RenderFunc(props: {
                               })() ? (
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__szsQ6
                                   )}
                                 >
                                   <Icon188Icon
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.svg___0K7NT
                                     )}
                                     role={"img"}
@@ -1851,8 +1842,8 @@ function PlasmicSubItems__RenderFunc(props: {
                             </div>
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__jwD67
                               )}
                             >
@@ -1875,10 +1866,7 @@ function PlasmicSubItems__RenderFunc(props: {
                             </div>
                           </div>
                           <ChevronLeftIcon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__gsjEj
-                            )}
+                            className={classNames("all", sty.svg__gsjEj)}
                             role={"img"}
                           />
                         </div>
@@ -1921,54 +1909,26 @@ function PlasmicSubItems__RenderFunc(props: {
               })}
             </div>
           ) : null}
-          <div className={classNames(projectcss.all, sty.freeBox___6QQm)}>
-            <div className={classNames(projectcss.all, sty.freeBox__lSi2B)}>
+          <div className={classNames("all", sty.freeBox___6QQm)}>
+            <div className={classNames("all", sty.freeBox__lSi2B)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__a4Rec,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__a4Rec, "shimmer")}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__wNw4B,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__wNw4B, "shimmer")}
               />
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__dAJz,
-                "shimmer"
-              )}
-            />
+            <div className={classNames("all", sty.freeBox__dAJz, "shimmer")} />
 
             <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox___91FMk,
-                "shimmer"
-              )}
+              className={classNames("all", sty.freeBox___91FMk, "shimmer")}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__gfhsf,
-                "shimmer"
-              )}
-            />
+            <div className={classNames("all", sty.freeBox__gfhsf, "shimmer")} />
 
             <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox___63X4T,
-                "shimmer"
-              )}
+              className={classNames("all", sty.freeBox___63X4T, "shimmer")}
             />
           </div>
           {(() => {
@@ -1984,14 +1944,10 @@ function PlasmicSubItems__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox___9Zu1J)}>
-              <div className={classNames(projectcss.all, sty.freeBox__iBUxB)}>
+            <div className={classNames("all", sty.freeBox___9Zu1J)}>
+              <div className={classNames("all", sty.freeBox__iBUxB)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__nkGtT
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__nkGtT)}
                 >
                   {
                     "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
@@ -2005,7 +1961,7 @@ function PlasmicSubItems__RenderFunc(props: {
                 color={generateStateValueProp($state, ["button2", "color"])}
                 endIcon={
                   <Icon144Icon
-                    className={classNames(projectcss.all, sty.svg___1F3Qy)}
+                    className={classNames("all", sty.svg___1F3Qy)}
                     role={"img"}
                   />
                 }
@@ -2086,17 +2042,13 @@ function PlasmicSubItems__RenderFunc(props: {
                 }}
                 startIcon={
                   <ChevronRightIcon
-                    className={classNames(projectcss.all, sty.svg__pRiA)}
+                    className={classNames("all", sty.svg__pRiA)}
                     role={"img"}
                   />
                 }
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___80Z4Q
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___80Z4Q)}
                 >
                   {
                     "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
@@ -2342,9 +2294,10 @@ export const PlasmicSubItems = Object.assign(
     internalArgProps: PlasmicSubItems__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/subItems",
       pagePath: "/subItems",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

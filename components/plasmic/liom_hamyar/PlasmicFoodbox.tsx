@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFoodbox.module.css"; // plasmic-import: n8OlHqhI2V0n/css
 
 import Icon66Icon from "./icons/PlasmicIcon__Icon66"; // plasmic-import: d7_5Tu0fO3u_/icon
@@ -146,10 +145,6 @@ function PlasmicFoodbox__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -161,6 +156,11 @@ function PlasmicFoodbox__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -178,10 +178,10 @@ function PlasmicFoodbox__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         "food",
@@ -248,7 +248,7 @@ function PlasmicFoodbox__RenderFunc(props: {
       <div
         data-plasmic-name={"text"}
         data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
+        className={classNames("all", "__wab_text", sty.text, {
           [sty.textavg_alert]: hasVariant($state, "avg", "alert"),
           [sty.textavg_bad]: hasVariant($state, "avg", "bad"),
           [sty.textavg_good]: hasVariant($state, "avg", "good")
@@ -270,7 +270,7 @@ function PlasmicFoodbox__RenderFunc(props: {
               ? Icon64Icon
               : Icon66Icon
         }
-        className={classNames(projectcss.all, sty.svg, {
+        className={classNames("all", sty.svg, {
           [sty.svgavg_bad]: hasVariant($state, "avg", "bad"),
           [sty.svgavg_good]: hasVariant($state, "avg", "good")
         })}

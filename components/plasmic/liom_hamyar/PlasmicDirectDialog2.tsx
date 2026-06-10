@@ -70,7 +70,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicDirectDialog2.module.css"; // plasmic-import: TQdexUKMB_Ec/css
 
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
@@ -171,12 +170,6 @@ function PlasmicDirectDialog2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -401,6 +394,13 @@ function PlasmicDirectDialog2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -418,10 +418,10 @@ function PlasmicDirectDialog2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -501,20 +501,14 @@ function PlasmicDirectDialog2__RenderFunc(props: {
           })()}
           className={classNames("__wab_instance", sty.shopDialog)}
           errorDisplay={
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___72ViO
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text___72ViO)}>
               {"Error fetching data"}
             </div>
           }
           loadingDisplay={
-            <div className={classNames(projectcss.all, sty.freeBox__pbm3O)}>
+            <div className={classNames("all", sty.freeBox__pbm3O)}>
               <Icon115Icon
-                className={classNames(projectcss.all, sty.svg__fmyBp)}
+                className={classNames("all", sty.svg__fmyBp)}
                 role={"img"}
               />
             </div>
@@ -605,12 +599,9 @@ function PlasmicDirectDialog2__RenderFunc(props: {
           shouldFetch={true}
           url={"https://n8n.staas.ir/webhook/rest/shop/list"}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__ck6Kf)}>
-            <div
-              className={classNames(projectcss.all, sty.freeBox___6W2XF)}
-              dir={"rtl"}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__ren6L)}>
+          <div className={classNames("all", sty.freeBox__ck6Kf)}>
+            <div className={classNames("all", sty.freeBox___6W2XF)} dir={"rtl"}>
+              <div className={classNames("all", sty.freeBox__ren6L)}>
                 <PlasmicImg__
                   data-plasmic-name={"img"}
                   data-plasmic-override={overrides.img}
@@ -632,11 +623,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__iYTiN
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__iYTiN)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -656,14 +643,10 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                 </div>
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___6JSnH
-                )}
+                className={classNames("all", "__wab_text", sty.text___6JSnH)}
               >
                 <div
-                  className={projectcss.__wab_expr_html_text}
+                  className={"__wab_expr_html_text"}
                   dangerouslySetInnerHTML={{
                     __html: (() => {
                       try {
@@ -681,15 +664,9 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                   }}
                 />
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__e4Yit
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__e4Yit)}>
                 <div
-                  className={projectcss.__wab_expr_html_text}
+                  className={"__wab_expr_html_text"}
                   dangerouslySetInnerHTML={{
                     __html: (() => {
                       try {
@@ -708,12 +685,9 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                 />
               </div>
             </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__uR40M)}
-              dir={"rtl"}
-            >
-              <div className={classNames(projectcss.all, sty.freeBox__x9Iiw)}>
-                <div className={classNames(projectcss.all, sty.freeBox__y9Wx)}>
+            <div className={classNames("all", sty.freeBox__uR40M)} dir={"rtl"}>
+              <div className={classNames("all", sty.freeBox__x9Iiw)}>
+                <div className={classNames("all", sty.freeBox__y9Wx)}>
                   {(() => {
                     try {
                       return $state.topShop.topBadge;
@@ -727,12 +701,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___3K5Ov
-                      )}
-                    >
+                    <div className={classNames("all", sty.freeBox___3K5Ov)}>
                       {(() => {
                         try {
                           return $state.topShop.topBadge;
@@ -748,8 +717,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                       })() ? (
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__fuYkJ
                           )}
                         >
@@ -772,18 +741,16 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                       ) : null}
                     </div>
                   ) : null}
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___28Jk)}
-                  >
+                  <div className={classNames("all", sty.freeBox___28Jk)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___0ZWur
                       )}
                     >
                       <div
-                        className={projectcss.__wab_expr_html_text}
+                        className={"__wab_expr_html_text"}
                         dangerouslySetInnerHTML={{
                           __html: (() => {
                             try {
@@ -804,13 +771,11 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                         }}
                       />
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__igzW0)}
-                    >
+                    <div className={classNames("all", sty.freeBox__igzW0)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__fmEs7
                         )}
                       >
@@ -832,8 +797,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___2DgJ5
                         )}
                       >
@@ -870,16 +835,11 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__nsr8M
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__nsr8M)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___7DdT
                           )}
                         >
@@ -903,22 +863,14 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                     ) : null}
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__s1MLf
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__s1MLf)}
                   >
                     {
                       "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                     }
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__or80U)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__vwEf)}
-                    >
+                  <div className={classNames("all", sty.freeBox__or80U)}>
+                    <div className={classNames("all", sty.freeBox__vwEf)}>
                       {(() => {
                         const child$Props = {
                           allowClear: false,
@@ -938,10 +890,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                             "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
                           prefix: (
                             <Icon10Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__rWfYw
-                              )}
+                              className={classNames("all", sty.svg__rWfYw)}
                               role={"img"}
                             />
                           ),
@@ -975,12 +924,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                           />
                         );
                       })()}
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__gP2Ay
-                        )}
-                      />
+                      <div className={classNames("all", sty.freeBox__gP2Ay)} />
                     </div>
                     <Button
                       data-plasmic-name={"button12"}
@@ -1049,8 +993,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__ePvwv
                         )}
                       >
@@ -1065,7 +1009,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                     color={generateStateValueProp($state, ["button8", "color"])}
                     endIcon={
                       <Icon12Icon
-                        className={classNames(projectcss.all, sty.svg__pKky2)}
+                        className={classNames("all", sty.svg__pKky2)}
                         role={"img"}
                       />
                     }
@@ -1375,8 +1319,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__l8V8J
                       )}
                     >
@@ -1400,9 +1344,10 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                       data-plasmic-name={"p"}
                       data-plasmic-override={overrides.p}
                       className={classNames(
-                        projectcss.all,
-                        projectcss.p,
-                        projectcss.__wab_text,
+                        "all",
+                        "p",
+                        "p__suVPi",
+                        "__wab_text",
                         sty.p
                       )}
                       onClick={async event => {
@@ -1478,8 +1423,8 @@ function PlasmicDirectDialog2__RenderFunc(props: {
               "opendialog"
             ])}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__ishG)}>
-              <div className={classNames(projectcss.all, sty.freeBox__geiCd)}>
+            <div className={classNames("all", sty.freeBox__ishG)}>
+              <div className={classNames("all", sty.freeBox__geiCd)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -1755,15 +1700,12 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___2I7Xm
-                            )}
+                            className={classNames("all", sty.freeBox___2I7Xm)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__w7RiH
                               )}
                             >
@@ -1798,7 +1740,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                 color={generateStateValueProp($state, ["button9", "color"])}
                 endIcon={
                   <Icon12Icon
-                    className={classNames(projectcss.all, sty.svg__yQ9Fs)}
+                    className={classNames("all", sty.svg__yQ9Fs)}
                     role={"img"}
                   />
                 }
@@ -2072,11 +2014,7 @@ function PlasmicDirectDialog2__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__uWbmB
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__uWbmB)}
                 >
                   {"\u067e\u0631\u062f\u0627\u062e\u062a"}
                 </div>

@@ -78,7 +78,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFilter.module.css"; // plasmic-import: NViyjBtxiFfj/css
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
@@ -104,11 +103,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -202,12 +208,6 @@ function PlasmicFilter__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -600,6 +600,13 @@ function PlasmicFilter__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -610,7 +617,7 @@ function PlasmicFilter__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -625,28 +632,28 @@ function PlasmicFilter__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             { [sty.rootmoreshow]: hasVariant($state, "moreshow", "moreshow") }
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__g01Z)} />
+          <div className={classNames("all", sty.freeBox__g01Z)} />
 
           <div
             data-plasmic-name={"asli"}
             data-plasmic-override={overrides.asli}
-            className={classNames(projectcss.all, sty.asli)}
+            className={classNames("all", sty.asli)}
           >
             {(() => {
               const child$Props = {
@@ -702,7 +709,7 @@ function PlasmicFilter__RenderFunc(props: {
                   "\u0627\u0646\u062a\u062e\u0627\u0628 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627",
                 prefix: (
                   <SearchSvgIcon
-                    className={classNames(projectcss.all, sty.svg__qWg78)}
+                    className={classNames("all", sty.svg__qWg78)}
                     role={"img"}
                   />
                 ),
@@ -732,7 +739,7 @@ function PlasmicFilter__RenderFunc(props: {
               );
             })()}
             <div
-              className={classNames(projectcss.all, sty.freeBox___1Bfft)}
+              className={classNames("all", sty.freeBox___1Bfft)}
               onClick={async event => {
                 const $steps = {};
 
@@ -772,7 +779,7 @@ function PlasmicFilter__RenderFunc(props: {
               }}
             >
               <SearchSvgIcon
-                className={classNames(projectcss.all, sty.svg___6MVjW)}
+                className={classNames("all", sty.svg___6MVjW)}
                 role={"img"}
               />
 
@@ -789,7 +796,7 @@ function PlasmicFilter__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__o9MoQ)}>
+                <div className={classNames("all", sty.freeBox__o9MoQ)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -812,8 +819,8 @@ function PlasmicFilter__RenderFunc(props: {
                     return (
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__ckBzr
                         )}
                         key={currentIndex}
@@ -852,11 +859,7 @@ function PlasmicFilter__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lzd4Q
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__lzd4Q)}
                 >
                   {
                     "\u0627\u0646\u062a\u062e\u0627\u0628 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627"
@@ -865,7 +868,7 @@ function PlasmicFilter__RenderFunc(props: {
               ) : null}
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__mBunP)}
+              className={classNames("all", sty.freeBox__mBunP)}
               onClick={async event => {
                 const $steps = {};
 
@@ -978,7 +981,7 @@ function PlasmicFilter__RenderFunc(props: {
               }}
             >
               <Icon259Icon
-                className={classNames(projectcss.all, sty.svg__urAuX)}
+                className={classNames("all", sty.svg__urAuX)}
                 role={"img"}
               />
 
@@ -996,11 +999,7 @@ function PlasmicFilter__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__jLay9
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__jLay9)}
                 >
                   {
                     "\u0627\u0646\u062a\u062e\u0627\u0628 \u062f\u0627\u0631\u0648\u0647\u0627"
@@ -1020,9 +1019,7 @@ function PlasmicFilter__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___0C5Sg)}
-                >
+                <div className={classNames("all", sty.freeBox___0C5Sg)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -1043,8 +1040,8 @@ function PlasmicFilter__RenderFunc(props: {
                     return (
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___1K5Nl
                         )}
                         key={currentIndex}
@@ -1070,9 +1067,9 @@ function PlasmicFilter__RenderFunc(props: {
                 </div>
               ) : null}
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__oYkxe)}>
+            <div className={classNames("all", sty.freeBox__oYkxe)}>
               <div
-                className={classNames(projectcss.all, sty.freeBox__poB2S, {
+                className={classNames("all", sty.freeBox__poB2S, {
                   [sty.freeBoxmoreshow__poB2S2KYct]: hasVariant(
                     $state,
                     "moreshow",
@@ -1080,7 +1077,7 @@ function PlasmicFilter__RenderFunc(props: {
                   )
                 })}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__i46So)}>
+                <div className={classNames("all", sty.freeBox__i46So)}>
                   <Select
                     data-plasmic-name={"sex"}
                     data-plasmic-override={overrides.sex}
@@ -1128,7 +1125,7 @@ function PlasmicFilter__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__enH1)}
+                      className={classNames("all", sty.freeBox__enH1)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1169,15 +1166,13 @@ function PlasmicFilter__RenderFunc(props: {
                       }}
                     >
                       <Icon22Icon
-                        className={classNames(projectcss.all, sty.svg__r3Bwn)}
+                        className={classNames("all", sty.svg__r3Bwn)}
                         role={"img"}
                       />
                     </div>
                   ) : null}
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___8Mi40)}
-                >
+                <div className={classNames("all", sty.freeBox___8Mi40)}>
                   <Select
                     data-plasmic-name={"job"}
                     data-plasmic-override={overrides.job}
@@ -1227,7 +1222,7 @@ function PlasmicFilter__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__gP5L8)}
+                      className={classNames("all", sty.freeBox__gP5L8)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1268,13 +1263,13 @@ function PlasmicFilter__RenderFunc(props: {
                       }}
                     >
                       <Icon22Icon
-                        className={classNames(projectcss.all, sty.svg__mnau5)}
+                        className={classNames("all", sty.svg__mnau5)}
                         role={"img"}
                       />
                     </div>
                   ) : null}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__uSj8P)}>
+                <div className={classNames("all", sty.freeBox__uSj8P)}>
                   <Select
                     data-plasmic-name={"maritalStatus"}
                     data-plasmic-override={overrides.maritalStatus}
@@ -1337,10 +1332,7 @@ function PlasmicFilter__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___8QhRm
-                      )}
+                      className={classNames("all", sty.freeBox___8QhRm)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1383,13 +1375,13 @@ function PlasmicFilter__RenderFunc(props: {
                       }}
                     >
                       <Icon22Icon
-                        className={classNames(projectcss.all, sty.svg__udyuQ)}
+                        className={classNames("all", sty.svg__udyuQ)}
                         role={"img"}
                       />
                     </div>
                   ) : null}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__a8Wf7)}>
+                <div className={classNames("all", sty.freeBox__a8Wf7)}>
                   <Select
                     data-plasmic-name={"education"}
                     data-plasmic-override={overrides.education}
@@ -1448,7 +1440,7 @@ function PlasmicFilter__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__kczL)}
+                      className={classNames("all", sty.freeBox__kczL)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1490,13 +1482,13 @@ function PlasmicFilter__RenderFunc(props: {
                       }}
                     >
                       <Icon22Icon
-                        className={classNames(projectcss.all, sty.svg__qckne)}
+                        className={classNames("all", sty.svg__qckne)}
                         role={"img"}
                       />
                     </div>
                   ) : null}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__tJY)}>
+                <div className={classNames("all", sty.freeBox__tJY)}>
                   <Select
                     data-plasmic-name={"age2"}
                     data-plasmic-override={overrides.age2}
@@ -1548,7 +1540,7 @@ function PlasmicFilter__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__ubtd)}
+                      className={classNames("all", sty.freeBox__ubtd)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1589,13 +1581,13 @@ function PlasmicFilter__RenderFunc(props: {
                       }}
                     >
                       <Icon22Icon
-                        className={classNames(projectcss.all, sty.svg__gUIq)}
+                        className={classNames("all", sty.svg__gUIq)}
                         role={"img"}
                       />
                     </div>
                   ) : null}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__jkp55)}>
+                <div className={classNames("all", sty.freeBox__jkp55)}>
                   <Select
                     data-plasmic-name={"height2"}
                     data-plasmic-override={overrides.height2}
@@ -1648,7 +1640,7 @@ function PlasmicFilter__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__mqPsw)}
+                      className={classNames("all", sty.freeBox__mqPsw)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1690,7 +1682,7 @@ function PlasmicFilter__RenderFunc(props: {
                       }}
                     >
                       <Icon22Icon
-                        className={classNames(projectcss.all, sty.svg__icOVd)}
+                        className={classNames("all", sty.svg__icOVd)}
                         role={"img"}
                       />
                     </div>
@@ -1699,7 +1691,7 @@ function PlasmicFilter__RenderFunc(props: {
               </div>
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__uc4K4, {
+              className={classNames("all", sty.freeBox__uc4K4, {
                 [sty.freeBoxmoreshow__uc4K42KYct]: hasVariant(
                   $state,
                   "moreshow",
@@ -1707,7 +1699,7 @@ function PlasmicFilter__RenderFunc(props: {
                 )
               })}
             >
-              <div className={classNames(projectcss.all, sty.freeBox___7PJs0)}>
+              <div className={classNames("all", sty.freeBox___7PJs0)}>
                 {(() => {
                   try {
                     return $state.rangeSlider.value != null;
@@ -1804,25 +1796,21 @@ function PlasmicFilter__RenderFunc(props: {
                     }}
                   >
                     <XIcon
-                      className={classNames(projectcss.all, sty.svg___0Wwhb)}
+                      className={classNames("all", sty.svg___0Wwhb)}
                       role={"img"}
                     />
                   </Button>
                 ) : null}
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qTgw3
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__qTgw3)}
                 >
                   {
                     "\u0648\u0632\u0646 \u062e\u0648\u062f \u0631\u0627  \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f."
                   }
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__oPlwP)}>
-                <div className={classNames(projectcss.all, sty.freeBox__lwrHu)}>
+              <div className={classNames("all", sty.freeBox__oPlwP)}>
+                <div className={classNames("all", sty.freeBox__lwrHu)}>
                   <RangeSlider
                     data-plasmic-name={"rangeSlider"}
                     data-plasmic-override={overrides.rangeSlider}
@@ -1949,7 +1937,7 @@ function PlasmicFilter__RenderFunc(props: {
               }}
             >
               <UpArrowOutboxSvgrepoComSvgIcon
-                className={classNames(projectcss.all, sty.svg___69E8Q, {
+                className={classNames("all", sty.svg___69E8Q, {
                   [sty.svgmoreshow___69E8Q2KYct]: hasVariant(
                     $state,
                     "moreshow",
@@ -2310,7 +2298,7 @@ function PlasmicFilter__RenderFunc(props: {
               {"\u062c\u0633\u062a\u062c\u0648"}
             </Button>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__xOEts)}>
+          <div className={classNames("all", sty.freeBox__xOEts)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -2330,7 +2318,7 @@ function PlasmicFilter__RenderFunc(props: {
               const currentIndex = __plasmic_idx_0;
               return (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__lQi46)}
+                  className={classNames("all", sty.freeBox__lQi46)}
                   key={currentIndex}
                   onClick={async event => {
                     const $steps = {};
@@ -2405,14 +2393,9 @@ function PlasmicFilter__RenderFunc(props: {
                     }
                   }}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__w9GZk)}
-                  >
+                  <div className={classNames("all", sty.freeBox__w9GZk)}>
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___2CtTt
-                      )}
+                      className={classNames("all", sty.freeBox___2CtTt)}
                       style={(() => {
                         try {
                           return (() => {
@@ -2439,8 +2422,8 @@ function PlasmicFilter__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__teqx0
                         )}
                       >
@@ -2464,12 +2447,12 @@ function PlasmicFilter__RenderFunc(props: {
                     <div
                       data-plasmic-name={"nameUsername"}
                       data-plasmic-override={overrides.nameUsername}
-                      className={classNames(projectcss.all, sty.nameUsername)}
+                      className={classNames("all", sty.nameUsername)}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__rrvTz
                         )}
                       >
@@ -2491,8 +2474,8 @@ function PlasmicFilter__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___8KRph
                         )}
                       >
@@ -2515,8 +2498,8 @@ function PlasmicFilter__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__suXlF
                       )}
                     >
@@ -2525,13 +2508,11 @@ function PlasmicFilter__RenderFunc(props: {
                       }
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___9Xbbu)}
-                  >
+                  <div className={classNames("all", sty.freeBox___9Xbbu)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__aD9Lt
                       )}
                     >
@@ -2569,9 +2550,9 @@ function PlasmicFilter__RenderFunc(props: {
             data-plasmic-override={overrides.modal}
             className={classNames("__wab_instance", sty.modal)}
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={true}
@@ -2592,8 +2573,8 @@ function PlasmicFilter__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["modal", "open"])}
             title={
-              <div className={classNames(projectcss.all, sty.freeBox__av4Fr)}>
-                <div className={classNames(projectcss.all, sty.freeBox__tbwUf)}>
+              <div className={classNames("all", sty.freeBox__av4Fr)}>
+                <div className={classNames("all", sty.freeBox__tbwUf)}>
                   {(() => {
                     const child$Props = {
                       bordered: false,
@@ -2691,7 +2672,7 @@ function PlasmicFilter__RenderFunc(props: {
                         "\u0627\u0646\u062a\u062e\u0627\u0628 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627",
                       prefix: (
                         <SearchSvgIcon
-                          className={classNames(projectcss.all, sty.svg__y2I6)}
+                          className={classNames("all", sty.svg__y2I6)}
                           role={"img"}
                         />
                       ),
@@ -2728,9 +2709,9 @@ function PlasmicFilter__RenderFunc(props: {
             <div
               data-plasmic-name={"diseareVer"}
               data-plasmic-override={overrides.diseareVer}
-              className={classNames(projectcss.all, sty.diseareVer)}
+              className={classNames("all", sty.diseareVer)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox___9FpqV)}>
+              <div className={classNames("all", sty.freeBox___9FpqV)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -2882,7 +2863,7 @@ function PlasmicFilter__RenderFunc(props: {
                 }
               })() ? (
                 <Icon115Icon
-                  className={classNames(projectcss.all, sty.svg__mtRs1)}
+                  className={classNames("all", sty.svg__mtRs1)}
                   role={"img"}
                 />
               ) : null}
@@ -2893,9 +2874,9 @@ function PlasmicFilter__RenderFunc(props: {
             data-plasmic-override={overrides.modal3}
             className={classNames("__wab_instance", sty.modal3)}
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={true}
@@ -2916,8 +2897,8 @@ function PlasmicFilter__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["modal3", "open"])}
             title={
-              <div className={classNames(projectcss.all, sty.freeBox___6Wxao)}>
-                <div className={classNames(projectcss.all, sty.freeBox__ytfWa)}>
+              <div className={classNames("all", sty.freeBox___6Wxao)}>
+                <div className={classNames("all", sty.freeBox__ytfWa)}>
                   {(() => {
                     const child$Props = {
                       bordered: false,
@@ -3016,10 +2997,7 @@ function PlasmicFilter__RenderFunc(props: {
                         "\u062f\u0627\u0631\u0648 \u0645\u0635\u0631\u0641\u06cc \u062e\u0648\u062f \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f",
                       prefix: (
                         <Icon259Icon
-                          className={classNames(
-                            projectcss.all,
-                            sty.svg___6TbK2
-                          )}
+                          className={classNames("all", sty.svg___6TbK2)}
                           role={"img"}
                         />
                       ),
@@ -3056,9 +3034,9 @@ function PlasmicFilter__RenderFunc(props: {
             <div
               data-plasmic-name={"diseareVer2"}
               data-plasmic-override={overrides.diseareVer2}
-              className={classNames(projectcss.all, sty.diseareVer2)}
+              className={classNames("all", sty.diseareVer2)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox___5M7P3)}>
+              <div className={classNames("all", sty.freeBox___5M7P3)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -3208,7 +3186,7 @@ function PlasmicFilter__RenderFunc(props: {
                 }
               })() ? (
                 <Icon115Icon
-                  className={classNames(projectcss.all, sty.svg__dp3Hr)}
+                  className={classNames("all", sty.svg__dp3Hr)}
                   role={"img"}
                 />
               ) : null}
@@ -3219,9 +3197,9 @@ function PlasmicFilter__RenderFunc(props: {
             data-plasmic-override={overrides.modal2}
             className={classNames("__wab_instance", sty.modal2)}
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             modalScopeClassName={sty["modal2__modal"]}
@@ -3233,13 +3211,7 @@ function PlasmicFilter__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["modal2", "open"])}
             title={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yqIua
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__yqIua)}>
                 {"\u0646\u0648\u0639 \u0628\u06cc\u0645\u0627\u0631\u06cc"}
               </div>
             }
@@ -3298,7 +3270,7 @@ function PlasmicFilter__RenderFunc(props: {
                   "\u0646\u0648\u0639 \u0628\u06cc\u0645\u0627\u0631\u06cc \u062e\u0648\u062f \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f",
                 prefix: (
                   <SearchSvgIcon
-                    className={classNames(projectcss.all, sty.svg__n4Qnf)}
+                    className={classNames("all", sty.svg__n4Qnf)}
                     role={"img"}
                   />
                 ),
@@ -3326,7 +3298,7 @@ function PlasmicFilter__RenderFunc(props: {
                 />
               );
             })()}
-            <div className={classNames(projectcss.all, sty.freeBox__w8Do6)}>
+            <div className={classNames("all", sty.freeBox__w8Do6)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -3393,8 +3365,8 @@ function PlasmicFilter__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__k37Mc
                         )}
                       >
@@ -3425,9 +3397,9 @@ function PlasmicFilter__RenderFunc(props: {
             data-plasmic-override={overrides.modal4}
             className={classNames("__wab_instance", sty.modal4)}
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={true}
@@ -3478,13 +3450,7 @@ function PlasmicFilter__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["modal4", "open"])}
             title={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__jmlGc
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__jmlGc)}>
                 {
                   "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u06a9\u0627\u0631\u0628\u0631"
                 }
@@ -3492,16 +3458,14 @@ function PlasmicFilter__RenderFunc(props: {
             }
             trigger={null}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__gQ9Wi)}>
-              <div className={classNames(projectcss.all, sty.freeBox__zfKz7)}>
-                <div className={classNames(projectcss.all, sty.freeBox__r2KCy)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__uJuRa)}
-                  >
+            <div className={classNames("all", sty.freeBox__gQ9Wi)}>
+              <div className={classNames("all", sty.freeBox__zfKz7)}>
+                <div className={classNames("all", sty.freeBox__r2KCy)}>
+                  <div className={classNames("all", sty.freeBox__uJuRa)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___9VXBh
                       )}
                     >
@@ -3509,8 +3473,8 @@ function PlasmicFilter__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__qHf21
                       )}
                     >
@@ -3518,15 +3482,15 @@ function PlasmicFilter__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__btOy4
                       )}
                     >
                       <React.Fragment>
                         <span
                           className={
-                            "plasmic_default__all plasmic_default__span"
+                            "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                           }
                           style={{ fontWeight: 700 }}
                         >
@@ -3538,21 +3502,19 @@ function PlasmicFilter__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__fdbdq
                       )}
                     >
                       {"\u062a\u062d\u0635\u06cc\u0644\u0627\u062a:"}
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__shYBo)}
-                  >
+                  <div className={classNames("all", sty.freeBox__shYBo)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__mjPk
                       )}
                     >
@@ -3574,8 +3536,8 @@ function PlasmicFilter__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__usk8A
                       )}
                     >
@@ -3599,8 +3561,8 @@ function PlasmicFilter__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__nytAk
                       )}
                     >
@@ -3624,8 +3586,8 @@ function PlasmicFilter__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__sk7Pf
                       )}
                     >
@@ -3649,17 +3611,13 @@ function PlasmicFilter__RenderFunc(props: {
                     </div>
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__nJil)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ko8BK)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__j67Lj)}
-                    >
+                <div className={classNames("all", sty.freeBox__nJil)}>
+                  <div className={classNames("all", sty.freeBox__ko8BK)}>
+                    <div className={classNames("all", sty.freeBox__j67Lj)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__botW3
                         )}
                       >
@@ -3667,8 +3625,8 @@ function PlasmicFilter__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__np2Vg
                         )}
                       >
@@ -3676,15 +3634,15 @@ function PlasmicFilter__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__wugmY
                         )}
                       >
                         <React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -3694,13 +3652,11 @@ function PlasmicFilter__RenderFunc(props: {
                       </div>
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__xwUR)}
-                  >
+                  <div className={classNames("all", sty.freeBox__xwUR)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__dhly6
                       )}
                     >
@@ -3722,8 +3678,8 @@ function PlasmicFilter__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__cvE3A
                       )}
                     >
@@ -3745,8 +3701,8 @@ function PlasmicFilter__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__hoiek
                       )}
                     >
@@ -3769,32 +3725,22 @@ function PlasmicFilter__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__goLMi)}>
-                <div className={classNames(projectcss.all, sty.freeBox__byzEn)}>
+              <div className={classNames("all", sty.freeBox__goLMi)}>
+                <div className={classNames("all", sty.freeBox__byzEn)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nynCb
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__nynCb)}
                   >
                     {"\u0628\u06cc\u0645\u0627\u0631\u06cc;"}
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___0QVuv)}
-                  >
+                  <div className={classNames("all", sty.freeBox___0QVuv)}>
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__xyBBy,
-                        {
-                          [sty.freeBoxmoreshow__xyBBy2KYct]: hasVariant(
-                            $state,
-                            "moreshow",
-                            "moreshow"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox__xyBBy, {
+                        [sty.freeBoxmoreshow__xyBBy2KYct]: hasVariant(
+                          $state,
+                          "moreshow",
+                          "moreshow"
+                        )
+                      })}
                     >
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -3820,8 +3766,8 @@ function PlasmicFilter__RenderFunc(props: {
                         return (
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__x40Ln,
                               {
                                 [sty.textmoreshow__x40Ln2KYct]: hasVariant(
@@ -3890,22 +3836,14 @@ function PlasmicFilter__RenderFunc(props: {
                     </div>
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__chU8)}>
+                <div className={classNames("all", sty.freeBox__chU8)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__gGsf
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__gGsf)}
                   >
                     {"\u062f\u0627\u0631\u0648:"}
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__o0Bpr)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__zCmaz)}
-                    >
+                  <div className={classNames("all", sty.freeBox__o0Bpr)}>
+                    <div className={classNames("all", sty.freeBox__zCmaz)}>
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
@@ -3927,8 +3865,8 @@ function PlasmicFilter__RenderFunc(props: {
                         return (
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__y9Boe,
                               {
                                 [sty.textmoreshow__y9Boe2KYct]: hasVariant(
@@ -4295,9 +4233,10 @@ export const PlasmicFilter = Object.assign(
     internalArgProps: PlasmicFilter__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/filter",
       pagePath: "/filter",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

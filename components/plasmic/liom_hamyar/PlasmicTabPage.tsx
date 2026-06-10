@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicTabPage.module.css"; // plasmic-import: YjjiCvkREMP5/css
 
 import Line3Icon from "./icons/PlasmicIcon__Line3"; // plasmic-import: cDBsZfQFOOWa/icon
@@ -159,10 +158,6 @@ function PlasmicTabPage__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -227,6 +222,11 @@ function PlasmicTabPage__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -244,10 +244,10 @@ function PlasmicTabPage__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.frame49
       )}
@@ -255,26 +255,20 @@ function PlasmicTabPage__RenderFunc(props: {
       <div
         data-plasmic-name={"frame25"}
         data-plasmic-override={overrides.frame25}
-        className={classNames(projectcss.all, sty.frame25)}
+        className={classNames("all", sty.frame25)}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__wk4Tf
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__wk4Tf)}>
           {"\u06af\u0632\u0627\u0631\u0634 \u0647\u0627"}
         </div>
       </div>
       <div
         data-plasmic-name={"frame48"}
         data-plasmic-override={overrides.frame48}
-        className={classNames(projectcss.all, sty.frame48)}
+        className={classNames("all", sty.frame48)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__uf1S5)}>
+        <div className={classNames("all", sty.freeBox__uf1S5)}>
           <Line3Icon
-            className={classNames(projectcss.all, sty.svg__nAqkn)}
+            className={classNames("all", sty.svg__nAqkn)}
             role={"img"}
           />
         </div>
@@ -282,9 +276,9 @@ function PlasmicTabPage__RenderFunc(props: {
       <div
         data-plasmic-name={"frame50"}
         data-plasmic-override={overrides.frame50}
-        className={classNames(projectcss.all, sty.frame50)}
+        className={classNames("all", sty.frame50)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__zi41V)}>
+        <div className={classNames("all", sty.freeBox__zi41V)}>
           {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
             (() => {
               try {
@@ -304,11 +298,11 @@ function PlasmicTabPage__RenderFunc(props: {
             const currentIndex = __plasmic_idx_0;
             return (
               <div
-                className={classNames(projectcss.all, sty.freeBox__ndiIy)}
+                className={classNames("all", sty.freeBox__ndiIy)}
                 key={currentIndex}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__fs1Jj)}
+                  className={classNames("all", sty.freeBox__fs1Jj)}
                   style={(() => {
                     try {
                       return {
@@ -329,11 +323,7 @@ function PlasmicTabPage__RenderFunc(props: {
                   })()}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nmdQb
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__nmdQb)}
                     style={(() => {
                       try {
                         return {
@@ -375,7 +365,7 @@ function PlasmicTabPage__RenderFunc(props: {
           })}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox___1Sd1C)}>
+      <div className={classNames("all", sty.freeBox___1Sd1C)}>
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
@@ -397,7 +387,7 @@ function PlasmicTabPage__RenderFunc(props: {
             <div
               data-plasmic-name={"frame22"}
               data-plasmic-override={overrides.frame22}
-              className={classNames(projectcss.all, sty.frame22)}
+              className={classNames("all", sty.frame22)}
               key={currentIndex}
               onClick={async event => {
                 const $steps = {};
@@ -473,14 +463,10 @@ function PlasmicTabPage__RenderFunc(props: {
               <div
                 data-plasmic-name={"frame21"}
                 data-plasmic-override={overrides.frame21}
-                className={classNames(projectcss.all, sty.frame21)}
+                className={classNames("all", sty.frame21)}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__j1Joc
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__j1Joc)}
                   style={(() => {
                     try {
                       return {
@@ -516,11 +502,7 @@ function PlasmicTabPage__RenderFunc(props: {
                   </React.Fragment>
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__cRhV
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__cRhV)}
                   style={(() => {
                     try {
                       return {
@@ -558,14 +540,10 @@ function PlasmicTabPage__RenderFunc(props: {
               <div
                 data-plasmic-name={"frame28"}
                 data-plasmic-override={overrides.frame28}
-                className={classNames(projectcss.all, sty.frame28)}
+                className={classNames("all", sty.frame28)}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__y3N3Z
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__y3N3Z)}
                   style={(() => {
                     try {
                       return {
@@ -588,21 +566,15 @@ function PlasmicTabPage__RenderFunc(props: {
                 <div
                   data-plasmic-name={"vuesaxLinearArrowRight"}
                   data-plasmic-override={overrides.vuesaxLinearArrowRight}
-                  className={classNames(
-                    projectcss.all,
-                    sty.vuesaxLinearArrowRight
-                  )}
+                  className={classNames("all", sty.vuesaxLinearArrowRight)}
                 >
                   <div
                     data-plasmic-name={"vuesaxLinearArrowRight2"}
                     data-plasmic-override={overrides.vuesaxLinearArrowRight2}
-                    className={classNames(
-                      projectcss.all,
-                      sty.vuesaxLinearArrowRight2
-                    )}
+                    className={classNames("all", sty.vuesaxLinearArrowRight2)}
                   >
                     <IconIcon
-                      className={classNames(projectcss.all, sty.svg___4SUs2)}
+                      className={classNames("all", sty.svg___4SUs2)}
                       role={"img"}
                     />
                   </div>

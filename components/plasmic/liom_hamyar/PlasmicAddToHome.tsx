@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicAddToHome.module.css"; // plasmic-import: XwX6W3jU5LyW/css
 
 import Icon386Icon from "./icons/PlasmicIcon__Icon386"; // plasmic-import: m5v-60H7g3kP/icon
@@ -136,10 +135,6 @@ function PlasmicAddToHome__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -169,6 +164,11 @@ function PlasmicAddToHome__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -199,10 +199,10 @@ function PlasmicAddToHome__RenderFunc(props: {
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
         className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "all",
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames,
           sty.root
         )}
@@ -210,91 +210,55 @@ function PlasmicAddToHome__RenderFunc(props: {
         <div
           data-plasmic-name={"frame9432"}
           data-plasmic-override={overrides.frame9432}
-          className={classNames(projectcss.all, sty.frame9432)}
+          className={classNames("all", sty.frame9432)}
         >
           <Icon386Icon
-            className={classNames(projectcss.all, sty.svg___8AIWe)}
+            className={classNames("all", sty.svg___8AIWe)}
             role={"img"}
           />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___6Eu45
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text___6Eu45)}>
             {
               "\u0648\u0628 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0644\u06cc\u0648\u0645 \u0631\u0627 \u0628\u0647 \u0635\u0641\u062d\u0647 \u0627\u0635\u0644\u06cc \u06af\u0648\u0634\u06cc\u062a\u0627\u0646 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u06cc\u062f."
             }
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__g0Wjk)}>
-            <div className={classNames(projectcss.all, sty.freeBox___8U1Uf)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oRcPu
-                )}
-              >
+          <div className={classNames("all", sty.freeBox__g0Wjk)}>
+            <div className={classNames("all", sty.freeBox___8U1Uf)}>
+              <div className={classNames("all", "__wab_text", sty.text__oRcPu)}>
                 {
                   "1. \u062f\u0631 \u0646\u0648\u0627\u0631  \u067e\u0627\u06cc\u06cc\u0646 \u062f\u06a9\u0645\u0647 "
                 }
               </div>
               <Icon197Icon
-                className={classNames(projectcss.all, sty.svg__gh100)}
+                className={classNames("all", sty.svg__gh100)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__dIoIf
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__dIoIf)}>
                 {
                   ' "Share" \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.'
                 }
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__fJ2Za)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__hk76
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__fJ2Za)}>
+              <div className={classNames("all", "__wab_text", sty.text__hk76)}>
                 {
                   "2. \u062f\u0631 \u0645\u0646\u0648 \u0628\u0627\u0632 \u0634\u062f\u0647 \u060c\u06af\u0632\u06cc\u0646\u0647, "
                 }
               </div>
               <Icon198Icon
-                className={classNames(projectcss.all, sty.svg__jKuM)}
+                className={classNames("all", sty.svg__jKuM)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__cw76C
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__cw76C)}>
                 {
                   ' "Add to home screen"  \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.'
                 }
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__hLmnp)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__uzQyt
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__hLmnp)}>
+              <div className={classNames("all", "__wab_text", sty.text__uzQyt)}>
                 {
                   '3. \u062f\u0631 \u0645\u0631\u062d\u0644\u0647 \u0628\u0639\u062f "Add" \u0631\u0627 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f.'
                 }
@@ -396,11 +360,7 @@ function PlasmicAddToHome__RenderFunc(props: {
               }}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___0TBp0
-                )}
+                className={classNames("all", "__wab_text", sty.text___0TBp0)}
               >
                 {"\u0645\u062a\u0648\u062c\u0647 \u0634\u062f\u0645"}
               </div>
@@ -410,7 +370,7 @@ function PlasmicAddToHome__RenderFunc(props: {
         <div
           data-plasmic-name={"rectangle126"}
           data-plasmic-override={overrides.rectangle126}
-          className={classNames(projectcss.all, sty.rectangle126)}
+          className={classNames("all", sty.rectangle126)}
         />
       </div>
     ) : null

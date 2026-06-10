@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHeaderV2.module.css"; // plasmic-import: IYTV9bVTkPai/css
 
 import LiLogoSvgIcon from "./icons/PlasmicIcon__LiLogoSvg"; // plasmic-import: g2Wd0rn3Z11c/icon
@@ -132,10 +131,6 @@ function PlasmicHeaderV2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -159,6 +154,11 @@ function PlasmicHeaderV2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -176,10 +176,10 @@ function PlasmicHeaderV2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -187,20 +187,14 @@ function PlasmicHeaderV2__RenderFunc(props: {
       <LiLogoSvgIcon
         data-plasmic-name={"svg"}
         data-plasmic-override={overrides.svg}
-        className={classNames(projectcss.all, sty.svg)}
+        className={classNames("all", sty.svg)}
         onClick={async event => {
           const $steps = {};
         }}
         role={"img"}
       />
 
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__oI1X3
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__oI1X3)}>
         {"\u0644\u06cc\u0648\u0645"}
       </div>
       <Button
@@ -285,13 +279,7 @@ function PlasmicHeaderV2__RenderFunc(props: {
         }}
         target={true}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__uGohB
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__uGohB)}>
           {
             "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646"
           }

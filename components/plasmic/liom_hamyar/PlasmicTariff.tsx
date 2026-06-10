@@ -67,7 +67,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicTariff.module.css"; // plasmic-import: GnOiSfG6XOMz/css
 
 import Icon337Icon from "./icons/PlasmicIcon__Icon337"; // plasmic-import: RvConAdz2gho/icon
@@ -148,10 +147,6 @@ function PlasmicTariff__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -183,6 +178,11 @@ function PlasmicTariff__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -200,15 +200,15 @@ function PlasmicTariff__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__oLdCk)}>
+      <div className={classNames("all", sty.freeBox__oLdCk)}>
         <ApiRequest
           data-plasmic-name={"apiRequest"}
           data-plasmic-override={overrides.apiRequest}
@@ -237,18 +237,12 @@ function PlasmicTariff__RenderFunc(props: {
           shouldFetch={true}
           url={"https://n8n.staas.ir/webhook/reminder/channel"}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__a8A5
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__a8A5)}>
             {
               "\u062a\u0639\u0631\u0641\u0647 \u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"
             }
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__opVh3)}>
+          <div className={classNames("all", sty.freeBox__opVh3)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -268,12 +262,10 @@ function PlasmicTariff__RenderFunc(props: {
               const currentIndex = __plasmic_idx_0;
               return (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__kqOeM)}
+                  className={classNames("all", sty.freeBox__kqOeM)}
                   key={currentIndex}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__gyu4L)}
-                  >
+                  <div className={classNames("all", sty.freeBox__gyu4L)}>
                     <MenuIcon
                       data-plasmic-name={"menuIcon"}
                       data-plasmic-override={overrides.menuIcon}
@@ -318,8 +310,8 @@ function PlasmicTariff__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___6Bf2
                       )}
                     >
@@ -339,13 +331,11 @@ function PlasmicTariff__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__y3No)}
-                    >
+                    <div className={classNames("all", sty.freeBox__y3No)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__mlCy4
                         )}
                       >
@@ -367,8 +357,8 @@ function PlasmicTariff__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__neQu
                         )}
                       >
@@ -394,31 +384,23 @@ function PlasmicTariff__RenderFunc(props: {
               );
             })}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__zj0Dw)}>
-            <div className={classNames(projectcss.all, sty.freeBox___2VBkO)}>
+          <div className={classNames("all", sty.freeBox__zj0Dw)}>
+            <div className={classNames("all", sty.freeBox___2VBkO)}>
               <Icon337Icon
-                className={classNames(projectcss.all, sty.svg__ytSe)}
+                className={classNames("all", sty.svg__ytSe)}
                 role={"img"}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox___6Tdz5)}>
+              <div className={classNames("all", sty.freeBox___6Tdz5)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__snuoC
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__snuoC)}
                 >
                   {
                     "\u0645\u0627 \u0627\u0631\u0633\u0627\u0644 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc \u0634\u0645\u0627 \u0631\u0627 \u062a\u0636\u0645\u06cc\u0646 \u0645\u06cc\u200c\u06a9\u0646\u06cc\u0645."
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tsqc2
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__tsqc2)}
                 >
                   {"\u0628\u0627 \u062f\u0642\u062a \u06f9\u06f9.\u06f9\u066a"}
                 </div>
@@ -432,9 +414,9 @@ function PlasmicTariff__RenderFunc(props: {
         data-plasmic-override={overrides.headerLiom}
         className={classNames("__wab_instance", sty.headerLiom)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox___2LVnk)}>
+        <div className={classNames("all", sty.freeBox___2LVnk)}>
           <XIcon
-            className={classNames(projectcss.all, sty.svg__zZz9O)}
+            className={classNames("all", sty.svg__zZz9O)}
             onClick={async event => {
               const $steps = {};
 
@@ -457,13 +439,7 @@ function PlasmicTariff__RenderFunc(props: {
             role={"img"}
           />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__nhZNz
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__nhZNz)}>
             {"\u062a\u0639\u0631\u0641\u0647 "}
           </div>
         </div>

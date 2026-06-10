@@ -71,7 +71,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReminderShop.module.css"; // plasmic-import: 3q6J_8ClWpvX/css
 
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
@@ -155,12 +154,6 @@ function PlasmicReminderShop__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -270,6 +263,13 @@ function PlasmicReminderShop__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -288,9 +288,9 @@ function PlasmicReminderShop__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       className={classNames(
         "__wab_instance",
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.dialog3
       )}
@@ -356,9 +356,9 @@ function PlasmicReminderShop__RenderFunc(props: {
         )
       })}
       themeResetClass={classNames(
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames
       )}
       triggerSlot={
@@ -369,7 +369,7 @@ function PlasmicReminderShop__RenderFunc(props: {
           color={generateStateValueProp($state, ["button3", "color"])}
           endIcon={
             <ChevronLeftIcon
-              className={classNames(projectcss.all, sty.svg__upx3Z)}
+              className={classNames("all", sty.svg__upx3Z)}
               role={"img"}
             />
           }
@@ -422,7 +422,7 @@ function PlasmicReminderShop__RenderFunc(props: {
           }}
           startIcon={
             <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__apoxf)}
+              className={classNames("all", sty.svg__apoxf)}
               role={"img"}
             />
           }
@@ -446,31 +446,22 @@ function PlasmicReminderShop__RenderFunc(props: {
         }
         exitDuration={0.5}
         themeResetClass={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
       >
         <DialogTitle
           className={classNames("__wab_instance", sty.dialogTitle__pDxSr)}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___6Y6Yw
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text___6Y6Yw)}>
             {"Sheet title"}
           </div>
         </DialogTitle>
-        <div className={classNames(projectcss.all, sty.freeBox__h7SWx)}>
-          <div
-            className={classNames(projectcss.all, sty.freeBox__hbHmY)}
-            dir={"rtl"}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__mgQm3)} />
+        <div className={classNames("all", sty.freeBox__h7SWx)}>
+          <div className={classNames("all", sty.freeBox__hbHmY)} dir={"rtl"}>
+            <div className={classNames("all", sty.freeBox__mgQm3)} />
 
             <DialogTitle
               className={classNames("__wab_instance", sty.dialogTitle__qhn0N)}
@@ -478,14 +469,10 @@ function PlasmicReminderShop__RenderFunc(props: {
               <h5
                 data-plasmic-name={"h5"}
                 data-plasmic-override={overrides.h5}
-                className={classNames(projectcss.all, projectcss.h5, sty.h5)}
+                className={classNames("all", "h5", "h5__suVPi", sty.h5)}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__x5JtE
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__x5JtE)}
                 >
                   {
                     "\u0627\u0641\u0632\u0627\u06cc\u0634 \u0627\u0639\u062a\u0628\u0627\u0631"
@@ -500,11 +487,8 @@ function PlasmicReminderShop__RenderFunc(props: {
               </h5>
             </DialogTitle>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__doG54)}>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__dj26N)}
-              dir={"rtl"}
-            >
+          <div className={classNames("all", sty.freeBox__doG54)}>
+            <div className={classNames("all", sty.freeBox__dj26N)} dir={"rtl"}>
               <Input
                 data-plasmic-name={"input"}
                 data-plasmic-override={overrides.input}
@@ -556,7 +540,7 @@ function PlasmicReminderShop__RenderFunc(props: {
               />
 
               <TomanSvgIcon
-                className={classNames(projectcss.all, sty.svg__upiWq)}
+                className={classNames("all", sty.svg__upiWq)}
                 role={"img"}
               />
 
@@ -574,11 +558,7 @@ function PlasmicReminderShop__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__cvzTs
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__cvzTs)}
                 >
                   {
                     "\u0645\u0628\u0644\u063a \u0646\u0645\u06cc\u062a\u0648\u0627\u0646\u062f \u06a9\u0645\u062a\u0631 \u0627\u0632 20 \u0647\u0632\u0627\u0631 \u062a\u0648\u0645\u0627\u0646 \u0628\u0627\u0634\u062f."
@@ -599,11 +579,7 @@ function PlasmicReminderShop__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___3Hv7
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___3Hv7)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -1043,13 +1019,7 @@ function PlasmicReminderShop__RenderFunc(props: {
             }
           }}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__yDfxd
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__yDfxd)}>
             {"\u067e\u0631\u062f\u0627\u062e\u062a"}
           </div>
         </Button>

@@ -103,7 +103,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHamyar2.module.css"; // plasmic-import: lqbda80vTmgo/css
 
 import Icon271Icon from "./icons/PlasmicIcon__Icon271"; // plasmic-import: vZy72Clr16kL/icon
@@ -361,12 +360,6 @@ function PlasmicHamyar2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -2574,6 +2567,13 @@ function PlasmicHamyar2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -2606,10 +2606,10 @@ function PlasmicHamyar2__RenderFunc(props: {
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
         className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "all",
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames,
           sty.root,
           {
@@ -3100,7 +3100,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                         case "white":
                           if (
                             new Date(
-                              $steps.userdata.data.result.userStatus.fertilityStart
+                              $steps.userdata.data.result.userStatus
+                                .fertilityStart
                             ) > new Date()
                           )
                             return ($state.deleteDate =
@@ -4139,7 +4140,7 @@ function PlasmicHamyar2__RenderFunc(props: {
           <div
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
-            className={classNames(projectcss.all, sty.main, {
+            className={classNames("all", sty.main, {
               [sty.maineditCycle]: hasVariant($state, "editCycle", "editCycle"),
               [sty.maineditCycle_noPartner]:
                 hasVariant($state, "editCycle", "editCycle") &&
@@ -4159,7 +4160,7 @@ function PlasmicHamyar2__RenderFunc(props: {
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__lGncZ, {
+              className={classNames("all", sty.freeBox__lGncZ, {
                 [sty.freeBoxlackOfCourseInformation__lGncZmyTcU]: hasVariant(
                   $state,
                   "lackOfCourseInformation",
@@ -4194,7 +4195,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })()
               ) ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__dowdn, {
+                  className={classNames("all", sty.freeBox__dowdn, {
                     [sty.freeBoxlackOfCourseInformation__dowdnMyTcU]:
                       hasVariant(
                         $state,
@@ -4209,7 +4210,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__pfvJh, {
+                    className={classNames("all", sty.freeBox__pfvJh, {
                       [sty.freeBoxlackOfCourseInformation__pfvJhmyTcU]:
                         hasVariant(
                           $state,
@@ -4220,8 +4221,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__kf1Ya
                       )}
                       onClick={async event => {
@@ -4369,18 +4370,15 @@ function PlasmicHamyar2__RenderFunc(props: {
                         size={"compact"}
                         startIcon={
                           <Icon271Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__jQsho
-                            )}
+                            className={classNames("all", sty.svg__jQsho)}
                             role={"img"}
                           />
                         }
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___8IqIw
                           )}
                         >
@@ -4423,7 +4421,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })()
               ) ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__pgrQr, {
+                  className={classNames("all", sty.freeBox__pgrQr, {
                     [sty.freeBoxlackOfCourseInformation__pgrQrmyTcU]:
                       hasVariant(
                         $state,
@@ -4450,23 +4448,19 @@ function PlasmicHamyar2__RenderFunc(props: {
                         })()
                   ) ? (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__na4PE,
-                        {
-                          [sty.freeBoxlackOfCourseInformation__na4PEmyTcU]:
-                            hasVariant(
-                              $state,
-                              "lackOfCourseInformation",
-                              "lackOfCourseInformation"
-                            )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox__na4PE, {
+                        [sty.freeBoxlackOfCourseInformation__na4PEmyTcU]:
+                          hasVariant(
+                            $state,
+                            "lackOfCourseInformation",
+                            "lackOfCourseInformation"
+                          )
+                      })}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__zpYu
                         )}
                       >
@@ -4497,7 +4491,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                         )}
                       </div>
                       <Icon22Icon
-                        className={classNames(projectcss.all, sty.svg__lfRX)}
+                        className={classNames("all", sty.svg__lfRX)}
                         onClick={async event => {
                           const $steps = {};
 
@@ -4568,7 +4562,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 </div>
               ) : null}
               <div
-                className={classNames(projectcss.all, sty.freeBox__sGeVl, {
+                className={classNames("all", sty.freeBox__sGeVl, {
                   [sty.freeBoxlackOfCourseInformation__sGeVlmyTcU]: hasVariant(
                     $state,
                     "lackOfCourseInformation",
@@ -4584,7 +4578,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 <div
                   data-plasmic-name={"nopartner"}
                   data-plasmic-override={overrides.nopartner}
-                  className={classNames(projectcss.all, sty.nopartner, {
+                  className={classNames("all", sty.nopartner, {
                     [sty.nopartnerlackOfCourseInformation]: hasVariant(
                       $state,
                       "lackOfCourseInformation",
@@ -4622,17 +4616,13 @@ function PlasmicHamyar2__RenderFunc(props: {
                       : true
                   ) ? (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___10Rao,
-                        {
-                          [sty.freeBoxnoPartner___10RaomzwVj]: hasVariant(
-                            $state,
-                            "noPartner",
-                            "noPartner"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox___10Rao, {
+                        [sty.freeBoxnoPartner___10RaomzwVj]: hasVariant(
+                          $state,
+                          "noPartner",
+                          "noPartner"
+                        )
+                      })}
                     >
                       <LottieWrapper
                         animationData={
@@ -5939,8 +5929,8 @@ function PlasmicHamyar2__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__oxa4Q,
                           {
                             [sty.textnoPartner__oxa4QmzwVj]: hasVariant(
@@ -6580,12 +6570,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                           ? "\u0627\u0641\u0632\u0648\u062f\u0646 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0642\u0627\u0639\u062f\u06af\u06cc"
                           : " "}
                       </Button>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___6ZfXr
-                        )}
-                      />
+                      <div className={classNames("all", sty.freeBox___6ZfXr)} />
                     </div>
                   ) : null}
                   {(
@@ -6606,22 +6591,18 @@ function PlasmicHamyar2__RenderFunc(props: {
                       : true
                   ) ? (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___3ZXUx,
-                        {
-                          [sty.freeBoxnoPartner___3ZXUxmzwVj]: hasVariant(
-                            $state,
-                            "noPartner",
-                            "noPartner"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox___3ZXUx, {
+                        [sty.freeBoxnoPartner___3ZXUxmzwVj]: hasVariant(
+                          $state,
+                          "noPartner",
+                          "noPartner"
+                        )
+                      })}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__pibpg,
                           {
                             [sty.textnoPartner__pibpgmzwVj]: hasVariant(
@@ -6786,7 +6767,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 <div
                   data-plasmic-name={"noData"}
                   data-plasmic-override={overrides.noData}
-                  className={classNames(projectcss.all, sty.noData, {
+                  className={classNames("all", sty.noData, {
                     [sty.noDatalackOfCourseInformation]: hasVariant(
                       $state,
                       "lackOfCourseInformation",
@@ -8041,8 +8022,8 @@ function PlasmicHamyar2__RenderFunc(props: {
 
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__ll3Wk,
                       {
                         [sty.textlackOfCourseInformation__ll3WkMyTcU]:
@@ -8508,7 +8489,7 @@ function PlasmicHamyar2__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__imjXn,
                           hasVariant(globalVariants, "screen", "mobile")
                             ? "progress_man_peragnencyM"
@@ -8557,8 +8538,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                   slot2={
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__cSvwQ
                       )}
                     >
@@ -8614,8 +8595,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                   slot3={
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__g2Tfz
                       )}
                     >
@@ -8670,9 +8651,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   ])}
                   userData={$state.userdata}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___6Qvf9)}
-                  >
+                  <div className={classNames("all", sty.freeBox___6Qvf9)}>
                     <LineClomp
                       data-plasmic-name={"lineClomp"}
                       data-plasmic-override={overrides.lineClomp}
@@ -8693,16 +8672,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                         }
                       }}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wV0S2
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__wV0S2)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__ncdMq
                           )}
                           style={
@@ -8768,8 +8742,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                     </LineClomp>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___3Slw5
                       )}
                       style={(() => {
@@ -8829,7 +8803,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   </div>
                 </Cyclebox>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__b8Amb, {
+                  className={classNames("all", sty.freeBox__b8Amb, {
                     [sty.freeBoxnoPartner__b8AmbmzwVj]: hasVariant(
                       $state,
                       "noPartner",
@@ -8854,61 +8828,52 @@ function PlasmicHamyar2__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__fIfk3,
-                        {
-                          [sty.freeBoxnoPartner__fIfk3MzwVj]: hasVariant(
+                      className={classNames("all", sty.freeBox__fIfk3, {
+                        [sty.freeBoxnoPartner__fIfk3MzwVj]: hasVariant(
+                          $state,
+                          "noPartner",
+                          "noPartner"
+                        ),
+                        [sty.freeBoxpage_reminder__fIfk3OYwi]: hasVariant(
+                          $state,
+                          "page",
+                          "reminder"
+                        ),
+                        [sty.freeBoxremindersetting__fIfk3CnrNq]: hasVariant(
+                          $state,
+                          "remindersetting",
+                          "remindersetting"
+                        )
+                      })}
+                    >
+                      <div
+                        className={classNames("all", sty.freeBox__k0NxD, {
+                          [sty.freeBoxnoPartner__k0NxDmzwVj]: hasVariant(
                             $state,
                             "noPartner",
                             "noPartner"
                           ),
-                          [sty.freeBoxpage_reminder__fIfk3OYwi]: hasVariant(
+                          [sty.freeBoxpage_reminder__k0NxDoYwi]: hasVariant(
                             $state,
                             "page",
                             "reminder"
                           ),
-                          [sty.freeBoxremindersetting__fIfk3CnrNq]: hasVariant(
+                          [sty.freeBoxremindersetting__k0NxDcnrNq]: hasVariant(
                             $state,
                             "remindersetting",
                             "remindersetting"
                           )
-                        }
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__k0NxD,
-                          {
-                            [sty.freeBoxnoPartner__k0NxDmzwVj]: hasVariant(
-                              $state,
-                              "noPartner",
-                              "noPartner"
-                            ),
-                            [sty.freeBoxpage_reminder__k0NxDoYwi]: hasVariant(
-                              $state,
-                              "page",
-                              "reminder"
-                            ),
-                            [sty.freeBoxremindersetting__k0NxDcnrNq]:
-                              hasVariant(
-                                $state,
-                                "remindersetting",
-                                "remindersetting"
-                              )
-                          }
-                        )}
+                        })}
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__o1Za5
                           )}
                         >
                           <div
-                            className={projectcss.__wab_expr_html_text}
+                            className={"__wab_expr_html_text"}
                             dangerouslySetInnerHTML={{
                               __html: (() => {
                                 try {
@@ -9039,18 +9004,15 @@ function PlasmicHamyar2__RenderFunc(props: {
                         size={"compact"}
                         startIcon={
                           <Icon304Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__yDzH
-                            )}
+                            className={classNames("all", sty.svg__yDzH)}
                             role={"img"}
                           />
                         }
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__qHub6
                           )}
                         >
@@ -9074,7 +9036,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     </div>
                   ) : null}
                   <div
-                    className={classNames(projectcss.all, sty.freeBox___8Wtm, {
+                    className={classNames("all", sty.freeBox___8Wtm, {
                       [sty.freeBoxnoPartner___8WtmmzwVj]: hasVariant(
                         $state,
                         "noPartner",
@@ -9093,7 +9055,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__sOt2, {
+                      className={classNames("all", sty.freeBox__sOt2, {
                         [sty.freeBoxnoPartner__sOt2MzwVj]: hasVariant(
                           $state,
                           "noPartner",
@@ -9117,20 +9079,20 @@ function PlasmicHamyar2__RenderFunc(props: {
                             ? Icon280Icon
                             : Icon280Icon
                         }
-                        className={classNames(projectcss.all, sty.svg__gMF1)}
+                        className={classNames("all", sty.svg__gMF1)}
                         role={"img"}
                       />
 
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__uxd4D
                         )}
                       >
                         {hasVariant(globalVariants, "screen", "mobile") ? (
                           <div
-                            className={projectcss.__wab_expr_html_text}
+                            className={"__wab_expr_html_text"}
                             dangerouslySetInnerHTML={{
                               __html: (() => {
                                 try {
@@ -9150,7 +9112,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                           />
                         ) : (
                           <div
-                            className={projectcss.__wab_expr_html_text}
+                            className={"__wab_expr_html_text"}
                             dangerouslySetInnerHTML={{
                               __html: (() => {
                                 try {
@@ -9172,27 +9134,23 @@ function PlasmicHamyar2__RenderFunc(props: {
                       </div>
                     </div>
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__pfoP6,
-                        {
-                          [sty.freeBoxnoPartner__pfoP6MzwVj]: hasVariant(
-                            $state,
-                            "noPartner",
-                            "noPartner"
-                          ),
-                          [sty.freeBoxpage_reminder__pfoP6OYwi]: hasVariant(
-                            $state,
-                            "page",
-                            "reminder"
-                          ),
-                          [sty.freeBoxremindersetting__pfoP6CnrNq]: hasVariant(
-                            $state,
-                            "remindersetting",
-                            "remindersetting"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox__pfoP6, {
+                        [sty.freeBoxnoPartner__pfoP6MzwVj]: hasVariant(
+                          $state,
+                          "noPartner",
+                          "noPartner"
+                        ),
+                        [sty.freeBoxpage_reminder__pfoP6OYwi]: hasVariant(
+                          $state,
+                          "page",
+                          "reminder"
+                        ),
+                        [sty.freeBoxremindersetting__pfoP6CnrNq]: hasVariant(
+                          $state,
+                          "remindersetting",
+                          "remindersetting"
+                        )
+                      })}
                     >
                       {(
                         hasVariant(globalVariants, "screen", "mobile")
@@ -9229,22 +9187,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                               }
                             })()
                       ) ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__vc8Sj
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__vc8Sj)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__jG7Xi
-                            )}
+                            className={classNames("all", sty.freeBox__jG7Xi)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text___2Rdnf
                               )}
                             >
@@ -9254,8 +9204,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                             </div>
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__cPpwx
                               )}
                             >
@@ -9308,22 +9258,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__j9E9U
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__j9E9U)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___0Ji4G
-                            )}
+                            className={classNames("all", sty.freeBox___0Ji4G)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text___2A2Mj
                               )}
                             >
@@ -9333,8 +9275,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                             </div>
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__w98Lg,
                                 {
                                   [sty.textnoPartner__w98LgmzwVj]: hasVariant(
@@ -9350,7 +9292,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                                   try {
                                     return (() => {
                                       let future1 = new Date(
-                                        $state.userdata?.result?.userStatus.pmsStart
+                                        $state.userdata?.result?.userStatus
+                                          .pmsStart
                                       );
                                       let current_date1 = new Date();
                                       let delta1 = future1 - current_date1;
@@ -9393,22 +9336,18 @@ function PlasmicHamyar2__RenderFunc(props: {
                         }
                       })() ? (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__hjNzg,
-                            {
-                              [sty.freeBoxnoPartner__hjNzgmzwVj]: hasVariant(
-                                $state,
-                                "noPartner",
-                                "noPartner"
-                              )
-                            }
-                          )}
+                          className={classNames("all", sty.freeBox__hjNzg, {
+                            [sty.freeBoxnoPartner__hjNzgmzwVj]: hasVariant(
+                              $state,
+                              "noPartner",
+                              "noPartner"
+                            )
+                          })}
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__h48W0
                             )}
                           >
@@ -9418,8 +9357,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                           </div>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__lPQh4
                             )}
                           >
@@ -9466,17 +9405,13 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </div>
                       ) : null}
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__tVoZt,
-                          {
-                            [sty.freeBoxnoPartner__tVoZTmzwVj]: hasVariant(
-                              $state,
-                              "noPartner",
-                              "noPartner"
-                            )
-                          }
-                        )}
+                        className={classNames("all", sty.freeBox__tVoZt, {
+                          [sty.freeBoxnoPartner__tVoZTmzwVj]: hasVariant(
+                            $state,
+                            "noPartner",
+                            "noPartner"
+                          )
+                        })}
                       />
 
                       {(_par =>
@@ -9557,29 +9492,22 @@ function PlasmicHamyar2__RenderFunc(props: {
                         const currentIndex = __plasmic_idx_0;
                         return (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__gIyQi,
-                              {
-                                [sty.freeBoxnoPartner__gIyQimzwVj]: hasVariant(
-                                  $state,
-                                  "noPartner",
-                                  "noPartner"
-                                )
-                              }
-                            )}
+                            className={classNames("all", sty.freeBox__gIyQi, {
+                              [sty.freeBoxnoPartner__gIyQimzwVj]: hasVariant(
+                                $state,
+                                "noPartner",
+                                "noPartner"
+                              )
+                            })}
                             key={currentIndex}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___72RBf
-                              )}
+                              className={classNames("all", sty.freeBox___72RBf)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__yjFrb
                                 )}
                               >
@@ -9608,8 +9536,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                               </div>
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__ns3
                                 )}
                                 style={
@@ -9789,15 +9717,15 @@ function PlasmicHamyar2__RenderFunc(props: {
                       size={"compact"}
                       startIcon={
                         <Icon304Icon
-                          className={classNames(projectcss.all, sty.svg__gr4NZ)}
+                          className={classNames("all", sty.svg__gr4NZ)}
                           role={"img"}
                         />
                       }
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__vzqck
                         )}
                       >
@@ -9841,7 +9769,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__r5Uxy, {
+                  className={classNames("all", sty.freeBox__r5Uxy, {
                     [sty.freeBoxlackOfCourseInformation__r5UxyMyTcU]:
                       hasVariant(
                         $state,
@@ -9944,7 +9872,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__mVt9F, {
+                    className={classNames("all", sty.freeBox__mVt9F, {
                       [sty.freeBoxlackOfCourseInformation__mVt9FmyTcU]:
                         hasVariant(
                           $state,
@@ -9954,7 +9882,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__m71M, {
+                      className={classNames("all", sty.freeBox__m71M, {
                         [sty.freeBoxnoPartner__m71MmzwVj]: hasVariant(
                           $state,
                           "noPartner",
@@ -11990,16 +11918,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                         )}
                       />
 
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wyGlO
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__wyGlO)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__lF4E
                           )}
                         >
@@ -12011,8 +11934,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__qsYm
                       )}
                     >
@@ -12023,8 +11946,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__btqCq,
                       {
                         [sty.textnoPartner__btqCqmzwVj]: hasVariant(
@@ -12126,7 +12049,7 @@ function PlasmicHamyar2__RenderFunc(props: {
               />
 
               <div
-                className={classNames(projectcss.all, sty.freeBox__dF2P4, {
+                className={classNames("all", sty.freeBox__dF2P4, {
                   [sty.freeBoxlackOfCourseInformation__dF2P4MyTcU]: hasVariant(
                     $state,
                     "lackOfCourseInformation",
@@ -12140,7 +12063,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__kQelz, {
+                  className={classNames("all", sty.freeBox__kQelz, {
                     [sty.freeBoxlackOfCourseInformation__kQelzmyTcU]:
                       hasVariant(
                         $state,
@@ -12149,31 +12072,25 @@ function PlasmicHamyar2__RenderFunc(props: {
                       )
                   })}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__tlYo7)}
-                  >
+                  <div className={classNames("all", sty.freeBox__tlYo7)}>
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___00Op,
-                        {
-                          [sty.freeBoxnoPartner___00OpMzwVj]: hasVariant(
-                            $state,
-                            "noPartner",
-                            "noPartner"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox___00Op, {
+                        [sty.freeBoxnoPartner___00OpMzwVj]: hasVariant(
+                          $state,
+                          "noPartner",
+                          "noPartner"
+                        )
+                      })}
                     >
                       <Icon281Icon
-                        className={classNames(projectcss.all, sty.svg__qaQh9)}
+                        className={classNames("all", sty.svg__qaQh9)}
                         role={"img"}
                       />
 
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__jFo00,
                           {
                             [sty.textlackOfCourseInformation__jFo00MyTcU]:
@@ -12187,7 +12104,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       >
                         {hasVariant(globalVariants, "screen", "mobile") ? (
                           <div
-                            className={projectcss.__wab_expr_html_text}
+                            className={"__wab_expr_html_text"}
                             dangerouslySetInnerHTML={{
                               __html: (() => {
                                 try {
@@ -12207,7 +12124,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                           />
                         ) : (
                           <div
-                            className={projectcss.__wab_expr_html_text}
+                            className={"__wab_expr_html_text"}
                             dangerouslySetInnerHTML={{
                               __html: (() => {
                                 try {
@@ -12229,13 +12146,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                       </div>
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__styYt)}
-                  >
+                  <div className={classNames("all", sty.freeBox__styYt)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__byZlC
                       )}
                     >
@@ -12294,7 +12209,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       })()
               ) ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__z0Uh, {
+                  className={classNames("all", sty.freeBox__z0Uh, {
                     [sty.freeBoxlackOfCourseInformation__z0UhMyTcU]: hasVariant(
                       $state,
                       "lackOfCourseInformation",
@@ -12303,7 +12218,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__ukgN8, {
+                    className={classNames("all", sty.freeBox__ukgN8, {
                       [sty.freeBoxlackOfCourseInformation__ukgN8MyTcU]:
                         hasVariant(
                           $state,
@@ -12312,21 +12227,16 @@ function PlasmicHamyar2__RenderFunc(props: {
                         )
                     })}
                   >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___2PEqv
-                      )}
-                    >
+                    <div className={classNames("all", sty.freeBox___2PEqv)}>
                       <Icon282Icon
-                        className={classNames(projectcss.all, sty.svg__aoF7H)}
+                        className={classNames("all", sty.svg__aoF7H)}
                         role={"img"}
                       />
 
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___9QaC1,
                           {
                             [sty.textnoPartner___9QaC1MzwVj]: hasVariant(
@@ -12339,7 +12249,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       >
                         {hasVariant($state, "noPartner", "noPartner") ? (
                           <div
-                            className={projectcss.__wab_expr_html_text}
+                            className={"__wab_expr_html_text"}
                             dangerouslySetInnerHTML={{
                               __html: (() => {
                                 try {
@@ -12359,7 +12269,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                           />
                         ) : hasVariant(globalVariants, "screen", "mobile") ? (
                           <div
-                            className={projectcss.__wab_expr_html_text}
+                            className={"__wab_expr_html_text"}
                             dangerouslySetInnerHTML={{
                               __html: (() => {
                                 try {
@@ -12383,7 +12293,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                           />
                         ) : (
                           <div
-                            className={projectcss.__wab_expr_html_text}
+                            className={"__wab_expr_html_text"}
                             dangerouslySetInnerHTML={{
                               __html: (() => {
                                 try {
@@ -12408,9 +12318,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                         )}
                       </div>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__huyvo)}
-                    >
+                    <div className={classNames("all", sty.freeBox__huyvo)}>
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
@@ -12688,14 +12596,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox___26L6S
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__jfM4F
                                   )}
                                 >
@@ -12732,14 +12640,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 })() ? (
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__z1WD
                                     )}
                                   >
                                     <div
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
+                                        "all",
+                                        "__wab_text",
                                         sty.text__i3FWq
                                       )}
                                     >
@@ -12762,14 +12670,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                                     </div>
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox___0Rbs4
                                       )}
                                     >
                                       <div
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
+                                          "all",
+                                          "__wab_text",
                                           sty.text__sh8HM
                                         )}
                                         onClick={async event => {
@@ -12883,7 +12791,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })()
               ) ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___0Nwqk, {
+                  className={classNames("all", sty.freeBox___0Nwqk, {
                     [sty.freeBoxlackOfCourseInformation___0NwqkmyTcU]:
                       hasVariant(
                         $state,
@@ -12893,7 +12801,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__cg2Ye, {
+                    className={classNames("all", sty.freeBox__cg2Ye, {
                       [sty.freeBoxnoPartner__cg2YemzwVj]: hasVariant(
                         $state,
                         "noPartner",
@@ -12902,28 +12810,24 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })}
                   >
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__vI42K,
-                        {
-                          [sty.freeBoxlackOfCourseInformation__vI42KmyTcU]:
-                            hasVariant(
-                              $state,
-                              "lackOfCourseInformation",
-                              "lackOfCourseInformation"
-                            ),
-                          [sty.freeBoxnoPartner__vI42KmzwVj]: hasVariant(
+                      className={classNames("all", sty.freeBox__vI42K, {
+                        [sty.freeBoxlackOfCourseInformation__vI42KmyTcU]:
+                          hasVariant(
                             $state,
-                            "noPartner",
-                            "noPartner"
-                          )
-                        }
-                      )}
+                            "lackOfCourseInformation",
+                            "lackOfCourseInformation"
+                          ),
+                        [sty.freeBoxnoPartner__vI42KmzwVj]: hasVariant(
+                          $state,
+                          "noPartner",
+                          "noPartner"
+                        )
+                      })}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__xCAuS,
                           {
                             [sty.textlackOfCourseInformation__xCAuSmyTcU]:
@@ -12978,28 +12882,24 @@ function PlasmicHamyar2__RenderFunc(props: {
                             })()
                     ) ? (
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__nlQxD,
-                          {
-                            [sty.freeBoxlackOfCourseInformation__nlQxDmyTcU]:
-                              hasVariant(
-                                $state,
-                                "lackOfCourseInformation",
-                                "lackOfCourseInformation"
-                              ),
-                            [sty.freeBoxnoPartner__nlQxDmzwVj]: hasVariant(
+                        className={classNames("all", sty.freeBox__nlQxD, {
+                          [sty.freeBoxlackOfCourseInformation__nlQxDmyTcU]:
+                            hasVariant(
                               $state,
-                              "noPartner",
-                              "noPartner"
-                            )
-                          }
-                        )}
+                              "lackOfCourseInformation",
+                              "lackOfCourseInformation"
+                            ),
+                          [sty.freeBoxnoPartner__nlQxDmzwVj]: hasVariant(
+                            $state,
+                            "noPartner",
+                            "noPartner"
+                          )
+                        })}
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__sRjou,
                             {
                               [sty.textnoPartner__sRjoUmzwVj]: hasVariant(
@@ -13032,8 +12932,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__oA8R
                           )}
                         >
@@ -13049,10 +12949,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                           triggerOnce={true}
                         >
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__bz7FT
-                            )}
+                            className={classNames("all", sty.freeBox__bz7FT)}
                           >
                             {(_par =>
                               !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -13623,8 +13520,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                             })}
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__kdLxA
                               )}
                             >
@@ -13662,28 +13559,24 @@ function PlasmicHamyar2__RenderFunc(props: {
                             })()
                     ) ? (
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__tq8Pl,
-                          {
-                            [sty.freeBoxlackOfCourseInformation__tq8PlMyTcU]:
-                              hasVariant(
-                                $state,
-                                "lackOfCourseInformation",
-                                "lackOfCourseInformation"
-                              ),
-                            [sty.freeBoxnoPartner__tq8PlmzwVj]: hasVariant(
+                        className={classNames("all", sty.freeBox__tq8Pl, {
+                          [sty.freeBoxlackOfCourseInformation__tq8PlMyTcU]:
+                            hasVariant(
                               $state,
-                              "noPartner",
-                              "noPartner"
-                            )
-                          }
-                        )}
+                              "lackOfCourseInformation",
+                              "lackOfCourseInformation"
+                            ),
+                          [sty.freeBoxnoPartner__tq8PlmzwVj]: hasVariant(
+                            $state,
+                            "noPartner",
+                            "noPartner"
+                          )
+                        })}
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__jrDl6,
                             {
                               [sty.textnoPartner__jrDl6MzwVj]: hasVariant(
@@ -13716,8 +13609,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__vqDj,
                             {
                               [sty.textnoPartner__vqDjmzwVj]: hasVariant(
@@ -13732,12 +13625,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                             "\u0628\u0631\u0627\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u06a9\u0631\u062f\u0646 \u0631\u0648\u06cc \u0647\u0631 \u0645\u0648\u0636\u0648\u0639 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646 \u0648 \u062a\u0648\u0636\u06cc\u062d\u0627\u062a\u0634 \u0631\u0648 \u0628\u062e\u0648\u0646."
                           }
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__rOs83
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__rOs83)}>
                           {(_par =>
                             !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                             (() => {
@@ -14388,8 +14276,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                           })}
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__irEft
                             )}
                           >
@@ -14401,7 +14289,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     <div
                       data-plasmic-name={"nopartner2"}
                       data-plasmic-override={overrides.nopartner2}
-                      className={classNames(projectcss.all, sty.nopartner2, {
+                      className={classNames("all", sty.nopartner2, {
                         [sty.nopartner2lackOfCourseInformation]: hasVariant(
                           $state,
                           "lackOfCourseInformation",
@@ -14432,17 +14320,13 @@ function PlasmicHamyar2__RenderFunc(props: {
                           : true
                       ) ? (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__zc0NH,
-                            {
-                              [sty.freeBoxnoPartner__zc0NHmzwVj]: hasVariant(
-                                $state,
-                                "noPartner",
-                                "noPartner"
-                              )
-                            }
-                          )}
+                          className={classNames("all", sty.freeBox__zc0NH, {
+                            [sty.freeBoxnoPartner__zc0NHmzwVj]: hasVariant(
+                              $state,
+                              "noPartner",
+                              "noPartner"
+                            )
+                          })}
                         >
                           <LottieWrapper
                             animationData={
@@ -15798,8 +15682,8 @@ function PlasmicHamyar2__RenderFunc(props: {
 
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__j7XQa,
                               {
                                 [sty.textnoPartner__j7XQamzwVj]: hasVariant(
@@ -15834,22 +15718,18 @@ function PlasmicHamyar2__RenderFunc(props: {
                           : true
                       ) ? (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__cBrFg,
-                            {
-                              [sty.freeBoxnoPartner__cBrFGmzwVj]: hasVariant(
-                                $state,
-                                "noPartner",
-                                "noPartner"
-                              )
-                            }
-                          )}
+                          className={classNames("all", sty.freeBox__cBrFg, {
+                            [sty.freeBoxnoPartner__cBrFGmzwVj]: hasVariant(
+                              $state,
+                              "noPartner",
+                              "noPartner"
+                            )
+                          })}
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__lpSqY,
                               {
                                 [sty.textnoPartner__lpSqYmzwVj]: hasVariant(
@@ -16011,8 +15891,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__rcjB,
                                 {
                                   [sty.textnoPartner__rcjBmzwVj]: hasVariant(
@@ -16058,7 +15938,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 <div
                   data-plasmic-name={"reminderSub2"}
                   data-plasmic-override={overrides.reminderSub2}
-                  className={classNames(projectcss.all, sty.reminderSub2, {
+                  className={classNames("all", sty.reminderSub2, {
                     [sty.reminderSub2lackOfCourseInformation]: hasVariant(
                       $state,
                       "lackOfCourseInformation",
@@ -16072,7 +15952,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox___1UDay, {
+                    className={classNames("all", sty.freeBox___1UDay, {
                       [sty.freeBoxnoPartner___1UDaYmzwVj]: hasVariant(
                         $state,
                         "noPartner",
@@ -16081,28 +15961,24 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })}
                   >
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__nsXn9,
-                        {
-                          [sty.freeBoxlackOfCourseInformation__nsXn9MyTcU]:
-                            hasVariant(
-                              $state,
-                              "lackOfCourseInformation",
-                              "lackOfCourseInformation"
-                            ),
-                          [sty.freeBoxnoPartner__nsXn9MzwVj]: hasVariant(
+                      className={classNames("all", sty.freeBox__nsXn9, {
+                        [sty.freeBoxlackOfCourseInformation__nsXn9MyTcU]:
+                          hasVariant(
                             $state,
-                            "noPartner",
-                            "noPartner"
-                          )
-                        }
-                      )}
+                            "lackOfCourseInformation",
+                            "lackOfCourseInformation"
+                          ),
+                        [sty.freeBoxnoPartner__nsXn9MzwVj]: hasVariant(
+                          $state,
+                          "noPartner",
+                          "noPartner"
+                        )
+                      })}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__ilJe,
                           {
                             [sty.textlackOfCourseInformation__ilJeMyTcU]:
@@ -16129,7 +16005,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                           : "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646!"}
                       </div>
                       <XIcon
-                        className={classNames(projectcss.all, sty.svg__bvWc)}
+                        className={classNames("all", sty.svg__bvWc)}
                         onClick={async event => {
                           const $steps = {};
 
@@ -16163,23 +16039,19 @@ function PlasmicHamyar2__RenderFunc(props: {
                       />
                     </div>
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__oIk5R,
-                        {
-                          [sty.freeBoxlackOfCourseInformation__oIk5RMyTcU]:
-                            hasVariant(
-                              $state,
-                              "lackOfCourseInformation",
-                              "lackOfCourseInformation"
-                            ),
-                          [sty.freeBoxnoPartner__oIk5RmzwVj]: hasVariant(
+                      className={classNames("all", sty.freeBox__oIk5R, {
+                        [sty.freeBoxlackOfCourseInformation__oIk5RMyTcU]:
+                          hasVariant(
                             $state,
-                            "noPartner",
-                            "noPartner"
-                          )
-                        }
-                      )}
+                            "lackOfCourseInformation",
+                            "lackOfCourseInformation"
+                          ),
+                        [sty.freeBoxnoPartner__oIk5RmzwVj]: hasVariant(
+                          $state,
+                          "noPartner",
+                          "noPartner"
+                        )
+                      })}
                     >
                       {renderPlasmicSlot({
                         defaultContents: (
@@ -16213,7 +16085,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__llUq5, {
+                  className={classNames("all", sty.freeBox__llUq5, {
                     [sty.freeBoxnoPartner__llUq5MzwVj]: hasVariant(
                       $state,
                       "noPartner",
@@ -16306,7 +16178,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       : true
                   ) ? (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__hoJpm)}
+                      className={classNames("all", sty.freeBox__hoJpm)}
                       style={(() => {
                         try {
                           return (() => {
@@ -16331,8 +16203,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__aiHbz
                         )}
                       >
@@ -16392,16 +16264,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__oSwU
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__oSwU)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__ch6Fu
                           )}
                         >
@@ -16419,9 +16286,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                 data-plasmic-override={overrides.modal2}
                 className={classNames("__wab_instance", sty.modal2)}
                 defaultStylesClassName={classNames(
-                  projectcss.root_reset,
-                  projectcss.plasmic_default_styles,
-                  projectcss.plasmic_mixins,
+                  "root_reset_suVPi77vb6vv9K5rYJwyxC",
+                  "plasmic_default_styles",
+                  "plasmic_mixins",
                   styleTokensClassNames
                 )}
                 hideFooter={true}
@@ -16435,11 +16302,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 open={generateStateValueProp($state, ["modal2", "open"])}
                 title={
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__eMOqE
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__eMOqE)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -16460,13 +16323,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                 }
                 trigger={null}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__n9Z7N)}>
+                <div className={classNames("all", sty.freeBox__n9Z7N)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__yIt
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__yIt)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -16497,9 +16356,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                   )
                 })}
                 defaultStylesClassName={classNames(
-                  projectcss.root_reset,
-                  projectcss.plasmic_default_styles,
-                  projectcss.plasmic_mixins,
+                  "root_reset_suVPi77vb6vv9K5rYJwyxC",
+                  "plasmic_default_styles",
+                  "plasmic_mixins",
                   styleTokensClassNames
                 )}
                 hideFooter={true}
@@ -16513,11 +16372,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 open={generateStateValueProp($state, ["modal3", "open"])}
                 title={
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__eacIi
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__eacIi)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -16543,11 +16398,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                 }
                 trigger={null}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__vLOp)}>
+                <div className={classNames("all", sty.freeBox__vLOp)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___1Vllc
                     )}
                   >
@@ -16588,7 +16443,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___7DCf, {
+                  className={classNames("all", sty.freeBox___7DCf, {
                     [sty.freeBoxlackOfCourseInformation___7DCfMyTcU]:
                       hasVariant(
                         $state,
@@ -16635,37 +16490,29 @@ function PlasmicHamyar2__RenderFunc(props: {
                         })()
                   ) ? (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__dqcHi,
-                        {
-                          [sty.freeBoxlackOfCourseInformation__dqcHiMyTcU]:
+                      className={classNames("all", sty.freeBox__dqcHi, {
+                        [sty.freeBoxlackOfCourseInformation__dqcHiMyTcU]:
+                          hasVariant(
+                            $state,
+                            "lackOfCourseInformation",
+                            "lackOfCourseInformation"
+                          )
+                      })}
+                    >
+                      <div
+                        className={classNames("all", sty.freeBox__nx8Wg, {
+                          [sty.freeBoxlackOfCourseInformation__nx8WgmyTcU]:
                             hasVariant(
                               $state,
                               "lackOfCourseInformation",
                               "lackOfCourseInformation"
                             )
-                        }
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__nx8Wg,
-                          {
-                            [sty.freeBoxlackOfCourseInformation__nx8WgmyTcU]:
-                              hasVariant(
-                                $state,
-                                "lackOfCourseInformation",
-                                "lackOfCourseInformation"
-                              )
-                          }
-                        )}
+                        })}
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__z5Ymp
                           )}
                         >
@@ -16675,18 +16522,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </div>
                       </div>
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__cgXQf,
-                          {
-                            [sty.freeBoxlackOfCourseInformation__cgXQfMyTcU]:
-                              hasVariant(
-                                $state,
-                                "lackOfCourseInformation",
-                                "lackOfCourseInformation"
-                              )
-                          }
-                        )}
+                        className={classNames("all", sty.freeBox__cgXQf, {
+                          [sty.freeBoxlackOfCourseInformation__cgXQfMyTcU]:
+                            hasVariant(
+                              $state,
+                              "lackOfCourseInformation",
+                              "lackOfCourseInformation"
+                            )
+                        })}
                       >
                         {(() => {
                           try {
@@ -16703,16 +16546,18 @@ function PlasmicHamyar2__RenderFunc(props: {
                         })() ? (
                           <ol
                             className={classNames(
-                              projectcss.all,
-                              projectcss.ol,
+                              "all",
+                              "ol",
+                              "ol__suVPi",
                               sty.ol__asZq0
                             )}
                           >
                             <li
                               className={classNames(
-                                projectcss.all,
-                                projectcss.li,
-                                projectcss.__wab_text,
+                                "all",
+                                "li",
+                                "li__suVPi",
+                                "__wab_text",
                                 sty.li__vJh3V
                               )}
                             >
@@ -16722,7 +16567,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 "mobile"
                               ) ? (
                                 <div
-                                  className={projectcss.__wab_expr_html_text}
+                                  className={"__wab_expr_html_text"}
                                   dangerouslySetInnerHTML={{
                                     __html: (() => {
                                       try {
@@ -16744,7 +16589,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 />
                               ) : (
                                 <div
-                                  className={projectcss.__wab_expr_html_text}
+                                  className={"__wab_expr_html_text"}
                                   dangerouslySetInnerHTML={{
                                     __html: (() => {
                                       try {
@@ -16768,9 +16613,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                             </li>
                             <li
                               className={classNames(
-                                projectcss.all,
-                                projectcss.li,
-                                projectcss.__wab_text,
+                                "all",
+                                "li",
+                                "li__suVPi",
+                                "__wab_text",
                                 sty.li__hNMhZ
                               )}
                             >
@@ -16780,7 +16626,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 "mobile"
                               ) ? (
                                 <div
-                                  className={projectcss.__wab_expr_html_text}
+                                  className={"__wab_expr_html_text"}
                                   dangerouslySetInnerHTML={{
                                     __html: (() => {
                                       try {
@@ -16802,7 +16648,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 />
                               ) : (
                                 <div
-                                  className={projectcss.__wab_expr_html_text}
+                                  className={"__wab_expr_html_text"}
                                   dangerouslySetInnerHTML={{
                                     __html: (() => {
                                       try {
@@ -16826,9 +16672,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                             </li>
                             <li
                               className={classNames(
-                                projectcss.all,
-                                projectcss.li,
-                                projectcss.__wab_text,
+                                "all",
+                                "li",
+                                "li__suVPi",
+                                "__wab_text",
                                 sty.li__egcW
                               )}
                             >
@@ -16838,7 +16685,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 "mobile"
                               ) ? (
                                 <div
-                                  className={projectcss.__wab_expr_html_text}
+                                  className={"__wab_expr_html_text"}
                                   dangerouslySetInnerHTML={{
                                     __html: (() => {
                                       try {
@@ -16860,7 +16707,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 />
                               ) : (
                                 <div
-                                  className={projectcss.__wab_expr_html_text}
+                                  className={"__wab_expr_html_text"}
                                   dangerouslySetInnerHTML={{
                                     __html: (() => {
                                       try {
@@ -16886,8 +16733,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                         ) : null}
                         <ul
                           className={classNames(
-                            projectcss.all,
-                            projectcss.ul,
+                            "all",
+                            "ul",
+                            "ul__suVPi",
                             sty.ul__p7Tgr
                           )}
                         >
@@ -16912,8 +16760,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                             return (
                               <li
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.li,
+                                  "all",
+                                  "li",
+                                  "li__suVPi",
                                   sty.li__kxmZ6
                                 )}
                                 key={currentIndex}
@@ -17007,7 +16856,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__aOKa7
                                   )}
                                   style={(() => {
@@ -17032,7 +16881,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 >
                                   <Icon272Icon
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.svg__sN3Hx
                                     )}
                                     role={"img"}
@@ -17040,8 +16889,8 @@ function PlasmicHamyar2__RenderFunc(props: {
 
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__t23WI
                                     )}
                                   >
@@ -17064,7 +16913,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                   </div>
                                   <Icon142Icon
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.svg__qgHii
                                     )}
                                     role={"img"}
@@ -17079,9 +16928,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                           data-plasmic-override={overrides.shopText}
                           className={classNames("__wab_instance", sty.shopText)}
                           defaultStylesClassName={classNames(
-                            projectcss.root_reset,
-                            projectcss.plasmic_default_styles,
-                            projectcss.plasmic_mixins,
+                            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+                            "plasmic_default_styles",
+                            "plasmic_mixins",
                             styleTokensClassNames
                           )}
                           hideFooter={true}
@@ -17100,8 +16949,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                           title={
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text___2Jxnp
                               )}
                             >
@@ -17126,15 +16975,12 @@ function PlasmicHamyar2__RenderFunc(props: {
                           trigger={null}
                         >
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__ceJtk
-                            )}
+                            className={classNames("all", sty.freeBox__ceJtk)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__pvUfk
                               )}
                             >
@@ -17159,15 +17005,15 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </AntdModal>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__rYr8K
                           )}
                         >
                           <React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                               }
                               style={{ fontWeight: 700 }}
                             >
@@ -17194,17 +17040,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__jstqO
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__jstqO)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___5PpkX
-                            )}
+                            className={classNames("all", sty.freeBox___5PpkX)}
                           >
                             {(
                               hasVariant(globalVariants, "screen", "mobile")
@@ -17247,7 +17085,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                             ) ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__rVtYw
                                 )}
                                 style={(() => {
@@ -17271,8 +17109,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__qfV0
                                   )}
                                   style={(() => {
@@ -17316,15 +17154,12 @@ function PlasmicHamyar2__RenderFunc(props: {
                               </div>
                             ) : null}
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__kc3G
-                              )}
+                              className={classNames("all", sty.freeBox__kc3G)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text___8Kcv7
                                 )}
                               >
@@ -17367,14 +17202,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                               })() ? (
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__dqYof
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__kUiLi
                                     )}
                                   >
@@ -17401,10 +17236,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                               ) : null}
                             </div>
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__obc0F
-                              )}
+                              className={classNames("all", sty.freeBox__obc0F)}
                             >
                               {(() => {
                                 try {
@@ -17426,8 +17258,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                               })() ? (
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__creyd
                                   )}
                                 >
@@ -17453,14 +17285,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                               ) : null}
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__voAm6
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__uGoef
                                   )}
                                 >
@@ -17488,8 +17320,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 </div>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__gRt0S
                                   )}
                                 >
@@ -17529,8 +17361,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text___5Bge9
                                 )}
                                 onClick={async event => {
@@ -17599,13 +17431,13 @@ function PlasmicHamyar2__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__c79Pw
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__q7Rxj
                                   )}
                                 >
@@ -17660,7 +17492,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                       prefix: (
                                         <Icon10Icon
                                           className={classNames(
-                                            projectcss.all,
+                                            "all",
                                             sty.svg__gmMx
                                           )}
                                           role={"img"}
@@ -17724,7 +17556,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                   })() ? (
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox__jXq4E
                                       )}
                                       onClick={async event => {
@@ -18001,10 +17833,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                       ? Icon12Icon
                                       : Icon12Icon
                                   }
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__cAam4
-                                  )}
+                                  className={classNames("all", sty.svg__cAam4)}
                                   role={"img"}
                                 />
                               }
@@ -18474,8 +18303,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__rCiWc
                                 )}
                               >
@@ -18486,9 +18315,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                             </Button>
                             <p
                               className={classNames(
-                                projectcss.all,
-                                projectcss.p,
-                                projectcss.__wab_text,
+                                "all",
+                                "p",
+                                "p__suVPi",
+                                "__wab_text",
                                 sty.p__e8Jd8
                               )}
                               onClick={async event => {
@@ -18575,9 +18405,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                             ) ? (
                               <p
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.p,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "p",
+                                  "p__suVPi",
+                                  "__wab_text",
                                   sty.p__eyhm0
                                 )}
                                 onClick={async event => {
@@ -18680,12 +18511,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__mdObW
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__mdObW)}>
                           <Button
                             data-plasmic-name={"button7"}
                             data-plasmic-override={overrides.button7}
@@ -18704,10 +18530,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                     ? Icon12Icon
                                     : Icon12Icon
                                 }
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__laJtF
-                                )}
+                                className={classNames("all", sty.svg__laJtF)}
                                 role={"img"}
                               />
                             }
@@ -18855,8 +18678,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__eaf3N
                               )}
                             >
@@ -18881,8 +18704,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                 "\u0628\u0647\u0634 \u0628\u06af\u0648 \u062d\u0648\u0627\u0633\u0645 \u0628\u0647\u062a \u0647\u0633\u062a."
               }
             >
-              <div className={classNames(projectcss.all, sty.freeBox__n7X1H)}>
-                <div className={classNames(projectcss.all, sty.freeBox__j42Ax)}>
+              <div className={classNames("all", sty.freeBox__n7X1H)}>
+                <div className={classNames("all", sty.freeBox__j42Ax)}>
                   <Heart
                     data-plasmic-name={"heart"}
                     data-plasmic-override={overrides.heart}
@@ -18890,11 +18713,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   />
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__zmY3J
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__zmY3J)}
                 >
                   {
                     "\u0628\u0647\u0634 \u0628\u06af\u0648 \u062d\u0648\u0627\u0633\u0645 \u0628\u0647\u062a \u0647\u0633\u062a."
@@ -18928,7 +18747,7 @@ function PlasmicHamyar2__RenderFunc(props: {
           <div
             data-plasmic-name={"loading"}
             data-plasmic-override={overrides.loading}
-            className={classNames(projectcss.all, sty.loading, {
+            className={classNames("all", sty.loading, {
               [sty.loadingeditCycle]: hasVariant(
                 $state,
                 "editCycle",
@@ -18952,7 +18771,7 @@ function PlasmicHamyar2__RenderFunc(props: {
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__cyxQ, {
+              className={classNames("all", sty.freeBox__cyxQ, {
                 [sty.freeBoxnoPartner__cyxQmzwVj]: hasVariant(
                   $state,
                   "noPartner",
@@ -18961,7 +18780,7 @@ function PlasmicHamyar2__RenderFunc(props: {
               })}
             >
               <div
-                className={classNames(projectcss.all, sty.freeBox___1Qu63, {
+                className={classNames("all", sty.freeBox___1Qu63, {
                   [sty.freeBoxnoPartner___1Qu63MzwVj]: hasVariant(
                     $state,
                     "noPartner",
@@ -18970,7 +18789,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__ef4Rx, {
+                  className={classNames("all", sty.freeBox__ef4Rx, {
                     [sty.freeBoxnoPartner__ef4RxmzwVj]: hasVariant(
                       $state,
                       "noPartner",
@@ -18980,7 +18799,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox___0GWra,
                       "shimmer",
                       {
@@ -19004,12 +18823,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                     )}
                   />
 
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ozt4L)}
-                  >
+                  <div className={classNames("all", sty.freeBox__ozt4L)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__tfMux,
                         "shimmer"
                       )}
@@ -19017,7 +18834,7 @@ function PlasmicHamyar2__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__ukMvq,
                         "shimmer",
                         {
@@ -19031,10 +18848,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                     />
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__vjOfb)}>
+                <div className={classNames("all", sty.freeBox__vjOfb)}>
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox__zzgrA,
                       "shimmer",
                       {
@@ -19047,19 +18864,15 @@ function PlasmicHamyar2__RenderFunc(props: {
                     )}
                   />
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__pgolS)}>
+                <div className={classNames("all", sty.freeBox__pgolS)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__dwo6V,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__dwo6V, "shimmer")}
                   />
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__zRdjM)}>
+                <div className={classNames("all", sty.freeBox__zRdjM)}>
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox__uz3Fr,
                       "shimmer",
                       {
@@ -19115,7 +18928,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 })()
         ) ? (
           <div
-            className={classNames(projectcss.all, sty.freeBox__iEl, {
+            className={classNames("all", sty.freeBox__iEl, {
               [sty.freeBoxeditCycle__iEl4JCj]: hasVariant(
                 $state,
                 "editCycle",
@@ -19133,14 +18946,8 @@ function PlasmicHamyar2__RenderFunc(props: {
               )
             })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__pLzqu)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__iC7Pm
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__pLzqu)}>
+              <div className={classNames("all", "__wab_text", sty.text__iC7Pm)}>
                 {
                   "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
                 }
@@ -19153,7 +18960,7 @@ function PlasmicHamyar2__RenderFunc(props: {
               color={generateStateValueProp($state, ["button19", "color"])}
               endIcon={
                 <Icon144Icon
-                  className={classNames(projectcss.all, sty.svg___6YRds)}
+                  className={classNames("all", sty.svg___6YRds)}
                   role={"img"}
                 />
               }
@@ -19232,17 +19039,13 @@ function PlasmicHamyar2__RenderFunc(props: {
               }}
               startIcon={
                 <ChevronRightIcon
-                  className={classNames(projectcss.all, sty.svg__jsA8R)}
+                  className={classNames("all", sty.svg__jsA8R)}
                   role={"img"}
                 />
               }
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___0Edtc
-                )}
+                className={classNames("all", "__wab_text", sty.text___0Edtc)}
               >
                 {
                   "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
@@ -19309,20 +19112,14 @@ function PlasmicHamyar2__RenderFunc(props: {
               }
             })()}
             errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___2GuV
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text___2GuV)}>
                 {"Error fetching data"}
               </div>
             }
             loadingDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__iBqKz)}>
+              <div className={classNames("all", sty.freeBox__iBqKz)}>
                 <Icon115Icon
-                  className={classNames(projectcss.all, sty.svg___9XAx)}
+                  className={classNames("all", sty.svg___9XAx)}
                   role={"img"}
                 />
               </div>
@@ -19349,14 +19146,12 @@ function PlasmicHamyar2__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/hamyar/shop"}
           >
-            <div className={classNames(projectcss.all, sty.freeBox___0UbYh)}>
+            <div className={classNames("all", sty.freeBox___0UbYh)}>
               <div
-                className={classNames(projectcss.all, sty.freeBox__oJelB)}
+                className={classNames("all", sty.freeBox__oJelB)}
                 dir={"rtl"}
               >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__iyC1A)}
-                />
+                <div className={classNames("all", sty.freeBox__iyC1A)} />
 
                 <DialogTitle
                   data-plasmic-name={"dialogTitle"}
@@ -19366,16 +19161,12 @@ function PlasmicHamyar2__RenderFunc(props: {
                   <h5
                     data-plasmic-name={"h5"}
                     data-plasmic-override={overrides.h5}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h5,
-                      sty.h5
-                    )}
+                    className={classNames("all", "h5", "h5__suVPi", sty.h5)}
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__zA2FV
                       )}
                     >
@@ -19387,15 +19178,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                 </DialogTitle>
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox__jVnsf)}
+                className={classNames("all", sty.freeBox__jVnsf)}
                 dir={"rtl"}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__hyFts
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__hyFts)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -19415,10 +19202,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__pY1Vd)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__e4XXl)}
-                  >
+                <div className={classNames("all", sty.freeBox__pY1Vd)}>
+                  <div className={classNames("all", sty.freeBox__e4XXl)}>
                     {(
                       hasVariant(globalVariants, "screen", "mobile")
                         ? (() => {
@@ -19456,16 +19241,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                             }
                           })()
                     ) ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__kNbFi
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__kNbFi)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__e7AQg
                           )}
                         >
@@ -19489,13 +19269,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </div>
                       </div>
                     ) : null}
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__zHGgz)}
-                    >
+                    <div className={classNames("all", sty.freeBox__zHGgz)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__mpa3X
                         )}
                       >
@@ -19517,16 +19295,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___5Z32Y
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox___5Z32Y)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__x95Lt
                           )}
                         >
@@ -19550,8 +19323,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__shH0B
                           )}
                         >
@@ -19593,16 +19366,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__eoZv2
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__eoZv2)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text___43Q9D
                             )}
                           >
@@ -19643,8 +19411,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })() ? (
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__styv5
                         )}
                         onClick={async event => {
@@ -19705,18 +19473,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__qqcT
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___35KPs
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__qqcT)}>
+                        <div className={classNames("all", sty.freeBox___35KPs)}>
                           {(() => {
                             const child$Props = {
                               allowClear: hasVariant(
@@ -19767,10 +19525,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
                               prefix: (
                                 <Icon10Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__p4SsW
-                                  )}
+                                  className={classNames("all", sty.svg__p4SsW)}
                                   role={"img"}
                                 />
                               ),
@@ -19830,10 +19585,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                             }
                           })() ? (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__qkqsA
-                              )}
+                              className={classNames("all", sty.freeBox__qkqsA)}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -20070,7 +19822,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       ])}
                       endIcon={
                         <Icon12Icon
-                          className={classNames(projectcss.all, sty.svg__o04)}
+                          className={classNames("all", sty.svg__o04)}
                           role={"img"}
                         />
                       }
@@ -20442,8 +20194,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__cq1Jf
                         )}
                       >
@@ -20467,9 +20219,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })() ? (
                       <p
                         className={classNames(
-                          projectcss.all,
-                          projectcss.p,
-                          projectcss.__wab_text,
+                          "all",
+                          "p",
+                          "p__suVPi",
+                          "__wab_text",
                           sty.p___7Prmo
                         )}
                         onClick={async event => {
@@ -20520,9 +20273,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                     ) : null}
                     <p
                       className={classNames(
-                        projectcss.all,
-                        projectcss.p,
-                        projectcss.__wab_text,
+                        "all",
+                        "p",
+                        "p__suVPi",
+                        "__wab_text",
                         sty.p__vmug2
                       )}
                     >
@@ -20557,7 +20311,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 "opendialog"
               ])}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__tCuMo)}>
+              <div className={classNames("all", sty.freeBox__tCuMo)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -20839,15 +20593,12 @@ function PlasmicHamyar2__RenderFunc(props: {
                               })()
                         ) ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__kJsbx
-                            )}
+                            className={classNames("all", sty.freeBox__kJsbx)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__mzse
                               )}
                             >
@@ -20881,7 +20632,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button11", "color"])}
                   endIcon={
                     <Icon12Icon
-                      className={classNames(projectcss.all, sty.svg__kERW)}
+                      className={classNames("all", sty.svg__kERW)}
                       role={"img"}
                     />
                   }
@@ -21173,11 +20924,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zN7G
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__zN7G)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -21336,7 +21083,7 @@ function PlasmicHamyar2__RenderFunc(props: {
           }}
           opendialog={generateStateValueProp($state, ["dialog3", "opendialog"])}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__jBgui)}>
+          <div className={classNames("all", sty.freeBox__jBgui)}>
             <LottieWrapper
               animationData={{
                 nm: "Warning",
@@ -22085,24 +21832,12 @@ function PlasmicHamyar2__RenderFunc(props: {
               className={classNames("__wab_instance", sty.lottie__pxDen)}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__pqwqo
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__pqwqo)}>
               {
                 "\u0645\u062a\u0627\u0633\u0641\u0627\u0646\u0647 \u0641\u0639\u0627\u0644\u200c\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u062a\u0648\u0633\u0637 \u0634\u0645\u0627 \u0627\u0645\u06a9\u0627\u0646\u200c\u067e\u0630\u06cc\u0631 \u0646\u06cc\u0633\u062a."
               }
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___4Ubjz
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text___4Ubjz)}>
               {
                 "\u0628\u0627 \u0639\u0631\u0636 \u067e\u0648\u0632\u0634\u060c \u0641\u0639\u0627\u0644\u200c\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u062f\u0631 \u062d\u0627\u0644 \u062d\u0627\u0636\u0631 \u0641\u0642\u0637 \u062a\u0648\u0633\u0637 \u0647\u0645\u06cc\u0627\u0631 \u0634\u0645\u0627 \u0627\u0645\u06a9\u0627\u0646\u200c\u067e\u0630\u06cc\u0631 \u0627\u0633\u062a. \u062f\u0631 \u0635\u0648\u0631\u062a \u062a\u0645\u0627\u06cc\u0644\u060c \u0644\u0637\u0641\u0627\u064b \u0627\u0632 \u0647\u0645\u06cc\u0627\u0631 \u062e\u0648\u062f \u0628\u062e\u0648\u0627\u0647\u06cc\u062f \u062a\u0627 \u0627\u06cc\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0627 \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u06a9\u0646\u062f. \u0627\u0632 \u0647\u0645\u0631\u0627\u0647\u06cc \u0634\u0645\u0627 \u0633\u067e\u0627\u0633\u06af\u0632\u0627\u0631\u06cc\u0645."
               }
@@ -22202,7 +21937,7 @@ function PlasmicHamyar2__RenderFunc(props: {
             </Button>
           </div>
         </Dialog>
-        <div className={classNames(projectcss.all, sty.freeBox__i6Kr)}>
+        <div className={classNames("all", sty.freeBox__i6Kr)}>
           <PlasmicImg__
             alt={""}
             className={classNames(sty.img__alZY)}
@@ -22221,15 +21956,9 @@ function PlasmicHamyar2__RenderFunc(props: {
             }}
           />
         </div>
-        <div className={classNames(projectcss.all, sty.freeBox__hvzzX)}>
-          <div className={classNames(projectcss.all, sty.freeBox__xmN2Z)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__t3U1W
-              )}
-            >
+        <div className={classNames("all", sty.freeBox__hvzzX)}>
+          <div className={classNames("all", sty.freeBox__xmN2Z)}>
+            <div className={classNames("all", "__wab_text", sty.text__t3U1W)}>
               {
                 "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0626\u0646 \u0634\u0648\u06cc\u062f."
               }
@@ -22242,7 +21971,7 @@ function PlasmicHamyar2__RenderFunc(props: {
             color={generateStateValueProp($state, ["button16", "color"])}
             endIcon={
               <Icon144Icon
-                className={classNames(projectcss.all, sty.svg__orHjw)}
+                className={classNames("all", sty.svg__orHjw)}
                 role={"img"}
               />
             }
@@ -22321,18 +22050,12 @@ function PlasmicHamyar2__RenderFunc(props: {
             }}
             startIcon={
               <ChevronRightIcon
-                className={classNames(projectcss.all, sty.svg__oLqKo)}
+                className={classNames("all", sty.svg__oLqKo)}
                 role={"img"}
               />
             }
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__vNwcm
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__vNwcm)}>
               {
                 "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
               }
@@ -23718,7 +23441,7 @@ function PlasmicHamyar2__RenderFunc(props: {
           })}
           closeIcon={
             <Icon22Icon
-              className={classNames(projectcss.all, sty.svg__wbtrd)}
+              className={classNames("all", sty.svg__wbtrd)}
               onClick={async event => {
                 const $steps = {};
 
@@ -23760,9 +23483,9 @@ function PlasmicHamyar2__RenderFunc(props: {
             />
           }
           defaultStylesClassName={classNames(
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames
           )}
           hideFooter={true}
@@ -23790,7 +23513,7 @@ function PlasmicHamyar2__RenderFunc(props: {
               className={classNames("__wab_instance", sty.headerLiom)}
             >
               <div
-                className={classNames(projectcss.all, sty.freeBox__cZz0X)}
+                className={classNames("all", sty.freeBox__cZz0X)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -23831,16 +23554,12 @@ function PlasmicHamyar2__RenderFunc(props: {
                 }}
               >
                 <XIcon
-                  className={classNames(projectcss.all, sty.svg__kOlyy)}
+                  className={classNames("all", sty.svg__kOlyy)}
                   role={"img"}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___9ZpGf
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___9ZpGf)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -23876,8 +23595,8 @@ function PlasmicHamyar2__RenderFunc(props: {
             [sty["pcls_hPZO_GG68FIR"]]: true
           })}
         >
-          <section className={classNames(projectcss.all, sty.section___4P66A)}>
-            <div className={classNames(projectcss.all, sty.freeBox__b8Xsz)}>
+          <section className={classNames("all", sty.section___4P66A)}>
+            <div className={classNames("all", sty.freeBox__b8Xsz)}>
               {(() => {
                 try {
                   return $state.userdata?.result?.man?.hamyarStatus;
@@ -23891,11 +23610,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__idRSd)}>
+                <div className={classNames("all", sty.freeBox__idRSd)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___7HO6F
                     )}
                   >
@@ -23903,19 +23622,17 @@ function PlasmicHamyar2__RenderFunc(props: {
                       "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a  \u062a\u0627:"
                     }
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__u3PoF)}
-                  >
+                  <div className={classNames("all", sty.freeBox__u3PoF)}>
                     <section
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.section__mu2Ct,
                         "wrapper"
                       )}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__sRtA5,
                           "seconds"
                         )}
@@ -23943,9 +23660,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                       >
                         <h2
                           className={classNames(
-                            projectcss.all,
-                            projectcss.h2,
-                            projectcss.__wab_text,
+                            "all",
+                            "h2",
+                            "h2__suVPi",
+                            "__wab_text",
                             sty.h2__kdOtg
                           )}
                           id={"seconds"}
@@ -23954,9 +23672,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </h2>
                         <span
                           className={classNames(
-                            projectcss.all,
-                            projectcss.span,
-                            projectcss.__wab_text,
+                            "all",
+                            "span",
+                            "span__suVPi",
+                            "__wab_text",
                             sty.span__qTMiB
                           )}
                         >
@@ -23965,7 +23684,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__wBOqt,
                           "minutes"
                         )}
@@ -23993,9 +23712,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                       >
                         <h2
                           className={classNames(
-                            projectcss.all,
-                            projectcss.h2,
-                            projectcss.__wab_text,
+                            "all",
+                            "h2",
+                            "h2__suVPi",
+                            "__wab_text",
                             sty.h2__w6Gi
                           )}
                           id={"minutes"}
@@ -24004,9 +23724,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </h2>
                         <span
                           className={classNames(
-                            projectcss.all,
-                            projectcss.span,
-                            projectcss.__wab_text,
+                            "all",
+                            "span",
+                            "span__suVPi",
+                            "__wab_text",
                             sty.span__w5NHa
                           )}
                         >
@@ -24015,7 +23736,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__wj4C9,
                           "hours"
                         )}
@@ -24043,9 +23764,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                       >
                         <h2
                           className={classNames(
-                            projectcss.all,
-                            projectcss.h2,
-                            projectcss.__wab_text,
+                            "all",
+                            "h2",
+                            "h2__suVPi",
+                            "__wab_text",
                             sty.h2__mLhpy
                           )}
                           id={"hours"}
@@ -24054,9 +23776,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </h2>
                         <span
                           className={classNames(
-                            projectcss.all,
-                            projectcss.span,
-                            projectcss.__wab_text,
+                            "all",
+                            "span",
+                            "span__suVPi",
+                            "__wab_text",
                             sty.span__uCnSz
                           )}
                         >
@@ -24065,7 +23788,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__wmcqS,
                           "days"
                         )}
@@ -24093,9 +23816,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                       >
                         <h2
                           className={classNames(
-                            projectcss.all,
-                            projectcss.h2,
-                            projectcss.__wab_text,
+                            "all",
+                            "h2",
+                            "h2__suVPi",
+                            "__wab_text",
                             sty.h2___9W0P3
                           )}
                           id={"days"}
@@ -24104,9 +23828,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </h2>
                         <span
                           className={classNames(
-                            projectcss.all,
-                            projectcss.span,
-                            projectcss.__wab_text,
+                            "all",
+                            "span",
+                            "span__suVPi",
+                            "__wab_text",
                             sty.span__gwi4H
                           )}
                         >
@@ -24118,7 +23843,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 </div>
               ) : null}
               <div
-                className={classNames(projectcss.all, sty.freeBox__xXM6, {
+                className={classNames("all", sty.freeBox__xXM6, {
                   [sty.freeBoxlackOfCourseInformation__xXM6MyTcU]: hasVariant(
                     $state,
                     "lackOfCourseInformation",
@@ -24127,7 +23852,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__rPs9M, {
+                  className={classNames("all", sty.freeBox__rPs9M, {
                     [sty.freeBoxlackOfCourseInformation__rPs9MMyTcU]:
                       hasVariant(
                         $state,
@@ -24137,7 +23862,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__zedKq, {
+                    className={classNames("all", sty.freeBox__zedKq, {
                       [sty.freeBoxlackOfCourseInformation__zedKqMyTcU]:
                         hasVariant(
                           $state,
@@ -24148,8 +23873,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__sR7Yd
                       )}
                     >
@@ -24159,7 +23884,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                     </div>
                   </div>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__zhxAu, {
+                    className={classNames("all", sty.freeBox__zhxAu, {
                       [sty.freeBoxlackOfCourseInformation__zhxAumyTcU]:
                         hasVariant(
                           $state,
@@ -24183,22 +23908,24 @@ function PlasmicHamyar2__RenderFunc(props: {
                     })() ? (
                       <ol
                         className={classNames(
-                          projectcss.all,
-                          projectcss.ol,
+                          "all",
+                          "ol",
+                          "ol__suVPi",
                           sty.ol__ee3OR
                         )}
                       >
                         <li
                           className={classNames(
-                            projectcss.all,
-                            projectcss.li,
-                            projectcss.__wab_text,
+                            "all",
+                            "li",
+                            "li__suVPi",
+                            "__wab_text",
                             sty.li__vfrGa
                           )}
                         >
                           {hasVariant(globalVariants, "screen", "mobile") ? (
                             <div
-                              className={projectcss.__wab_expr_html_text}
+                              className={"__wab_expr_html_text"}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
@@ -24220,7 +23947,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                             />
                           ) : (
                             <div
-                              className={projectcss.__wab_expr_html_text}
+                              className={"__wab_expr_html_text"}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
@@ -24244,15 +23971,16 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </li>
                         <li
                           className={classNames(
-                            projectcss.all,
-                            projectcss.li,
-                            projectcss.__wab_text,
+                            "all",
+                            "li",
+                            "li__suVPi",
+                            "__wab_text",
                             sty.li__kySgK
                           )}
                         >
                           {hasVariant(globalVariants, "screen", "mobile") ? (
                             <div
-                              className={projectcss.__wab_expr_html_text}
+                              className={"__wab_expr_html_text"}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
@@ -24274,7 +24002,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                             />
                           ) : (
                             <div
-                              className={projectcss.__wab_expr_html_text}
+                              className={"__wab_expr_html_text"}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
@@ -24298,15 +24026,16 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </li>
                         <li
                           className={classNames(
-                            projectcss.all,
-                            projectcss.li,
-                            projectcss.__wab_text,
+                            "all",
+                            "li",
+                            "li__suVPi",
+                            "__wab_text",
                             sty.li__mRvX
                           )}
                         >
                           {hasVariant(globalVariants, "screen", "mobile") ? (
                             <div
-                              className={projectcss.__wab_expr_html_text}
+                              className={"__wab_expr_html_text"}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
@@ -24328,7 +24057,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                             />
                           ) : (
                             <div
-                              className={projectcss.__wab_expr_html_text}
+                              className={"__wab_expr_html_text"}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
@@ -24354,8 +24083,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                     ) : null}
                     <ul
                       className={classNames(
-                        projectcss.all,
-                        projectcss.ul,
+                        "all",
+                        "ul",
+                        "ul__suVPi",
                         sty.ul__pB5Uj
                       )}
                     >
@@ -24380,8 +24110,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                         return (
                           <li
                             className={classNames(
-                              projectcss.all,
-                              projectcss.li,
+                              "all",
+                              "li",
+                              "li__suVPi",
                               sty.li__iu31R
                             )}
                             key={currentIndex}
@@ -24466,10 +24197,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                             }}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___0JzNq
-                              )}
+                              className={classNames("all", sty.freeBox___0JzNq)}
                               style={(() => {
                                 try {
                                   return {
@@ -24491,17 +24219,14 @@ function PlasmicHamyar2__RenderFunc(props: {
                               })()}
                             >
                               <Icon272Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg___3QSnx
-                                )}
+                                className={classNames("all", sty.svg___3QSnx)}
                                 role={"img"}
                               />
 
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__pUEzW
                                 )}
                               >
@@ -24523,10 +24248,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 </React.Fragment>
                               </div>
                               <Icon142Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__eryXn
-                                )}
+                                className={classNames("all", sty.svg__eryXn)}
                                 role={"img"}
                               />
                             </div>
@@ -24539,9 +24261,9 @@ function PlasmicHamyar2__RenderFunc(props: {
                       data-plasmic-override={overrides.shopText2}
                       className={classNames("__wab_instance", sty.shopText2)}
                       defaultStylesClassName={classNames(
-                        projectcss.root_reset,
-                        projectcss.plasmic_default_styles,
-                        projectcss.plasmic_mixins,
+                        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+                        "plasmic_default_styles",
+                        "plasmic_mixins",
                         styleTokensClassNames
                       )}
                       hideFooter={true}
@@ -24560,8 +24282,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                       title={
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__dXfw
                           )}
                         >
@@ -24584,16 +24306,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                       }
                       trigger={null}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__eBHr
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__eBHr)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__hujJr
                           )}
                         >
@@ -24617,15 +24334,15 @@ function PlasmicHamyar2__RenderFunc(props: {
                     </AntdModal>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__grf4G
                       )}
                     >
                       <React.Fragment>
                         <span
                           className={
-                            "plasmic_default__all plasmic_default__span"
+                            "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                           }
                           style={{ fontWeight: 700 }}
                         >
@@ -24652,15 +24369,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__jXNyL)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___1Yb6I
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__jXNyL)}>
+                      <div className={classNames("all", sty.freeBox___1Yb6I)}>
                         {(
                           hasVariant(globalVariants, "screen", "mobile")
                             ? (() => {
@@ -24701,10 +24411,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                               })()
                         ) ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__fMxJ5
-                            )}
+                            className={classNames("all", sty.freeBox__fMxJ5)}
                             style={(() => {
                               try {
                                 return {
@@ -24725,8 +24432,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__kTpiY
                               )}
                               style={(() => {
@@ -24769,16 +24476,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                             </div>
                           </div>
                         ) : null}
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__n9Mds
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__n9Mds)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text___4YeOy
                             )}
                           >
@@ -24818,15 +24520,12 @@ function PlasmicHamyar2__RenderFunc(props: {
                             }
                           })() ? (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__eanP
-                              )}
+                              className={classNames("all", sty.freeBox__eanP)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__auicV
                                 )}
                               >
@@ -24852,12 +24551,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                             </div>
                           ) : null}
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__ayrhe
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__ayrhe)}>
                           {(() => {
                             try {
                               return $state.shapData.result[$state.selectedShop]
@@ -24876,8 +24570,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                           })() ? (
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__cHd2D
                               )}
                             >
@@ -24902,15 +24596,12 @@ function PlasmicHamyar2__RenderFunc(props: {
                             </div>
                           ) : null}
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___6YN9O
-                            )}
+                            className={classNames("all", sty.freeBox___6YN9O)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__h3WPx
                               )}
                             >
@@ -24938,8 +24629,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                             </div>
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text___3HqW
                               )}
                             >
@@ -24979,8 +24670,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                         })() ? (
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__xJlVh
                             )}
                             onClick={async event => {
@@ -25044,16 +24735,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__wDuXd
-                            )}
+                            className={classNames("all", sty.freeBox__wDuXd)}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___2QjGv
-                              )}
+                              className={classNames("all", sty.freeBox___2QjGv)}
                             >
                               {(() => {
                                 const child$Props = {
@@ -25106,7 +24791,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                   prefix: (
                                     <Icon10Icon
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.svg__c7AjQ
                                       )}
                                       role={"img"}
@@ -25170,7 +24855,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                               })() ? (
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__fTMr
                                   )}
                                   onClick={async event => {
@@ -25424,10 +25109,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                   ? Icon12Icon
                                   : Icon12Icon
                               }
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg___6Z4NS
-                              )}
+                              className={classNames("all", sty.svg___6Z4NS)}
                               role={"img"}
                             />
                           }
@@ -25847,8 +25529,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__n4Jev
                             )}
                           >
@@ -25859,9 +25541,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                         </Button>
                         <p
                           className={classNames(
-                            projectcss.all,
-                            projectcss.p,
-                            projectcss.__wab_text,
+                            "all",
+                            "p",
+                            "p__suVPi",
+                            "__wab_text",
                             sty.p__cmVuw
                           )}
                           onClick={async event => {
@@ -25944,9 +25627,10 @@ function PlasmicHamyar2__RenderFunc(props: {
                         ) ? (
                           <p
                             className={classNames(
-                              projectcss.all,
-                              projectcss.p,
-                              projectcss.__wab_text,
+                              "all",
+                              "p",
+                              "p__suVPi",
+                              "__wab_text",
                               sty.p__ozTpn
                             )}
                             onClick={async event => {
@@ -26040,9 +25724,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__ltadt)}
-                    >
+                    <div className={classNames("all", sty.freeBox__ltadt)}>
                       <Button
                         data-plasmic-name={"button10"}
                         data-plasmic-override={overrides.button10}
@@ -26058,10 +25740,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                                 ? Icon12Icon
                                 : Icon12Icon
                             }
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__wiDa3
-                            )}
+                            className={classNames("all", sty.svg__wiDa3)}
                             role={"img"}
                           />
                         }
@@ -26208,8 +25887,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__nWdOy
                           )}
                         >
@@ -26325,8 +26004,8 @@ function PlasmicHamyar2__RenderFunc(props: {
             "opendialog"
           ])}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__ng0Rn)}>
-            <div className={classNames(projectcss.all, sty.freeBox__btybG)}>
+          <div className={classNames("all", sty.freeBox__ng0Rn)}>
+            <div className={classNames("all", sty.freeBox__btybG)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -26602,16 +26281,11 @@ function PlasmicHamyar2__RenderFunc(props: {
                               }
                             })()
                       ) ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__k5FMj
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__k5FMj)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__jggM
                             )}
                           >
@@ -26651,7 +26325,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                       ? Icon12Icon
                       : Icon12Icon
                   }
-                  className={classNames(projectcss.all, sty.svg___4HNqw)}
+                  className={classNames("all", sty.svg___4HNqw)}
                   role={"img"}
                 />
               }
@@ -27020,13 +26694,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 }
               })()}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__neoLn
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__neoLn)}>
                 {hasVariant(globalVariants, "screen", "mobile") ? (
                   <React.Fragment>
                     {(() => {
@@ -27072,7 +26740,7 @@ function PlasmicHamyar2__RenderFunc(props: {
             </Button>
           </div>
         </Dialog3>
-        <div className={classNames(projectcss.all, sty.freeBox__ceJk5)} />
+        <div className={classNames("all", sty.freeBox__ceJk5)} />
 
         <AntdModal
           data-plasmic-name={"warning"}
@@ -27081,9 +26749,9 @@ function PlasmicHamyar2__RenderFunc(props: {
             [sty.warningnoPartner]: hasVariant($state, "noPartner", "noPartner")
           })}
           defaultStylesClassName={classNames(
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames
           )}
           hideFooter={true}
@@ -27100,19 +26768,13 @@ function PlasmicHamyar2__RenderFunc(props: {
           }}
           open={generateStateValueProp($state, ["warning", "open"])}
           title={
-            <div className={classNames(projectcss.all, sty.freeBox__rqV2N)}>
+            <div className={classNames("all", sty.freeBox__rqV2N)}>
               <Icon140Icon
-                className={classNames(projectcss.all, sty.svg__nnHtn)}
+                className={classNames("all", sty.svg__nnHtn)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ozzcy
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__ozzcy)}>
                 {
                   "\u0634\u0645\u0627 \u0628\u0647 \u0639\u0646\u0648\u0627\u0646 \u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc \u062b\u0628\u062a \u0634\u062f\u06cc\u062f"
                 }
@@ -27121,14 +26783,8 @@ function PlasmicHamyar2__RenderFunc(props: {
           }
           trigger={null}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__xWb2B)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__w1EVg
-              )}
-            >
+          <div className={classNames("all", sty.freeBox__xWb2B)}>
+            <div className={classNames("all", "__wab_text", sty.text__w1EVg)}>
               <React.Fragment>
                 {(() => {
                   try {
@@ -27147,8 +26803,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                 })()}
               </React.Fragment>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox___4W4In)}>
-              <div className={classNames(projectcss.all, sty.freeBox___4Mdcz)}>
+            <div className={classNames("all", sty.freeBox___4W4In)}>
+              <div className={classNames("all", sty.freeBox___4Mdcz)}>
                 <Button
                   data-plasmic-name={"button22"}
                   data-plasmic-override={overrides.button22}
@@ -27416,8 +27072,8 @@ function PlasmicHamyar2__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___2PkXr
                     )}
                   >
@@ -27681,11 +27337,7 @@ function PlasmicHamyar2__RenderFunc(props: {
                 size={"compact"}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__l0EI
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__l0EI)}
                 >
                   <React.Fragment>
                     {(() => {

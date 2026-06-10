@@ -70,7 +70,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicDialogTooltip.module.css"; // plasmic-import: 0nKndp-acHhb/css
 
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
@@ -199,12 +198,6 @@ function PlasmicDialogTooltip__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -267,6 +260,13 @@ function PlasmicDialogTooltip__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -285,9 +285,9 @@ function PlasmicDialogTooltip__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       className={classNames(
         "__wab_instance",
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.dialog3,
         { [sty.dialog3fullpage]: hasVariant($state, "fullpage", "fullpage") }
@@ -355,9 +355,9 @@ function PlasmicDialogTooltip__RenderFunc(props: {
         )
       })}
       themeResetClass={classNames(
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames
       )}
       triggerSlot={
@@ -368,7 +368,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
           color={generateStateValueProp($state, ["button3", "color"])}
           endIcon={
             <ChevronLeftIcon
-              className={classNames(projectcss.all, sty.svg___0KCe)}
+              className={classNames("all", sty.svg___0KCe)}
               role={"img"}
             />
           }
@@ -421,7 +421,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
           }}
           startIcon={
             <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__uoRku)}
+              className={classNames("all", sty.svg__uoRku)}
               role={"img"}
             />
           }
@@ -452,9 +452,9 @@ function PlasmicDialogTooltip__RenderFunc(props: {
         }
         exitDuration={0.5}
         themeResetClass={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
       >
@@ -463,18 +463,12 @@ function PlasmicDialogTooltip__RenderFunc(props: {
           data-plasmic-override={overrides.dialogTitle}
           className={classNames("__wab_instance", sty.dialogTitle)}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__woh4D
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__woh4D)}>
             {"Sheet title"}
           </div>
         </DialogTitle>
         <div
-          className={classNames(projectcss.all, sty.freeBox__a5Xp6)}
+          className={classNames("all", sty.freeBox__a5Xp6)}
           style={(() => {
             try {
               return {
@@ -492,11 +486,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
           })()}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__nMyeR
-            )}
+            className={classNames("all", "__wab_text", sty.text__nMyeR)}
             style={(() => {
               try {
                 return { color: $props.data.result.dialogs[0].titleColor };
@@ -528,11 +518,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
             </React.Fragment>
           </div>
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___0LcNi
-            )}
+            className={classNames("all", "__wab_text", sty.text___0LcNi)}
             style={(() => {
               try {
                 return { color: $props.data.result.dialogs[0].textColor };
@@ -548,7 +534,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
             })()}
           >
             <div
-              className={projectcss.__wab_expr_html_text}
+              className={"__wab_expr_html_text"}
               dangerouslySetInnerHTML={{
                 __html: (() => {
                   try {
@@ -587,9 +573,9 @@ function PlasmicDialogTooltip__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__rw4L9)}>
+          <div className={classNames("all", sty.freeBox__rw4L9)}>
             <div
-              className={classNames(projectcss.all, sty.freeBox__juwHw)}
+              className={classNames("all", sty.freeBox__juwHw)}
               onClick={async event => {
                 const $steps = {};
 
@@ -739,11 +725,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
               })()}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xdOf
-                )}
+                className={classNames("all", "__wab_text", sty.text__xdOf)}
                 style={(() => {
                   try {
                     return {
@@ -781,7 +763,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
               </div>
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__z84Qi)}
+              className={classNames("all", sty.freeBox__z84Qi)}
               onClick={async event => {
                 const $steps = {};
 
@@ -837,11 +819,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
               })()}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ycUFb
-                )}
+                className={classNames("all", "__wab_text", sty.text__ycUFb)}
                 style={(() => {
                   try {
                     return {
@@ -882,10 +860,7 @@ function PlasmicDialogTooltip__RenderFunc(props: {
           data-plasmic-override={overrides.dialogClose}
           className={classNames("__wab_instance", sty.dialogClose)}
         >
-          <XIcon
-            className={classNames(projectcss.all, sty.svg__ugxO0)}
-            role={"img"}
-          />
+          <XIcon className={classNames("all", sty.svg__ugxO0)} role={"img"} />
         </DialogClose>
       </DialogContent>
     </Dialog>

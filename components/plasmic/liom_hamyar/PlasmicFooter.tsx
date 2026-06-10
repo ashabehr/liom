@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFooter.module.css"; // plasmic-import: sxxS2rEPgX_V/css
 
 createPlasmicElementProxy;
@@ -139,10 +138,6 @@ function PlasmicFooter__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -162,6 +157,11 @@ function PlasmicFooter__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -179,10 +179,10 @@ function PlasmicFooter__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.footerContainer,
         {
@@ -204,7 +204,7 @@ function PlasmicFooter__RenderFunc(props: {
               : true
       ) ? (
         <div
-          className={classNames(projectcss.all, sty.freeBox__yMz2, {
+          className={classNames("all", sty.freeBox__yMz2, {
             [sty.freeBoxstate_empty__yMz29AdVi]: hasVariant(
               $state,
               "state",
@@ -223,28 +223,23 @@ function PlasmicFooter__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__wb9Ti,
-              {
-                [sty.textstate_empty__wb9Ti9AdVi]: hasVariant(
-                  $state,
-                  "state",
-                  "empty"
-                ),
-                [sty.textstate_hasCompleted__wb9Tiud2M]: hasVariant(
-                  $state,
-                  "state",
-                  "hasCompleted"
-                ),
-                [sty.textstate_singularLeft__wb9TigcpLn]: hasVariant(
-                  $state,
-                  "state",
-                  "singularLeft"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__wb9Ti, {
+              [sty.textstate_empty__wb9Ti9AdVi]: hasVariant(
+                $state,
+                "state",
+                "empty"
+              ),
+              [sty.textstate_hasCompleted__wb9Tiud2M]: hasVariant(
+                $state,
+                "state",
+                "hasCompleted"
+              ),
+              [sty.textstate_singularLeft__wb9TigcpLn]: hasVariant(
+                $state,
+                "state",
+                "singularLeft"
+              )
+            })}
           >
             <React.Fragment>
               {(() => {
@@ -266,7 +261,7 @@ function PlasmicFooter__RenderFunc(props: {
           </div>
         </div>
       ) : null}
-      <div className={classNames(projectcss.all, sty.freeBox__vn1Aa)}>
+      <div className={classNames("all", sty.freeBox__vn1Aa)}>
         <ToggleButton
           className={classNames("__wab_instance", sty.toggleButton__yyTOt)}
           onClick={async () => {
@@ -390,18 +385,13 @@ function PlasmicFooter__RenderFunc(props: {
       </div>
       {(hasVariant($state, "state", "hasCompleted") ? true : false) ? (
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__wpIty,
-            {
-              [sty.textstate_hasCompleted__wpItyud2M]: hasVariant(
-                $state,
-                "state",
-                "hasCompleted"
-              )
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text__wpIty, {
+            [sty.textstate_hasCompleted__wpItyud2M]: hasVariant(
+              $state,
+              "state",
+              "hasCompleted"
+            )
+          })}
         >
           {"Clear completed"}
         </div>

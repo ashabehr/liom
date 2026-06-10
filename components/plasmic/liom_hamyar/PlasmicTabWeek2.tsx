@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicTabWeek2.module.css"; // plasmic-import: -tuOknPDFuNb/css
 
 createPlasmicElementProxy;
@@ -178,10 +177,6 @@ function PlasmicTabWeek2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -242,6 +237,11 @@ function PlasmicTabWeek2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -259,10 +259,10 @@ function PlasmicTabWeek2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         hasVariant($state, "selected", "selected") ? "active" : undefined,
@@ -295,7 +295,7 @@ function PlasmicTabWeek2__RenderFunc(props: {
       )}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__zg8Bk, {
+        className={classNames("all", sty.freeBox__zg8Bk, {
           [sty.freeBoxcolor_yellow__zg8Bk2Ss7K]: hasVariant(
             $state,
             "color",
@@ -334,7 +334,7 @@ function PlasmicTabWeek2__RenderFunc(props: {
         })}
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__cxVuc, {
+        className={classNames("all", sty.freeBox__cxVuc, {
           [sty.freeBoxcolor_pms__cxVuckTqgi]: hasVariant(
             $state,
             "color",
@@ -421,7 +421,7 @@ function PlasmicTabWeek2__RenderFunc(props: {
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__z7MRq, {
+          className={classNames("all", sty.freeBox__z7MRq, {
             [sty.freeBoxcolor_pms__z7MRqkTqgi]: hasVariant(
               $state,
               "color",
@@ -497,45 +497,40 @@ function PlasmicTabWeek2__RenderFunc(props: {
           onClick={args.onClick}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__gJiGf,
-              {
-                [sty.textcolor_red__gJiGf5ZDul]: hasVariant(
-                  $state,
-                  "color",
-                  "red"
-                ),
-                [sty.textcolor_yellow__gJiGf2Ss7K]: hasVariant(
-                  $state,
-                  "color",
-                  "yellow"
-                ),
-                [sty.textcolor_yellow_selected__gJiGf2Ss7KBlp4]:
-                  hasVariant($state, "selected", "selected") &&
-                  hasVariant($state, "color", "yellow"),
-                [sty.textdarkSelected__gJiGfkEYvD]: hasVariant(
-                  $state,
-                  "darkSelected",
-                  "darkSelected"
-                ),
-                [sty.textdark__gJiGfwBfVe]: hasVariant($state, "dark", "dark"),
-                [sty.textreport__gJiGf7KnbM]: hasVariant(
-                  $state,
-                  "report",
-                  "report"
-                ),
-                [sty.textreport_selected__gJiGf7KnbMBlp4]:
-                  hasVariant($state, "report", "report") &&
-                  hasVariant($state, "selected", "selected"),
-                [sty.textselected__gJiGfBlp4]: hasVariant(
-                  $state,
-                  "selected",
-                  "selected"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__gJiGf, {
+              [sty.textcolor_red__gJiGf5ZDul]: hasVariant(
+                $state,
+                "color",
+                "red"
+              ),
+              [sty.textcolor_yellow__gJiGf2Ss7K]: hasVariant(
+                $state,
+                "color",
+                "yellow"
+              ),
+              [sty.textcolor_yellow_selected__gJiGf2Ss7KBlp4]:
+                hasVariant($state, "selected", "selected") &&
+                hasVariant($state, "color", "yellow"),
+              [sty.textdarkSelected__gJiGfkEYvD]: hasVariant(
+                $state,
+                "darkSelected",
+                "darkSelected"
+              ),
+              [sty.textdark__gJiGfwBfVe]: hasVariant($state, "dark", "dark"),
+              [sty.textreport__gJiGf7KnbM]: hasVariant(
+                $state,
+                "report",
+                "report"
+              ),
+              [sty.textreport_selected__gJiGf7KnbMBlp4]:
+                hasVariant($state, "report", "report") &&
+                hasVariant($state, "selected", "selected"),
+              [sty.textselected__gJiGfBlp4]: hasVariant(
+                $state,
+                "selected",
+                "selected"
+              )
+            })}
           >
             <React.Fragment>
               {(() => {
@@ -554,7 +549,7 @@ function PlasmicTabWeek2__RenderFunc(props: {
             </React.Fragment>
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__xlwI1, {
+            className={classNames("all", sty.freeBox__xlwI1, {
               [sty.freeBoxcurrentWeek__xlwI1MNoLj]: hasVariant(
                 $state,
                 "currentWeek",
@@ -639,25 +634,20 @@ function PlasmicTabWeek2__RenderFunc(props: {
               })
             })}
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__oQsdd,
-                {
-                  [sty.textcurrentWeek__oQsddMNoLj]: hasVariant(
-                    $state,
-                    "currentWeek",
-                    "currentWeek"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__oQsdd, {
+                [sty.textcurrentWeek__oQsddMNoLj]: hasVariant(
+                  $state,
+                  "currentWeek",
+                  "currentWeek"
+                )
+              })}
             >
               {"\u0627\u0645\u0631\u0648\u0632"}
             </div>
           </div>
           {(hasVariant($state, "haveData", "haveData") ? true : false) ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox__bK0Ni, {
+              className={classNames("all", sty.freeBox__bK0Ni, {
                 [sty.freeBoxhaveData__bK0NiDmqlu]: hasVariant(
                   $state,
                   "haveData",

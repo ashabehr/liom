@@ -24,7 +24,7 @@
   justify-content: center;
   align-items: center;
 }
-.root:hover {
+.root:hover:hover {
   background: var(--token-tdm3bsKUybvD);
 }
 .svg__pVgKk {

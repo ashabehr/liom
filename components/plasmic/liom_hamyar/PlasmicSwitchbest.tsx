@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSwitchbest.module.css"; // plasmic-import: ofUp1AS5glz5/css
 
 createPlasmicElementProxy;
@@ -165,10 +164,6 @@ function PlasmicSwitchbest__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -202,6 +197,11 @@ function PlasmicSwitchbest__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -219,10 +219,10 @@ function PlasmicSwitchbest__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -236,7 +236,7 @@ function PlasmicSwitchbest__RenderFunc(props: {
         <div
           data-plasmic-name={"labelContainer"}
           data-plasmic-override={overrides.labelContainer}
-          className={classNames(projectcss.all, sty.labelContainer, {
+          className={classNames("all", sty.labelContainer, {
             [sty.labelContainerisChecked]: hasVariant(
               $state,
               "isChecked",
@@ -279,7 +279,7 @@ function PlasmicSwitchbest__RenderFunc(props: {
       <div
         data-plasmic-name={"toggle"}
         data-plasmic-override={overrides.toggle}
-        className={classNames(projectcss.all, sty.toggle, {
+        className={classNames("all", sty.toggle, {
           [sty.toggleisChecked]: hasVariant($state, "isChecked", "isChecked"),
           [sty.toggleisDisabled]: hasVariant($state, "isDisabled", "isDisabled")
         })}
@@ -287,7 +287,7 @@ function PlasmicSwitchbest__RenderFunc(props: {
         <div
           data-plasmic-name={"track"}
           data-plasmic-override={overrides.track}
-          className={classNames(projectcss.all, sty.track, {
+          className={classNames("all", sty.track, {
             [sty.trackisChecked]: hasVariant($state, "isChecked", "isChecked"),
             [sty.trackisChecked_global_newView_newView]:
               hasVariant($state, "isChecked", "isChecked") &&
@@ -303,7 +303,7 @@ function PlasmicSwitchbest__RenderFunc(props: {
         <div
           data-plasmic-name={"thumb"}
           data-plasmic-override={overrides.thumb}
-          className={classNames(projectcss.all, sty.thumb, {
+          className={classNames("all", sty.thumb, {
             [sty.thumbisChecked]: hasVariant($state, "isChecked", "isChecked"),
             [sty.thumbisDisabled]: hasVariant(
               $state,

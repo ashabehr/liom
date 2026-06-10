@@ -72,7 +72,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicComment.module.css"; // plasmic-import: Q00r5f4C3XYv/css
 
 import Icon170Icon from "./icons/PlasmicIcon__Icon170"; // plasmic-import: dXN8uxxnP9W_/icon
@@ -207,12 +206,6 @@ function PlasmicComment__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -436,6 +429,13 @@ function PlasmicComment__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -453,10 +453,10 @@ function PlasmicComment__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -487,7 +487,7 @@ function PlasmicComment__RenderFunc(props: {
       )}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__euKls, {
+        className={classNames("all", sty.freeBox__euKls, {
           [sty.freeBoxunnamedGroupOfVariants_showReply__euKlskDgzF]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
@@ -500,7 +500,7 @@ function PlasmicComment__RenderFunc(props: {
         })}
         onClick={args.onClick1}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__qFvXh)}>
+        <div className={classNames("all", sty.freeBox__qFvXh)}>
           <PlasmicImg__
             alt={""}
             className={classNames(sty.img__yudX4)}
@@ -532,25 +532,16 @@ function PlasmicComment__RenderFunc(props: {
           />
 
           <div
-            className={classNames(projectcss.all, sty.freeBox__fjoUh, {
+            className={classNames("all", sty.freeBox__fjoUh, {
               [sty.freeBoxunnamedGroupOfVariants_whenHaveReply__fjoUhKmMee]:
                 hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply")
             })}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__qsMbq,
-                {
-                  [sty.textunnamedGroupOfVariants_whenHaveReply__qsMbqKmMee]:
-                    hasVariant(
-                      $state,
-                      "unnamedGroupOfVariants",
-                      "whenHaveReply"
-                    )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__qsMbq, {
+                [sty.textunnamedGroupOfVariants_whenHaveReply__qsMbqKmMee]:
+                  hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply")
+              })}
             >
               <React.Fragment>
                 {(() => {
@@ -569,19 +560,10 @@ function PlasmicComment__RenderFunc(props: {
               </React.Fragment>
             </div>
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__epDy6,
-                {
-                  [sty.textunnamedGroupOfVariants_whenHaveReply__epDy6KmMee]:
-                    hasVariant(
-                      $state,
-                      "unnamedGroupOfVariants",
-                      "whenHaveReply"
-                    )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__epDy6, {
+                [sty.textunnamedGroupOfVariants_whenHaveReply__epDy6KmMee]:
+                  hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply")
+              })}
             >
               <React.Fragment>
                 {(() => {
@@ -601,8 +583,8 @@ function PlasmicComment__RenderFunc(props: {
             </div>
           </div>
         </div>
-        <div className={classNames(projectcss.all, sty.freeBox__fSs)}>
-          <div className={classNames(projectcss.all, sty.freeBox__wzkeY)}>
+        <div className={classNames("all", sty.freeBox__fSs)}>
+          <div className={classNames("all", sty.freeBox__wzkeY)}>
             <UploudeTime
               className={classNames("__wab_instance", sty.uploudeTime__zqho8, {
                 [sty.uploudeTimeunnamedGroupOfVariants_showReply__zqho8KDgzF]:
@@ -652,9 +634,9 @@ function PlasmicComment__RenderFunc(props: {
               })()}
             />
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__ewqKl)}>
+          <div className={classNames("all", sty.freeBox__ewqKl)}>
             <Icon170Icon
-              className={classNames(projectcss.all, sty.svg__btbrw)}
+              className={classNames("all", sty.svg__btbrw)}
               role={"img"}
             />
           </div>
@@ -763,17 +745,13 @@ function PlasmicComment__RenderFunc(props: {
                   size={"compact"}
                   startIcon={
                     <Icon251Icon
-                      className={classNames(projectcss.all, sty.svg___8Jmz)}
+                      className={classNames("all", sty.svg___8Jmz)}
                       role={"img"}
                     />
                   }
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__bPmhE
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__bPmhE)}
                   >
                     {"\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0646\u0638\u0631"}
                   </div>
@@ -910,17 +888,13 @@ function PlasmicComment__RenderFunc(props: {
                   size={"compact"}
                   startIcon={
                     <Icon169Icon
-                      className={classNames(projectcss.all, sty.svg__nYKn7)}
+                      className={classNames("all", sty.svg__nYKn7)}
                       role={"img"}
                     />
                   }
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__g9Xtq
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__g9Xtq)}
                   >
                     {"\u062d\u0630\u0641 \u0646\u0638\u0631"}
                   </div>
@@ -930,9 +904,9 @@ function PlasmicComment__RenderFunc(props: {
             contentText={"Popover contents"}
             defaultOpen={false}
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             mouseEnterDelay={0}
@@ -963,7 +937,7 @@ function PlasmicComment__RenderFunc(props: {
               }
             })() ? (
               <Icon146Icon
-                className={classNames(projectcss.all, sty.svg__ekfpl)}
+                className={classNames("all", sty.svg__ekfpl)}
                 role={"img"}
               />
             ) : null}
@@ -971,7 +945,7 @@ function PlasmicComment__RenderFunc(props: {
         </div>
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__bb4BN, {
+        className={classNames("all", sty.freeBox__bb4BN, {
           [sty.freeBoxunnamedGroupOfVariants_showReply__bb4BNkDgzF]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
@@ -1007,23 +981,18 @@ function PlasmicComment__RenderFunc(props: {
           <div
             data-plasmic-name={"coment"}
             data-plasmic-override={overrides.coment}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.coment,
-              {
-                [sty.comentunnamedGroupOfVariants_whenHaveNoReply]: hasVariant(
-                  $state,
-                  "unnamedGroupOfVariants",
-                  "whenHaveNoReply"
-                ),
-                [sty.comentunnamedGroupOfVariants_whenHaveReply]: hasVariant(
-                  $state,
-                  "unnamedGroupOfVariants",
-                  "whenHaveReply"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.coment, {
+              [sty.comentunnamedGroupOfVariants_whenHaveNoReply]: hasVariant(
+                $state,
+                "unnamedGroupOfVariants",
+                "whenHaveNoReply"
+              ),
+              [sty.comentunnamedGroupOfVariants_whenHaveReply]: hasVariant(
+                $state,
+                "unnamedGroupOfVariants",
+                "whenHaveReply"
+              )
+            })}
           >
             <React.Fragment>
               {(() => {
@@ -1044,7 +1013,7 @@ function PlasmicComment__RenderFunc(props: {
         </LineClomp>
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__eZrem, {
+        className={classNames("all", sty.freeBox__eZrem, {
           [sty.freeBoxunnamedGroupOfVariants_showReply__eZremKDgzF]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
@@ -1354,7 +1323,7 @@ function PlasmicComment__RenderFunc(props: {
         />
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__wjP54, {
+        className={classNames("all", sty.freeBox__wjP54, {
           [sty.freeBoxunnamedGroupOfVariants_showReply__wjP54KDgzF]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
@@ -1385,14 +1354,14 @@ function PlasmicComment__RenderFunc(props: {
           const currentIndex = __plasmic_idx_0;
           return (
             <div
-              className={classNames(projectcss.all, sty.freeBox__dzdw, {
+              className={classNames("all", sty.freeBox__dzdw, {
                 [sty.freeBoxunnamedGroupOfVariants_showReply__dzdwKDgzF]:
                   hasVariant($state, "unnamedGroupOfVariants", "showReply")
               })}
               key={currentIndex}
             >
               <div
-                className={classNames(projectcss.all, sty.freeBox__n5Oa, {
+                className={classNames("all", sty.freeBox__n5Oa, {
                   [sty.freeBoxunnamedGroupOfVariants_whenHaveNoReply__n5OaCt3Kq]:
                     hasVariant(
                       $state,
@@ -1401,7 +1370,7 @@ function PlasmicComment__RenderFunc(props: {
                     )
                 })}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__m637)}>
+                <div className={classNames("all", sty.freeBox__m637)}>
                   <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__dRjT)}
@@ -1428,11 +1397,7 @@ function PlasmicComment__RenderFunc(props: {
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__c8Tm6
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__c8Tm6)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -1451,11 +1416,7 @@ function PlasmicComment__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__iciV4
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__iciV4)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -1474,11 +1435,7 @@ function PlasmicComment__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__vxV
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__vxV)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -1497,12 +1454,8 @@ function PlasmicComment__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___3VbKo)}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__z7TFc)}
-                  >
+                <div className={classNames("all", sty.freeBox___3VbKo)}>
+                  <div className={classNames("all", sty.freeBox__z7TFc)}>
                     <UploudeTime
                       className={classNames(
                         "__wab_instance",
@@ -1553,21 +1506,19 @@ function PlasmicComment__RenderFunc(props: {
                       })()}
                     />
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__kMrO)}
-                  >
+                  <div className={classNames("all", sty.freeBox__kMrO)}>
                     <Icon170Icon
-                      className={classNames(projectcss.all, sty.svg__rpylv)}
+                      className={classNames("all", sty.svg__rpylv)}
                       role={"img"}
                     />
                   </div>
                   <Icon146Icon
-                    className={classNames(projectcss.all, sty.svg___5X9J)}
+                    className={classNames("all", sty.svg___5X9J)}
                     role={"img"}
                   />
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__kzmxn)}>
+              <div className={classNames("all", sty.freeBox__kzmxn)}>
                 <LineClomp
                   data-plasmic-name={"lineClomp2"}
                   data-plasmic-override={overrides.lineClomp2}
@@ -1591,11 +1542,7 @@ function PlasmicComment__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__lEmW5
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__lEmW5)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -1709,7 +1656,7 @@ function PlasmicComment__RenderFunc(props: {
         })}
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__xZam2, {
+        className={classNames("all", sty.freeBox__xZam2, {
           [sty.freeBoxunnamedGroupOfVariants_showReply__xZam2KDgzF]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
@@ -1894,41 +1841,28 @@ function PlasmicComment__RenderFunc(props: {
           }
         })() ? (
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__aAapo,
-              {
-                [sty.textunnamedGroupOfVariants_showReply__aAapokDgzF]:
-                  hasVariant($state, "unnamedGroupOfVariants", "showReply"),
-                [sty.textunnamedGroupOfVariants_showReply_whenIsAdminTrue__aAapokDgzFRBgTe]:
-                  hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") &&
-                  hasVariant($state, "unnamedGroupOfVariants", "showReply"),
-                [sty.textunnamedGroupOfVariants_whenHaveNoReply__aAapoCt3Kq]:
-                  hasVariant(
-                    $state,
-                    "unnamedGroupOfVariants",
-                    "whenHaveNoReply"
-                  ),
-                [sty.textunnamedGroupOfVariants_whenHaveNoReply_whenIsAdminTrue__aAapoCt3KqRBgTe]:
-                  hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") &&
-                  hasVariant(
-                    $state,
-                    "unnamedGroupOfVariants",
-                    "whenHaveNoReply"
-                  ),
-                [sty.textunnamedGroupOfVariants_whenHaveReply__aAapoKmMee]:
-                  hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
-                [sty.textunnamedGroupOfVariants_whenHaveReply_whenIsAdminTrue__aAapoKmMeeRBgTe]:
-                  hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") &&
-                  hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
-                [sty.textwhenIsAdminTrue__aAaporBgTe]: hasVariant(
-                  $state,
-                  "whenIsAdminTrue",
-                  "whenIsAdminTrue"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__aAapo, {
+              [sty.textunnamedGroupOfVariants_showReply__aAapokDgzF]:
+                hasVariant($state, "unnamedGroupOfVariants", "showReply"),
+              [sty.textunnamedGroupOfVariants_showReply_whenIsAdminTrue__aAapokDgzFRBgTe]:
+                hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") &&
+                hasVariant($state, "unnamedGroupOfVariants", "showReply"),
+              [sty.textunnamedGroupOfVariants_whenHaveNoReply__aAapoCt3Kq]:
+                hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+              [sty.textunnamedGroupOfVariants_whenHaveNoReply_whenIsAdminTrue__aAapoCt3KqRBgTe]:
+                hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") &&
+                hasVariant($state, "unnamedGroupOfVariants", "whenHaveNoReply"),
+              [sty.textunnamedGroupOfVariants_whenHaveReply__aAapoKmMee]:
+                hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
+              [sty.textunnamedGroupOfVariants_whenHaveReply_whenIsAdminTrue__aAapoKmMeeRBgTe]:
+                hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") &&
+                hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply"),
+              [sty.textwhenIsAdminTrue__aAaporBgTe]: hasVariant(
+                $state,
+                "whenIsAdminTrue",
+                "whenIsAdminTrue"
+              )
+            })}
           >
             {hasVariant($state, "whenIsAdminTrue", "whenIsAdminTrue") ? (
               <React.Fragment>
@@ -2035,13 +1969,13 @@ function PlasmicComment__RenderFunc(props: {
           }
         })() ? (
           <Icon115Icon
-            className={classNames(projectcss.all, sty.svg__zzNeW)}
+            className={classNames("all", sty.svg__zzNeW)}
             role={"img"}
           />
         ) : null}
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__wRzZd, {
+        className={classNames("all", sty.freeBox__wRzZd, {
           [sty.freeBoxunnamedGroupOfVariants_showReply__wRzZdkDgzF]: hasVariant(
             $state,
             "unnamedGroupOfVariants",
@@ -2083,15 +2017,10 @@ function PlasmicComment__RenderFunc(props: {
         }}
       >
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___3H3Hg,
-            {
-              [sty.textunnamedGroupOfVariants_whenHaveReply___3H3HgKmMee]:
-                hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply")
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text___3H3Hg, {
+            [sty.textunnamedGroupOfVariants_whenHaveReply___3H3HgKmMee]:
+              hasVariant($state, "unnamedGroupOfVariants", "whenHaveReply")
+          })}
         >
           {"\u0628\u0633\u062a\u0646"}
         </div>
@@ -2101,9 +2030,9 @@ function PlasmicComment__RenderFunc(props: {
         data-plasmic-override={overrides.deleteModal}
         className={classNames("__wab_instance", sty.deleteModal)}
         defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
         hideFooter={true}
@@ -2117,39 +2046,27 @@ function PlasmicComment__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["deleteModal", "open"])}
         title={
-          <div className={classNames(projectcss.all, sty.freeBox__pn8Ry)}>
+          <div className={classNames("all", sty.freeBox__pn8Ry)}>
             <Icon252Icon
-              className={classNames(projectcss.all, sty.svg__fcV5X)}
+              className={classNames("all", sty.svg__fcV5X)}
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___0FpTf
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text___0FpTf)}>
               {"\u062d\u0630\u0641 \u0646\u0638\u0631"}
             </div>
           </div>
         }
         trigger={null}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__tf9Il)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__liMce
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__tf9Il)}>
+          <div className={classNames("all", "__wab_text", sty.text__liMce)}>
             {
               "\u0627\u0632 \u062d\u0630\u0641 \u06a9\u0631\u062f\u0646 \u06a9\u0627\u0645\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0626\u0646 \u0647\u0633\u062a\u06cc\u062f\u061f"
             }
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__fHwKv)}>
-            <div className={classNames(projectcss.all, sty.freeBox___3Wjb2)}>
+          <div className={classNames("all", sty.freeBox__fHwKv)}>
+            <div className={classNames("all", sty.freeBox___3Wjb2)}>
               <Button
                 data-plasmic-name={"button3"}
                 data-plasmic-override={overrides.button3}

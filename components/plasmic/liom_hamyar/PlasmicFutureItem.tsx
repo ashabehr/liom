@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFutureItem.module.css"; // plasmic-import: pKcBaNZ3_IhU/css
 
 import Icon137Icon from "./icons/PlasmicIcon__Icon137"; // plasmic-import: DXdLIMYRuTVZ/icon
@@ -144,10 +143,6 @@ function PlasmicFutureItem__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -165,6 +160,11 @@ function PlasmicFutureItem__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -182,10 +182,10 @@ function PlasmicFutureItem__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -215,7 +215,7 @@ function PlasmicFutureItem__RenderFunc(props: {
                 ? Icon134Icon
                 : Icon137Icon
         }
-        className={classNames(projectcss.all, sty.svg, {
+        className={classNames("all", sty.svg, {
           [sty.svgtype_b]: hasVariant($state, "type", "b"),
           [sty.svgtype_f]: hasVariant($state, "type", "f"),
           [sty.svgtype_ff]: hasVariant($state, "type", "ff"),
@@ -225,16 +225,11 @@ function PlasmicFutureItem__RenderFunc(props: {
       />
 
       <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__abzjI,
-          {
-            [sty.texttype_f__abzjIruEhp]: hasVariant($state, "type", "f"),
-            [sty.texttype_ff__abzjIaEzhz]: hasVariant($state, "type", "ff"),
-            [sty.texttype_p__abzjIYdWyQ]: hasVariant($state, "type", "p")
-          }
-        )}
+        className={classNames("all", "__wab_text", sty.text__abzjI, {
+          [sty.texttype_f__abzjIruEhp]: hasVariant($state, "type", "f"),
+          [sty.texttype_ff__abzjIaEzhz]: hasVariant($state, "type", "ff"),
+          [sty.texttype_p__abzjIYdWyQ]: hasVariant($state, "type", "p")
+        })}
       >
         <React.Fragment>
           {(() => {
@@ -255,17 +250,14 @@ function PlasmicFutureItem__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
+        className={classNames("all", sty.freeBox, {
           [sty.freeBoxtype_ff]: hasVariant($state, "type", "ff")
         })}
       >
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__w1Pix,
-            { [sty.texttype_ff__w1PixaEzhz]: hasVariant($state, "type", "ff") }
-          )}
+          className={classNames("all", "__wab_text", sty.text__w1Pix, {
+            [sty.texttype_ff__w1PixaEzhz]: hasVariant($state, "type", "ff")
+          })}
         >
           <React.Fragment>
             {(() => {
@@ -284,30 +276,25 @@ function PlasmicFutureItem__RenderFunc(props: {
           </React.Fragment>
         </div>
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__yb79E,
-            {
-              [sty.textnow__yb79EfClWf]: hasVariant($state, "now", "now"),
-              [sty.textnow_type_f__yb79EfClWfRuEhp]:
-                hasVariant($state, "now", "now") &&
-                hasVariant($state, "type", "f"),
-              [sty.texttype_b__yb79EaSIhT]: hasVariant($state, "type", "b"),
-              [sty.texttype_b_now__yb79EaSIhTFClWf]:
-                hasVariant($state, "type", "b") &&
-                hasVariant($state, "now", "now"),
-              [sty.texttype_f__yb79EruEhp]: hasVariant($state, "type", "f"),
-              [sty.texttype_ff__yb79EaEzhz]: hasVariant($state, "type", "ff"),
-              [sty.texttype_ff_now__yb79EaEzhzFClWf]:
-                hasVariant($state, "now", "now") &&
-                hasVariant($state, "type", "ff"),
-              [sty.texttype_p__yb79EYdWyQ]: hasVariant($state, "type", "p"),
-              [sty.texttype_p_now__yb79EYdWyQFClWf]:
-                hasVariant($state, "now", "now") &&
-                hasVariant($state, "type", "p")
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text__yb79E, {
+            [sty.textnow__yb79EfClWf]: hasVariant($state, "now", "now"),
+            [sty.textnow_type_f__yb79EfClWfRuEhp]:
+              hasVariant($state, "now", "now") &&
+              hasVariant($state, "type", "f"),
+            [sty.texttype_b__yb79EaSIhT]: hasVariant($state, "type", "b"),
+            [sty.texttype_b_now__yb79EaSIhTFClWf]:
+              hasVariant($state, "type", "b") &&
+              hasVariant($state, "now", "now"),
+            [sty.texttype_f__yb79EruEhp]: hasVariant($state, "type", "f"),
+            [sty.texttype_ff__yb79EaEzhz]: hasVariant($state, "type", "ff"),
+            [sty.texttype_ff_now__yb79EaEzhzFClWf]:
+              hasVariant($state, "now", "now") &&
+              hasVariant($state, "type", "ff"),
+            [sty.texttype_p__yb79EYdWyQ]: hasVariant($state, "type", "p"),
+            [sty.texttype_p_now__yb79EYdWyQFClWf]:
+              hasVariant($state, "now", "now") &&
+              hasVariant($state, "type", "p")
+          })}
         >
           {hasVariant($state, "now", "now") && hasVariant($state, "type", "ff")
             ? "\u0631\u0648\u0632 \u062a\u0627 \u0628\u06cc\u0634\u062a\u0631\u06cc\u0646 \u0645\u06cc\u0632\u0627\u0646 \u062a\u062e\u0645\u06a9 \u06af\u0630\u0627\u0631\u06cc"

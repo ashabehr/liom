@@ -84,7 +84,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReminderSetting.module.css"; // plasmic-import: VZcPBQBUFNbT/css
 
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
@@ -545,12 +544,6 @@ function PlasmicReminderSetting__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -1739,6 +1732,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -1756,10 +1756,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -1786,7 +1786,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
       <section
         data-plasmic-name={"section"}
         data-plasmic-override={overrides.section}
-        className={classNames(projectcss.all, sty.section, {
+        className={classNames("all", sty.section, {
           [sty.sectionadd]: hasVariant($state, "add", "add"),
           [sty.sectionslide__1]: hasVariant($state, "slide", "_1"),
           [sty.sectionslide__2]: hasVariant($state, "slide", "_2")
@@ -1812,9 +1812,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
             )
           })}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__uk4CQ)}>
+          <div className={classNames("all", sty.freeBox__uk4CQ)}>
             <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__vaKqd)}
+              className={classNames("all", sty.svg__vaKqd)}
               onClick={async event => {
                 const $steps = {};
 
@@ -1838,12 +1838,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__wEvVl,
-                { [sty.textadd__wEvVluWxSg]: hasVariant($state, "add", "add") }
-              )}
+              className={classNames("all", "__wab_text", sty.text__wEvVl, {
+                [sty.textadd__wEvVluWxSg]: hasVariant($state, "add", "add")
+              })}
               id={"myTarget"}
             >
               {hasVariant($state, "add", "add")
@@ -1949,7 +1946,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
               ) : null
             }
           >
-            <div className={classNames(projectcss.all, sty.freeBox__eJxAu)}>
+            <div className={classNames("all", sty.freeBox__eJxAu)}>
               {(() => {
                 try {
                   return $state.steps2.currentStep == 0;
@@ -1964,7 +1961,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }
               })() ? (
                 <XIcon
-                  className={classNames(projectcss.all, sty.svg__c6X7W)}
+                  className={classNames("all", sty.svg__c6X7W)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -2005,7 +2002,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }
               })() ? (
                 <ChevronRightIcon
-                  className={classNames(projectcss.all, sty.svg___0DLc)}
+                  className={classNames("all", sty.svg___0DLc)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -2032,13 +2029,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   role={"img"}
                 />
               ) : null}
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__gAfV2
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__gAfV2)}>
                 <React.Fragment>
                   {(() => {
                     try {
@@ -2060,17 +2051,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
             </div>
           </HeaderLiom>
           <div
-            className={classNames(projectcss.all, sty.freeBox__hTnp2, {
+            className={classNames("all", sty.freeBox__hTnp2, {
               [sty.freeBoxadd__hTnp2UWxSg]: hasVariant($state, "add", "add")
             })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__kciBn)}>
+            <div className={classNames("all", sty.freeBox__kciBn)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___2QQzl
-                )}
+                className={classNames("all", "__wab_text", sty.text___2QQzl)}
               >
                 {
                   "\u0631\u0648\u06cc\u062f\u0627\u062f \u062c\u062f\u06cc\u062f"
@@ -2078,7 +2065,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
               </div>
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__p32It, {
+              className={classNames("all", sty.freeBox__p32It, {
                 [sty.freeBoxadd__p32ItuWxSg]: hasVariant($state, "add", "add")
               })}
             >
@@ -2161,19 +2148,17 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__lk7Ua)}
-                  >
+                  <div className={classNames("all", sty.freeBox__lk7Ua)}>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__zoDiw)}
+                      className={classNames("all", sty.freeBox__zoDiw)}
                       onClick={async event => {
                         const $steps = {};
                       }}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__dDwTo
                         )}
                       >
@@ -2183,8 +2168,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         data-plasmic-name={"textbox"}
                         data-plasmic-override={overrides.textbox}
                         className={classNames(
-                          projectcss.all,
-                          projectcss.input,
+                          "all",
+                          "input",
+                          "input__suVPi",
                           sty.textbox
                         )}
                         id={"htmltitleSetting"}
@@ -2253,22 +2239,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         }
                       />
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__p8KA1)}
-                    >
+                    <div className={classNames("all", sty.freeBox__p8KA1)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__jfPcc
                         )}
                       >
                         {"\u0646\u0648\u0639 "}
                       </div>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__gTXuD)}
-                    >
+                    <div className={classNames("all", sty.freeBox__gTXuD)}>
                       {(() => {
                         try {
                           return $state.select2.schedule_type != "everyDay";
@@ -2282,17 +2264,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__uanmL
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__uanmL)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__vdQG
-                            )}
+                            className={classNames("all", sty.freeBox__vdQG)}
                             onClick={async event => {
                               const $steps = {};
 
@@ -2322,17 +2296,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             }}
                           >
                             <Icon345Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__rjCoL
-                              )}
+                              className={classNames("all", sty.svg__rjCoL)}
                               role={"img"}
                             />
 
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__dYof4
                               )}
                             >
@@ -2361,10 +2332,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__hOu8T
-                              )}
+                              className={classNames("all", sty.freeBox__hOu8T)}
                               id={``}
                               onClick={async event => {
                                 const $steps = {};
@@ -2387,20 +2355,17 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               }}
                             >
                               <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__inuQ
-                                )}
+                                className={classNames("all", sty.freeBox__inuQ)}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__wn8I4
                                   )}
                                 >
                                   <Icon49Icon
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.svg__wts6Q
                                     )}
                                     role={"img"}
@@ -2408,8 +2373,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__tzt2Q
                                     )}
                                   >
@@ -2433,10 +2398,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             }
                           })() ? (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__xgMp
-                              )}
+                              className={classNames("all", sty.freeBox__xgMp)}
                             >
                               {(_par =>
                                 !_par
@@ -2464,14 +2426,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 return (
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__kweHg
                                     )}
                                     key={currentIndex}
                                   >
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox___1F1TC
                                       )}
                                       onClick={async event => {
@@ -2578,8 +2540,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     >
                                       <div
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
+                                          "all",
+                                          "__wab_text",
                                           sty.text__kHgMi
                                         )}
                                       >
@@ -2603,7 +2565,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     </div>
                                     <Icon306Icon
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.svg__lzsVl
                                       )}
                                       onClick={async event => {
@@ -2658,31 +2620,15 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__tjS7E
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__s5PIg
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__tjS7E)}>
+                        <div className={classNames("all", sty.freeBox__s5PIg)}>
                           <Icon344Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__a3Qqh
-                            )}
+                            className={classNames("all", sty.svg__a3Qqh)}
                             role={"img"}
                           />
 
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__r6X7I
-                            )}
+                            className={classNames("all", sty.freeBox__r6X7I)}
                             onClick={async event => {
                               const $steps = {};
 
@@ -2767,13 +2713,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__jQnbq
                               )}
                             >
                               <div
-                                className={projectcss.__wab_expr_html_text}
+                                className={"__wab_expr_html_text"}
                                 dangerouslySetInnerHTML={{
                                   __html: (() => {
                                     try {
@@ -2809,8 +2755,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__lEhgu
                                 )}
                               >
@@ -2847,22 +2793,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__j6FOh
                                 )}
                               >
                                 <Icon49Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__pBywk
-                                  )}
+                                  className={classNames("all", sty.svg__pBywk)}
                                   role={"img"}
                                 />
 
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text___3VAjo
                                   )}
                                 >
@@ -2885,10 +2828,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             }
                           })() ? (
                             <XIcon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__tHSl
-                              )}
+                              className={classNames("all", sty.svg__tHSl)}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -2918,14 +2858,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         </div>
                       </div>
                     ) : null}
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__iOoxC)}
-                    >
+                    <div className={classNames("all", sty.freeBox__iOoxC)}>
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___6AMmE
-                        )}
+                        className={classNames("all", sty.freeBox___6AMmE)}
                         onClick={async event => {
                           const $steps = {};
 
@@ -2954,14 +2889,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         }}
                       >
                         <ClockIcon
-                          className={classNames(projectcss.all, sty.svg__twKhv)}
+                          className={classNames("all", sty.svg__twKhv)}
                           role={"img"}
                         />
 
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__m26V
                           )}
                         >
@@ -2970,36 +2905,24 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           }
                         </div>
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__cia3Y
-                          )}
+                          className={classNames("all", sty.freeBox__cia3Y)}
                           id={``}
                         >
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__jdFMu
-                            )}
+                            className={classNames("all", sty.freeBox__jdFMu)}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__cej3T
-                              )}
+                              className={classNames("all", sty.freeBox__cej3T)}
                             >
                               <Icon49Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__uDtE
-                                )}
+                                className={classNames("all", sty.svg__uDtE)}
                                 role={"img"}
                               />
 
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__ja0
                                 )}
                               >
@@ -3022,12 +2945,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___4YZz
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox___4YZz)}>
                           {(_par =>
                             !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                             (() => {
@@ -3049,14 +2967,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             return (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__nOBn0
                                 )}
                                 key={currentIndex}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__g4CiI
                                   )}
                                   onClick={async event => {
@@ -3152,8 +3070,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__i286M
                                     )}
                                   >
@@ -3176,10 +3094,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   </div>
                                 </div>
                                 <Icon306Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__uzFx4
-                                  )}
+                                  className={classNames("all", sty.svg__uzFx4)}
                                   onClick={async event => {
                                     const $steps = {};
 
@@ -3229,17 +3144,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__pIu4P
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__pIu4P)}>
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__qj1Qb
-                          )}
+                          className={classNames("all", sty.freeBox__qj1Qb)}
                           onClick={async event => {
                             const $steps = {};
 
@@ -3267,22 +3174,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           }}
                         >
                           <Icon387Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__l0ZoD
-                            )}
+                            className={classNames("all", sty.svg__l0ZoD)}
                             role={"img"}
                           />
 
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__d9WVt
                             )}
                           >
                             <div
-                              className={projectcss.__wab_expr_html_text}
+                              className={"__wab_expr_html_text"}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
@@ -3302,39 +3206,27 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             />
                           </div>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__xm8OU
-                            )}
+                            className={classNames("all", sty.freeBox__xm8OU)}
                             id={``}
                             onClick={async event => {
                               const $steps = {};
                             }}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___4OrXs
-                              )}
+                              className={classNames("all", sty.freeBox___4OrXs)}
                             >
                               <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__a76B
-                                )}
+                                className={classNames("all", sty.freeBox__a76B)}
                               >
                                 <Icon49Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__lnzer
-                                  )}
+                                  className={classNames("all", sty.svg__lnzer)}
                                   role={"img"}
                                 />
 
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__damdt
                                   )}
                                 >
@@ -3358,10 +3250,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___9Hjq
-                            )}
+                            className={classNames("all", sty.freeBox___9Hjq)}
                           >
                             {(_par =>
                               !_par ? [] : Array.isArray(_par) ? _par : [_par])(
@@ -3389,14 +3278,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               return (
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox___9QcYo
                                   )}
                                   key={currentIndex}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__xHMnm
                                     )}
                                     onClick={async event => {
@@ -3458,15 +3347,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   >
                                     <div
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
+                                        "all",
+                                        "__wab_text",
                                         sty.text___1DCnc
                                       )}
                                     >
                                       <div
-                                        className={
-                                          projectcss.__wab_expr_html_text
-                                        }
+                                        className={"__wab_expr_html_text"}
                                         dangerouslySetInnerHTML={{
                                           __html: (() => {
                                             try {
@@ -3488,7 +3375,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   </div>
                                   <Icon306Icon
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.svg__y4KIv
                                     )}
                                     onClick={async event => {
@@ -3553,37 +3440,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__kls3Y
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__tdBtA
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__kls3Y)}>
+                        <div className={classNames("all", sty.freeBox__tdBtA)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__l6GOs
-                            )}
+                            className={classNames("all", sty.freeBox__l6GOs)}
                           >
                             <Icon346Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg___8SI9R
-                              )}
+                              className={classNames("all", sty.svg___8SI9R)}
                               role={"img"}
                             />
 
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__dfUw0
-                              )}
+                              className={classNames("all", sty.freeBox__dfUw0)}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -3610,8 +3478,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__iVkje
                                 )}
                               >
@@ -3621,8 +3489,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               </div>
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__j35V
                                 )}
                               >
@@ -3701,13 +3569,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               })() ? (
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__vX3U
                                   )}
                                 >
                                   <Icon49Icon
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.svg___6NGo7
                                     )}
                                     role={"img"}
@@ -3715,8 +3583,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__t5Zw
                                     )}
                                   >
@@ -3741,10 +3609,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               }
                             })() ? (
                               <Icon22Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__nN12S
-                                )}
+                                className={classNames("all", sty.svg__nN12S)}
                                 onClick={async event => {
                                   const $steps = {};
 
@@ -3773,10 +3638,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             ) : null}
                           </div>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__gy6F8
-                            )}
+                            className={classNames("all", sty.freeBox__gy6F8)}
                           >
                             <Repead
                               data-plasmic-name={"repead"}
@@ -4009,25 +3871,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               })()}
                             >
                               <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__o4G6
-                                )}
+                                className={classNames("all", sty.freeBox__o4G6)}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__hqoGv
                                   )}
                                 >
                                   {"\u0633\u0641\u0627\u0631\u0634\u06cc"}
                                 </div>
                                 <ChevronLeftIcon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__u4X51
-                                  )}
+                                  className={classNames("all", sty.svg__u4X51)}
                                   role={"img"}
                                 />
                               </div>
@@ -4036,19 +3892,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         </div>
                       </div>
                     ) : null}
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__m0YG)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__rI49K
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__m0YG)}>
+                      <div className={classNames("all", sty.freeBox__rI49K)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__nIznx
                           )}
                         >
@@ -4300,8 +4149,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__lxkM4
                           )}
                         >
@@ -4324,13 +4173,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__aVHvs)}
-                  >
+                  <div className={classNames("all", sty.freeBox__aVHvs)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__xaJcm
                       )}
                     >
@@ -4896,8 +4743,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__jEOm
                               )}
                             >
@@ -5167,7 +5014,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
           }}
           opendialog={generateStateValueProp($state, ["dialog2", "opendialog"])}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__zVmP4)}>
+          <div className={classNames("all", sty.freeBox__zVmP4)}>
             <ReminderCategory
               data-plasmic-name={"reminderCategory2"}
               data-plasmic-override={overrides.reminderCategory2}
@@ -5544,14 +5391,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
             "opendialog"
           ])}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__eatO7)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__pEj2E
-              )}
-            >
+          <div className={classNames("all", sty.freeBox__eatO7)}>
+            <div className={classNames("all", "__wab_text", sty.text__pEj2E)}>
               <React.Fragment>
                 {(() => {
                   try {
@@ -5971,13 +5812,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }
               }}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__zznB
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__zznB)}>
                 {"\u062a\u0627\u06cc\u06cc\u062f"}
               </div>
             </Button>
@@ -6003,21 +5838,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
           }}
           opendialog={generateStateValueProp($state, ["time", "opendialog"])}
         >
-          <div className={classNames(projectcss.all, sty.freeBox___8MDPm)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__mcKl
-              )}
-            >
+          <div className={classNames("all", sty.freeBox___8MDPm)}>
+            <div className={classNames("all", "__wab_text", sty.text__mcKl)}>
               {
                 " \u0632\u0645\u0627\u0646 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
               }
             </div>
-            <div
-              className={classNames(projectcss.all, sty.freeBox__fmOzt, "time")}
-            >
+            <div className={classNames("all", sty.freeBox__fmOzt, "time")}>
               <Pickers
                 data-plasmic-name={"pickers"}
                 data-plasmic-override={overrides.pickers}
@@ -6226,13 +6053,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }
               }}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___9EgE
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text___9EgE)}>
                 {"\u062a\u0627\u06cc\u06cc\u062f"}
               </div>
             </Button>
@@ -6263,19 +6084,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
             "opendialog"
           ])}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__clX9X)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__dKlLc
-              )}
-            >
+          <div className={classNames("all", sty.freeBox__clX9X)}>
+            <div className={classNames("all", "__wab_text", sty.text__dKlLc)}>
               {
                 " \u062a\u06a9\u0631\u0627\u0631 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
               }
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__mpTf4)}>
+            <div className={classNames("all", sty.freeBox__mpTf4)}>
               <CheckboxGroup
                 data-plasmic-name={"checkboxGroup"}
                 data-plasmic-override={overrides.checkboxGroup}
@@ -6295,9 +6110,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   }
                 }}
                 options={
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__a5QJd)}
-                  >
+                  <div className={classNames("all", sty.freeBox__a5QJd)}>
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
@@ -6326,10 +6139,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_0;
                       return (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__zPHuc
-                          )}
+                          className={classNames("all", sty.freeBox__zPHuc)}
                           key={currentIndex}
                         >
                           {(() => {
@@ -6442,8 +6252,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__iGh
                                   )}
                                 >
@@ -6604,16 +6414,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
             "opendialog"
           ])}
         >
-          <div className={classNames(projectcss.all, sty.freeBox___940Jz)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__frTi
-              )}
-            >
+          <div className={classNames("all", sty.freeBox___940Jz)}>
+            <div className={classNames("all", "__wab_text", sty.text__frTi)}>
               <div
-                className={projectcss.__wab_expr_html_text}
+                className={"__wab_expr_html_text"}
                 dangerouslySetInnerHTML={{
                   __html: (() => {
                     try {
@@ -6631,7 +6435,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 }}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__nlLxl)}>
+            <div className={classNames("all", sty.freeBox__nlLxl)}>
               <PreReminderSelect
                 data-plasmic-name={"preReminderSelect"}
                 data-plasmic-override={overrides.preReminderSelect}
@@ -6797,7 +6601,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         </Dialog>
       </section>
       <div
-        className={classNames(projectcss.all, sty.freeBox__roMeM, {
+        className={classNames("all", sty.freeBox__roMeM, {
           [sty.freeBoxadd__roMeMuWxSg]: hasVariant($state, "add", "add"),
           [sty.freeBoxhamyar__roMeMYj8LV]: hasVariant(
             $state,
@@ -6814,7 +6618,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__dVXpG, {
+          className={classNames("all", sty.freeBox__dVXpG, {
             [sty.freeBoxadd__dVXpGuWxSg]: hasVariant($state, "add", "add"),
             [sty.freeBoxslide__1__dVXpGedcqc]: hasVariant(
               $state,
@@ -6825,19 +6629,10 @@ function PlasmicReminderSetting__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__rZtR,
-              {
-                [sty.textslide__1__rZtRedcqc]: hasVariant(
-                  $state,
-                  "slide",
-                  "_1"
-                ),
-                [sty.textslide__2__rZtRvJmCw]: hasVariant($state, "slide", "_2")
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__rZtR, {
+              [sty.textslide__1__rZtRedcqc]: hasVariant($state, "slide", "_1"),
+              [sty.textslide__2__rZtRvJmCw]: hasVariant($state, "slide", "_2")
+            })}
           >
             {
               "\u0645\u0633\u06cc\u0631 \u0647\u0627\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc "
@@ -6847,13 +6642,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
         <div
           data-plasmic-name={"slide2"}
           data-plasmic-override={overrides.slide2}
-          className={classNames(projectcss.all, sty.slide2, {
+          className={classNames("all", sty.slide2, {
             [sty.slide2add]: hasVariant($state, "add", "add"),
             [sty.slide2slide__1]: hasVariant($state, "slide", "_1"),
             [sty.slide2slide__2]: hasVariant($state, "slide", "_2")
           })}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__mco7M)}>
+          <div className={classNames("all", sty.freeBox__mco7M)}>
             <PlasmicImg__
               alt={""}
               className={classNames(sty.img___2Ze26, {
@@ -6882,36 +6677,28 @@ function PlasmicReminderSetting__RenderFunc(props: {
               }}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__jphvW)}>
+            <div className={classNames("all", sty.freeBox__jphvW)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___8SfmK
-                )}
+                className={classNames("all", "__wab_text", sty.text___8SfmK)}
               >
                 {
                   " \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646"
                 }
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__jYkOx)}>
+            <div className={classNames("all", sty.freeBox__jYkOx)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___0IZfz
-                )}
+                className={classNames("all", "__wab_text", sty.text___0IZfz)}
               >
                 {"\u0641\u0639\u0627\u0644"}
               </div>
               <Icon214Icon
-                className={classNames(projectcss.all, sty.svg___1Ih8Q)}
+                className={classNames("all", sty.svg___1Ih8Q)}
                 role={"img"}
               />
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__lD35S)}>
+          <div className={classNames("all", sty.freeBox__lD35S)}>
             <PlasmicImg__
               alt={""}
               className={classNames(sty.img__ge09I)}
@@ -6936,14 +6723,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
               }}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__nyFlb)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__glfn
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__nyFlb)}>
+              <div className={classNames("all", "__wab_text", sty.text__glfn)}>
                 {
                   "\u0631\u0628\u0627\u062a \u062a\u0644\u06af\u0631\u0627\u0645"
                 }
@@ -7054,24 +6835,20 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__of6QH)}>
+              <div className={classNames("all", sty.freeBox__of6QH)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__shHvk
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__shHvk)}
                 >
                   {"\u0641\u0639\u0627\u0644"}
                 </div>
                 <Icon214Icon
-                  className={classNames(projectcss.all, sty.svg__gclh)}
+                  className={classNames("all", sty.svg__gclh)}
                   role={"img"}
                 />
               </div>
             ) : null}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__yxmvm)}>
+          <div className={classNames("all", sty.freeBox__yxmvm)}>
             <PlasmicImg__
               alt={""}
               className={classNames(sty.img__n5YQc)}
@@ -7096,14 +6873,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
               }}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__vLx1M)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__eDdSd
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__vLx1M)}>
+              <div className={classNames("all", "__wab_text", sty.text__eDdSd)}>
                 {"\u0631\u0628\u0627\u062a \u0628\u0644\u0647"}
               </div>
             </div>
@@ -7212,27 +6983,20 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox___1Cxzb)}>
+              <div className={classNames("all", sty.freeBox___1Cxzb)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___4B2Ii
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___4B2Ii)}
                 >
                   {"\u0641\u0639\u0627\u0644"}
                 </div>
                 <Icon214Icon
-                  className={classNames(projectcss.all, sty.svg__fcR8T)}
+                  className={classNames("all", sty.svg__fcR8T)}
                   role={"img"}
                 />
               </div>
             ) : null}
           </div>
-          <div
-            className={classNames(projectcss.all, sty.freeBox__h31Sa)}
-            id={"sms-tag"}
-          >
+          <div className={classNames("all", sty.freeBox__h31Sa)} id={"sms-tag"}>
             <PlasmicImg__
               alt={""}
               className={classNames(sty.img___1Jflj)}
@@ -7255,13 +7019,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
               }}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__ljiiw)}>
+            <div className={classNames("all", sty.freeBox__ljiiw)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___9HquP
-                )}
+                className={classNames("all", "__wab_text", sty.text___9HquP)}
               >
                 {" \u067e\u06cc\u0627\u0645\u06a9 "}
               </div>
@@ -7410,18 +7170,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__lEgr6)}>
+              <div className={classNames("all", sty.freeBox__lEgr6)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xnAhg
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__xnAhg)}
                 >
                   {"\u0641\u0639\u0627\u0644"}
                 </div>
                 <Icon214Icon
-                  className={classNames(projectcss.all, sty.svg__yFzrA)}
+                  className={classNames("all", sty.svg__yFzrA)}
                   role={"img"}
                 />
               </div>
@@ -7431,7 +7187,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         <div
           data-plasmic-name={"frame"}
           data-plasmic-override={overrides.frame}
-          className={classNames(projectcss.all, sty.frame, {
+          className={classNames("all", sty.frame, {
             [sty.frameadd]: hasVariant($state, "add", "add"),
             [sty.frameslide__2]: hasVariant($state, "slide", "_2")
           })}
@@ -7439,12 +7195,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
           <div
             data-plasmic-name={"frame2"}
             data-plasmic-override={overrides.frame2}
-            className={classNames(projectcss.all, sty.frame2, {
+            className={classNames("all", sty.frame2, {
               [sty.frame2slide__2]: hasVariant($state, "slide", "_2")
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__hfldd, {
+              className={classNames("all", sty.freeBox__hfldd, {
                 [sty.freeBoxslide__2__hflddVJmCw]: hasVariant(
                   $state,
                   "slide",
@@ -7452,25 +7208,20 @@ function PlasmicReminderSetting__RenderFunc(props: {
                 )
               })}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__eIspo)}>
+              <div className={classNames("all", sty.freeBox__eIspo)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__wvUwD,
-                    {
-                      [sty.textslide__1__wvUwDedcqc]: hasVariant(
-                        $state,
-                        "slide",
-                        "_1"
-                      ),
-                      [sty.textslide__2__wvUwDvJmCw]: hasVariant(
-                        $state,
-                        "slide",
-                        "_2"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__wvUwD, {
+                    [sty.textslide__1__wvUwDedcqc]: hasVariant(
+                      $state,
+                      "slide",
+                      "_1"
+                    ),
+                    [sty.textslide__2__wvUwDvJmCw]: hasVariant(
+                      $state,
+                      "slide",
+                      "_2"
+                    )
+                  })}
                 >
                   {"\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"}
                 </div>
@@ -7481,7 +7232,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button7", "color"])}
                   endIcon={
                     <Icon283Icon
-                      className={classNames(projectcss.all, sty.svg__r3Q8R)}
+                      className={classNames("all", sty.svg__r3Q8R)}
                       role={"img"}
                     />
                   }
@@ -7630,7 +7381,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
           <div
             data-plasmic-name={"todayMeeting"}
             data-plasmic-override={overrides.todayMeeting}
-            className={classNames(projectcss.all, sty.todayMeeting, "days", {
+            className={classNames("all", sty.todayMeeting, "days", {
               [sty.todayMeetingadd]: hasVariant($state, "add", "add"),
               [sty.todayMeetingslide__1]: hasVariant($state, "slide", "_1"),
               [sty.todayMeetingslide__1_small]:
@@ -7704,41 +7455,36 @@ function PlasmicReminderSetting__RenderFunc(props: {
               const dayIndex = __plasmic_idx_0;
               return (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__fN6Ve,
-                    ``,
-                    {
-                      [sty.freeBoxadd__fN6VeuWxSg]: hasVariant(
-                        $state,
-                        "add",
-                        "add"
-                      ),
-                      [sty.freeBoxslide__1__fN6Veedcqc]: hasVariant(
-                        $state,
-                        "slide",
-                        "_1"
-                      ),
-                      [sty.freeBoxslide__1_small__fN6VeedcqcZ1Mcd]:
-                        hasVariant($state, "slide", "_1") &&
-                        hasVariant($state, "small", "small"),
-                      [sty.freeBoxslide__2__fN6VeVJmCw]: hasVariant(
-                        $state,
-                        "slide",
-                        "_2"
-                      ),
-                      [sty.freeBoxsmall__fN6Vez1Mcd]: hasVariant(
-                        $state,
-                        "small",
-                        "small"
-                      )
-                    }
-                  )}
+                  className={classNames("all", sty.freeBox__fN6Ve, ``, {
+                    [sty.freeBoxadd__fN6VeuWxSg]: hasVariant(
+                      $state,
+                      "add",
+                      "add"
+                    ),
+                    [sty.freeBoxslide__1__fN6Veedcqc]: hasVariant(
+                      $state,
+                      "slide",
+                      "_1"
+                    ),
+                    [sty.freeBoxslide__1_small__fN6VeedcqcZ1Mcd]:
+                      hasVariant($state, "slide", "_1") &&
+                      hasVariant($state, "small", "small"),
+                    [sty.freeBoxslide__2__fN6VeVJmCw]: hasVariant(
+                      $state,
+                      "slide",
+                      "_2"
+                    ),
+                    [sty.freeBoxsmall__fN6Vez1Mcd]: hasVariant(
+                      $state,
+                      "small",
+                      "small"
+                    )
+                  })}
                   key={dayIndex}
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox__laNy3,
                       "itemdays",
                       {
@@ -7759,22 +7505,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     )}
                   >
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___3Qy8,
-                        {
-                          [sty.freeBoxslide__1___3Qy8Edcqc]: hasVariant(
-                            $state,
-                            "slide",
-                            "_1"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox___3Qy8, {
+                        [sty.freeBoxslide__1___3Qy8Edcqc]: hasVariant(
+                          $state,
+                          "slide",
+                          "_1"
+                        )
+                      })}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__tWbb,
                           {
                             [sty.textadd__tWbbuWxSg]: hasVariant(
@@ -7904,26 +7646,21 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             <div
                               data-plasmic-name={"frame26"}
                               data-plasmic-override={overrides.frame26}
-                              className={classNames(
-                                projectcss.all,
-                                sty.frame26,
-                                ``,
-                                {
-                                  [sty.frame26add]: hasVariant(
-                                    $state,
-                                    "add",
-                                    "add"
-                                  ),
-                                  [sty.frame26slide__1]: hasVariant(
-                                    $state,
-                                    "slide",
-                                    "_1"
-                                  ),
-                                  [sty.frame26slide__1_small]:
-                                    hasVariant($state, "small", "small") &&
-                                    hasVariant($state, "slide", "_1")
-                                }
-                              )}
+                              className={classNames("all", sty.frame26, ``, {
+                                [sty.frame26add]: hasVariant(
+                                  $state,
+                                  "add",
+                                  "add"
+                                ),
+                                [sty.frame26slide__1]: hasVariant(
+                                  $state,
+                                  "slide",
+                                  "_1"
+                                ),
+                                [sty.frame26slide__1_small]:
+                                  hasVariant($state, "small", "small") &&
+                                  hasVariant($state, "slide", "_1")
+                              })}
                               key={currentIndex}
                               onClick={async event => {
                                 const $steps = {};
@@ -7932,32 +7669,24 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               <div
                                 data-plasmic-name={"frame27"}
                                 data-plasmic-override={overrides.frame27}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.frame27,
-                                  {
-                                    [sty.frame27slide__1]: hasVariant(
-                                      $state,
-                                      "slide",
-                                      "_1"
-                                    )
-                                  }
-                                )}
+                                className={classNames("all", sty.frame27, {
+                                  [sty.frame27slide__1]: hasVariant(
+                                    $state,
+                                    "slide",
+                                    "_1"
+                                  )
+                                })}
                               >
                                 <div
                                   data-plasmic-name={"frame28"}
                                   data-plasmic-override={overrides.frame28}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.frame28,
-                                    {
-                                      [sty.frame28slide__1]: hasVariant(
-                                        $state,
-                                        "slide",
-                                        "_1"
-                                      )
-                                    }
-                                  )}
+                                  className={classNames("all", sty.frame28, {
+                                    [sty.frame28slide__1]: hasVariant(
+                                      $state,
+                                      "slide",
+                                      "_1"
+                                    )
+                                  })}
                                   onClick={async event => {
                                     const $steps = {};
                                   }}
@@ -7965,35 +7694,29 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   <div
                                     data-plasmic-name={"frame29"}
                                     data-plasmic-override={overrides.frame29}
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.frame29
-                                    )}
+                                    className={classNames("all", sty.frame29)}
                                   >
                                     <div
                                       data-plasmic-name={"frame30"}
                                       data-plasmic-override={overrides.frame30}
-                                      className={classNames(
-                                        projectcss.all,
-                                        sty.frame30
-                                      )}
+                                      className={classNames("all", sty.frame30)}
                                     >
                                       <div
                                         className={classNames(
-                                          projectcss.all,
+                                          "all",
                                           sty.freeBox__ez4GT
                                         )}
                                       >
                                         <div
                                           className={classNames(
-                                            projectcss.all,
+                                            "all",
                                             sty.freeBox__kNqb
                                           )}
                                         >
                                           <div
                                             className={classNames(
-                                              projectcss.all,
-                                              projectcss.__wab_text,
+                                              "all",
+                                              "__wab_text",
                                               sty.text__yZzHx,
                                               {
                                                 [sty.textslide__1__yZzHXedcqc]:
@@ -8046,7 +7769,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                         </div>
                                         <div
                                           className={classNames(
-                                            projectcss.all,
+                                            "all",
                                             sty.freeBox__fdVF,
                                             {
                                               [sty.freeBoxslide__1__fdVFedcqc]:
@@ -8111,7 +7834,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           ) ? (
                                             <div
                                               className={classNames(
-                                                projectcss.all,
+                                                "all",
                                                 sty.freeBox__dk6G,
                                                 {
                                                   [sty.freeBoxslide__1__dk6Gedcqc]:
@@ -8125,7 +7848,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             >
                                               <Icon291Icon
                                                 className={classNames(
-                                                  projectcss.all,
+                                                  "all",
                                                   sty.svg___5AYfy
                                                 )}
                                                 role={"img"}
@@ -8166,8 +7889,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               >
                                                 <div
                                                   className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
+                                                    "all",
+                                                    "__wab_text",
                                                     sty.text___71Sm6
                                                   )}
                                                   onClick={async event => {
@@ -8263,7 +7986,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           })() ? (
                                             <div
                                               className={classNames(
-                                                projectcss.all,
+                                                "all",
                                                 sty.freeBox__rz1Xl,
                                                 {
                                                   [sty.freeBoxreport__rz1XlJjOjP]:
@@ -8283,7 +8006,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             >
                                               <Icon313Icon
                                                 className={classNames(
-                                                  projectcss.all,
+                                                  "all",
                                                   sty.svg___51OeD,
                                                   {
                                                     [sty.svgslide__1___51OeDedcqc]:
@@ -8332,8 +8055,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               >
                                                 <div
                                                   className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
+                                                    "all",
+                                                    "__wab_text",
                                                     sty.text__sRf
                                                   )}
                                                   onClick={async event => {
@@ -8402,7 +8125,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           })() ? (
                                             <div
                                               className={classNames(
-                                                projectcss.all,
+                                                "all",
                                                 sty.freeBox__tPVjj,
                                                 {
                                                   [sty.freeBoxslide__1__tPVjjedcqc]:
@@ -8432,7 +8155,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             >
                                               <Icon290Icon
                                                 className={classNames(
-                                                  projectcss.all,
+                                                  "all",
                                                   sty.svg__s21QL
                                                 )}
                                                 role={"img"}
@@ -8473,8 +8196,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               >
                                                 <div
                                                   className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
+                                                    "all",
+                                                    "__wab_text",
                                                     sty.text__z1Vcs,
                                                     {
                                                       [sty.textslide__1_date2_small__z1VcsedcqcM4MogZ1Mcd]:
@@ -8692,8 +8415,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               </LineClomp>
                                               <div
                                                 className={classNames(
-                                                  projectcss.all,
-                                                  projectcss.__wab_text,
+                                                  "all",
+                                                  "__wab_text",
                                                   sty.text__o4Fns,
                                                   {
                                                     [sty.textdate2__o4FnSm4Mog]:
@@ -8902,7 +8625,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           ) ? (
                                             <div
                                               className={classNames(
-                                                projectcss.all,
+                                                "all",
                                                 sty.freeBox___2Joh,
                                                 {
                                                   [sty.freeBoxslide__1___2JoHedcqc]:
@@ -8949,8 +8672,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                               >
                                                 <div
                                                   className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
+                                                    "all",
+                                                    "__wab_text",
                                                     sty.text__h683V,
                                                     {
                                                       [sty.textslide__1__h683Vedcqc]:
@@ -9120,7 +8843,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 </div>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox___0V7N,
                                     {
                                       [sty.freeBoxslide__1___0V7Nedcqc]:
@@ -9130,7 +8853,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__x0
                                     )}
                                     id={(() => {
@@ -9804,8 +9527,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                             >
                                               <div
                                                 className={classNames(
-                                                  projectcss.all,
-                                                  projectcss.__wab_text,
+                                                  "all",
+                                                  "__wab_text",
                                                   sty.text__nUlYa
                                                 )}
                                               >
@@ -11063,8 +10786,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                           >
                                             <div
                                               className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
+                                                "all",
+                                                "__wab_text",
                                                 sty.text__lyni
                                               )}
                                             >
@@ -11100,7 +10823,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
               }
             })() ? (
               <div
-                className={classNames(projectcss.all, sty.freeBox__prs8I, {
+                className={classNames("all", sty.freeBox__prs8I, {
                   [sty.freeBoxslide__1__prs8Iedcqc]: hasVariant(
                     $state,
                     "slide",
@@ -11133,7 +10856,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                   return (
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__suk35,
                         "shimmer",
                         {
@@ -11200,7 +10923,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             : false
         ) ? (
           <div
-            className={classNames(projectcss.all, sty.freeBox__mO9Un, {
+            className={classNames("all", sty.freeBox__mO9Un, {
               [sty.freeBoxadd__mO9UNuWxSg]: hasVariant($state, "add", "add"),
               [sty.freeBoxreport__mO9UnJjOjP]: hasVariant(
                 $state,
@@ -11210,7 +10933,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__kEqtc, {
+              className={classNames("all", sty.freeBox__kEqtc, {
                 [sty.freeBoxadd__kEqtcuWxSg]: hasVariant($state, "add", "add")
               })}
             >
@@ -11293,27 +11016,23 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__hbk2M)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__djkJy)}
-                    >
+                  <div className={classNames("all", sty.freeBox__hbk2M)}>
+                    <div className={classNames("all", sty.freeBox__djkJy)}>
                       {renderPlasmicSlot({
                         defaultContents: null,
                         value: args.children
                       })}
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__cQgRo)}
+                      className={classNames("all", sty.freeBox__cQgRo)}
                       onClick={async event => {
                         const $steps = {};
                       }}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__vdUl
                         )}
                       >
@@ -11323,8 +11042,9 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         data-plasmic-name={"textbox2"}
                         data-plasmic-override={overrides.textbox2}
                         className={classNames(
-                          projectcss.all,
-                          projectcss.input,
+                          "all",
+                          "input",
+                          "input__suVPi",
                           sty.textbox2
                         )}
                         id={"htmltitleSetting"}
@@ -11393,22 +11113,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         }
                       />
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__ot4AW)}
-                    >
+                    <div className={classNames("all", sty.freeBox__ot4AW)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__juh2G
                         )}
                       >
                         {"\u0646\u0648\u0639 "}
                       </div>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__m3HG1)}
-                    >
+                    <div className={classNames("all", sty.freeBox__m3HG1)}>
                       {(() => {
                         try {
                           return $state.select2.schedule_type != "everyDay";
@@ -11422,30 +11138,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__nWmt6
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__nWmt6)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___7Bh0
-                            )}
+                            className={classNames("all", sty.freeBox___7Bh0)}
                           >
                             <Icon345Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg___8ZtGw
-                              )}
+                              className={classNames("all", sty.svg___8ZtGw)}
                               role={"img"}
                             />
 
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text___7Rc7
                               )}
                             >
@@ -11474,10 +11179,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ef0S8
-                              )}
+                              className={classNames("all", sty.freeBox__ef0S8)}
                               id={``}
                               onClick={async event => {
                                 const $steps = {};
@@ -11509,19 +11211,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__pUhRz
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox___4Ba4U
                                   )}
                                 >
                                   <Icon49Icon
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.svg__bzNun
                                     )}
                                     role={"img"}
@@ -11529,8 +11231,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__vjsmR
                                     )}
                                   >
@@ -11556,10 +11258,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             }
                           })() ? (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___5DAHt
-                              )}
+                              className={classNames("all", sty.freeBox___5DAHt)}
                             >
                               {(_par =>
                                 !_par
@@ -11587,14 +11286,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 return (
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__k3BmS
                                     )}
                                     key={currentIndex}
                                   >
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox__tagNh
                                       )}
                                       onClick={async event => {
@@ -11701,8 +11400,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     >
                                       <div
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
+                                          "all",
+                                          "__wab_text",
                                           sty.text__izZnC
                                         )}
                                       >
@@ -11726,7 +11425,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                     </div>
                                     <Icon306Icon
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.svg__gRv7U
                                       )}
                                       onClick={async event => {
@@ -11781,31 +11480,15 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__vWzb
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__tMYfg
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__vWzb)}>
+                        <div className={classNames("all", sty.freeBox__tMYfg)}>
                           <Icon344Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__t4Tot
-                            )}
+                            className={classNames("all", sty.svg__t4Tot)}
                             role={"img"}
                           />
 
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__pPqt
-                            )}
+                            className={classNames("all", sty.freeBox__pPqt)}
                             onClick={async event => {
                               const $steps = {};
 
@@ -11890,13 +11573,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__idp5
                               )}
                             >
                               <div
-                                className={projectcss.__wab_expr_html_text}
+                                className={"__wab_expr_html_text"}
                                 dangerouslySetInnerHTML={{
                                   __html: (() => {
                                     try {
@@ -11932,8 +11615,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__wU9ZT
                                 )}
                               >
@@ -11970,22 +11653,19 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox___1ZuLq
                                 )}
                               >
                                 <Icon49Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg___7UGmb
-                                  )}
+                                  className={classNames("all", sty.svg___7UGmb)}
                                   role={"img"}
                                 />
 
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__h37Bx
                                   )}
                                 >
@@ -12010,10 +11690,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             }
                           })() ? (
                             <XIcon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__ywcG2
-                              )}
+                              className={classNames("all", sty.svg__ywcG2)}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -12043,24 +11720,17 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         </div>
                       </div>
                     ) : null}
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__mgCUr)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___2Oqct
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__mgCUr)}>
+                      <div className={classNames("all", sty.freeBox___2Oqct)}>
                         <ClockIcon
-                          className={classNames(projectcss.all, sty.svg__tuCOe)}
+                          className={classNames("all", sty.svg__tuCOe)}
                           role={"img"}
                         />
 
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___2ZTnw
                           )}
                         >
@@ -12069,10 +11739,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           }
                         </div>
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__lh5Fj
-                          )}
+                          className={classNames("all", sty.freeBox__lh5Fj)}
                           id={``}
                           onClick={async event => {
                             const $steps = {};
@@ -12152,29 +11819,20 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           }}
                         >
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___7JuSp
-                            )}
+                            className={classNames("all", sty.freeBox___7JuSp)}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__r4HCa
-                              )}
+                              className={classNames("all", sty.freeBox__r4HCa)}
                             >
                               <Icon49Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg___2Wr70
-                                )}
+                                className={classNames("all", sty.svg___2Wr70)}
                                 role={"img"}
                               />
 
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__uv2Q3
                                 )}
                               >
@@ -12199,12 +11857,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__mqoqA
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__mqoqA)}>
                           {(_par =>
                             !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                             (() => {
@@ -12226,14 +11879,14 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             return (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__rF5S4
                                 )}
                                 key={currentIndex}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__qGJw
                                   )}
                                   onClick={async event => {
@@ -12329,8 +11982,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__sm7Lf
                                     )}
                                   >
@@ -12353,10 +12006,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                                   </div>
                                 </div>
                                 <Icon306Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg___5LRoV
-                                  )}
+                                  className={classNames("all", sty.svg___5LRoV)}
                                   onClick={async event => {
                                     const $steps = {};
 
@@ -12415,37 +12065,18 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__lEtzM
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__pimaX
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__lEtzM)}>
+                        <div className={classNames("all", sty.freeBox__pimaX)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__dl8MH
-                            )}
+                            className={classNames("all", sty.freeBox__dl8MH)}
                           >
                             <Icon346Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__btA9B
-                              )}
+                              className={classNames("all", sty.svg__btA9B)}
                               role={"img"}
                             />
 
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___3At4A
-                              )}
+                              className={classNames("all", sty.freeBox___3At4A)}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -12472,8 +12103,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__npQu1
                                 )}
                               >
@@ -12483,8 +12114,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               </div>
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__yxkYn
                                 )}
                               >
@@ -12563,13 +12194,13 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               })() ? (
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox___9Xq9
                                   )}
                                 >
                                   <Icon49Icon
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.svg__hm0Pc
                                     )}
                                     role={"img"}
@@ -12577,8 +12208,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
 
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__tRc5P
                                     )}
                                   >
@@ -12603,10 +12234,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                               }
                             })() ? (
                               <Icon22Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__mDakU
-                                )}
+                                className={classNames("all", sty.svg__mDakU)}
                                 onClick={async event => {
                                   const $steps = {};
 
@@ -12635,10 +12263,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             ) : null}
                           </div>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__uftNz
-                            )}
+                            className={classNames("all", sty.freeBox__uftNz)}
                           >
                             <Repead
                               data-plasmic-name={"repead2"}
@@ -12874,24 +12499,21 @@ function PlasmicReminderSetting__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__cTaNa
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__iDtwl
                                   )}
                                 >
                                   {"\u0633\u0641\u0627\u0631\u0634\u06cc"}
                                 </div>
                                 <ChevronLeftIcon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__cCdB2
-                                  )}
+                                  className={classNames("all", sty.svg__cCdB2)}
                                   role={"img"}
                                 />
                               </div>
@@ -12900,19 +12522,12 @@ function PlasmicReminderSetting__RenderFunc(props: {
                         </div>
                       </div>
                     ) : null}
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__qqDrx)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__qTpwa
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__qqDrx)}>
+                      <div className={classNames("all", sty.freeBox__qTpwa)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__ngeqX
                           )}
                         >
@@ -13125,8 +12740,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__bauul
                           )}
                         >
@@ -13149,13 +12764,11 @@ function PlasmicReminderSetting__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ddKn)}
-                  >
+                  <div className={classNames("all", sty.freeBox__ddKn)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__y1RHt
                       )}
                     >
@@ -13683,8 +13296,8 @@ function PlasmicReminderSetting__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__v8JEf
                               )}
                             >
@@ -13958,13 +13571,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         }}
         opendialog={generateStateValueProp($state, ["snackbar", "opendialog"])}
         slot={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__vKmuj
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__vKmuj)}>
             <React.Fragment>
               {(() => {
                 try {
@@ -13983,13 +13590,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
           </div>
         }
         slot2={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___4Yzc6
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text___4Yzc6)}>
             <React.Fragment>
               {(() => {
                 try {
@@ -14021,7 +13622,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
         }
         type={"info"}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__hveNm)}>
+        <div className={classNames("all", sty.freeBox__hveNm)}>
           <Button
             data-plasmic-name={"button"}
             data-plasmic-override={overrides.button}
@@ -14510,7 +14111,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
       <div
         data-plasmic-name={"pageselect"}
         data-plasmic-override={overrides.pageselect}
-        className={classNames(projectcss.all, sty.pageselect)}
+        className={classNames("all", sty.pageselect)}
         id={"pageSelect"}
         onClick={async event => {
           const $steps = {};
@@ -14724,7 +14325,7 @@ function PlasmicReminderSetting__RenderFunc(props: {
       <div
         data-plasmic-name={"pageselect2"}
         data-plasmic-override={overrides.pageselect2}
-        className={classNames(projectcss.all, sty.pageselect2, {
+        className={classNames("all", sty.pageselect2, {
           [sty.pageselect2slide__1]: hasVariant($state, "slide", "_1")
         })}
         id={"pageSelect1"}

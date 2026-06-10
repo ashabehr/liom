@@ -69,7 +69,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicNotifBox.module.css"; // plasmic-import: xI5TnebPGhVr/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -197,10 +196,6 @@ function PlasmicNotifBox__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -272,6 +267,11 @@ function PlasmicNotifBox__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -294,10 +294,10 @@ function PlasmicNotifBox__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -355,7 +355,7 @@ function PlasmicNotifBox__RenderFunc(props: {
           headerClass: classNames({ [sty["pcls_hM-HJRo8TQiR"]]: true }),
           label2: (
             <div
-              className={classNames(projectcss.all, sty.freeBox___5FqYh, {
+              className={classNames("all", sty.freeBox___5FqYh, {
                 [sty.freeBoxforAll___5FqYhq4BdZ]: hasVariant(
                   $state,
                   "forAll",
@@ -404,7 +404,7 @@ function PlasmicNotifBox__RenderFunc(props: {
               />
 
               <div
-                className={classNames(projectcss.all, sty.freeBox__lpV3T, {
+                className={classNames("all", sty.freeBox__lpV3T, {
                   [sty.freeBoxseen__lpV3TofXyw]: hasVariant(
                     $state,
                     "seen",
@@ -413,7 +413,7 @@ function PlasmicNotifBox__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__d92Y7, {
+                  className={classNames("all", sty.freeBox__d92Y7, {
                     [sty.freeBoxseen__d92Y7OfXyw]: hasVariant(
                       $state,
                       "seen",
@@ -445,8 +445,8 @@ function PlasmicNotifBox__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__nFhjh,
                         {
                           [sty.textseen__nFhjhofXyw]: hasVariant(
@@ -529,8 +529,8 @@ function PlasmicNotifBox__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__yiZn,
                           {
                             [sty.textseen__yiZnofXyw]: hasVariant(
@@ -619,14 +619,9 @@ function PlasmicNotifBox__RenderFunc(props: {
             {...child$Props}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ifEqi,
-                {
-                  [sty.textseen__ifEqIofXyw]: hasVariant($state, "seen", "seen")
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__ifEqi, {
+                [sty.textseen__ifEqIofXyw]: hasVariant($state, "seen", "seen")
+              })}
             >
               <React.Fragment>
                 {(() => {
@@ -657,7 +652,7 @@ function PlasmicNotifBox__RenderFunc(props: {
         );
       })()}
       <Icon22Icon
-        className={classNames(projectcss.all, sty.svg__t65Sq, {
+        className={classNames("all", sty.svg__t65Sq, {
           [sty.svgseen_forAll__t65SQofXywQ4BdZ]:
             hasVariant($state, "seen", "seen") &&
             hasVariant($state, "forAll", "forAll")
@@ -667,7 +662,7 @@ function PlasmicNotifBox__RenderFunc(props: {
       />
 
       <Icon35Icon
-        className={classNames(projectcss.all, sty.svg__v6Bn5, {
+        className={classNames("all", sty.svg__v6Bn5, {
           [sty.svgdelet_seen_forAll__v6Bn53NCiOfXywQ4BdZ]:
             hasVariant($state, "forAll", "forAll") &&
             hasVariant($state, "seen", "seen") &&
@@ -681,12 +676,9 @@ function PlasmicNotifBox__RenderFunc(props: {
       />
 
       <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text___6Tjo,
-          { [sty.textseen___6TjoOfXyw]: hasVariant($state, "seen", "seen") }
-        )}
+        className={classNames("all", "__wab_text", sty.text___6Tjo, {
+          [sty.textseen___6TjoOfXyw]: hasVariant($state, "seen", "seen")
+        })}
       >
         {hasVariant(globalVariants, "screen", "mobile") ? (
           <React.Fragment>

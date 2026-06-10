@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMassage.module.css"; // plasmic-import: Bqqk_Gx32qFA/css
 
 import Icon97Icon from "./icons/PlasmicIcon__Icon97"; // plasmic-import: kvFh159WsbQ8/icon
@@ -161,10 +160,6 @@ function PlasmicMassage__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -208,6 +203,11 @@ function PlasmicMassage__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -225,10 +225,10 @@ function PlasmicMassage__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.group2,
         {
@@ -240,7 +240,7 @@ function PlasmicMassage__RenderFunc(props: {
       <div
         data-plasmic-name={"rectangle5"}
         data-plasmic-override={overrides.rectangle5}
-        className={classNames(projectcss.all, sty.rectangle5, {
+        className={classNames("all", sty.rectangle5, {
           [sty.rectangle5end]: hasVariant($state, "end", "end"),
           [sty.rectangle5you]: hasVariant($state, "you", "you")
         })}
@@ -250,11 +250,7 @@ function PlasmicMassage__RenderFunc(props: {
               defaultContents: (
                 <React.Fragment>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nUuru
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__nUuru)}
                   >
                     {
                       "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"
@@ -262,8 +258,8 @@ function PlasmicMassage__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__fHuP5,
                       {
                         [sty.textend__fHuP5QZsv]: hasVariant(
@@ -278,9 +274,7 @@ function PlasmicMassage__RenderFunc(props: {
                       "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"
                     }
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__dt3N)}
-                  >
+                  <div className={classNames("all", sty.freeBox__dt3N)}>
                     <Seen
                       className={classNames(
                         "__wab_instance",
@@ -296,7 +290,7 @@ function PlasmicMassage__RenderFunc(props: {
                     />
 
                     <Icon97Icon
-                      className={classNames(projectcss.all, sty.svg__aV0YT, {
+                      className={classNames("all", sty.svg__aV0YT, {
                         [sty.svgyou__aV0YT8X9HZ]: hasVariant(
                           $state,
                           "you",
@@ -308,8 +302,8 @@ function PlasmicMassage__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__gHqyz
                       )}
                     >
@@ -325,12 +319,9 @@ function PlasmicMassage__RenderFunc(props: {
           <div
             data-plasmic-name={"helloDoctorIBel3"}
             data-plasmic-override={overrides.helloDoctorIBel3}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.helloDoctorIBel3,
-              { [sty.helloDoctorIBel3end]: hasVariant($state, "end", "end") }
-            )}
+            className={classNames("all", "__wab_text", sty.helloDoctorIBel3, {
+              [sty.helloDoctorIBel3end]: hasVariant($state, "end", "end")
+            })}
           >
             {hasVariant($state, "end", "end")
               ? "\u0622\u06cc\u0627 \u062c\u0648\u0627\u0628\u062a \u0631\u0648 \u0627\u0632 \u062f\u06a9\u062a\u0631 \u06af\u0631\u0641\u062a\u06cc\u061f"
@@ -349,7 +340,7 @@ function PlasmicMassage__RenderFunc(props: {
           <Icon115Icon
             data-plasmic-name={"svg"}
             data-plasmic-override={overrides.svg}
-            className={classNames(projectcss.all, sty.svg, {
+            className={classNames("all", sty.svg, {
               [sty.svgend]: hasVariant($state, "end", "end")
             })}
             role={"img"}
@@ -450,12 +441,9 @@ function PlasmicMassage__RenderFunc(props: {
           <div
             data-plasmic-name={"helloDoctorIBel4"}
             data-plasmic-override={overrides.helloDoctorIBel4}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.helloDoctorIBel4,
-              { [sty.helloDoctorIBel4end]: hasVariant($state, "end", "end") }
-            )}
+            className={classNames("all", "__wab_text", sty.helloDoctorIBel4, {
+              [sty.helloDoctorIBel4end]: hasVariant($state, "end", "end")
+            })}
           >
             {hasVariant($state, "end", "end")
               ? "\u0622\u06cc\u0627 \u0627\u0632 \u0627\u06cc\u0646 \u0645\u0634\u0627\u0648\u0631\u0647 \u0631\u0627\u0636\u06cc \u0628\u0648\u062f\u06cc\u062f\u061f"

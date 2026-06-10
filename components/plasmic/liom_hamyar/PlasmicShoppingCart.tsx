@@ -76,7 +76,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShoppingCart.module.css"; // plasmic-import: 5aMoEGgKi3S7/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -212,12 +211,6 @@ function PlasmicShoppingCart__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -581,6 +574,13 @@ function PlasmicShoppingCart__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -598,10 +598,10 @@ function PlasmicShoppingCart__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -635,15 +635,15 @@ function PlasmicShoppingCart__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <section className={classNames(projectcss.all, sty.section__lsRaj)}>
+        <section className={classNames("all", sty.section__lsRaj)}>
           <HeaderLiom
             data-plasmic-name={"headerLiom"}
             data-plasmic-override={overrides.headerLiom}
             className={classNames("__wab_instance", sty.headerLiom)}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__wOwW)}>
+            <div className={classNames("all", sty.freeBox__wOwW)}>
               <XIcon
-                className={classNames(projectcss.all, sty.svg__sPaHh)}
+                className={classNames("all", sty.svg__sPaHh)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -666,13 +666,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__tlICk
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__tlICk)}>
                 {
                   "\u0633\u0628\u062f \u062e\u0631\u06cc\u062f \u0634\u0645\u0627"
                 }
@@ -699,9 +693,9 @@ function PlasmicShoppingCart__RenderFunc(props: {
           effect={"fade"}
           triggerOnce={true}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__gtfJc)}>
-            <div className={classNames(projectcss.all, sty.freeBox__nrjwv)}>
-              <div className={classNames(projectcss.all, sty.freeBox__vDgi)}>
+          <div className={classNames("all", sty.freeBox__gtfJc)}>
+            <div className={classNames("all", sty.freeBox__nrjwv)}>
+              <div className={classNames("all", sty.freeBox__vDgi)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -862,11 +856,11 @@ function PlasmicShoppingCart__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__nSybm)}>
+                <div className={classNames("all", sty.freeBox__nSybm)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___2Zgk7
                     )}
                   >
@@ -874,9 +868,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
                       "\u067e\u06cc\u0634\u0646\u0647\u0627\u062f \u0628\u0631\u0627\u06cc \u0627\u0641\u0632\u0648\u062f\u0646 \u0628\u0647 \u0633\u0628\u062f \u062e\u0631\u06cc\u062f."
                     }
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__d2TDc)}
-                  >
+                  <div className={classNames("all", sty.freeBox__d2TDc)}>
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
@@ -1021,14 +1013,10 @@ function PlasmicShoppingCart__RenderFunc(props: {
                   </div>
                 </div>
               ) : null}
-              <div className={classNames(projectcss.all, sty.freeBox__zat20)}>
-                <div className={classNames(projectcss.all, sty.freeBox__h9T8F)}>
+              <div className={classNames("all", sty.freeBox__zat20)}>
+                <div className={classNames("all", sty.freeBox__h9T8F)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__fnuhp
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__fnuhp)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -1047,11 +1035,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__wgefW
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__wgefW)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -1070,11 +1054,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__qq3SV
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__qq3SV)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -1106,13 +1086,11 @@ function PlasmicShoppingCart__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ynpgD)}
-                  >
+                  <div className={classNames("all", sty.freeBox__ynpgD)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__fLtPo
                       )}
                     >
@@ -1137,8 +1115,8 @@ function PlasmicShoppingCart__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___7Vu4J
                       )}
                     >
@@ -1164,8 +1142,8 @@ function PlasmicShoppingCart__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__qUipE
                       )}
                     >
@@ -1202,37 +1180,29 @@ function PlasmicShoppingCart__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__quqD1)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__sN3Mf)}
-                    >
+                  <div className={classNames("all", sty.freeBox__quqD1)}>
+                    <div className={classNames("all", sty.freeBox__sN3Mf)}>
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__bkhz8,
                           "shimmer"
                         )}
                       />
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__gtOsr)}
-                    >
+                    <div className={classNames("all", sty.freeBox__gtOsr)}>
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__xlmMy,
                           "shimmer"
                         )}
                       />
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__oNogu)}
-                    >
+                    <div className={classNames("all", sty.freeBox__oNogu)}>
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__aOur2,
                           "shimmer"
                         )}
@@ -1338,15 +1308,11 @@ function PlasmicShoppingCart__RenderFunc(props: {
               shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/shop/upSelling"}
             >
-              <section
-                className={classNames(projectcss.all, sty.section__zCkAw)}
-              >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox__u8CxX, ``)}
-                >
+              <section className={classNames("all", sty.section__zCkAw)}>
+                <div className={classNames("all", sty.freeBox__u8CxX, ``)}>
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox__umjd1,
                       "Palpitations"
                     )}
@@ -1362,7 +1328,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
                       ])}
                       endIcon={
                         <Icon12Icon
-                          className={classNames(projectcss.all, sty.svg__fo9Fx)}
+                          className={classNames("all", sty.svg__fo9Fx)}
                           role={"img"}
                         />
                       }
@@ -1705,22 +1671,12 @@ function PlasmicShoppingCart__RenderFunc(props: {
                         }
                       }}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__rujLy
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___6EG6M
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__rujLy)}>
+                        <div className={classNames("all", sty.freeBox___6EG6M)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__toArS
                             )}
                           >
@@ -1742,28 +1698,17 @@ function PlasmicShoppingCart__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__xyXAb
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__xyXAb)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__pywhB
-                            )}
+                            className={classNames("all", sty.freeBox__pywhB)}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__umcL5
-                              )}
+                              className={classNames("all", sty.freeBox__umcL5)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__b3T
                                 )}
                               >
@@ -1786,21 +1731,18 @@ function PlasmicShoppingCart__RenderFunc(props: {
                               </div>
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__rVaAn
                                 )}
                               />
                             </div>
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__bAk4
-                              )}
+                              className={classNames("all", sty.freeBox__bAk4)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text___7BcVf
                                 )}
                               >
@@ -1840,15 +1782,12 @@ function PlasmicShoppingCart__RenderFunc(props: {
                             }
                           })() ? (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__mLsKc
-                              )}
+                              className={classNames("all", sty.freeBox__mLsKc)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__ilZdu
                                 )}
                               >
@@ -1898,15 +1837,8 @@ function PlasmicShoppingCart__RenderFunc(props: {
                       "opendialog"
                     ])}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__hMBp)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__gbeky
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__hMBp)}>
+                      <div className={classNames("all", sty.freeBox__gbeky)}>
                         {(_par =>
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
@@ -2241,14 +2173,14 @@ function PlasmicShoppingCart__RenderFunc(props: {
                                 ) ? (
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__a0GBy
                                     )}
                                   >
                                     <div
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
+                                        "all",
+                                        "__wab_text",
                                         sty.text__xiJjD
                                       )}
                                     >
@@ -2276,12 +2208,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
                           })();
                         })}
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__sdezj
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__sdezj)}>
                         <Button
                           data-plasmic-name={"button14"}
                           data-plasmic-override={overrides.button14}
@@ -2292,10 +2219,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
                           ])}
                           endIcon={
                             <Icon12Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__rYnSz
-                              )}
+                              className={classNames("all", sty.svg__rYnSz)}
                               role={"img"}
                             />
                           }
@@ -2564,8 +2488,8 @@ function PlasmicShoppingCart__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__ouycv
                             )}
                           >
@@ -2597,10 +2521,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
                           ])}
                           endIcon={
                             <Icon12Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg___2SYgC
-                              )}
+                              className={classNames("all", sty.svg___2SYgC)}
                               role={"img"}
                             />
                           }
@@ -2702,8 +2623,8 @@ function PlasmicShoppingCart__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__hrp5L
                             )}
                           >
@@ -2726,18 +2647,8 @@ function PlasmicShoppingCart__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__wpqKb
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__d5
-                            )}
-                          >
+                        <div className={classNames("all", sty.freeBox__wpqKb)}>
+                          <div className={classNames("all", sty.freeBox__d5)}>
                             {(() => {
                               const child$Props = {
                                 allowClear: hasVariant(
@@ -2953,8 +2864,8 @@ function PlasmicShoppingCart__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text___7Lyzh
                               )}
                             >
@@ -2989,7 +2900,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
           effect={"fade"}
           triggerOnce={true}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__iFVy3)}>
+          <div className={classNames("all", sty.freeBox__iFVy3)}>
             {(() => {
               try {
                 return $state.allowanceUser.length > 0;
@@ -3003,25 +2914,17 @@ function PlasmicShoppingCart__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox___4H3Z)}>
-                <div className={classNames(projectcss.all, sty.freeBox__sDk6)}>
+              <div className={classNames("all", sty.freeBox___4H3Z)}>
+                <div className={classNames("all", sty.freeBox__sDk6)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zdg85
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__zdg85)}
                   >
                     {
                       "\u0639\u0646\u0648\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9"
                     }
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zohs
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__zohs)}
                   >
                     {
                       "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0628\u0627\u0642\u06cc\u0645\u0627\u0646\u062f\u0647"
@@ -3054,16 +2957,13 @@ function PlasmicShoppingCart__RenderFunc(props: {
                   const currentIndex = __plasmic_idx_0;
                   return (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___3UaKy
-                      )}
+                      className={classNames("all", sty.freeBox___3UaKy)}
                       key={currentIndex}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__gZ3Y
                         )}
                       >
@@ -3085,8 +2985,8 @@ function PlasmicShoppingCart__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__zdW1Y
                         )}
                       >
@@ -3137,9 +3037,9 @@ function PlasmicShoppingCart__RenderFunc(props: {
                 })}
               </div>
             ) : null}
-            <div className={classNames(projectcss.all, sty.freeBox___9XvQ2)}>
+            <div className={classNames("all", sty.freeBox___9XvQ2)}>
               <Icon215Icon
-                className={classNames(projectcss.all, sty.svg__ahAX)}
+                className={classNames("all", sty.svg__ahAX)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -3180,13 +3080,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vfIku
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__vfIku)}>
                 {
                   "\u0627\u0641\u0632\u0648\u062f\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627\u06cc \u0628\u06cc\u0634\u062a\u0631"
                 }
@@ -3200,9 +3094,9 @@ function PlasmicShoppingCart__RenderFunc(props: {
         data-plasmic-override={overrides.info}
         className={classNames("__wab_instance", sty.info)}
         defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
         hideFooter={true}
@@ -3217,10 +3111,10 @@ function PlasmicShoppingCart__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["info", "open"])}
         title={
-          <div className={classNames(projectcss.all, sty.freeBox__zazK)}>
-            <div className={classNames(projectcss.all, sty.freeBox__zcXik)}>
+          <div className={classNames("all", sty.freeBox__zazK)}>
+            <div className={classNames("all", sty.freeBox__zcXik)}>
               <Icon232Icon
-                className={classNames(projectcss.all, sty.svg__dF98)}
+                className={classNames("all", sty.svg__dF98)}
                 role={"img"}
               />
             </div>
@@ -3228,14 +3122,8 @@ function PlasmicShoppingCart__RenderFunc(props: {
         }
         trigger={null}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__qtW3J)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__fTpO
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__qtW3J)}>
+          <div className={classNames("all", "__wab_text", sty.text__fTpO)}>
             <React.Fragment>
               {(() => {
                 try {
@@ -3338,13 +3226,7 @@ function PlasmicShoppingCart__RenderFunc(props: {
             }}
             size={"compact"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___8Wmuq
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text___8Wmuq)}>
               {"\u0628\u0627\u0634\u0647"}
             </div>
           </Button>

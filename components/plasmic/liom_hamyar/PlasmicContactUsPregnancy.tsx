@@ -69,7 +69,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicContactUsPregnancy.module.css"; // plasmic-import: qTUyS4Zc6vEE/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -93,11 +92,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -163,10 +169,6 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -208,6 +210,11 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -218,7 +225,7 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -233,17 +240,17 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -251,16 +258,16 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+            className={classNames("all", sty.section)}
           >
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox___4KYfj)}>
+              <div className={classNames("all", sty.freeBox___4KYfj)}>
                 <XIcon
-                  className={classNames(projectcss.all, sty.svg___79Sob)}
+                  className={classNames("all", sty.svg___79Sob)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -290,11 +297,7 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___9Gzvs
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___9Gzvs)}
                 >
                   {
                     "\u062a\u0645\u0627\u0633 \u0628\u0627 \u0645\u0627 \u0648 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"
@@ -303,44 +306,26 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
               </div>
             </HeaderLiom>
           </section>
-          <div className={classNames(projectcss.all, sty.freeBox__bGpnI)}>
-            <div className={classNames(projectcss.all, sty.freeBox__fFj8)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__dLxEu
-                )}
-              >
+          <div className={classNames("all", sty.freeBox__bGpnI)}>
+            <div className={classNames("all", sty.freeBox__fFj8)}>
+              <div className={classNames("all", "__wab_text", sty.text__dLxEu)}>
                 {"\u062a\u0645\u0627\u0633 \u0628\u0627\u0645\u0627"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xLldn
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__xLldn)}>
                 {
                   "\u0645\u0627 \u0647\u0645\u06cc\u0634\u0647 \u0622\u0645\u0627\u062f\u0647 \u0634\u0646\u06cc\u062f\u0646 \u0646\u0638\u0631\u0627\u062a\u060c \u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u0627\u062a \u0648 \u067e\u0627\u0633\u062e \u0628\u0647 \u067e\u0631\u0633\u0634\u200c\u0647\u0627\u06cc \u0634\u0645\u0627 \u0647\u0633\u062a\u06cc\u0645. \u062a\u06cc\u0645 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u0645\u0627 \u062a\u0644\u0627\u0634 \u0645\u06cc\u200c\u06a9\u0646\u062f \u0628\u0647\u062a\u0631\u06cc\u0646 \u062a\u062c\u0631\u0628\u0647 \u0631\u0627 \u0628\u0631\u0627\u06cc\u062a\u0627\u0646 \u0641\u0631\u0627\u0647\u0645 \u06a9\u0646\u062f \u0648 \u062f\u0631 \u062a\u0645\u0627\u0645 \u0645\u0633\u06cc\u0631 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u06a9\u0646\u0627\u0631 \u0634\u0645\u0627 \u0628\u0627\u0634\u062f.\n\n\u0627\u06af\u0631 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0631\u0627\u0647\u0646\u0645\u0627\u06cc\u06cc \u062f\u0627\u0631\u06cc\u062f \u06cc\u0627 \u0633\u0648\u0627\u0644\u06cc \u0628\u0631\u0627\u06cc\u062a\u0627\u0646 \u067e\u06cc\u0634 \u0622\u0645\u062f\u0647\u060c \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u0627\u0632 \u0637\u0631\u06cc\u0642 \u0628\u062e\u0634 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc \u06cc\u0627 \u0634\u0628\u06a9\u0647\u200c\u0647\u0627\u06cc \u0627\u062c\u062a\u0645\u0627\u0639\u06cc \u0628\u0627 \u0645\u0627 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627\u0634\u06cc\u062f. \u0628\u0627\u0632\u062e\u0648\u0631\u062f\u0647\u0627\u06cc \u0627\u0631\u0632\u0634\u0645\u0646\u062f \u0634\u0645\u0627 \u0628\u0647 \u0645\u0627 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u062f \u062a\u0627 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0631\u0627 \u0647\u0631 \u0631\u0648\u0632 \u06a9\u0627\u0645\u0644\u200c\u062a\u0631 \u0648 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc\u200c\u062a\u0631 \u06a9\u0646\u06cc\u0645."
                 }
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__c1VTb)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__zFPiB
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__c1VTb)}>
+              <div className={classNames("all", "__wab_text", sty.text__zFPiB)}>
                 {
                   "\u0645\u0627 \u0631\u0648 \u062f\u0631 \u0634\u0628\u06a9\u0647 \u0647\u0627\u06cc \u0627\u062c\u062a\u0645\u0627\u0639\u06cc \u062f\u0646\u0628\u0627\u0644 \u06a9\u0646"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__fXoXx)}>
+              <div className={classNames("all", sty.freeBox__fXoXx)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__tgBtT)}
+                  className={classNames("all", sty.freeBox__tgBtT)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -385,16 +370,12 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
                   }}
                 >
                   <Icon191Icon
-                    className={classNames(projectcss.all, sty.svg__d1QVo)}
+                    className={classNames("all", sty.svg__d1QVo)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__yIUp
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__yIUp)}
                   >
                     {
                       "\u0627\u06cc\u0646\u0633\u062a\u0627\u06af\u0631\u0627\u0645"
@@ -402,7 +383,7 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__n12Vs)}
+                  className={classNames("all", sty.freeBox__n12Vs)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -437,35 +418,25 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
                   }}
                 >
                   <Icon192Icon
-                    className={classNames(projectcss.all, sty.svg__yNk0X)}
+                    className={classNames("all", sty.svg__yNk0X)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__uHDem
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__uHDem)}
                   >
                     {"\u062a\u0644\u06af\u0631\u0627\u0645"}
                   </div>
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__yFbjX)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__m95E8
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__yFbjX)}>
+              <div className={classNames("all", "__wab_text", sty.text__m95E8)}>
                 {
                   "\u0631\u0627\u0647 \u0647\u0627\u06cc \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 \u0645\u0627"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__fDvc)}>
+              <div className={classNames("all", sty.freeBox__fDvc)}>
                 <Button
                   data-plasmic-name={"button5"}
                   data-plasmic-override={overrides.button5}
@@ -556,11 +527,7 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
                   size={"compact"}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__telL
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__telL)}
                   >
                     {
                       "\u067e\u06cc\u0627\u0645 \u062f\u0631 \u062a\u0644\u06af\u0631\u0627\u0645"
@@ -659,11 +626,7 @@ function PlasmicContactUsPregnancy__RenderFunc(props: {
                   size={"compact"}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__vT1
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__vT1)}
                   >
                     {"\u067e\u06cc\u0627\u0645 \u062f\u0631 \u0628\u0644\u0647"}
                   </div>
@@ -792,9 +755,10 @@ export const PlasmicContactUsPregnancy = Object.assign(
     internalArgProps: PlasmicContactUsPregnancy__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/contact-us-pregnancy",
       pagePath: "/contact-us-pregnancy",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

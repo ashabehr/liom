@@ -76,7 +76,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicChatviow.module.css"; // plasmic-import: 2KPwbs47ITM_/css
 
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
@@ -96,11 +95,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -171,10 +177,6 @@ function PlasmicChatviow__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -307,6 +309,11 @@ function PlasmicChatviow__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -317,7 +324,7 @@ function PlasmicChatviow__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -332,17 +339,17 @@ function PlasmicChatviow__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -400,13 +407,13 @@ function PlasmicChatviow__RenderFunc(props: {
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+            className={classNames("all", sty.section)}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__pEej)}>
+            <div className={classNames("all", sty.freeBox__pEej)}>
               <ChevronRightIcon
                 data-plasmic-name={"svg"}
                 data-plasmic-override={overrides.svg}
-                className={classNames(projectcss.all, sty.svg)}
+                className={classNames("all", sty.svg)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -453,11 +460,7 @@ function PlasmicChatviow__RenderFunc(props: {
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___375C6
-                )}
+                className={classNames("all", "__wab_text", sty.text___375C6)}
               >
                 {"\u06af\u0641\u062a\u06af\u0648 \u0647\u0627"}
               </div>
@@ -685,18 +688,12 @@ function PlasmicChatviow__RenderFunc(props: {
             data-plasmic-override={overrides.chat}
             className={classNames("__wab_instance", sty.chat)}
             errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__eab4U
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__eab4U)}>
                 {"Error fetching data"}
               </div>
             }
             loadingDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__b6V4U)}>
+              <div className={classNames("all", sty.freeBox__b6V4U)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -718,11 +715,7 @@ function PlasmicChatviow__RenderFunc(props: {
                     <div
                       data-plasmic-name={"mensah3"}
                       data-plasmic-override={overrides.mensah3}
-                      className={classNames(
-                        projectcss.all,
-                        sty.mensah3,
-                        "shimmer"
-                      )}
+                      className={classNames("all", sty.mensah3, "shimmer")}
                       key={currentIndex}
                       onClick={async event => {
                         const $steps = {};
@@ -807,7 +800,7 @@ function PlasmicChatviow__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/help/getListHelp"}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__mFpKq)}>
+            <div className={classNames("all", sty.freeBox__mFpKq)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -829,7 +822,7 @@ function PlasmicChatviow__RenderFunc(props: {
                   <div
                     data-plasmic-name={"mensah2"}
                     data-plasmic-override={overrides.mensah2}
-                    className={classNames(projectcss.all, sty.mensah2)}
+                    className={classNames("all", sty.mensah2)}
                     key={currentIndex}
                     onClick={async event => {
                       const $steps = {};
@@ -915,22 +908,12 @@ function PlasmicChatviow__RenderFunc(props: {
                       }
                     />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___6Pu99
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__m9Is
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox___6Pu99)}>
+                      <div className={classNames("all", sty.freeBox__m9Is)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___1NoxP
                           )}
                         >
@@ -950,12 +933,7 @@ function PlasmicChatviow__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___0TwY4
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox___0TwY4)}>
                           <Seen
                             data-plasmic-name={"seen"}
                             data-plasmic-override={overrides.seen}
@@ -980,8 +958,8 @@ function PlasmicChatviow__RenderFunc(props: {
 
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__c2W9
                             )}
                           >
@@ -1065,18 +1043,8 @@ function PlasmicChatviow__RenderFunc(props: {
                           </div>
                         </div>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__nda1B
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__dinoB
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__nda1B)}>
+                        <div className={classNames("all", sty.freeBox__dinoB)}>
                           <LineClomp
                             data-plasmic-name={"lineClomp"}
                             data-plasmic-override={overrides.lineClomp}
@@ -1103,8 +1071,8 @@ function PlasmicChatviow__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__uc4P9
                               )}
                             >
@@ -1129,18 +1097,8 @@ function PlasmicChatviow__RenderFunc(props: {
                         </div>
                       </div>
                     </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___7GcZw
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__sYaIk
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox___7GcZw)}>
+                      <div className={classNames("all", sty.freeBox__sYaIk)}>
                         <Star
                           action={true}
                           className={classNames(
@@ -1195,8 +1153,8 @@ function PlasmicChatviow__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__kEaWr
                         )}
                       >
@@ -1221,7 +1179,7 @@ function PlasmicChatviow__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox___4Of3)}>
+                <div className={classNames("all", sty.freeBox___4Of3)}>
                   <PlasmicImg__
                     alt={""}
                     className={classNames(sty.img__ix3Af)}
@@ -1242,8 +1200,8 @@ function PlasmicChatviow__RenderFunc(props: {
 
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___1GTEp
                     )}
                   >
@@ -1410,9 +1368,10 @@ export const PlasmicChatviow = Object.assign(
     internalArgProps: PlasmicChatviow__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/chatviow",
       pagePath: "/chatviow",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

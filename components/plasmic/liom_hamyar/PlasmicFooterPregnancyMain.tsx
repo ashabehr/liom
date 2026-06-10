@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFooterPregnancyMain.module.css"; // plasmic-import: -kbj-rjG1hPY/css
 
 import Icon138Icon from "./icons/PlasmicIcon__Icon138"; // plasmic-import: _v0CaTT-8IBc/icon
@@ -149,10 +148,6 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -179,6 +174,11 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -196,10 +196,10 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.footer,
         {
@@ -217,9 +217,9 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
         }
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox___0W1QG)}>
+      <div className={classNames("all", sty.freeBox___0W1QG)}>
         <div
-          className={classNames(projectcss.all, sty.freeBox__berRq, {
+          className={classNames("all", sty.freeBox__berRq, {
             [sty.freeBoxfooter2_chatBot__berRq69Z61]: hasVariant(
               $state,
               "footer2",
@@ -228,7 +228,7 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__fHxnq, {
+            className={classNames("all", sty.freeBox__fHxnq, {
               [sty.freeBoxfooter2_calendar__fHxnqp4EhE]: hasVariant(
                 $state,
                 "footer2",
@@ -318,7 +318,7 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                     ? Icon137Icon
                     : Icon138Icon
               }
-              className={classNames(projectcss.all, sty.svg__yiYn5, {
+              className={classNames("all", sty.svg__yiYn5, {
                 [sty.svgfooter2_calendar__yiYn5P4EhE]: hasVariant(
                   $state,
                   "footer2",
@@ -345,25 +345,20 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__a7GmU,
-                {
-                  [sty.textfooter2_calendar__a7GmUp4EhE]: hasVariant(
-                    $state,
-                    "footer2",
-                    "calendar"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__a7GmU, {
+                [sty.textfooter2_calendar__a7GmUp4EhE]: hasVariant(
+                  $state,
+                  "footer2",
+                  "calendar"
+                )
+              })}
             >
               {"\u0628\u0627\u0631\u062f\u0627\u0631\u06cc"}
             </div>
           </div>
           <div
             aria-pressed={undefined}
-            className={classNames(projectcss.all, sty.freeBox__yn06R, {
+            className={classNames("all", sty.freeBox__yn06R, {
               [sty.freeBoxfooter2_calendar__yn06Rp4EhE]: hasVariant(
                 $state,
                 "footer2",
@@ -441,7 +436,7 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                     ? Icon213Icon
                     : Icon213Icon
               }
-              className={classNames(projectcss.all, sty.svg__abCaO, {
+              className={classNames("all", sty.svg__abCaO, {
                 [sty.svgfooter2_tools__abCaOwWhUi]: hasVariant(
                   $state,
                   "footer2",
@@ -463,25 +458,20 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___9HKxm,
-                {
-                  [sty.textfooter2_tools___9HKxmwWhUi]: hasVariant(
-                    $state,
-                    "footer2",
-                    "tools"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text___9HKxm, {
+                [sty.textfooter2_tools___9HKxmwWhUi]: hasVariant(
+                  $state,
+                  "footer2",
+                  "tools"
+                )
+              })}
             >
               {"\u0627\u0628\u0632\u0627\u0631\u0647\u0627"}
             </div>
           </div>
           <div
             aria-pressed={undefined}
-            className={classNames(projectcss.all, sty.freeBox__lij, {
+            className={classNames("all", sty.freeBox__lij, {
               [sty.freeBoxfooter2_calendar__lijP4EhE]: hasVariant(
                 $state,
                 "footer2",
@@ -564,7 +554,7 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
                     ? Icon202Icon
                     : Icon202Icon
               }
-              className={classNames(projectcss.all, sty.svg__xrAqm, {
+              className={classNames("all", sty.svg__xrAqm, {
                 [sty.svgfooter2_chatBot__xrAqm69Z61]: hasVariant(
                   $state,
                   "footer2",
@@ -594,23 +584,18 @@ function PlasmicFooterPregnancyMain__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__zXoiW,
-                {
-                  [sty.textfooter2_chatBot__zXoiW69Z61]: hasVariant(
-                    $state,
-                    "footer2",
-                    "chatBot"
-                  ),
-                  [sty.textfooter2_tools__zXoiWwWhUi]: hasVariant(
-                    $state,
-                    "footer2",
-                    "tools"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__zXoiW, {
+                [sty.textfooter2_chatBot__zXoiW69Z61]: hasVariant(
+                  $state,
+                  "footer2",
+                  "chatBot"
+                ),
+                [sty.textfooter2_tools__zXoiWwWhUi]: hasVariant(
+                  $state,
+                  "footer2",
+                  "tools"
+                )
+              })}
             >
               {"\u067e\u0632\u0634\u06a9 \u0647\u0648\u0634\u0645\u0646\u062f"}
             </div>

@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicRadioGroupLiom.module.css"; // plasmic-import: tXN0uQ-uT9R3/css
 
 createPlasmicElementProxy;
@@ -190,10 +189,6 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -272,6 +267,11 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -289,10 +289,10 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -526,7 +526,7 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
             <div
               data-plasmic-name={"freeBox"}
               data-plasmic-override={overrides.freeBox}
-              className={classNames(projectcss.all, sty.freeBox, {
+              className={classNames("all", sty.freeBox, {
                 [sty.freeBoxsize_textSize]: hasVariant(
                   $state,
                   "size",
@@ -535,33 +535,28 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
               })}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__h0Hhj,
-                  {
-                    [sty.textdirection_v__h0HhjmR1Io]: hasVariant(
-                      $state,
-                      "direction",
-                      "v"
-                    ),
-                    [sty.textsize_mini__h0HhjaMdd]: hasVariant(
-                      $state,
-                      "size",
-                      "mini"
-                    ),
-                    [sty.textsize_small__h0HhjqO86K]: hasVariant(
-                      $state,
-                      "size",
-                      "small"
-                    ),
-                    [sty.textsize_textSize__h0HhjlVh23]: hasVariant(
-                      $state,
-                      "size",
-                      "textSize"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__h0Hhj, {
+                  [sty.textdirection_v__h0HhjmR1Io]: hasVariant(
+                    $state,
+                    "direction",
+                    "v"
+                  ),
+                  [sty.textsize_mini__h0HhjaMdd]: hasVariant(
+                    $state,
+                    "size",
+                    "mini"
+                  ),
+                  [sty.textsize_small__h0HhjqO86K]: hasVariant(
+                    $state,
+                    "size",
+                    "small"
+                  ),
+                  [sty.textsize_textSize__h0HhjlVh23]: hasVariant(
+                    $state,
+                    "size",
+                    "textSize"
+                  )
+                })}
               >
                 <React.Fragment>
                   {(() => {
@@ -593,28 +588,23 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___2KgJ1,
-                    {
-                      [sty.textdirection_v___2KgJ1MR1Io]: hasVariant(
-                        $state,
-                        "direction",
-                        "v"
-                      ),
-                      [sty.textsize_mini___2KgJ1AMdd]: hasVariant(
-                        $state,
-                        "size",
-                        "mini"
-                      ),
-                      [sty.textsize_small___2KgJ1QO86K]: hasVariant(
-                        $state,
-                        "size",
-                        "small"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___2KgJ1, {
+                    [sty.textdirection_v___2KgJ1MR1Io]: hasVariant(
+                      $state,
+                      "direction",
+                      "v"
+                    ),
+                    [sty.textsize_mini___2KgJ1AMdd]: hasVariant(
+                      $state,
+                      "size",
+                      "mini"
+                    ),
+                    [sty.textsize_small___2KgJ1QO86K]: hasVariant(
+                      $state,
+                      "size",
+                      "small"
+                    )
+                  })}
                 >
                   <React.Fragment>
                     {(() => {
@@ -773,23 +763,18 @@ function PlasmicRadioGroupLiom__RenderFunc(props: {
                 style3={"radio"}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___9BoMi,
-                    {
-                      [sty.textsize_mini___9BoMIaMdd]: hasVariant(
-                        $state,
-                        "size",
-                        "mini"
-                      ),
-                      [sty.textsize_small___9BoMIqO86K]: hasVariant(
-                        $state,
-                        "size",
-                        "small"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___9BoMi, {
+                    [sty.textsize_mini___9BoMIaMdd]: hasVariant(
+                      $state,
+                      "size",
+                      "mini"
+                    ),
+                    [sty.textsize_small___9BoMIqO86K]: hasVariant(
+                      $state,
+                      "size",
+                      "small"
+                    )
+                  })}
                 >
                   <React.Fragment>
                     {(() => {

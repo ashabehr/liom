@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPregnancyShopDialog2.module.css"; // plasmic-import: AN1CTDBmHKor/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -134,12 +133,6 @@ function PlasmicPregnancyShopDialog2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -170,6 +163,13 @@ function PlasmicPregnancyShopDialog2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -187,10 +187,10 @@ function PlasmicPregnancyShopDialog2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -200,9 +200,9 @@ function PlasmicPregnancyShopDialog2__RenderFunc(props: {
         data-plasmic-override={overrides.subDialog}
         className={classNames("__wab_instance", sty.subDialog)}
         defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
         hideFooter={true}
@@ -237,26 +237,14 @@ function PlasmicPregnancyShopDialog2__RenderFunc(props: {
         }
         trigger={null}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___2P7Xu
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text___2P7Xu)}>
           {
             "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f\u062a\u060c \u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u0628\u0686\u062a\u0647"
           }
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__igCXl
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__igCXl)}>
           <div
-            className={projectcss.__wab_expr_html_text}
+            className={"__wab_expr_html_text"}
             dangerouslySetInnerHTML={{
               __html: (() => {
                 try {
@@ -486,13 +474,7 @@ function PlasmicPregnancyShopDialog2__RenderFunc(props: {
             }
           }}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__yygep
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__yygep)}>
             {
               "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647"
             }

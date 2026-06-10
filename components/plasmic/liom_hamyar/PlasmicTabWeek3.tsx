@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicTabWeek3.module.css"; // plasmic-import: k265x_vi3L7I/css
 
 createPlasmicElementProxy;
@@ -148,10 +147,6 @@ function PlasmicTabWeek3__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -176,6 +171,11 @@ function PlasmicTabWeek3__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -193,10 +193,10 @@ function PlasmicTabWeek3__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -212,24 +212,19 @@ function PlasmicTabWeek3__RenderFunc(props: {
       onClick={args.onClick}
     >
       <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__jSmml,
-          {
-            [sty.textdarkSelected__jSmmlWadHw]: hasVariant(
-              $state,
-              "darkSelected",
-              "darkSelected"
-            ),
-            [sty.textdark__jSmmlosbRq]: hasVariant($state, "dark", "dark"),
-            [sty.textselected__jSmmlocyJu]: hasVariant(
-              $state,
-              "selected",
-              "selected"
-            )
-          }
-        )}
+        className={classNames("all", "__wab_text", sty.text__jSmml, {
+          [sty.textdarkSelected__jSmmlWadHw]: hasVariant(
+            $state,
+            "darkSelected",
+            "darkSelected"
+          ),
+          [sty.textdark__jSmmlosbRq]: hasVariant($state, "dark", "dark"),
+          [sty.textselected__jSmmlocyJu]: hasVariant(
+            $state,
+            "selected",
+            "selected"
+          )
+        })}
       >
         <React.Fragment>
           {(() => {
@@ -248,24 +243,19 @@ function PlasmicTabWeek3__RenderFunc(props: {
         </React.Fragment>
       </div>
       <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__iwmj2,
-          {
-            [sty.textdarkSelected__iwmj2WadHw]: hasVariant(
-              $state,
-              "darkSelected",
-              "darkSelected"
-            ),
-            [sty.textdark__iwmj2OsbRq]: hasVariant($state, "dark", "dark"),
-            [sty.textselected__iwmj2OcyJu]: hasVariant(
-              $state,
-              "selected",
-              "selected"
-            )
-          }
-        )}
+        className={classNames("all", "__wab_text", sty.text__iwmj2, {
+          [sty.textdarkSelected__iwmj2WadHw]: hasVariant(
+            $state,
+            "darkSelected",
+            "darkSelected"
+          ),
+          [sty.textdark__iwmj2OsbRq]: hasVariant($state, "dark", "dark"),
+          [sty.textselected__iwmj2OcyJu]: hasVariant(
+            $state,
+            "selected",
+            "selected"
+          )
+        })}
       >
         {"\u0647\u0641\u062a\u0647"}
       </div>

@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReports.module.css"; // plasmic-import: pmKDqHBtiLCT/css
 
 import Line3Icon from "./icons/PlasmicIcon__Line3"; // plasmic-import: cDBsZfQFOOWa/icon
@@ -163,12 +162,6 @@ function PlasmicReports__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -272,6 +265,13 @@ function PlasmicReports__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -289,10 +289,10 @@ function PlasmicReports__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.frame49
       )}
@@ -460,35 +460,29 @@ function PlasmicReports__RenderFunc(props: {
       <div
         data-plasmic-name={"frame25"}
         data-plasmic-override={overrides.frame25}
-        className={classNames(projectcss.all, sty.frame25)}
+        className={classNames("all", sty.frame25)}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__xRbve
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__xRbve)}>
           {"\u06af\u0632\u0627\u0631\u0634 \u0647\u0627"}
         </div>
       </div>
       <div
         data-plasmic-name={"frame48"}
         data-plasmic-override={overrides.frame48}
-        className={classNames(projectcss.all, sty.frame48)}
+        className={classNames("all", sty.frame48)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox___4E8Fo)}>
+        <div className={classNames("all", sty.freeBox___4E8Fo)}>
           <Line3Icon
-            className={classNames(projectcss.all, sty.svg__gEcqU)}
+            className={classNames("all", sty.svg__gEcqU)}
             role={"img"}
           />
         </div>
         <div
           data-plasmic-name={"frame51"}
           data-plasmic-override={overrides.frame51}
-          className={classNames(projectcss.all, sty.frame51)}
+          className={classNames("all", sty.frame51)}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__k0Lyg)}>
+          <div className={classNames("all", sty.freeBox__k0Lyg)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -508,11 +502,11 @@ function PlasmicReports__RenderFunc(props: {
               const currentIndex = __plasmic_idx_0;
               return (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__dwBqu)}
+                  className={classNames("all", sty.freeBox__dwBqu)}
                   key={currentIndex}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__f6P8G)}
+                    className={classNames("all", sty.freeBox__f6P8G)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -745,8 +739,8 @@ function PlasmicReports__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__pjbpc
                       )}
                       style={(() => {
@@ -790,7 +784,7 @@ function PlasmicReports__RenderFunc(props: {
             })}
           </div>
         </div>
-        <div className={classNames(projectcss.all, sty.freeBox__sp2OQ)}>
+        <div className={classNames("all", sty.freeBox__sp2OQ)}>
           {(() => {
             try {
               return ($state.apiRequest.data?.result?.renewRate ?? "") != "";
@@ -804,13 +798,7 @@ function PlasmicReports__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__aH3Rc
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__aH3Rc)}>
               <React.Fragment>
                 {(() => {
                   try {
@@ -847,8 +835,8 @@ function PlasmicReports__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <div className={classNames(projectcss.all, sty.freeBox__ygFuJ)}>
-          <div className={classNames(projectcss.all, sty.freeBox__cKfxt)}>
+        <div className={classNames("all", sty.freeBox__ygFuJ)}>
+          <div className={classNames("all", sty.freeBox__cKfxt)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -870,7 +858,7 @@ function PlasmicReports__RenderFunc(props: {
                 <div
                   data-plasmic-name={"frame22"}
                   data-plasmic-override={overrides.frame22}
-                  className={classNames(projectcss.all, sty.frame22)}
+                  className={classNames("all", sty.frame22)}
                   key={currentIndex}
                   onClick={async event => {
                     const $steps = {};
@@ -946,15 +934,13 @@ function PlasmicReports__RenderFunc(props: {
                   <div
                     data-plasmic-name={"frame21"}
                     data-plasmic-override={overrides.frame21}
-                    className={classNames(projectcss.all, sty.frame21)}
+                    className={classNames("all", sty.frame21)}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__b8CtS)}
-                    >
+                    <div className={classNames("all", sty.freeBox__b8CtS)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__yaN7K
                         )}
                         style={(() => {
@@ -1005,8 +991,8 @@ function PlasmicReports__RenderFunc(props: {
                       })() ? (
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__jQcU
                           )}
                         >
@@ -1030,8 +1016,8 @@ function PlasmicReports__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__kE66O
                       )}
                       style={(() => {
@@ -1073,12 +1059,12 @@ function PlasmicReports__RenderFunc(props: {
                   <div
                     data-plasmic-name={"frame28"}
                     data-plasmic-override={overrides.frame28}
-                    className={classNames(projectcss.all, sty.frame28)}
+                    className={classNames("all", sty.frame28)}
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___4Sqp1
                       )}
                     >
@@ -1087,10 +1073,7 @@ function PlasmicReports__RenderFunc(props: {
                     <div
                       data-plasmic-name={"vuesaxLinearArrowRight"}
                       data-plasmic-override={overrides.vuesaxLinearArrowRight}
-                      className={classNames(
-                        projectcss.all,
-                        sty.vuesaxLinearArrowRight
-                      )}
+                      className={classNames("all", sty.vuesaxLinearArrowRight)}
                     >
                       <div
                         data-plasmic-name={"vuesaxLinearArrowRight2"}
@@ -1098,12 +1081,12 @@ function PlasmicReports__RenderFunc(props: {
                           overrides.vuesaxLinearArrowRight2
                         }
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.vuesaxLinearArrowRight2
                         )}
                       >
                         <IconIcon
-                          className={classNames(projectcss.all, sty.svg__o6Bu)}
+                          className={classNames("all", sty.svg__o6Bu)}
                           role={"img"}
                         />
                       </div>
@@ -1128,8 +1111,8 @@ function PlasmicReports__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <div className={classNames(projectcss.all, sty.freeBox__nt6Cl)}>
-          <div className={classNames(projectcss.all, sty.freeBox__ju5SW)}>
+        <div className={classNames("all", sty.freeBox__nt6Cl)}>
+          <div className={classNames("all", sty.freeBox__ju5SW)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -1151,7 +1134,7 @@ function PlasmicReports__RenderFunc(props: {
                 <div
                   data-plasmic-name={"frame23"}
                   data-plasmic-override={overrides.frame23}
-                  className={classNames(projectcss.all, sty.frame23, "shimmer")}
+                  className={classNames("all", sty.frame23, "shimmer")}
                   key={currentIndex}
                 />
               );

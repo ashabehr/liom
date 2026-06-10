@@ -74,7 +74,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSendnotif.module.css"; // plasmic-import: 1f3SHQQwHGQn/css
 
 import Line3Icon from "./icons/PlasmicIcon__Line3"; // plasmic-import: cDBsZfQFOOWa/icon
@@ -200,10 +199,6 @@ function PlasmicSendnotif__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -512,6 +507,11 @@ function PlasmicSendnotif__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -529,10 +529,10 @@ function PlasmicSendnotif__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.frame49
       )}
@@ -540,15 +540,9 @@ function PlasmicSendnotif__RenderFunc(props: {
       <div
         data-plasmic-name={"frame25"}
         data-plasmic-override={overrides.frame25}
-        className={classNames(projectcss.all, sty.frame25)}
+        className={classNames("all", sty.frame25)}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__kcCUf
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__kcCUf)}>
           {
             "\u0627\u0631\u0633\u0627\u0644 \u0646\u0648\u062a\u06cc\u0641\u06cc\u06a9\u06cc\u0634\u0646"
           }
@@ -557,11 +551,11 @@ function PlasmicSendnotif__RenderFunc(props: {
       <div
         data-plasmic-name={"frame48"}
         data-plasmic-override={overrides.frame48}
-        className={classNames(projectcss.all, sty.frame48)}
+        className={classNames("all", sty.frame48)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__k6Rkn)}>
+        <div className={classNames("all", sty.freeBox__k6Rkn)}>
           <Line3Icon
-            className={classNames(projectcss.all, sty.svg__gNpDz)}
+            className={classNames("all", sty.svg__gNpDz)}
             role={"img"}
           />
         </div>
@@ -569,10 +563,10 @@ function PlasmicSendnotif__RenderFunc(props: {
       <div
         data-plasmic-name={"frame50"}
         data-plasmic-override={overrides.frame50}
-        className={classNames(projectcss.all, sty.frame50)}
+        className={classNames("all", sty.frame50)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__tErMr)}>
-          <div className={classNames(projectcss.all, sty.freeBox__wifYz)}>
+        <div className={classNames("all", sty.freeBox__tErMr)}>
+          <div className={classNames("all", sty.freeBox__wifYz)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -592,16 +586,14 @@ function PlasmicSendnotif__RenderFunc(props: {
               const stepIndex = __plasmic_idx_0;
               return (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__hrBlc)}
+                  className={classNames("all", sty.freeBox__hrBlc)}
                   key={stepIndex}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__addyD)}
-                  >
+                  <div className={classNames("all", sty.freeBox__addyD)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__awLjF
                       )}
                       onClick={async event => {
@@ -683,17 +675,13 @@ function PlasmicSendnotif__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__iAp7X)}
-                    />
+                    <div className={classNames("all", sty.freeBox__iAp7X)} />
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__a367)}
-                  >
+                  <div className={classNames("all", sty.freeBox__a367)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__xo0F
                       )}
                     >
@@ -729,16 +717,11 @@ function PlasmicSendnotif__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wNvsi
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__wNvsi)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___45GcK
                           )}
                         >
@@ -798,8 +781,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                         })()}
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__bQ0WL
                           )}
                         >
@@ -921,8 +904,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                         })()}
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__tErOc
                           )}
                         >
@@ -1112,7 +1095,7 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 >
                                   <Icon300Icon
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.svg__pge0S
                                     )}
                                     role={"img"}
@@ -1171,8 +1154,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                         })()}
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__bufxw
                           )}
                         >
@@ -1312,12 +1295,7 @@ function PlasmicSendnotif__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__uKs8Y
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__uKs8Y)}>
                         {(() => {
                           const child$Props = {
                             className: classNames(
@@ -1400,8 +1378,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__jwhEd
                                 )}
                               >
@@ -1428,21 +1406,15 @@ function PlasmicSendnotif__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__aWrIp
-                            )}
+                            className={classNames("all", sty.freeBox__aWrIp)}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__utH8C
-                              )}
+                              className={classNames("all", sty.freeBox__utH8C)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__tWx5E
                                 )}
                               >
@@ -1455,14 +1427,14 @@ function PlasmicSendnotif__RenderFunc(props: {
                                   antdInput2: (
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox__adtqg
                                       )}
                                     >
                                       <div
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
+                                          "all",
+                                          "__wab_text",
                                           sty.text__mXbqm
                                         )}
                                       >
@@ -1638,7 +1610,7 @@ function PlasmicSendnotif__RenderFunc(props: {
                                   startIcon: (
                                     <Icon290Icon
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.svg__rlOoM
                                       )}
                                       role={"img"}
@@ -1692,13 +1664,13 @@ function PlasmicSendnotif__RenderFunc(props: {
                               })() ? (
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__ovUfd
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__hshzG
                                     )}
                                   >
@@ -1823,15 +1795,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                               ) : null}
                             </div>
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ruK5V
-                              )}
+                              className={classNames("all", sty.freeBox__ruK5V)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__qFHfW
                                 )}
                               >
@@ -1844,14 +1813,14 @@ function PlasmicSendnotif__RenderFunc(props: {
                                   antdInput2: (
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox___6AoJu
                                       )}
                                     >
                                       <div
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
+                                          "all",
+                                          "__wab_text",
                                           sty.text__jMuf1
                                         )}
                                       >
@@ -1936,7 +1905,7 @@ function PlasmicSendnotif__RenderFunc(props: {
                                   startIcon: (
                                     <Icon291Icon
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.svg___79DZn
                                       )}
                                       role={"img"}
@@ -1995,12 +1964,7 @@ function PlasmicSendnotif__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__oc81O
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__oc81O)}>
                         {(() => {
                           const child$Props = {
                             className: classNames(
@@ -2126,15 +2090,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__rsLmo
-                            )}
+                            className={classNames("all", sty.freeBox__rsLmo)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__xxN7Y
                               )}
                             >
@@ -2221,7 +2182,7 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 endIcon: (
                                   <Icon305Icon
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.svg__gwaQ9
                                     )}
                                     onClick={async event => {
@@ -2370,7 +2331,7 @@ function PlasmicSendnotif__RenderFunc(props: {
                                   options: (
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox__ofTjZ
                                       )}
                                     >
@@ -2489,8 +2450,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                           >
                                             <div
                                               className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
+                                                "all",
+                                                "__wab_text",
                                                 sty.text__guKfq
                                               )}
                                             >
@@ -2570,15 +2531,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__aYwp6
-                            )}
+                            className={classNames("all", sty.freeBox__aYwp6)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__kQaI
                               )}
                             >
@@ -2737,15 +2695,12 @@ function PlasmicSendnotif__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___7By5U
-                            )}
+                            className={classNames("all", sty.freeBox___7By5U)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__olNb
                               )}
                             >
@@ -2831,10 +2786,7 @@ function PlasmicSendnotif__RenderFunc(props: {
                                 color: "soft",
                                 endIcon: (
                                   <Icon305Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg__jIOr
-                                    )}
+                                    className={classNames("all", sty.svg__jIOr)}
                                     onClick={async event => {
                                       const $steps = {};
 
@@ -2981,7 +2933,7 @@ function PlasmicSendnotif__RenderFunc(props: {
                                   options: (
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox__d6Uqk
                                       )}
                                     >
@@ -3100,8 +3052,8 @@ function PlasmicSendnotif__RenderFunc(props: {
                                           >
                                             <div
                                               className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
+                                                "all",
+                                                "__wab_text",
                                                 sty.text__yVFhS
                                               )}
                                             >
@@ -3186,8 +3138,8 @@ function PlasmicSendnotif__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <div className={classNames(projectcss.all, sty.freeBox__unNoa)}>
-          <div className={classNames(projectcss.all, sty.freeBox__eJj1R)}>
+        <div className={classNames("all", sty.freeBox__unNoa)}>
+          <div className={classNames("all", sty.freeBox__eJj1R)}>
             {(() => {
               try {
                 return $state.imageload != null;
@@ -3249,13 +3201,7 @@ function PlasmicSendnotif__RenderFunc(props: {
                   );
                 })
               : null}
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__muHj
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__muHj)}>
               <React.Fragment>
                 {(() => {
                   try {
@@ -3274,7 +3220,7 @@ function PlasmicSendnotif__RenderFunc(props: {
             </div>
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__exQh)}
+            className={classNames("all", sty.freeBox__exQh)}
             onClick={async event => {
               const $steps = {};
 
@@ -3309,7 +3255,7 @@ function PlasmicSendnotif__RenderFunc(props: {
             }}
           >
             <Icon22Icon
-              className={classNames(projectcss.all, sty.svg__fzM5)}
+              className={classNames("all", sty.svg__fzM5)}
               role={"img"}
             />
           </div>

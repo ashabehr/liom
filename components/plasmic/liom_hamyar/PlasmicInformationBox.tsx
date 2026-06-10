@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicInformationBox.module.css"; // plasmic-import: CRVLEAaVQvJw/css
 
 import Icon22Icon from "./icons/PlasmicIcon__Icon22"; // plasmic-import: 32haUKsu6raY/icon
@@ -176,10 +175,6 @@ function PlasmicInformationBox__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -235,6 +230,11 @@ function PlasmicInformationBox__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -252,10 +252,10 @@ function PlasmicInformationBox__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -268,7 +268,7 @@ function PlasmicInformationBox__RenderFunc(props: {
       )}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__ej0Pr)}
+        className={classNames("all", sty.freeBox__ej0Pr)}
         style={(() => {
           try {
             return {
@@ -287,15 +287,11 @@ function PlasmicInformationBox__RenderFunc(props: {
         })()}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__kM61V)}
+          className={classNames("all", sty.freeBox__kM61V)}
           onClick={args.onClickClose}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__yfIw
-            )}
+            className={classNames("all", "__wab_text", sty.text__yfIw)}
             style={(() => {
               try {
                 return {
@@ -331,16 +327,12 @@ function PlasmicInformationBox__RenderFunc(props: {
           <Icon22Icon
             data-plasmic-name={"svg"}
             data-plasmic-override={overrides.svg}
-            className={classNames(projectcss.all, sty.svg)}
+            className={classNames("all", sty.svg)}
             role={"img"}
           />
         </div>
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__qoH7V
-          )}
+          className={classNames("all", "__wab_text", sty.text__qoH7V)}
           style={(() => {
             try {
               return {
@@ -358,7 +350,7 @@ function PlasmicInformationBox__RenderFunc(props: {
           })()}
         >
           <div
-            className={projectcss.__wab_expr_html_text}
+            className={"__wab_expr_html_text"}
             dangerouslySetInnerHTML={{
               __html: (() => {
                 try {
@@ -377,7 +369,7 @@ function PlasmicInformationBox__RenderFunc(props: {
           />
         </div>
         <div
-          className={classNames(projectcss.all, sty.freeBox__yshm8, {
+          className={classNames("all", sty.freeBox__yshm8, {
             [sty.freeBoxglobal_newView_newView__yshm80DHva]: hasVariant(
               globalVariants,
               "newView",
@@ -399,7 +391,7 @@ function PlasmicInformationBox__RenderFunc(props: {
             }
           })() ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox__vHEq)}
+              className={classNames("all", sty.freeBox__vHEq)}
               onClick={args.onClickBtn1}
               style={(() => {
                 try {
@@ -419,11 +411,7 @@ function PlasmicInformationBox__RenderFunc(props: {
               })()}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__jjKj
-                )}
+                className={classNames("all", "__wab_text", sty.text__jjKj)}
                 style={(() => {
                   try {
                     return { color: $props.btn1.textColor };
@@ -516,11 +504,7 @@ function PlasmicInformationBox__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nhBol
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__nhBol)}
                     style={(() => {
                       try {
                         return { color: $props.btn1.textColor };
@@ -555,7 +539,7 @@ function PlasmicInformationBox__RenderFunc(props: {
             }
           })() ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox__dzSt5)}
+              className={classNames("all", sty.freeBox__dzSt5)}
               onClick={args.onClickBtn2}
               style={(() => {
                 try {
@@ -575,11 +559,7 @@ function PlasmicInformationBox__RenderFunc(props: {
               })()}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__p0I7S
-                )}
+                className={classNames("all", "__wab_text", sty.text__p0I7S)}
                 style={(() => {
                   try {
                     return { color: $props.btn2.textColor };
@@ -676,11 +656,7 @@ function PlasmicInformationBox__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ikzhw
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__ikzhw)}
                     style={(() => {
                       try {
                         return { color: $props.btn2.textColor };

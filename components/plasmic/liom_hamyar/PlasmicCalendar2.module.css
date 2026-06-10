@@ -910,7 +910,7 @@
   justify-content: space-evenly;
   display: flex;
   flex-direction: row;
-  font-family: "yekan_bakh", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: normal;
   font-style: normal;
@@ -1616,7 +1616,7 @@
   height: auto;
   max-width: 100%;
   white-space: pre;
-  font-family: "yekan_bakh", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: var(--token-moKolTKrMXup);
   font-weight: 500;
   font-style: normal;
@@ -1712,7 +1712,7 @@
   text-align: right;
   font-size: 18px;
   font-weight: 700;
-  font-family: "yekan_bakh", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   color: #535353;
   text-transform: none;
@@ -1728,7 +1728,7 @@
 .text__mPn {
   padding-left: 4px;
   padding-right: 4px;
-  font-family: "yekan_bakh", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 700;
   font-style: normal;
@@ -2273,7 +2273,7 @@
   text-align: right;
   font-size: 18px;
   font-weight: 700;
-  font-family: "yekan_bakh", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   color: #535353;
   text-transform: none;
@@ -2570,7 +2570,7 @@
   text-align: right;
   font-size: 18px;
   font-weight: 700;
-  font-family: "yekan_bakh", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   color: #535353;
   text-transform: none;
@@ -2586,7 +2586,7 @@
 .text__hUkM {
   padding-left: 4px;
   padding-right: 4px;
-  font-family: "yekan_bakh", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 14px;
   font-weight: 700;
   font-style: normal;

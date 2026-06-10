@@ -77,7 +77,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicLiad.module.css"; // plasmic-import: SxAwAOw1n0hI/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
@@ -98,11 +97,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -182,10 +188,6 @@ function PlasmicLiad__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -789,7 +791,7 @@ function PlasmicLiad__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
-              return $ctx.params.page[1];
+              return $ctx.params.liadPage[1];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1241,6 +1243,11 @@ function PlasmicLiad__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -1251,7 +1258,7 @@ function PlasmicLiad__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -1266,17 +1273,17 @@ function PlasmicLiad__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             {
@@ -1304,7 +1311,7 @@ function PlasmicLiad__RenderFunc(props: {
           <div
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
-            className={classNames(projectcss.all, sty.main, {
+            className={classNames("all", sty.main, {
               [sty.mainpage2_cycle]: hasVariant($state, "page2", "cycle"),
               [sty.mainpage2_edit]: hasVariant($state, "page2", "edit"),
               [sty.mainpage2_reminderSetting]: hasVariant(
@@ -1502,7 +1509,7 @@ function PlasmicLiad__RenderFunc(props: {
                         destination: `/liad/${(() => {
                           try {
                             return (() => {
-                              var s = $ctx.params.page || ["reminder"];
+                              var s = $ctx.params.liadPage || ["reminder"];
                               s.push("reminderSetting");
                               return s.join("/");
                             })();
@@ -1548,7 +1555,7 @@ function PlasmicLiad__RenderFunc(props: {
                         destination: `/liad/${(() => {
                           try {
                             return (() => {
-                              var s = $ctx.params.page || ["reminder"];
+                              var s = $ctx.params.liadPage || ["reminder"];
                               s.push("setting");
                               return s.join("/");
                             })();
@@ -1596,7 +1603,7 @@ function PlasmicLiad__RenderFunc(props: {
               ])}
             />
 
-            <section className={classNames(projectcss.all, sty.section__t84Sz)}>
+            <section className={classNames("all", sty.section__t84Sz)}>
               {(() => {
                 const child$Props = {
                   className: classNames("__wab_instance", sty.footerMain, {
@@ -1639,20 +1646,7 @@ function PlasmicLiad__RenderFunc(props: {
                       $steps["goToMain2"] = true
                         ? (() => {
                             const actionArgs = {
-                              destination: `/main/${(() => {
-                                try {
-                                  return $state.footerMain.type || "calendar";
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()}`
+                              destination: `/main/[[...mainPage]]`
                             };
                             return (({ destination }) => {
                               if (
@@ -1712,7 +1706,7 @@ function PlasmicLiad__RenderFunc(props: {
                 );
               })()}
             </section>
-            <section className={classNames(projectcss.all, sty.section__rpNpG)}>
+            <section className={classNames("all", sty.section__rpNpG)}>
               {(() => {
                 const child$Props = {
                   className: classNames("__wab_instance", sty.mainHeader, {
@@ -1790,20 +1784,7 @@ function PlasmicLiad__RenderFunc(props: {
                         $state.mainHeader.dopen == false
                           ? (() => {
                               const actionArgs = {
-                                destination: `/liad/${(() => {
-                                  try {
-                                    return $ctx.params.page.join("/");
-                                  } catch (e) {
-                                    if (
-                                      e instanceof TypeError ||
-                                      e?.plasmicType ===
-                                        "PlasmicUndefinedDataError"
-                                    ) {
-                                      return undefined;
-                                    }
-                                    throw e;
-                                  }
-                                })()}`
+                                destination: `/liad/[[...liadPage]]`
                               };
                               return (({ destination }) => {
                                 if (
@@ -1834,23 +1815,7 @@ function PlasmicLiad__RenderFunc(props: {
                     $steps["goToMain2"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: `/liad/${(() => {
-                              try {
-                                return (() => {
-                                  var s = $ctx.params.page;
-                                  s.push("edit");
-                                  return s.join("/");
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}`
+                            destination: `/liad/[[...liadPage]]`
                           };
                           return (({ destination }) => {
                             if (
@@ -1880,23 +1845,7 @@ function PlasmicLiad__RenderFunc(props: {
                     $steps["goToLiad"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: `/liad/${(() => {
-                              try {
-                                return (() => {
-                                  var s = $ctx.params.page;
-                                  s.push("reminderSetting");
-                                  return s.join("/");
-                                })();
-                              } catch (e) {
-                                if (
-                                  e instanceof TypeError ||
-                                  e?.plasmicType === "PlasmicUndefinedDataError"
-                                ) {
-                                  return undefined;
-                                }
-                                throw e;
-                              }
-                            })()}`
+                            destination: `/liad/[[...liadPage]]`
                           };
                           return (({ destination }) => {
                             if (
@@ -1921,35 +1870,16 @@ function PlasmicLiad__RenderFunc(props: {
                     }
                   },
                   slot: (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__yikWx)}
-                    >
+                    <div className={classNames("all", sty.freeBox__yikWx)}>
                       <Icon270Icon
-                        className={classNames(projectcss.all, sty.svg__zeh1)}
+                        className={classNames("all", sty.svg__zeh1)}
                         onClick={async event => {
                           const $steps = {};
 
                           $steps["goToMain2"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  destination: `/liad/${(() => {
-                                    try {
-                                      return (() => {
-                                        var s = $ctx.params.page;
-                                        s.push("reminderSetting");
-                                        return s.join("/");
-                                      })();
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}`
+                                  destination: `/liad/[[...liadPage]]`
                                 };
                                 return (({ destination }) => {
                                   if (
@@ -2087,31 +2017,16 @@ function PlasmicLiad__RenderFunc(props: {
                     data-plasmic-override={overrides.mainHeader}
                     {...child$Props}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__vAwx8)}
-                    >
+                    <div className={classNames("all", sty.freeBox__vAwx8)}>
                       <Icon185Icon
-                        className={classNames(projectcss.all, sty.svg__whYi4)}
+                        className={classNames("all", sty.svg__whYi4)}
                         onClick={async event => {
                           const $steps = {};
 
                           $steps["goToMain2"] = true
                             ? (() => {
                                 const actionArgs = {
-                                  destination: `/liad/${(() => {
-                                    try {
-                                      return $ctx.params.page.join("/");
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}?menu=${"true"}`
+                                  destination: `/liad/[[...liadPage]]?menu=${"true"}`
                                 };
                                 return (({ destination }) => {
                                   if (
@@ -2187,21 +2102,7 @@ function PlasmicLiad__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/liad/${(() => {
-                          try {
-                            return $ctx.params.page
-                              .filter(i => i != "edit")
-                              .join("/");
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}`
+                        destination: `/liad/[[...liadPage]]`
                       };
                       return (({ destination }) => {
                         if (
@@ -2374,21 +2275,7 @@ function PlasmicLiad__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/liad/${(() => {
-                          try {
-                            return $ctx.params.page
-                              .filter(i => i != "reminderSetting")
-                              .join("/");
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}`
+                        destination: `/liad/[[...liadPage]]`
                       };
                       return (({ destination }) => {
                         if (
@@ -3202,9 +3089,10 @@ export const PlasmicLiad = Object.assign(
     internalArgProps: PlasmicLiad__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
-      pagePath: "/liad/[[...page]]",
-      searchParams: {},
-      params: {}
+      pageRoute: "/liad/[[...liadPage]]",
+      pagePath: "/liad/[[...liadPage]]",
+      params: {},
+      query: {}
     })
   }
 );

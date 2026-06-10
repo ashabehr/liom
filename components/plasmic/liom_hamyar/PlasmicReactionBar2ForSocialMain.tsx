@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReactionBar2ForSocialMain.module.css"; // plasmic-import: H6dfyqWexG5G/css
 
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: 4NJq6NYKqIPu/icon
@@ -161,10 +160,6 @@ function PlasmicReactionBar2ForSocialMain__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -182,6 +177,11 @@ function PlasmicReactionBar2ForSocialMain__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -199,10 +199,10 @@ function PlasmicReactionBar2ForSocialMain__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -232,7 +232,7 @@ function PlasmicReactionBar2ForSocialMain__RenderFunc(props: {
             />
 
             <div
-              className={classNames(projectcss.all, sty.freeBox__k1Ry2)}
+              className={classNames("all", sty.freeBox__k1Ry2)}
               onClick={async event => {
                 const $steps = {};
 
@@ -262,16 +262,12 @@ function PlasmicReactionBar2ForSocialMain__RenderFunc(props: {
               }}
             >
               <Icon150Icon
-                className={classNames(projectcss.all, sty.svg__yIzEr)}
+                className={classNames("all", sty.svg__yIzEr)}
                 role={"img"}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___4Dlmu
-                )}
+                className={classNames("all", "__wab_text", sty.text___4Dlmu)}
               >
                 <React.Fragment>
                   {(() => {
@@ -290,19 +286,13 @@ function PlasmicReactionBar2ForSocialMain__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__jdYhE)}>
+            <div className={classNames("all", sty.freeBox__jdYhE)}>
               <Icon149Icon
-                className={classNames(projectcss.all, sty.svg__i0IJ)}
+                className={classNames("all", sty.svg__i0IJ)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__rxdrw
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__rxdrw)}>
                 <React.Fragment>
                   {(() => {
                     try {
@@ -322,19 +312,13 @@ function PlasmicReactionBar2ForSocialMain__RenderFunc(props: {
             </div>
             <Save className={classNames("__wab_instance", sty.save__cpSb)} />
 
-            <div className={classNames(projectcss.all, sty.freeBox__qg71X)}>
+            <div className={classNames("all", sty.freeBox__qg71X)}>
               <Icon147Icon
-                className={classNames(projectcss.all, sty.svg__xxRc7)}
+                className={classNames("all", sty.svg__xxRc7)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__nRgs
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__nRgs)}>
                 <React.Fragment>
                   {(() => {
                     try {

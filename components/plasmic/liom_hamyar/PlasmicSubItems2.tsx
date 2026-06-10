@@ -70,7 +70,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSubItems2.module.css"; // plasmic-import: MYwq03-9azdR/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -158,12 +157,6 @@ function PlasmicSubItems2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -1045,6 +1038,13 @@ function PlasmicSubItems2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -1062,10 +1062,10 @@ function PlasmicSubItems2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -1073,16 +1073,16 @@ function PlasmicSubItems2__RenderFunc(props: {
       <section
         data-plasmic-name={"section"}
         data-plasmic-override={overrides.section}
-        className={classNames(projectcss.all, sty.section)}
+        className={classNames("all", sty.section)}
       >
         <HeaderLiom
           data-plasmic-name={"headerLiom"}
           data-plasmic-override={overrides.headerLiom}
           className={classNames("__wab_instance", sty.headerLiom)}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__qfLcd)}>
+          <div className={classNames("all", sty.freeBox__qfLcd)}>
             <XIcon
-              className={classNames(projectcss.all, sty.svg__dmUru)}
+              className={classNames("all", sty.svg__dmUru)}
               onClick={async event => {
                 const $steps = {};
 
@@ -1111,13 +1111,7 @@ function PlasmicSubItems2__RenderFunc(props: {
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__csBdw
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__csBdw)}>
               <React.Fragment>
                 {(() => {
                   try {
@@ -1150,7 +1144,7 @@ function PlasmicSubItems2__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <div className={classNames(projectcss.all, sty.freeBox__vQm5S)}>
+        <div className={classNames("all", sty.freeBox__vQm5S)}>
           {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
             (() => {
               try {
@@ -1175,15 +1169,11 @@ function PlasmicSubItems2__RenderFunc(props: {
             const currentIndex = __plasmic_idx_0;
             return (
               <div
-                className={classNames(projectcss.all, sty.freeBox__bnEdq)}
+                className={classNames("all", sty.freeBox__bnEdq)}
                 key={currentIndex}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__iBl7Z
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__iBl7Z)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -1229,7 +1219,7 @@ function PlasmicSubItems2__RenderFunc(props: {
                   const currentIndex = __plasmic_idx_1;
                   return (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__giORa)}
+                      className={classNames("all", sty.freeBox__giORa)}
                       key={currentIndex}
                       onClick={async event => {
                         const $steps = {};
@@ -1502,9 +1492,7 @@ function PlasmicSubItems2__RenderFunc(props: {
                         }
                       }}
                     >
-                      <div
-                        className={classNames(projectcss.all, sty.freeBox__d8T)}
-                      >
+                      <div className={classNames("all", sty.freeBox__d8T)}>
                         <PlasmicImg__
                           data-plasmic-name={"img"}
                           data-plasmic-override={overrides.img}
@@ -1532,22 +1520,12 @@ function PlasmicSubItems2__RenderFunc(props: {
                           })()}
                         />
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__ofZFq
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___4Urbe
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__ofZFq)}>
+                        <div className={classNames("all", sty.freeBox___4Urbe)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__m6UHm
                             )}
                           >
@@ -1582,15 +1560,12 @@ function PlasmicSubItems2__RenderFunc(props: {
                             }
                           })() ? (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ygg0S
-                              )}
+                              className={classNames("all", sty.freeBox__ygg0S)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__bAAfC
                                 )}
                               >
@@ -1612,16 +1587,10 @@ function PlasmicSubItems2__RenderFunc(props: {
                             }
                           })() ? (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__wh8H
-                              )}
+                              className={classNames("all", sty.freeBox__wh8H)}
                             >
                               <Icon188Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__jJQkG
-                                )}
+                                className={classNames("all", sty.svg__jJQkG)}
                                 role={"img"}
                               />
                             </div>
@@ -1629,8 +1598,8 @@ function PlasmicSubItems2__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__cOnc6
                           )}
                         >
@@ -1652,7 +1621,7 @@ function PlasmicSubItems2__RenderFunc(props: {
                         </div>
                       </div>
                       <ChevronLeftIcon
-                        className={classNames(projectcss.all, sty.svg__jIPp)}
+                        className={classNames("all", sty.svg__jIPp)}
                         role={"img"}
                       />
                     </div>
@@ -1694,35 +1663,19 @@ function PlasmicSubItems2__RenderFunc(props: {
           })}
         </div>
       ) : null}
-      <div className={classNames(projectcss.all, sty.freeBox__eb3Yo)}>
-        <div className={classNames(projectcss.all, sty.freeBox__yzoBc)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox___3M9YE,
-              "shimmer"
-            )}
-          />
+      <div className={classNames("all", sty.freeBox__eb3Yo)}>
+        <div className={classNames("all", sty.freeBox__yzoBc)}>
+          <div className={classNames("all", sty.freeBox___3M9YE, "shimmer")} />
 
-          <div
-            className={classNames(projectcss.all, sty.freeBox__tQbL, "shimmer")}
-          />
+          <div className={classNames("all", sty.freeBox__tQbL, "shimmer")} />
         </div>
-        <div
-          className={classNames(projectcss.all, sty.freeBox__rl8Wg, "shimmer")}
-        />
+        <div className={classNames("all", sty.freeBox__rl8Wg, "shimmer")} />
 
-        <div
-          className={classNames(projectcss.all, sty.freeBox__y7DuL, "shimmer")}
-        />
+        <div className={classNames("all", sty.freeBox__y7DuL, "shimmer")} />
 
-        <div
-          className={classNames(projectcss.all, sty.freeBox__rmZUg, "shimmer")}
-        />
+        <div className={classNames("all", sty.freeBox__rmZUg, "shimmer")} />
 
-        <div
-          className={classNames(projectcss.all, sty.freeBox__lgQLx, "shimmer")}
-        />
+        <div className={classNames("all", sty.freeBox__lgQLx, "shimmer")} />
       </div>
       {(() => {
         try {
@@ -1737,7 +1690,7 @@ function PlasmicSubItems2__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <div className={classNames(projectcss.all, sty.freeBox__fmK)}>
+        <div className={classNames("all", sty.freeBox__fmK)}>
           {(() => {
             try {
               return !$state.selfcare.loading;
@@ -1751,14 +1704,10 @@ function PlasmicSubItems2__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__kh41F)}>
-              <div className={classNames(projectcss.all, sty.freeBox__oHtfe)}>
+            <div className={classNames("all", sty.freeBox__kh41F)}>
+              <div className={classNames("all", sty.freeBox__oHtfe)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ol6J0
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__ol6J0)}
                 >
                   {
                     "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
@@ -1772,7 +1721,7 @@ function PlasmicSubItems2__RenderFunc(props: {
                 color={generateStateValueProp($state, ["button2", "color"])}
                 endIcon={
                   <Icon144Icon
-                    className={classNames(projectcss.all, sty.svg___7Wgot)}
+                    className={classNames("all", sty.svg___7Wgot)}
                     role={"img"}
                   />
                 }
@@ -1848,17 +1797,13 @@ function PlasmicSubItems2__RenderFunc(props: {
                 }}
                 startIcon={
                   <ChevronRightIcon
-                    className={classNames(projectcss.all, sty.svg__vnN)}
+                    className={classNames("all", sty.svg__vnN)}
                     role={"img"}
                   />
                 }
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mDhTj
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__mDhTj)}
                 >
                   {
                     "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
@@ -1887,20 +1832,18 @@ function PlasmicSubItems2__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__ajhDy)}
+                    className={classNames("all", sty.freeBox__ajhDy)}
                     key={currentIndex}
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__dJzZu,
                         "shimmer"
                       )}
                     />
 
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox___8GaH)}
-                    >
+                    <div className={classNames("all", sty.freeBox___8GaH)}>
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])([
                         2, 3, 4
@@ -1910,7 +1853,7 @@ function PlasmicSubItems2__RenderFunc(props: {
                         return (
                           <div
                             className={classNames(
-                              projectcss.all,
+                              "all",
                               sty.freeBox__iTEqq,
                               "shimmer"
                             )}

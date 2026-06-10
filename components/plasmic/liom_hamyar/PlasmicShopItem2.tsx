@@ -71,7 +71,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShopItem2.module.css"; // plasmic-import: EyzHeiLL2pPI/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -92,11 +91,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -160,12 +166,6 @@ function PlasmicShopItem2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -296,6 +296,13 @@ function PlasmicShopItem2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -306,7 +313,7 @@ function PlasmicShopItem2__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -321,17 +328,17 @@ function PlasmicShopItem2__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -349,14 +356,8 @@ function PlasmicShopItem2__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__d4RNa)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__fet
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__d4RNa)}>
+              <div className={classNames("all", "__wab_text", sty.text__fet)}>
                 <React.Fragment>
                   {(() => {
                     try {
@@ -374,11 +375,7 @@ function PlasmicShopItem2__RenderFunc(props: {
                 </React.Fragment>
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___0YobS
-                )}
+                className={classNames("all", "__wab_text", sty.text___0YobS)}
               >
                 <React.Fragment>
                   {(() => {
@@ -596,11 +593,7 @@ function PlasmicShopItem2__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__xj7Re
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__xj7Re)}
                   >
                     {
                       "\u0648\u0631\u0648\u062f \u0628\u0647 \u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"
@@ -983,53 +976,29 @@ function PlasmicShopItem2__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__sWc81)}>
+            <div className={classNames("all", sty.freeBox__sWc81)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__rGChE,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__rGChE, "shimmer")}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__eWosC,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__eWosC, "shimmer")}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__quzbP,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__quzbP, "shimmer")}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__hwd5V,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__hwd5V, "shimmer")}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox___2SPwD,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox___2SPwD, "shimmer")}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__aY6Lo,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__aY6Lo, "shimmer")}
               />
             </div>
           ) : null}
@@ -1205,9 +1174,10 @@ export const PlasmicShopItem2 = Object.assign(
     internalArgProps: PlasmicShopItem2__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/shop-item",
       pagePath: "/shop-item",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

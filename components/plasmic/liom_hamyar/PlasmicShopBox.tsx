@@ -70,7 +70,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShopBox.module.css"; // plasmic-import: 3zHG5W2BDVZ9/css
 
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
@@ -174,12 +173,6 @@ function PlasmicShopBox__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -416,6 +409,13 @@ function PlasmicShopBox__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -433,10 +433,10 @@ function PlasmicShopBox__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -462,20 +462,14 @@ function PlasmicShopBox__RenderFunc(props: {
         })()}
         className={classNames("__wab_instance", sty.shopDialog)}
         errorDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___1NBXp
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text___1NBXp)}>
             {"Error fetching data"}
           </div>
         }
         loadingDisplay={
-          <div className={classNames(projectcss.all, sty.freeBox__cFPr)}>
+          <div className={classNames("all", sty.freeBox__cFPr)}>
             <Icon115Icon
-              className={classNames(projectcss.all, sty.svg__tlwsg)}
+              className={classNames("all", sty.svg__tlwsg)}
               role={"img"}
             />
           </div>
@@ -541,12 +535,9 @@ function PlasmicShopBox__RenderFunc(props: {
         })()}
         url={"https://n8n.staas.ir/webhook/rest/shop/list"}
       >
-        <div className={classNames(projectcss.all, sty.freeBox___00VDq)}>
-          <div
-            className={classNames(projectcss.all, sty.freeBox__tPVb1)}
-            dir={"rtl"}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__yLfVt)}>
+        <div className={classNames("all", sty.freeBox___00VDq)}>
+          <div className={classNames("all", sty.freeBox__tPVb1)} dir={"rtl"}>
+            <div className={classNames("all", sty.freeBox__yLfVt)}>
               <PlasmicImg__
                 data-plasmic-name={"img"}
                 data-plasmic-override={overrides.img}
@@ -567,13 +558,7 @@ function PlasmicShopBox__RenderFunc(props: {
                 }}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ft4Ok
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__ft4Ok)}>
                 <React.Fragment>
                   {(() => {
                     try {
@@ -591,15 +576,9 @@ function PlasmicShopBox__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ikYtM
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__ikYtM)}>
               <div
-                className={projectcss.__wab_expr_html_text}
+                className={"__wab_expr_html_text"}
                 dangerouslySetInnerHTML={{
                   __html: (() => {
                     try {
@@ -617,15 +596,9 @@ function PlasmicShopBox__RenderFunc(props: {
                 }}
               />
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__o9McY
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__o9McY)}>
               <div
-                className={projectcss.__wab_expr_html_text}
+                className={"__wab_expr_html_text"}
                 dangerouslySetInnerHTML={{
                   __html: (() => {
                     try {
@@ -644,12 +617,9 @@ function PlasmicShopBox__RenderFunc(props: {
               />
             </div>
           </div>
-          <div
-            className={classNames(projectcss.all, sty.freeBox___8Nwjs)}
-            dir={"rtl"}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox___6Nv7X)}>
-              <div className={classNames(projectcss.all, sty.freeBox___0FgRk)}>
+          <div className={classNames("all", sty.freeBox___8Nwjs)} dir={"rtl"}>
+            <div className={classNames("all", sty.freeBox___6Nv7X)}>
+              <div className={classNames("all", sty.freeBox___0FgRk)}>
                 {(() => {
                   try {
                     return $state.topShop.topBadge;
@@ -663,9 +633,7 @@ function PlasmicShopBox__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__czhCs)}
-                  >
+                  <div className={classNames("all", sty.freeBox__czhCs)}>
                     {(() => {
                       try {
                         return $state.topShop.topBadge;
@@ -681,8 +649,8 @@ function PlasmicShopBox__RenderFunc(props: {
                     })() ? (
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___6YJ9
                         )}
                       >
@@ -705,16 +673,12 @@ function PlasmicShopBox__RenderFunc(props: {
                     ) : null}
                   </div>
                 ) : null}
-                <div className={classNames(projectcss.all, sty.freeBox__kAldf)}>
+                <div className={classNames("all", sty.freeBox__kAldf)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__jhr4I
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__jhr4I)}
                   >
                     <div
-                      className={projectcss.__wab_expr_html_text}
+                      className={"__wab_expr_html_text"}
                       dangerouslySetInnerHTML={{
                         __html: (() => {
                           try {
@@ -735,13 +699,11 @@ function PlasmicShopBox__RenderFunc(props: {
                       }}
                     />
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__nKq18)}
-                  >
+                  <div className={classNames("all", sty.freeBox__nKq18)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__b1WSk
                       )}
                     >
@@ -763,8 +725,8 @@ function PlasmicShopBox__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__v0Dxr
                       )}
                     >
@@ -800,13 +762,11 @@ function PlasmicShopBox__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__cbb7W)}
-                    >
+                    <div className={classNames("all", sty.freeBox__cbb7W)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__pj2Vz
                         )}
                       >
@@ -830,20 +790,14 @@ function PlasmicShopBox__RenderFunc(props: {
                   ) : null}
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___0SmAt
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___0SmAt)}
                 >
                   {
                     "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                   }
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__sbr8G)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__fwVsg)}
-                  >
+                <div className={classNames("all", sty.freeBox__sbr8G)}>
+                  <div className={classNames("all", sty.freeBox__fwVsg)}>
                     {(() => {
                       const child$Props = {
                         allowClear: false,
@@ -863,10 +817,7 @@ function PlasmicShopBox__RenderFunc(props: {
                           "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
                         prefix: (
                           <Icon10Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__zrj8Q
-                            )}
+                            className={classNames("all", sty.svg__zrj8Q)}
                             role={"img"}
                           />
                         ),
@@ -900,9 +851,7 @@ function PlasmicShopBox__RenderFunc(props: {
                         />
                       );
                     })()}
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__yl68U)}
-                    />
+                    <div className={classNames("all", sty.freeBox__yl68U)} />
                   </div>
                   <Button
                     data-plasmic-name={"button12"}
@@ -967,8 +916,8 @@ function PlasmicShopBox__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__jGlue
                       )}
                     >
@@ -983,7 +932,7 @@ function PlasmicShopBox__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button8", "color"])}
                   endIcon={
                     <Icon12Icon
-                      className={classNames(projectcss.all, sty.svg__fZoS)}
+                      className={classNames("all", sty.svg__fZoS)}
                       role={"img"}
                     />
                   }
@@ -1085,11 +1034,7 @@ function PlasmicShopBox__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__v8Rac
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__v8Rac)}
                   >
                     {"\u067e\u0631\u062f\u0627\u062e\u062a"}
                   </div>
@@ -1101,7 +1046,7 @@ function PlasmicShopBox__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button10", "color"])}
                   endIcon={
                     <Icon12Icon
-                      className={classNames(projectcss.all, sty.svg___2HxUt)}
+                      className={classNames("all", sty.svg___2HxUt)}
                       role={"img"}
                     />
                   }
@@ -1433,11 +1378,7 @@ function PlasmicShopBox__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__y32I5
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__y32I5)}
                   >
                     {"\u067e\u0631\u062f\u0627\u062e\u062a"}
                   </div>
@@ -1459,9 +1400,10 @@ function PlasmicShopBox__RenderFunc(props: {
                     data-plasmic-name={"p"}
                     data-plasmic-override={overrides.p}
                     className={classNames(
-                      projectcss.all,
-                      projectcss.p,
-                      projectcss.__wab_text,
+                      "all",
+                      "p",
+                      "p__suVPi",
+                      "__wab_text",
                       sty.p
                     )}
                     onClick={async event => {
@@ -1533,8 +1475,8 @@ function PlasmicShopBox__RenderFunc(props: {
           }}
           opendialog={generateStateValueProp($state, ["dialog2", "opendialog"])}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__xEMrW)}>
-            <div className={classNames(projectcss.all, sty.freeBox__d4EwY)}>
+          <div className={classNames("all", sty.freeBox__xEMrW)}>
+            <div className={classNames("all", sty.freeBox__d4EwY)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -1806,16 +1748,11 @@ function PlasmicShopBox__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__qkAw5
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__qkAw5)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__vs4R0
                             )}
                           >
@@ -1850,7 +1787,7 @@ function PlasmicShopBox__RenderFunc(props: {
               color={generateStateValueProp($state, ["button9", "color"])}
               endIcon={
                 <Icon12Icon
-                  className={classNames(projectcss.all, sty.svg__jdykb)}
+                  className={classNames("all", sty.svg__jdykb)}
                   role={"img"}
                 />
               }
@@ -2144,13 +2081,7 @@ function PlasmicShopBox__RenderFunc(props: {
                 }
               }}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__fDOw4
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__fDOw4)}>
                 {"\u067e\u0631\u062f\u0627\u062e\u062a"}
               </div>
             </Button>

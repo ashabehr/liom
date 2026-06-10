@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSteps.module.css"; // plasmic-import: seESvdNdvKDg/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -149,10 +148,6 @@ function PlasmicSteps__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -185,6 +180,11 @@ function PlasmicSteps__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -202,17 +202,17 @@ function PlasmicSteps__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         { [sty.rootsteps__0]: hasVariant($state, "steps", "_0") }
       )}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__sOUz9, {
+        className={classNames("all", sty.freeBox__sOUz9, {
           [sty.freeBoxsteps__0__sOUz9YKl9X]: hasVariant($state, "steps", "_0"),
           [sty.freeBoxsteps__1__sOUz9G63Bg]: hasVariant($state, "steps", "_1")
         })}
@@ -220,29 +220,21 @@ function PlasmicSteps__RenderFunc(props: {
         {renderPlasmicSlot({
           defaultContents: (
             <React.Fragment>
-              <div className={classNames(projectcss.all, sty.freeBox__csAne)}>
+              <div className={classNames("all", sty.freeBox__csAne)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__nV2Rp
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__nV2Rp)}
                 >
                   {
                     "\u0628\u0631\u0627\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u062f\u0642\u06cc\u0642 \u062a\u0631\u060c \u0628\u0647\u0645 \u0628\u06af\u0648 \u06a9\u0647 \u0622\u06cc\u0627 \u0627\u0645\u0631\u0648\u0632 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632\u06cc\u0647 \u06a9\u0647 \u067e\u0631\u06cc\u0648\u062f\u062a \u0634\u0631\u0648\u0639 \u0634\u062f\u0647\u061f"
                   }
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__cx5T8)}>
+              <div className={classNames("all", sty.freeBox__cx5T8)}>
                 <Button
                   className={classNames("__wab_instance", sty.button__vtbm6)}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zdrPb
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__zdrPb)}
                   >
                     {
                       "\u0628\u0644\u0647\u060c \u0631\u0648\u0632 \u0627\u0648\u0644\u0645\u0647"
@@ -254,11 +246,7 @@ function PlasmicSteps__RenderFunc(props: {
                   color={["sand"]}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nCxWv
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__nCxWv)}
                   >
                     {
                       "\u0646\u0647\u060c \u0631\u0648\u0632 \u0627\u0648\u0644\u0645 \u0646\u06cc\u0633\u062a"
@@ -272,7 +260,7 @@ function PlasmicSteps__RenderFunc(props: {
         })}
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__vmbsv, {
+        className={classNames("all", sty.freeBox__vmbsv, {
           [sty.freeBoxsteps__0__vmbsVyKl9X]: hasVariant($state, "steps", "_0"),
           [sty.freeBoxsteps__1__vmbsVg63Bg]: hasVariant($state, "steps", "_1")
         })}
@@ -280,13 +268,7 @@ function PlasmicSteps__RenderFunc(props: {
         {renderPlasmicSlot({
           defaultContents: (
             <React.Fragment>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___9Rd2
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text___9Rd2)}>
                 {
                   "\u0631\u0648\u0632 \u0686\u0646\u062f\u0645\u062a\u0647\u061f"
                 }
@@ -302,16 +284,12 @@ function PlasmicSteps__RenderFunc(props: {
                 )}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__uu73Y)}>
+              <div className={classNames("all", sty.freeBox__uu73Y)}>
                 <Button
                   className={classNames("__wab_instance", sty.button__guCn0)}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__bi90
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__bi90)}
                   >
                     {"\u062a\u0627\u06cc\u06cc\u062f"}
                   </div>

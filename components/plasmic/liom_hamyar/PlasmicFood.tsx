@@ -89,7 +89,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFood.module.css"; // plasmic-import: utcZajxc4g3k/css
 
 import Icon60Icon from "./icons/PlasmicIcon__Icon60"; // plasmic-import: JIzOK4thwxGP/icon
@@ -125,11 +124,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -218,12 +224,6 @@ function PlasmicFood__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -1078,6 +1078,13 @@ function PlasmicFood__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -1090,7 +1097,7 @@ function PlasmicFood__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -1105,17 +1112,17 @@ function PlasmicFood__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -1137,43 +1144,33 @@ function PlasmicFood__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__soYfi)}>
-              <div className={classNames(projectcss.all, sty.freeBox__sqPeN)}>
+            <div className={classNames("all", sty.freeBox__soYfi)}>
+              <div className={classNames("all", sty.freeBox__sqPeN)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__u4Xvm
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__u4Xvm)}
                 >
                   {
                     "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__cVuPl
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__cVuPl)}
                 >
                   {
                     "\u062a\u0648 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u062a\u0639\u062f\u0627\u062f \u063a\u0630\u0627\u0647\u0627\u06cc \u0645\u0636\u0631 \u0647\u0641\u062a\u0647 \u067e\u06cc\u0634\u062a \u0631\u0648 \u0628\u0628\u06cc\u0646\u06cc\u060c \u0628\u0647\u0634 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646\u06cc \u0648 \u0628\u0627 \u0642\u062f\u0645 \u0647\u0627\u06cc \u06a9\u0648\u0686\u06cc\u06a9 \u0647\u0631 \u0647\u0641\u062a\u0647  \u0628\u0647\u062a\u0631 \u0628\u0634\u06cc!"
                   }
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__wwFPi)}>
-                <div className={classNames(projectcss.all, sty.freeBox__fs7Iu)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ufh1Z)}
-                  >
+              <div className={classNames("all", sty.freeBox__wwFPi)}>
+                <div className={classNames("all", sty.freeBox__fs7Iu)}>
+                  <div className={classNames("all", sty.freeBox__ufh1Z)}>
                     <PlasmicIcon__
                       PlasmicIconType={
                         hasVariant(globalVariants, "screen", "mobile")
                           ? Icon61Icon
                           : Icon60Icon
                       }
-                      className={classNames(projectcss.all, sty.svg__ix1FM)}
+                      className={classNames("all", sty.svg__ix1FM)}
                       role={"img"}
                     />
 
@@ -1183,29 +1180,17 @@ function PlasmicFood__RenderFunc(props: {
                           ? Icon62Icon
                           : Icon60Icon
                       }
-                      className={classNames(projectcss.all, sty.svg__eddtw)}
+                      className={classNames("all", sty.svg__eddtw)}
                       role={"img"}
                     />
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__vuErL)}
-                  >
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___60Gba
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__nmThf
-                        )}
-                      >
+                  <div className={classNames("all", sty.freeBox__vuErL)}>
+                    <div className={classNames("all", sty.freeBox___60Gba)}>
+                      <div className={classNames("all", sty.freeBox__nmThf)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__d86Cv
                           )}
                         >
@@ -1214,8 +1199,8 @@ function PlasmicFood__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__fyuNt
                         )}
                       >
@@ -1240,8 +1225,8 @@ function PlasmicFood__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__umNr2
                         )}
                       >
@@ -1307,22 +1292,12 @@ function PlasmicFood__RenderFunc(props: {
                       variable2={$state.variable2}
                     />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___6K9Wb
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__inQdQ
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox___6K9Wb)}>
+                      <div className={classNames("all", sty.freeBox__inQdQ)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___9PToh
                           )}
                         >
@@ -1333,8 +1308,8 @@ function PlasmicFood__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__uI6KM
                         )}
                       >
@@ -1363,9 +1338,9 @@ function PlasmicFood__RenderFunc(props: {
                     data-plasmic-override={overrides.modal}
                     className={classNames("__wab_instance", sty.modal)}
                     defaultStylesClassName={classNames(
-                      projectcss.root_reset,
-                      projectcss.plasmic_default_styles,
-                      projectcss.plasmic_mixins,
+                      "root_reset_suVPi77vb6vv9K5rYJwyxC",
+                      "plasmic_default_styles",
+                      "plasmic_mixins",
                       styleTokensClassNames
                     )}
                     hideFooter={true}
@@ -1389,19 +1364,12 @@ function PlasmicFood__RenderFunc(props: {
                     trigger={null}
                     width={"100vw"}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__wSTr)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__r8Aa9
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__wSTr)}>
+                      <div className={classNames("all", sty.freeBox__r8Aa9)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__lWtp7
                           )}
                         >
@@ -1474,12 +1442,7 @@ function PlasmicFood__RenderFunc(props: {
                           ])}
                         />
 
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___6D7Rw
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox___6D7Rw)}>
                           {(_par =>
                             !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                             (() => {
@@ -1501,7 +1464,7 @@ function PlasmicFood__RenderFunc(props: {
                             return (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox___6Cza9
                                 )}
                                 key={currentIndex}
@@ -1598,14 +1561,14 @@ function PlasmicFood__RenderFunc(props: {
 
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__kuNex
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__glAi3
                                     )}
                                   >
@@ -1628,8 +1591,8 @@ function PlasmicFood__RenderFunc(props: {
                                   </div>
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__t1Yjs
                                     )}
                                   >
@@ -1653,7 +1616,7 @@ function PlasmicFood__RenderFunc(props: {
                                 </div>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox___5Rc1A
                                   )}
                                 >
@@ -1734,10 +1697,7 @@ function PlasmicFood__RenderFunc(props: {
                             );
                           })}
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__r0KVz
-                            )}
+                            className={classNames("all", sty.freeBox__r0KVz)}
                           >
                             {(() => {
                               try {
@@ -1754,14 +1714,14 @@ function PlasmicFood__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__oOb4I
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__uTezX
                                   )}
                                 >
@@ -1771,8 +1731,8 @@ function PlasmicFood__RenderFunc(props: {
                                 </div>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__f2Kfg
                                   )}
                                   onClick={async event => {
@@ -1884,12 +1844,7 @@ function PlasmicFood__RenderFunc(props: {
                             ) : null}
                           </div>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__yGkNi
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__yGkNi)}>
                           <Button
                             data-plasmic-name={"button4"}
                             data-plasmic-override={overrides.button4}
@@ -2041,8 +1996,8 @@ function PlasmicFood__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text___8ZTjB
                               )}
                             >
@@ -2058,9 +2013,9 @@ function PlasmicFood__RenderFunc(props: {
                       className: classNames("__wab_instance", sty.modal2),
                       closeIcon: null,
                       defaultStylesClassName: classNames(
-                        projectcss.root_reset,
-                        projectcss.plasmic_default_styles,
-                        projectcss.plasmic_mixins,
+                        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+                        "plasmic_default_styles",
+                        "plasmic_mixins",
                         styleTokensClassNames
                       ),
                       hideFooter: true,
@@ -2143,12 +2098,7 @@ function PlasmicFood__RenderFunc(props: {
                         data-plasmic-override={overrides.modal2}
                         {...child$Props}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__rqDhX
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__rqDhX)}>
                           <Reveal
                             className={classNames(
                               "__wab_instance",
@@ -2177,26 +2127,26 @@ function PlasmicFood__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox___9Tdc
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__bDQhD
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__ru8Pd
                                     )}
                                   >
                                     <div
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
+                                        "all",
+                                        "__wab_text",
                                         sty.text__vJwZw
                                       )}
                                     >
@@ -2207,20 +2157,20 @@ function PlasmicFood__RenderFunc(props: {
                                   </div>
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__tisQ2
                                     )}
                                   >
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox__sSwYn
                                       )}
                                     >
                                       <div
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
+                                          "all",
+                                          "__wab_text",
                                           sty.text__ckKt4
                                         )}
                                       >
@@ -2228,14 +2178,14 @@ function PlasmicFood__RenderFunc(props: {
                                       </div>
                                       <div
                                         className={classNames(
-                                          projectcss.all,
+                                          "all",
                                           sty.freeBox__m2Np5
                                         )}
                                       >
                                         <div
                                           className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
+                                            "all",
+                                            "__wab_text",
                                             sty.text__yDv5M
                                           )}
                                         >
@@ -2243,8 +2193,8 @@ function PlasmicFood__RenderFunc(props: {
                                         </div>
                                         <div
                                           className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
+                                            "all",
+                                            "__wab_text",
                                             sty.text__lsqS3
                                           )}
                                         >
@@ -2268,7 +2218,7 @@ function PlasmicFood__RenderFunc(props: {
                                       </div>
                                       <div
                                         className={classNames(
-                                          projectcss.all,
+                                          "all",
                                           sty.freeBox__f2I1L
                                         )}
                                       >
@@ -2364,26 +2314,26 @@ function PlasmicFood__RenderFunc(props: {
                                   </div>
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__xtOn
                                     )}
                                   >
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox__nyLx
                                       )}
                                     >
                                       <div
                                         className={classNames(
-                                          projectcss.all,
+                                          "all",
                                           sty.freeBox__tTmpc
                                         )}
                                       >
                                         <div
                                           className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
+                                            "all",
+                                            "__wab_text",
                                             sty.text__x0BgO
                                           )}
                                         >
@@ -2391,13 +2341,13 @@ function PlasmicFood__RenderFunc(props: {
                                         </div>
                                         <div
                                           className={classNames(
-                                            projectcss.all,
+                                            "all",
                                             sty.freeBox__fsZIb
                                           )}
                                         >
                                           <Icon47Icon
                                             className={classNames(
-                                              projectcss.all,
+                                              "all",
                                               sty.svg___4Bd7B
                                             )}
                                             onClick={async event => {
@@ -2569,7 +2519,7 @@ function PlasmicFood__RenderFunc(props: {
 
                                           <Icon48Icon
                                             className={classNames(
-                                              projectcss.all,
+                                              "all",
                                               sty.svg__uhtTq
                                             )}
                                             onClick={async event => {
@@ -2616,20 +2566,20 @@ function PlasmicFood__RenderFunc(props: {
                                     </div>
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox__xOxgN
                                       )}
                                     >
                                       <div
                                         className={classNames(
-                                          projectcss.all,
+                                          "all",
                                           sty.freeBox__gkA45
                                         )}
                                       >
                                         <div
                                           className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
+                                            "all",
+                                            "__wab_text",
                                             sty.text__cPqPv
                                           )}
                                         >
@@ -2637,13 +2587,13 @@ function PlasmicFood__RenderFunc(props: {
                                         </div>
                                         <div
                                           className={classNames(
-                                            projectcss.all,
+                                            "all",
                                             sty.freeBox__s9JR3
                                           )}
                                         >
                                           <Icon47Icon
                                             className={classNames(
-                                              projectcss.all,
+                                              "all",
                                               sty.svg__z8Xma
                                             )}
                                             onClick={async event => {
@@ -2819,7 +2769,7 @@ function PlasmicFood__RenderFunc(props: {
 
                                           <Icon48Icon
                                             className={classNames(
-                                              projectcss.all,
+                                              "all",
                                               sty.svg__v7TrT
                                             )}
                                             onClick={async event => {
@@ -2868,26 +2818,26 @@ function PlasmicFood__RenderFunc(props: {
                                   </div>
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__mDsvr
                                     )}
                                   >
                                     <div
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.freeBox___5B5HI
                                       )}
                                     >
                                       <div
                                         className={classNames(
-                                          projectcss.all,
+                                          "all",
                                           sty.freeBox__cZvZu
                                         )}
                                       >
                                         <div
                                           className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
+                                            "all",
+                                            "__wab_text",
                                             sty.text__yb8Jq
                                           )}
                                         >
@@ -3008,8 +2958,8 @@ function PlasmicFood__RenderFunc(props: {
                                           >
                                             <div
                                               className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
+                                                "all",
+                                                "__wab_text",
                                                 sty.text___92X8P
                                               )}
                                             >
@@ -3025,8 +2975,8 @@ function PlasmicFood__RenderFunc(props: {
                                           >
                                             <div
                                               className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
+                                                "all",
+                                                "__wab_text",
                                                 sty.text__d6Q4D
                                               )}
                                             >
@@ -3037,14 +2987,14 @@ function PlasmicFood__RenderFunc(props: {
                                       </div>
                                       <div
                                         className={classNames(
-                                          projectcss.all,
+                                          "all",
                                           sty.freeBox__nExyZ
                                         )}
                                       >
                                         <div
                                           className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
+                                            "all",
+                                            "__wab_text",
                                             sty.text___1QNzs
                                           )}
                                         >
@@ -3163,8 +3113,8 @@ function PlasmicFood__RenderFunc(props: {
                                           >
                                             <div
                                               className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
+                                                "all",
+                                                "__wab_text",
                                                 sty.text__w77AJ
                                               )}
                                             >
@@ -3180,8 +3130,8 @@ function PlasmicFood__RenderFunc(props: {
                                           >
                                             <div
                                               className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
+                                                "all",
+                                                "__wab_text",
                                                 sty.text___1PZ2K
                                               )}
                                             >
@@ -3216,7 +3166,7 @@ function PlasmicFood__RenderFunc(props: {
                                           : Icon11Icon
                                       }
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.svg__o4Uua
                                       )}
                                       role={"img"}
@@ -3588,7 +3538,7 @@ function PlasmicFood__RenderFunc(props: {
                                 </Button>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__kxerY
                                   )}
                                 />
@@ -3618,20 +3568,20 @@ function PlasmicFood__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox___18Hr
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__kye2Q
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__oLe6C
                                     )}
                                   >
@@ -3641,7 +3591,7 @@ function PlasmicFood__RenderFunc(props: {
                                   </div>
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__y2Y
                                     )}
                                   >
@@ -3672,7 +3622,7 @@ function PlasmicFood__RenderFunc(props: {
                                         return (
                                           <div
                                             className={classNames(
-                                              projectcss.all,
+                                              "all",
                                               sty.freeBox__kvIbj
                                             )}
                                             key={currentIndex}
@@ -3712,8 +3662,8 @@ function PlasmicFood__RenderFunc(props: {
 
                                             <div
                                               className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
+                                                "all",
+                                                "__wab_text",
                                                 sty.text___5CgOv
                                               )}
                                             >
@@ -3740,8 +3690,8 @@ function PlasmicFood__RenderFunc(props: {
                                             </div>
                                             <div
                                               className={classNames(
-                                                projectcss.all,
-                                                projectcss.__wab_text,
+                                                "all",
+                                                "__wab_text",
                                                 sty.text___3MjHl
                                               )}
                                             >
@@ -3768,19 +3718,19 @@ function PlasmicFood__RenderFunc(props: {
                                             </div>
                                             <div
                                               className={classNames(
-                                                projectcss.all,
+                                                "all",
                                                 sty.freeBox__uY3Qn
                                               )}
                                             >
                                               <div
                                                 className={classNames(
-                                                  projectcss.all,
+                                                  "all",
                                                   sty.freeBox__vjglJ
                                                 )}
                                               >
                                                 <Icon47Icon
                                                   className={classNames(
-                                                    projectcss.all,
+                                                    "all",
                                                     sty.svg__ldUlU
                                                   )}
                                                   onClick={async event => {
@@ -3896,8 +3846,8 @@ function PlasmicFood__RenderFunc(props: {
 
                                                 <div
                                                   className={classNames(
-                                                    projectcss.all,
-                                                    projectcss.__wab_text,
+                                                    "all",
+                                                    "__wab_text",
                                                     sty.text__a2RtN
                                                   )}
                                                 >
@@ -3937,7 +3887,7 @@ function PlasmicFood__RenderFunc(props: {
                                                 })() ? (
                                                   <Icon48Icon
                                                     className={classNames(
-                                                      projectcss.all,
+                                                      "all",
                                                       sty.svg__yjp2V
                                                     )}
                                                     onClick={async event => {
@@ -4079,7 +4029,7 @@ function PlasmicFood__RenderFunc(props: {
                                                 })() ? (
                                                   <Icon48Icon
                                                     className={classNames(
-                                                      projectcss.all,
+                                                      "all",
                                                       sty.svg__r1IXd
                                                     )}
                                                     role={"img"}
@@ -4278,7 +4228,7 @@ function PlasmicFood__RenderFunc(props: {
                                 </Button>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__fiDty
                                   )}
                                 />
@@ -4308,13 +4258,13 @@ function PlasmicFood__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__iJpm5
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__ln3C
                                   )}
                                 >
@@ -4346,14 +4296,14 @@ function PlasmicFood__RenderFunc(props: {
 
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__nLsGi
                                     )}
                                   >
                                     <div
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
+                                        "all",
+                                        "__wab_text",
                                         sty.text__lk8Wq
                                       )}
                                     >
@@ -4367,8 +4317,8 @@ function PlasmicFood__RenderFunc(props: {
                                     </div>
                                     <div
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
+                                        "all",
+                                        "__wab_text",
                                         sty.text__nsQwA
                                       )}
                                     >
@@ -4499,8 +4449,8 @@ function PlasmicFood__RenderFunc(props: {
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__uIu0M
                                     )}
                                   >
@@ -4515,7 +4465,7 @@ function PlasmicFood__RenderFunc(props: {
                                 </Button>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__clDm
                                   )}
                                 />
@@ -4528,7 +4478,7 @@ function PlasmicFood__RenderFunc(props: {
                   })()}
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__aNCcH)}
+                  className={classNames("all", sty.freeBox__aNCcH)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -4570,18 +4520,14 @@ function PlasmicFood__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__eEx1I
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__eEx1I)}
                   >
                     {"\u0648\u0632\u0646    "}
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__yQkEy,
                       "negative"
                     )}
@@ -4605,12 +4551,12 @@ function PlasmicFood__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                   <Icon106Icon
-                    className={classNames(projectcss.all, sty.svg__r8Hsa)}
+                    className={classNames("all", sty.svg__r8Hsa)}
                     role={"img"}
                   />
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__qTzrp)}>
+              <div className={classNames("all", sty.freeBox__qTzrp)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -4630,14 +4576,11 @@ function PlasmicFood__RenderFunc(props: {
                   const currentIndex = __plasmic_idx_0;
                   return (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__oaMby)}
+                      className={classNames("all", sty.freeBox__oaMby)}
                       key={currentIndex}
                     >
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__eg6B7
-                        )}
+                        className={classNames("all", sty.freeBox__eg6B7)}
                         onClick={async event => {
                           const $steps = {};
 
@@ -4740,22 +4683,14 @@ function PlasmicFood__RenderFunc(props: {
                           })()}
                         />
 
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__euqVx
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__euqVx)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__fFdIz
-                            )}
+                            className={classNames("all", sty.freeBox__fFdIz)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__utlsh
                               )}
                             >
@@ -4779,17 +4714,14 @@ function PlasmicFood__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                             <Icon67Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__hrx36
-                              )}
+                              className={classNames("all", sty.svg__hrx36)}
                               role={"img"}
                             />
                           </div>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__z7JlE
                             )}
                           >
@@ -4849,14 +4781,9 @@ function PlasmicFood__RenderFunc(props: {
                           </div>
                         </div>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__lqEhT
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__lqEhT)}>
                         <Icon47Icon
-                          className={classNames(projectcss.all, sty.svg__k9O3X)}
+                          className={classNames("all", sty.svg__k9O3X)}
                           onClick={async event => {
                             const $steps = {};
 
@@ -5086,8 +5013,8 @@ function PlasmicFood__RenderFunc(props: {
 
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__wHeHo
                           )}
                         >
@@ -5121,10 +5048,7 @@ function PlasmicFood__RenderFunc(props: {
                           }
                         })() ? (
                           <Icon48Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg___1Yn2Y
-                            )}
+                            className={classNames("all", sty.svg___1Yn2Y)}
                             onClick={async event => {
                               const $steps = {};
 
@@ -5254,10 +5178,7 @@ function PlasmicFood__RenderFunc(props: {
                           }
                         })() ? (
                           <Icon48Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__dXbvp
-                            )}
+                            className={classNames("all", sty.svg__dXbvp)}
                             role={"img"}
                           />
                         ) : null}
@@ -5272,7 +5193,7 @@ function PlasmicFood__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button2", "color"])}
                   endIcon={
                     <Icon50Icon
-                      className={classNames(projectcss.all, sty.svg__cCbA0)}
+                      className={classNames("all", sty.svg__cCbA0)}
                       role={"img"}
                     />
                   }
@@ -5370,8 +5291,8 @@ function PlasmicFood__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___9Uqg7
                     )}
                   >
@@ -5403,20 +5324,14 @@ function PlasmicFood__RenderFunc(props: {
               }
             }}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__j486Q)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__lm2K
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__j486Q)}>
+              <div className={classNames("all", "__wab_text", sty.text__lm2K)}>
                 {"\u0648\u0632\u0646 \u0641\u0639\u0644\u06cc"}
               </div>
               <div
                 className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
+                  "all",
+                  "__wab_text",
                   sty.text___59Dtf,
                   hasVariant(globalVariants, "screen", "mobile")
                     ? "negative"
@@ -5458,7 +5373,7 @@ function PlasmicFood__RenderFunc(props: {
                 )}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__nCLc)}>
+            <div className={classNames("all", sty.freeBox__nCLc)}>
               <Input
                 data-plasmic-name={"input4"}
                 data-plasmic-override={overrides.input4}
@@ -5649,11 +5564,7 @@ function PlasmicFood__RenderFunc(props: {
               }}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___1XpDm
-                )}
+                className={classNames("all", "__wab_text", sty.text___1XpDm)}
               >
                 {"\u062a\u0627\u06cc\u06cc\u062f"}
               </div>
@@ -5983,9 +5894,9 @@ function PlasmicFood__RenderFunc(props: {
             data-plasmic-override={overrides.modal3}
             className={classNames("__wab_instance", sty.modal3)}
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={true}
@@ -5999,13 +5910,7 @@ function PlasmicFood__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["modal3", "open"])}
             title={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__hybns
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__hybns)}>
                 <React.Fragment>
                   {(() => {
                     try {
@@ -6028,14 +5933,8 @@ function PlasmicFood__RenderFunc(props: {
             trigger={null}
             wrapClassName={classNames({ [sty["pcls_DJz3v7v7F5NR"]]: true })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__vh0Kg)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bVlaY
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__vh0Kg)}>
+              <div className={classNames("all", "__wab_text", sty.text__bVlaY)}>
                 {hasVariant(globalVariants, "screen", "mobile") ? (
                   <React.Fragment>
                     {(() => {
@@ -6076,9 +5975,9 @@ function PlasmicFood__RenderFunc(props: {
               </div>
             </div>
           </AntdModal>
-          <div className={classNames(projectcss.all, sty.freeBox__euT7O)}>
+          <div className={classNames("all", sty.freeBox__euT7O)}>
             <div
-              className={classNames(projectcss.all, sty.freeBox__pXjDp)}
+              className={classNames("all", sty.freeBox__pXjDp)}
               onClick={async event => {
                 const $steps = {};
 
@@ -6108,23 +6007,17 @@ function PlasmicFood__RenderFunc(props: {
               }}
             >
               <Icon6Icon
-                className={classNames(projectcss.all, sty.svg__qRoby)}
+                className={classNames("all", sty.svg__qRoby)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__jiUZh
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__jiUZh)}>
                 {"\u0647\u0645\u06cc\u0627\u0631"}
               </div>
             </div>
             <div
               aria-pressed={undefined}
-              className={classNames(projectcss.all, sty.freeBox__xfMhs)}
+              className={classNames("all", sty.freeBox__xfMhs)}
               onClick={async event => {
                 const $steps = {};
 
@@ -6160,23 +6053,17 @@ function PlasmicFood__RenderFunc(props: {
                     ? Icon23Icon
                     : Icon23Icon
                 }
-                className={classNames(projectcss.all, sty.svg__mayKe)}
+                className={classNames("all", sty.svg__mayKe)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yIhhU
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__yIhhU)}>
                 {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
               </div>
             </div>
             <div
               aria-pressed={undefined}
-              className={classNames(projectcss.all, sty.freeBox__ce8Ky)}
+              className={classNames("all", sty.freeBox__ce8Ky)}
               onClick={async event => {
                 const $steps = {};
               }}
@@ -6187,17 +6074,11 @@ function PlasmicFood__RenderFunc(props: {
                     ? Icon73Icon
                     : Icon73Icon
                 }
-                className={classNames(projectcss.all, sty.svg__oDXc1)}
+                className={classNames("all", sty.svg__oDXc1)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__h58P8
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__h58P8)}>
                 {
                   "\u06a9\u0646\u062a\u0631\u0644 \u062a\u063a\u0630\u06cc\u0647"
                 }
@@ -6241,7 +6122,7 @@ function PlasmicFood__RenderFunc(props: {
                   }
                 })()
           ) ? (
-            <div className={classNames(projectcss.all, sty.freeBox__v89L7)}>
+            <div className={classNames("all", sty.freeBox__v89L7)}>
               {(() => {
                 try {
                   return (
@@ -9023,9 +8904,10 @@ export const PlasmicFood = Object.assign(
     internalArgProps: PlasmicFood__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/food",
       pagePath: "/food",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

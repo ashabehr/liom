@@ -69,7 +69,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPopover.module.css"; // plasmic-import: T705OxIc65ya/css
 
 import CircleIcon from "./icons/PlasmicIcon__Circle"; // plasmic-import: PH6a1Mes3Ebj/icon
@@ -166,10 +165,6 @@ function PlasmicPopover__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -183,6 +178,11 @@ function PlasmicPopover__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -201,9 +201,9 @@ function PlasmicPopover__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       className={classNames(
         "__wab_instance",
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.ariaDialogTrigger
       )}
@@ -216,9 +216,9 @@ function PlasmicPopover__RenderFunc(props: {
           offset={args.offset}
           placement={args.placement}
           resetClassName={classNames(
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames
           )}
           shouldFlip={args.shouldFlip}
@@ -237,11 +237,11 @@ function PlasmicPopover__RenderFunc(props: {
           >
             {renderPlasmicSlot({
               defaultContents: (
-                <div className={classNames(projectcss.all, sty.freeBox__nHvtZ)}>
+                <div className={classNames("all", sty.freeBox__nHvtZ)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___8Tj9E
                     )}
                   >
@@ -249,8 +249,8 @@ function PlasmicPopover__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___2PSgL
                     )}
                   >
@@ -258,8 +258,8 @@ function PlasmicPopover__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___9D4U1
                     )}
                   >

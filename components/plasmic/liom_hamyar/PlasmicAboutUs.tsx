@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicAboutUs.module.css"; // plasmic-import: k978n3llkb2s/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -90,11 +89,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -163,10 +169,6 @@ function PlasmicAboutUs__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -191,6 +193,11 @@ function PlasmicAboutUs__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -201,7 +208,7 @@ function PlasmicAboutUs__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -216,17 +223,17 @@ function PlasmicAboutUs__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             { [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar") }
@@ -235,7 +242,7 @@ function PlasmicAboutUs__RenderFunc(props: {
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section, {
+            className={classNames("all", sty.section, {
               [sty.sectionhamyar]: hasVariant($state, "hamyar", "hamyar")
             })}
           >
@@ -246,9 +253,9 @@ function PlasmicAboutUs__RenderFunc(props: {
                 [sty.headerLiomhamyar]: hasVariant($state, "hamyar", "hamyar")
               })}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__xt3Vz)}>
+              <div className={classNames("all", sty.freeBox__xt3Vz)}>
                 <XIcon
-                  className={classNames(projectcss.all, sty.svg__ijpVy)}
+                  className={classNames("all", sty.svg__ijpVy)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -278,11 +285,7 @@ function PlasmicAboutUs__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__psJTo
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__psJTo)}
                 >
                   {"\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
                 </div>
@@ -290,7 +293,7 @@ function PlasmicAboutUs__RenderFunc(props: {
             </HeaderLiom>
           </section>
           <div
-            className={classNames(projectcss.all, sty.freeBox__jESdY, {
+            className={classNames("all", sty.freeBox__jESdY, {
               [sty.freeBoxhamyar__jESdY5Rcqy]: hasVariant(
                 $state,
                 "hamyar",
@@ -298,50 +301,35 @@ function PlasmicAboutUs__RenderFunc(props: {
               )
             })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__sw0Vf)}>
+            <div className={classNames("all", sty.freeBox__sw0Vf)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___1S3Rc
-                )}
+                className={classNames("all", "__wab_text", sty.text___1S3Rc)}
               >
                 {"\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___98M6Q,
-                  {
-                    [sty.texthamyar___98M6Q5Rcqy]: hasVariant(
-                      $state,
-                      "hamyar",
-                      "hamyar"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text___98M6Q, {
+                  [sty.texthamyar___98M6Q5Rcqy]: hasVariant(
+                    $state,
+                    "hamyar",
+                    "hamyar"
+                  )
+                })}
               >
                 {hasVariant($state, "hamyar", "hamyar")
                   ? "\u0644\u06cc\u0648\u0645 \u0647\u0645\u0631\u0627\u0647 \u0647\u0648\u0634\u0645\u0646\u062f \u0634\u0645\u0627\u0633\u062a \u062a\u0627 \u0628\u062a\u0648\u0627\u0646\u06cc\u062f \u0647\u0645\u0633\u0631\u062a\u0627\u0646 \u0631\u0627 \u062f\u0631 \u0637\u0648\u0644 \u0686\u0631\u062e\u0647\u200c\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647\u062a\u0631 \u062f\u0631\u06a9 \u0648 \u0647\u0645\u0631\u0627\u0647\u06cc \u06a9\u0646\u06cc\u062f.\n\u0627\u06cc\u0646 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0628\u0647 \u0634\u0645\u0627 \u06a9\u0645\u06a9 \u0645\u06cc\u200c\u06a9\u0646\u062f \u062a\u0627 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0627\u0632 \u0645\u0631\u0627\u062d\u0644 \u0645\u062e\u062a\u0644\u0641 \u0686\u0631\u062e\u0647\u060c \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u062c\u0633\u0645\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u06cc \u0627\u0648 \u0631\u0627 \u0628\u0647\u062a\u0631 \u0628\u0634\u0646\u0627\u0633\u06cc\u062f \u0648 \u0628\u062f\u0627\u0646\u06cc\u062f \u062f\u0631 \u0647\u0631 \u0632\u0645\u0627\u0646 \u0686\u0647 \u0631\u0641\u062a\u0627\u0631 \u06cc\u0627 \u0645\u0631\u0627\u0642\u0628\u062a\u06cc \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u062f \u0628\u0647 \u0622\u0631\u0627\u0645\u0634 \u0648 \u062d\u0645\u0627\u06cc\u062a \u0628\u06cc\u0634\u062a\u0631 \u06a9\u0645\u06a9 \u06a9\u0646\u062f.\n\u062f\u0631 \u0647\u0645\u06cc\u0627\u0631\u060c \u0647\u062f\u0641 \u0645\u0627 \u0627\u06cc\u062c\u0627\u062f \u062f\u0631\u06a9\u060c \u0627\u062d\u062a\u0631\u0627\u0645 \u0648 \u0627\u0631\u062a\u0628\u0627\u0637 \u0639\u0645\u06cc\u0642\u200c\u062a\u0631 \u0645\u06cc\u0627\u0646 \u0632\u0648\u062c\u200c\u0647\u0627\u0633\u062a. \u0628\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0639\u0644\u0645\u06cc \u0633\u0627\u062f\u0647 \u0648 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc\u060c \u06cc\u0627\u062f \u0645\u06cc\u200c\u06af\u06cc\u0631\u06cc\u062f \u0686\u0637\u0648\u0631 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u062e\u062a\u0644\u0641 \u0686\u0631\u062e\u0647 \u062f\u0631 \u06a9\u0646\u0627\u0631 \u0647\u0645\u0633\u0631\u062a\u0627\u0646 \u0628\u0627\u0634\u06cc\u062f \u2014 \u0628\u0627 \u0645\u0647\u0631\u0628\u0627\u0646\u06cc\u060c \u062f\u0631\u06a9 \u0648 \u0647\u0645\u0631\u0627\u0647\u06cc \u0648\u0627\u0642\u0639\u06cc.\n\u0644\u06cc\u0648\u0645 \u0633\u0627\u062e\u062a\u0647 \u0634\u062f\u0647 \u062a\u0627 \u0631\u0627\u0628\u0637\u0647\u200c\u0627\u06cc \u0622\u0631\u0627\u0645\u200c\u062a\u0631\u060c \u0622\u06af\u0627\u0647\u0627\u0646\u0647\u200c\u062a\u0631 \u0648 \u0635\u0645\u06cc\u0645\u06cc\u200c\u062a\u0631 \u0645\u06cc\u0627\u0646 \u0634\u0645\u0627 \u0648 \u0647\u0645\u0633\u0631\u062a\u0627\u0646 \u0634\u06a9\u0644 \u0628\u06af\u06cc\u0631\u062f. \u2764\ufe0f"
                   : "\u0644\u06cc\u0648\u0645 \u06cc\u06a9 \u0647\u0645\u0631\u0627\u0647 \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0634\u0645\u0627\u0633\u062a \u062a\u0627 \u0628\u062a\u0648\u0627\u0646\u06cc\u062f \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u062e\u0648\u062f \u0631\u0627 \u0628\u0647\u062a\u0631 \u0645\u062f\u06cc\u0631\u06cc\u062a \u06a9\u0646\u06cc\u062f \u0648 \u0628\u0627 \u0622\u06af\u0627\u0647\u06cc \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u0632 \u0628\u062f\u0646 \u0648 \u0633\u0644\u0627\u0645\u062a \u062e\u0648\u062f \u0645\u0631\u0627\u0642\u0628\u062a \u06a9\u0646\u06cc\u062f \u0627\u06cc\u0646 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0628\u0647 \u0634\u0645\u0627 \u0627\u0645\u06a9\u0627\u0646 \u0645\u06cc\u062f\u0647\u062f \u062a\u0627 \u062a\u0627\u0631\u06cc\u062e\u0647\u0627\u060c \u0639\u0644\u0627\u0626\u0645 \u0648 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0628\u062f\u0646\u062a\u0627\u0646 \u0631\u0627 \u0628\u0647 \u062f\u0642\u062a \u0631\u062f\u06cc\u0627\u0628\u06cc \u06a9\u0646\u06cc\u062f \u0648 \u062f\u0631 \u0647\u0631 \u0645\u0631\u062d\u0644\u0647 \u0627\u0632 \u0686\u0631\u062e\u0647 \u062e\u0648\u062f \u062a\u0648\u0635\u06cc\u0647 \u0647\u0627\u06cc \u0628\u0647\u062f\u0627\u0634\u062a\u06cc \u0648 \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f. \n\r\n\u0647\u062f\u0641 \u0645\u0627 \u062f\u0631 \u0644\u06cc\u0648\u0645 \u0627\u06cc\u0646 \u0627\u0633\u062a \u06a9\u0647 \u062a\u062c\u0631\u0628\u0647 \u0627\u06cc \u0631\u0627\u062d\u062a \u062a\u0631 \u0648 \u0628\u0627 \u0622\u0631\u0627\u0645\u0634 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0641\u0631\u0627\u0647\u0645 \u06a9\u0646\u06cc\u0645 \u062a\u0627 \u0628\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0627 \u0634\u0646\u0627\u062e\u062a \u0628\u06cc\u0634\u062a\u0631 \u0627\u0632 \u0628\u062f\u0646\u062a\u0627\u0646 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u062e\u062a\u0644\u0641 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u0648 \u0622\u0631\u0627\u0645\u0634 \u062e\u0648\u062f \u0627\u0647\u0645\u06cc\u062a \u062f\u0647\u06cc\u062f. \u0644\u06cc\u0648\u0645 \u0647\u0645\u06cc\u0634\u0647 \u062f\u0631 \u06a9\u0646\u0627\u0631 \u0634\u0645\u0627\u0633\u062a \u062a\u0627 \u0627\u06cc\u0646 \u0645\u0633\u06cc\u0631 \u0631\u0627 \u0628\u0627 \u0627\u0637\u0645\u06cc\u0646\u0627\u0646 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0637\u06cc \u06a9\u0646\u06cc\u062f."}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__me8Ew)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__kJoPe
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__me8Ew)}>
+              <div className={classNames("all", "__wab_text", sty.text__kJoPe)}>
                 {
                   "\u0644\u06cc\u0648\u0645 \u0631\u0648 \u062f\u0631 \u0634\u0628\u06a9\u0647 \u0647\u0627\u06cc \u0627\u062c\u062a\u0645\u0627\u0639\u06cc \u062f\u0646\u0628\u0627\u0644 \u06a9\u0646"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__kRumQ)}>
+              <div className={classNames("all", sty.freeBox__kRumQ)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__qg1U4)}
+                  className={classNames("all", sty.freeBox__qg1U4)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -386,16 +374,12 @@ function PlasmicAboutUs__RenderFunc(props: {
                   }}
                 >
                   <Icon191Icon
-                    className={classNames(projectcss.all, sty.svg__u6INq)}
+                    className={classNames("all", sty.svg__u6INq)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__iEjhr
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__iEjhr)}
                   >
                     {
                       "\u0627\u06cc\u0646\u0633\u062a\u0627\u06af\u0631\u0627\u0645"
@@ -403,7 +387,7 @@ function PlasmicAboutUs__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___5MApO)}
+                  className={classNames("all", sty.freeBox___5MApO)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -438,16 +422,12 @@ function PlasmicAboutUs__RenderFunc(props: {
                   }}
                 >
                   <Icon192Icon
-                    className={classNames(projectcss.all, sty.svg__owSU)}
+                    className={classNames("all", sty.svg__owSU)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__mfLyz
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__mfLyz)}
                   >
                     {"\u062a\u0644\u06af\u0631\u0627\u0645"}
                   </div>
@@ -570,9 +550,10 @@ export const PlasmicAboutUs = Object.assign(
     internalArgProps: PlasmicAboutUs__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/about-us",
       pagePath: "/about-us",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

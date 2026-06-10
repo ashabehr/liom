@@ -65,12 +65,12 @@ import { usePlasmicDataSourceContext } from "@plasmicapp/data-sources-context";
 import Button from "../../Button"; // plasmic-import: ErJEaLhimwjN/component
 import LineClomp from "../../LineClomp"; // plasmic-import: XsM8QG4wUKlk/component
 import DialogTooltip from "../../DialogTooltip"; // plasmic-import: 0nKndp-acHhb/component
+import Comment from "../../Comment"; // plasmic-import: Q00r5f4C3XYv/component
 import { _useGlobalVariants } from "./plasmic"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectModule
 import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/styleTokensProvider
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicTest.module.css"; // plasmic-import: sfemSfmG6qsw/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -91,11 +91,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -118,6 +125,7 @@ export type PlasmicTest__OverridesType = {
   text?: Flex__<"div">;
   dialogTooltip?: Flex__<typeof DialogTooltip>;
   img?: Flex__<typeof PlasmicImg__>;
+  comment?: Flex__<typeof Comment>;
 };
 
 export interface DefaultTestProps {}
@@ -161,12 +169,6 @@ function PlasmicTest__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -204,10 +206,29 @@ function PlasmicTest__RenderFunc(props: {
         type: "private",
         variableType: "boolean",
         initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
+      },
+      {
+        path: "comment.commentData",
+        type: "private",
+        variableType: "object",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => ({})
+      },
+      {
+        path: "comment.like",
+        type: "private",
+        variableType: "boolean",
+        initFunc: ({ $props, $state, $queries, $q, $ctx }) => false
       }
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -218,7 +239,7 @@ function PlasmicTest__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -233,17 +254,17 @@ function PlasmicTest__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -429,11 +450,7 @@ function PlasmicTest__RenderFunc(props: {
           <div
             data-plasmic-name={"text"}
             data-plasmic-override={overrides.text}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text
-            )}
+            className={classNames("all", "__wab_text", sty.text)}
           >
             {"Enter some text"}
           </div>
@@ -477,6 +494,45 @@ function PlasmicTest__RenderFunc(props: {
               "https://liom.storage.c2.liara.space/config/self_care/chatBotOutlined.png"
             }
           />
+
+          <Comment
+            data-plasmic-name={"comment"}
+            data-plasmic-override={overrides.comment}
+            className={classNames("__wab_instance", sty.comment)}
+            commentData={generateStateValueProp($state, [
+              "comment",
+              "commentData"
+            ])}
+            like={generateStateValueProp($state, ["comment", "like"])}
+            onCommentDataChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, [
+                "comment",
+                "commentData"
+              ]).apply(null, eventArgs);
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+            onLikeChange={async (...eventArgs: any) => {
+              generateStateOnChangeProp($state, ["comment", "like"]).apply(
+                null,
+                eventArgs
+              );
+
+              if (
+                eventArgs.length > 1 &&
+                eventArgs[1] &&
+                eventArgs[1]._plasmic_state_init_
+              ) {
+                return;
+              }
+            }}
+          />
         </div>
       </div>
     </React.Fragment>
@@ -484,12 +540,21 @@ function PlasmicTest__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "lineClomp", "text", "dialogTooltip", "img"],
+  root: [
+    "root",
+    "button",
+    "lineClomp",
+    "text",
+    "dialogTooltip",
+    "img",
+    "comment"
+  ],
   button: ["button"],
   lineClomp: ["lineClomp"],
   text: ["text"],
   dialogTooltip: ["dialogTooltip"],
-  img: ["img"]
+  img: ["img"],
+  comment: ["comment"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
@@ -501,6 +566,7 @@ type NodeDefaultElementType = {
   text: "div";
   dialogTooltip: typeof DialogTooltip;
   img: typeof PlasmicImg__;
+  comment: typeof Comment;
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -595,15 +661,17 @@ export const PlasmicTest = Object.assign(
     text: makeNodeComponent("text"),
     dialogTooltip: makeNodeComponent("dialogTooltip"),
     img: makeNodeComponent("img"),
+    comment: makeNodeComponent("comment"),
 
     // Metadata about props expected for PlasmicTest
     internalVariantProps: PlasmicTest__VariantProps,
     internalArgProps: PlasmicTest__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/test",
       pagePath: "/test",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

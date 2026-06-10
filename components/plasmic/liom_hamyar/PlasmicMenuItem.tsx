@@ -67,7 +67,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMenuItem.module.css"; // plasmic-import: ByiQVrRGhm2K/css
 
 createPlasmicElementProxy;
@@ -180,9 +179,9 @@ function PlasmicMenuItem__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       className={classNames(
         "__wab_instance",
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -190,21 +189,15 @@ function PlasmicMenuItem__RenderFunc(props: {
       plasmicUpdateVariant={updateVariant}
       textValue={args.label}
     >
-      <div className={classNames(projectcss.all, sty.freeBox___65T1A)}>
+      <div className={classNames("all", sty.freeBox___65T1A)}>
         <BaseText
           data-plasmic-name={"ariaText"}
           data-plasmic-override={overrides.ariaText}
           className={classNames("__wab_instance", sty.ariaText)}
           slot={"label"}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__nWc9P)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__v5Av6
-              )}
-            >
+          <div className={classNames("all", sty.freeBox__nWc9P)}>
+            <div className={classNames("all", "__wab_text", sty.text__v5Av6)}>
               <React.Fragment>
                 {(() => {
                   try {
@@ -242,13 +235,7 @@ function PlasmicMenuItem__RenderFunc(props: {
             className={classNames("__wab_instance", sty.ariaDescription)}
             slot={"description"}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__nVs34
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__nVs34)}>
               <React.Fragment>{$props.description}</React.Fragment>
             </div>
           </BaseText2>

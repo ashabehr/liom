@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicDetailsmonth2.module.css"; // plasmic-import: 2iOsvG_psYjY/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -165,12 +164,6 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -343,6 +336,13 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -360,22 +360,22 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <section className={classNames(projectcss.all, sty.section__lfvhk)}>
+      <section className={classNames("all", sty.section__lfvhk)}>
         <HeaderLiom
           data-plasmic-name={"headerLiom"}
           data-plasmic-override={overrides.headerLiom}
           className={classNames("__wab_instance", sty.headerLiom)}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__ks1Rm)}
+            className={classNames("all", sty.freeBox__ks1Rm)}
             onClick={async event => {
               const $steps = {};
 
@@ -397,20 +397,14 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
             }}
           >
             <XIcon
-              className={classNames(projectcss.all, sty.svg__su2Qq)}
+              className={classNames("all", sty.svg__su2Qq)}
               onClick={async event => {
                 const $steps = {};
               }}
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___2QpYt
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text___2QpYt)}>
               {
                 "\u062c\u0632\u0626\u06cc\u0627\u062a \u06af\u0632\u0627\u0631\u0634"
               }
@@ -449,24 +443,12 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
           }
         })()}
         errorDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__bf9Au
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__bf9Au)}>
             {"Error fetching data"}
           </div>
         }
         loadingDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__vRa8B,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__vRa8B, "shimmer")} />
         }
         method={"POST"}
         onError={async (...eventArgs: any) => {
@@ -490,25 +472,13 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
         shouldFetch={true}
         url={"https://n8n.staas.ir/webhook/calendar/getDetails"}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__bPuYh)}>
-          <div className={classNames(projectcss.all, sty.freeBox___8HTe5)}>
-            <div className={classNames(projectcss.all, sty.freeBox__qq1Eb)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oCdM6
-                )}
-              >
+        <div className={classNames("all", sty.freeBox__bPuYh)}>
+          <div className={classNames("all", sty.freeBox___8HTe5)}>
+            <div className={classNames("all", sty.freeBox__qq1Eb)}>
+              <div className={classNames("all", "__wab_text", sty.text__oCdM6)}>
                 {"\u0627\u0632"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__wfGj
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__wfGj)}>
                 <React.Fragment>
                   {(() => {
                     try {
@@ -534,22 +504,10 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__dz3Iz
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__dz3Iz)}>
                 {"\u062a\u0627"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__mSbJ7
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__mSbJ7)}>
                 <React.Fragment>
                   {(() => {
                     try {
@@ -576,7 +534,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                 </React.Fragment>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__gsd4G)}>
+            <div className={classNames("all", sty.freeBox__gsd4G)}>
               {(() => {
                 try {
                   return $state.apiRequest.data?.result?.period?.isNormal;
@@ -591,11 +549,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__p8STy
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__p8STy)}
                 >
                   {
                     "\u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0646\u0631\u0645\u0627\u0644 \u0628\u0648\u062f"
@@ -616,11 +570,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tNbHq
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__tNbHq)}
                 >
                   {
                     "\u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0646\u0631\u0645\u0627\u0644 \u0646\u0628\u0648\u062f"
@@ -641,13 +591,9 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__lSi0O)}>
+              <div className={classNames("all", sty.freeBox__lSi0O)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__obQDa
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__obQDa)}
                 >
                   {
                     "\u0647\u0631 \u0631\u0648\u0632 \n\u0628\u0647 \u06a9\u0645\u06a9 \u0627\u0628\u0632\u0627\u0631  >> \u0628\u0631\u0646\u0627\u0645\u0647 \u0627\u0645\u0631\u0648\u0632 << \u0639\u0644\u0627\u0626\u0645\u062a\u0648\u0646 \u0631\u0648 \u062b\u0628\u062a \u06a9\u0646\u06cc\u062f \u062a\u0627 \u062f\u0627\u062f\u0647 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0627\u0632 \u0627\u062a\u0641\u0627\u0642\u0627\u062a\u06cc \u06a9\u0647 \u062f\u0631 \u06cc\u06a9 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0634\u0645\u0627 \u0631\u062e \u062f\u0627\u062f\u0647 \u0627\u0633\u062a \u0628\u062f\u0633\u062a \u0622\u0648\u0631\u06cc\u062f "
@@ -704,15 +650,13 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__qhz)}>
-                <div className={classNames(projectcss.all, sty.freeBox__q8SM5)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ph6O)}
-                  >
+              <div className={classNames("all", sty.freeBox__qhz)}>
+                <div className={classNames("all", sty.freeBox__q8SM5)}>
+                  <div className={classNames("all", sty.freeBox__ph6O)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__o5Jhi
                       )}
                     >
@@ -722,8 +666,8 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__quJ7T
                       )}
                     >
@@ -763,30 +707,19 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                     const currentIndex = __plasmic_idx_0;
                     return (
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__frDvg
-                        )}
+                        className={classNames("all", sty.freeBox__frDvg)}
                         key={currentIndex}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__nfNrr
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__nfNrr)}>
                           <Icon165Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__htof1
-                            )}
+                            className={classNames("all", sty.svg__htof1)}
                             role={"img"}
                           />
 
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__c4GlJ
                             )}
                           >
@@ -808,16 +741,11 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__iVsO1
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__iVsO1)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text___6XGk
                             )}
                           >
@@ -840,8 +768,8 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                           </div>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__pByoY
                             )}
                           >
@@ -867,14 +795,12 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                     );
                   })}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__mvOdw)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__oadp8)}
-                  >
+                <div className={classNames("all", sty.freeBox__mvOdw)}>
+                  <div className={classNames("all", sty.freeBox__oadp8)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__y4Eko
                       )}
                     >
@@ -882,8 +808,8 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__p3Yxr
                       )}
                     >
@@ -1029,14 +955,12 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                     })()}
                   />
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__luy5)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__nOsbV)}
-                  >
+                <div className={classNames("all", sty.freeBox__luy5)}>
+                  <div className={classNames("all", sty.freeBox__nOsbV)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__ov0Ob
                       )}
                     >
@@ -1045,21 +969,17 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                       }
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__kdbTh)}
-                  >
+                  <div className={classNames("all", sty.freeBox__kdbTh)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__vusUv
                       )}
                     >
                       {"\u0648\u0636\u0639\u06cc\u062a"}
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__h1YDy)}
-                    >
+                    <div className={classNames("all", sty.freeBox__h1YDy)}>
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
@@ -1128,10 +1048,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                         const currentIndex = __plasmic_idx_0;
                         return (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___8Vdte
-                            )}
+                            className={classNames("all", sty.freeBox___8Vdte)}
                             key={currentIndex}
                           >
                             {(() => {
@@ -1151,10 +1068,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                               }
                             })() ? (
                               <Icon298Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__fuirq
-                                )}
+                                className={classNames("all", sty.svg__fuirq)}
                                 role={"img"}
                               />
                             ) : null}
@@ -1175,10 +1089,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                               }
                             })() ? (
                               <Icon299Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg__dPjsK
-                                )}
+                                className={classNames("all", sty.svg__dPjsK)}
                                 role={"img"}
                               />
                             ) : null}
@@ -1200,17 +1111,14 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                               }
                             })() ? (
                               <Icon299Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg___2Wq53
-                                )}
+                                className={classNames("all", sty.svg___2Wq53)}
                                 role={"img"}
                               />
                             ) : null}
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__ypRgQ
                               )}
                             >
@@ -1236,21 +1144,17 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                       })}
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__jcXgd)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__jgQtP)}
-                    >
+                  <div className={classNames("all", sty.freeBox__jcXgd)}>
+                    <div className={classNames("all", sty.freeBox__jgQtP)}>
                       <Icon299Icon
-                        className={classNames(projectcss.all, sty.svg__sDdXh)}
+                        className={classNames("all", sty.svg__sDdXh)}
                         role={"img"}
                       />
 
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__rxpGf
                         )}
                       >
@@ -1259,18 +1163,16 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
                         }
                       </div>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__dSy7)}
-                    >
+                    <div className={classNames("all", sty.freeBox__dSy7)}>
                       <Icon299Icon
-                        className={classNames(projectcss.all, sty.svg__yknln)}
+                        className={classNames("all", sty.svg__yknln)}
                         role={"img"}
                       />
 
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__ovozw
                         )}
                       >
@@ -1286,8 +1188,8 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
           </div>
         </div>
       </ApiRequest>
-      <section className={classNames(projectcss.all, sty.section__z7VFb)}>
-        <div className={classNames(projectcss.all, sty.freeBox__wzHJx)}>
+      <section className={classNames("all", sty.section__z7VFb)}>
+        <div className={classNames("all", sty.freeBox__wzHJx)}>
           <Button
             data-plasmic-name={"button"}
             data-plasmic-override={overrides.button}
@@ -1369,13 +1271,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
               }
             }}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__rof2Z
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__rof2Z)}>
               {
                 "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
               }
@@ -1502,13 +1398,7 @@ function PlasmicDetailsmonth2__RenderFunc(props: {
             }}
             serface={true}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__oJm8E
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__oJm8E)}>
               {
                 "\u062f\u0631\u06cc\u0627\u0641\u062a \u06af\u0632\u0627\u0631\u0634 \u062f\u0648\u0631\u0647"
               }

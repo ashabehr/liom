@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPreReminderSelect.module.css"; // plasmic-import: qFMZ0PFjrBv1/css
 
 createPlasmicElementProxy;
@@ -144,10 +143,6 @@ function PlasmicPreReminderSelect__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -180,6 +175,11 @@ function PlasmicPreReminderSelect__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -212,7 +212,7 @@ function PlasmicPreReminderSelect__RenderFunc(props: {
         }
       }}
       options={
-        <div className={classNames(projectcss.all, sty.freeBox__i9L7R)}>
+        <div className={classNames("all", sty.freeBox__i9L7R)}>
           {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
             (() => {
               try {
@@ -232,7 +232,7 @@ function PlasmicPreReminderSelect__RenderFunc(props: {
             const currentIndex = __plasmic_idx_0;
             return (
               <div
-                className={classNames(projectcss.all, sty.freeBox__cuLbY)}
+                className={classNames("all", sty.freeBox__cuLbY)}
                 key={currentIndex}
               >
                 {(() => {
@@ -335,14 +335,10 @@ function PlasmicPreReminderSelect__RenderFunc(props: {
                       <div
                         data-plasmic-name={"text"}
                         data-plasmic-override={overrides.text}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text
-                        )}
+                        className={classNames("all", "__wab_text", sty.text)}
                       >
                         <div
-                          className={projectcss.__wab_expr_html_text}
+                          className={"__wab_expr_html_text"}
                           dangerouslySetInnerHTML={{
                             __html: (() => {
                               try {

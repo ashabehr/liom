@@ -71,7 +71,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicNoname2.module.css"; // plasmic-import: p_QOiZPj_xQe/css
 
 import Icon132Icon from "./icons/PlasmicIcon__Icon132"; // plasmic-import: Ek3fk3jhKgEh/icon
@@ -94,11 +93,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -168,10 +174,6 @@ function PlasmicNoname2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -289,6 +291,11 @@ function PlasmicNoname2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -299,7 +306,7 @@ function PlasmicNoname2__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -314,17 +321,17 @@ function PlasmicNoname2__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -332,20 +339,14 @@ function PlasmicNoname2__RenderFunc(props: {
           <div
             data-plasmic-name={"halamanUtama"}
             data-plasmic-override={overrides.halamanUtama}
-            className={classNames(projectcss.all, sty.halamanUtama)}
+            className={classNames("all", sty.halamanUtama)}
           >
             <Icon132Icon
-              className={classNames(projectcss.all, sty.svg__c8Tac)}
+              className={classNames("all", sty.svg__c8Tac)}
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__qYbGf
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__qYbGf)}>
               {
                 "\u062a\u06a9\u0645\u06cc\u0644 \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
               }
@@ -426,15 +427,9 @@ function PlasmicNoname2__RenderFunc(props: {
               })()}
               className={classNames("__wab_instance", sty.textInput7)}
               endIcon={
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___08Kdq)}
-                >
+                <div className={classNames("all", sty.freeBox___08Kdq)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__aBsxn
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__aBsxn)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -477,7 +472,7 @@ function PlasmicNoname2__RenderFunc(props: {
               showEndIcon={true}
               startIcon={
                 <SearchSvgIcon
-                  className={classNames(projectcss.all, sty.svg__z2EhS)}
+                  className={classNames("all", sty.svg__z2EhS)}
                   role={"img"}
                 />
               }
@@ -564,13 +559,9 @@ function PlasmicNoname2__RenderFunc(props: {
               })()}
               className={classNames("__wab_instance", sty.textInput9)}
               endIcon={
-                <div className={classNames(projectcss.all, sty.freeBox__oAhoh)}>
+                <div className={classNames("all", sty.freeBox__oAhoh)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__bxxGk
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__bxxGk)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -613,7 +604,7 @@ function PlasmicNoname2__RenderFunc(props: {
               showEndIcon={true}
               startIcon={
                 <SearchSvgIcon
-                  className={classNames(projectcss.all, sty.svg__aDkb)}
+                  className={classNames("all", sty.svg__aDkb)}
                   role={"img"}
                 />
               }
@@ -699,13 +690,9 @@ function PlasmicNoname2__RenderFunc(props: {
               })()}
               className={classNames("__wab_instance", sty.textInput8)}
               endIcon={
-                <div className={classNames(projectcss.all, sty.freeBox__u49Gg)}>
+                <div className={classNames("all", sty.freeBox__u49Gg)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__cuY
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__cuY)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -748,7 +735,7 @@ function PlasmicNoname2__RenderFunc(props: {
               showEndIcon={true}
               startIcon={
                 <SearchSvgIcon
-                  className={classNames(projectcss.all, sty.svg__gDke4)}
+                  className={classNames("all", sty.svg__gDke4)}
                   role={"img"}
                 />
               }
@@ -758,14 +745,8 @@ function PlasmicNoname2__RenderFunc(props: {
               }
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__z8Y8L)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bxJ
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__z8Y8L)}>
+              <div className={classNames("all", "__wab_text", sty.text__bxJ)}>
                 {
                   "\u26a0\ufe0f \u062a\u0645\u0627\u0645\u06cc \u0627\u0633\u0627\u0645\u06cc \u0631\u0627 \u0641\u0642\u0637 \u0628\u0627 \u062d\u0631\u0648\u0641 \u0641\u0627\u0631\u0633\u06cc \u0648\u0627\u0631\u062f \u06a9\u0646\u06cc\u062f \u0648 \u062c\u0647\u062a \u062c\u0644\u0648\u06af\u06cc\u0631\u06cc \u0627\u0632 \u0628\u0631\u0648\u0632 \u0627\u062e\u062a\u0644\u0627\u0644 \u062f\u0631 \u0639\u0645\u0644\u06a9\u0631\u062f \u0628\u0631\u0646\u0627\u0645\u0647\u060c \u0641\u06cc\u0644\u062a\u0631 \u0634\u06a9\u0646 \u0631\u0627 \u062e\u0627\u0645\u0648\u0634 \u06a9\u0646\u06cc\u062f."
                 }
@@ -775,9 +756,9 @@ function PlasmicNoname2__RenderFunc(props: {
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+            className={classNames("all", sty.section)}
           >
-            <div className={classNames(projectcss.all, sty.freeBox___3TbEt)}>
+            <div className={classNames("all", sty.freeBox___3TbEt)}>
               <PlasmicImg__
                 data-plasmic-name={"img"}
                 data-plasmic-override={overrides.img}
@@ -799,7 +780,7 @@ function PlasmicNoname2__RenderFunc(props: {
               />
             </div>
           </section>
-          <div className={classNames(projectcss.all, sty.freeBox__neX0C)}>
+          <div className={classNames("all", sty.freeBox__neX0C)}>
             <Button
               data-plasmic-name={"button"}
               data-plasmic-override={overrides.button}
@@ -853,13 +834,7 @@ function PlasmicNoname2__RenderFunc(props: {
                 }
               }}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__fDory
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__fDory)}>
                 {
                   "\u0628\u0631\u0631\u0633\u06cc \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
                 }
@@ -1025,9 +1000,10 @@ export const PlasmicNoname2 = Object.assign(
     internalArgProps: PlasmicNoname2__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/noname-2",
       pagePath: "/noname-2",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

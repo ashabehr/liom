@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicNoNet.module.css"; // plasmic-import: uUHjvITgF605/css
 
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
@@ -138,10 +137,6 @@ function PlasmicNoNet__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -184,6 +179,11 @@ function PlasmicNoNet__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -201,10 +201,10 @@ function PlasmicNoNet__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -236,15 +236,9 @@ function PlasmicNoNet__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox)}
+        className={classNames("all", sty.freeBox)}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__sfdMh
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__sfdMh)}>
           {
             "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
           }
@@ -257,7 +251,7 @@ function PlasmicNoNet__RenderFunc(props: {
         color={generateStateValueProp($state, ["button9", "color"])}
         endIcon={
           <Icon144Icon
-            className={classNames(projectcss.all, sty.svg__glXa)}
+            className={classNames("all", sty.svg__glXa)}
             role={"img"}
           />
         }
@@ -336,18 +330,12 @@ function PlasmicNoNet__RenderFunc(props: {
         }}
         startIcon={
           <ChevronRightIcon
-            className={classNames(projectcss.all, sty.svg__xCkKm)}
+            className={classNames("all", sty.svg__xCkKm)}
             role={"img"}
           />
         }
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__mgz2E
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__mgz2E)}>
           {
             "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
           }

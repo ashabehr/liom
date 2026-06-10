@@ -73,7 +73,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHistory.module.css"; // plasmic-import: 5t5YNzyUHdtX/css
 
 import Icon312Icon from "./icons/PlasmicIcon__Icon312"; // plasmic-import: aEjpSnTnJP7A/icon
@@ -195,10 +194,6 @@ function PlasmicHistory__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -209,6 +204,11 @@ function PlasmicHistory__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -226,32 +226,20 @@ function PlasmicHistory__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__jcaHo)}>
-        <div className={classNames(projectcss.all, sty.freeBox__jlkcL)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__i6GdK
-            )}
-          >
+      <div className={classNames("all", sty.freeBox__jcaHo)}>
+        <div className={classNames("all", sty.freeBox__jlkcL)}>
+          <div className={classNames("all", "__wab_text", sty.text__i6GdK)}>
             {"\u0634\u0631\u0648\u0639 \u067e\u0631\u06cc\u0648\u062f"}
           </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__aBdco
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__aBdco)}>
             {"\u067e\u0627\u06cc\u0627\u0646 \u062f\u0648\u0631\u0647"}
           </div>
         </div>
@@ -318,19 +306,13 @@ function PlasmicHistory__RenderFunc(props: {
           const moonIndex = __plasmic_idx_0;
           return (
             <div
-              className={classNames(projectcss.all, sty.freeBox__b6Q1G)}
+              className={classNames("all", sty.freeBox__b6Q1G)}
               key={moonIndex}
             >
-              <div
-                className={classNames(projectcss.all, sty.freeBox___2LX6W)}
-              />
+              <div className={classNames("all", sty.freeBox___2LX6W)} />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___6Or0Y
-                )}
+                className={classNames("all", "__wab_text", sty.text___6Or0Y)}
               >
                 <React.Fragment>
                   {(() => {
@@ -348,7 +330,7 @@ function PlasmicHistory__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__udBSs)}>
+              <div className={classNames("all", sty.freeBox__udBSs)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -464,21 +446,16 @@ function PlasmicHistory__RenderFunc(props: {
                         data-plasmic-override={overrides.ariaRangeSlider}
                         {...child$Props}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__mvuHw
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__mvuHw)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__noJuT
                             )}
                           >
                             <div
-                              className={projectcss.__wab_expr_html_text}
+                              className={"__wab_expr_html_text"}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
@@ -555,8 +532,8 @@ function PlasmicHistory__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__btlKn
                                 )}
                               >
@@ -584,10 +561,7 @@ function PlasmicHistory__RenderFunc(props: {
                           ) : null}
                         </div>
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___9DVrC
-                          )}
+                          className={classNames("all", sty.freeBox___9DVrC)}
                           style={(() => {
                             try {
                               return { direction: "ltr" };
@@ -605,10 +579,7 @@ function PlasmicHistory__RenderFunc(props: {
                           <div
                             data-plasmic-name={"background"}
                             data-plasmic-override={overrides.background}
-                            className={classNames(
-                              projectcss.all,
-                              sty.background
-                            )}
+                            className={classNames("all", sty.background)}
                           >
                             <BaseSliderTrack
                               data-plasmic-name={"ariaSliderTrack"}
@@ -621,14 +592,11 @@ function PlasmicHistory__RenderFunc(props: {
                                 <div
                                   data-plasmic-name={"foreground"}
                                   data-plasmic-override={overrides.foreground}
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.foreground
-                                  )}
+                                  className={classNames("all", sty.foreground)}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox__bhgoj
                                     )}
                                   >
@@ -636,7 +604,7 @@ function PlasmicHistory__RenderFunc(props: {
                                       defaultContents: (
                                         <Icon312Icon
                                           className={classNames(
-                                            projectcss.all,
+                                            "all",
                                             sty.svg___2UTb9
                                           )}
                                           role={"img"}
@@ -651,7 +619,7 @@ function PlasmicHistory__RenderFunc(props: {
                                   </div>
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox___3Rqoi
                                     )}
                                   >
@@ -659,15 +627,13 @@ function PlasmicHistory__RenderFunc(props: {
                                       defaultContents: (
                                         <div
                                           className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
+                                            "all",
+                                            "__wab_text",
                                             sty.text__eVDuM
                                           )}
                                         >
                                           <div
-                                            className={
-                                              projectcss.__wab_expr_html_text
-                                            }
+                                            className={"__wab_expr_html_text"}
                                             dangerouslySetInnerHTML={{
                                               __html: (() => {
                                                 try {
@@ -748,7 +714,7 @@ function PlasmicHistory__RenderFunc(props: {
                                   </div>
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox___9Cyu
                                     )}
                                   >
@@ -756,15 +722,13 @@ function PlasmicHistory__RenderFunc(props: {
                                       defaultContents: (
                                         <div
                                           className={classNames(
-                                            projectcss.all,
-                                            projectcss.__wab_text,
+                                            "all",
+                                            "__wab_text",
                                             sty.text__lwqDc
                                           )}
                                         >
                                           <div
-                                            className={
-                                              projectcss.__wab_expr_html_text
-                                            }
+                                            className={"__wab_expr_html_text"}
                                             dangerouslySetInnerHTML={{
                                               __html: (() => {
                                                 try {
@@ -862,8 +826,8 @@ function PlasmicHistory__RenderFunc(props: {
                             </BaseSliderTrack>
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__v5PS
                               )}
                               id={"max"}
@@ -887,8 +851,8 @@ function PlasmicHistory__RenderFunc(props: {
                             </div>
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__dHga4
                               )}
                               id={"min"}
@@ -945,18 +909,18 @@ function PlasmicHistory__RenderFunc(props: {
                   const cycleIndex = __plasmic_idx_1;
                   return (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__aO0Z8)}
+                      className={classNames("all", sty.freeBox__aO0Z8)}
                       key={cycleIndex}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__oh7UM
                         )}
                       >
                         <div
-                          className={projectcss.__wab_expr_html_text}
+                          className={"__wab_expr_html_text"}
                           dangerouslySetInnerHTML={{
                             __html: (() => {
                               try {
@@ -1010,12 +974,7 @@ function PlasmicHistory__RenderFunc(props: {
                           }}
                         />
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wGtJj
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__wGtJj)}>
                         {(_par =>
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
@@ -1156,29 +1115,23 @@ function PlasmicHistory__RenderFunc(props: {
       <section
         data-plasmic-name={"section"}
         data-plasmic-override={overrides.section}
-        className={classNames(projectcss.all, sty.section)}
+        className={classNames("all", sty.section)}
       >
         <HeaderLiom
           data-plasmic-name={"headerLiom"}
           data-plasmic-override={overrides.headerLiom}
           className={classNames("__wab_instance", sty.headerLiom)}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__zjJik)}>
+          <div className={classNames("all", sty.freeBox__zjJik)}>
             <XIcon
               data-plasmic-name={"svg"}
               data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
+              className={classNames("all", sty.svg)}
               onClick={args.back}
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__c0TCm
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__c0TCm)}>
               {
                 "\u067e\u06cc\u0634\u200c\u0628\u06cc\u0646\u06cc \u062f\u0648\u0631\u0647\u200c\u0647\u0627\u06cc \u0628\u0639\u062f\u06cc"
               }

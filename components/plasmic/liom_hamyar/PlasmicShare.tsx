@@ -70,7 +70,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShare.module.css"; // plasmic-import: 66ihQPjKw_0A/css
 
 import LetterOpenedSvgrepoComSvgIcon from "./icons/PlasmicIcon__LetterOpenedSvgrepoComSvg"; // plasmic-import: Up_IU2WZLnua/icon
@@ -90,11 +89,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -158,10 +164,6 @@ function PlasmicShare__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -236,6 +238,11 @@ function PlasmicShare__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -246,7 +253,7 @@ function PlasmicShare__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -267,10 +274,10 @@ function PlasmicShare__RenderFunc(props: {
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
         className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "all",
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames,
           sty.root
         )}
@@ -2842,15 +2849,9 @@ function PlasmicShare__RenderFunc(props: {
           })()}
           url={"https://n8n.staas.ir/webhook/share"}
         >
-          <div className={classNames(projectcss.all, sty.freeBox___6CnX5)}>
-            <div className={classNames(projectcss.all, sty.freeBox___5LpC3)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yf1Sb
-                )}
-              >
+          <div className={classNames("all", sty.freeBox___6CnX5)}>
+            <div className={classNames("all", sty.freeBox___5LpC3)}>
+              <div className={classNames("all", "__wab_text", sty.text__yf1Sb)}>
                 {
                   "\u062a\u0648\u0635\u06cc\u0647 \u0645\u0646\u0627\u0633\u0628 \u0628\u0631\u0627\u06cc \u062a\u0648"
                 }
@@ -2858,17 +2859,11 @@ function PlasmicShare__RenderFunc(props: {
               <LetterOpenedSvgrepoComSvgIcon
                 data-plasmic-name={"svg"}
                 data-plasmic-override={overrides.svg}
-                className={classNames(projectcss.all, sty.svg)}
+                className={classNames("all", sty.svg)}
                 role={"img"}
               />
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__qYceK
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__qYceK)}>
               <React.Fragment>
                 {(() => {
                   try {
@@ -3007,9 +3002,10 @@ export const PlasmicShare = Object.assign(
     internalArgProps: PlasmicShare__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/share",
       pagePath: "/share",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

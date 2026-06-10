@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicButtonWithNote.module.css"; // plasmic-import: rV9-uXl-J5jS/css
 
 import Icon29Icon from "./icons/PlasmicIcon__Icon29"; // plasmic-import: PX6bE9276cHV/icon
@@ -175,10 +174,6 @@ function PlasmicButtonWithNote__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -220,6 +215,11 @@ function PlasmicButtonWithNote__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -237,10 +237,10 @@ function PlasmicButtonWithNote__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.butWithNote,
         {
@@ -263,7 +263,7 @@ function PlasmicButtonWithNote__RenderFunc(props: {
       <div
         data-plasmic-name={"butBox"}
         data-plasmic-override={overrides.butBox}
-        className={classNames(projectcss.all, sty.butBox, {
+        className={classNames("all", sty.butBox, {
           [sty.butBoxglobal_newView_newView_select]:
             hasVariant($state, "select", "select") &&
             hasVariant(globalVariants, "newView", "newView"),
@@ -286,7 +286,7 @@ function PlasmicButtonWithNote__RenderFunc(props: {
         {renderPlasmicSlot({
           defaultContents: (
             <Icon29Icon
-              className={classNames(projectcss.all, sty.svg__klQw5, {
+              className={classNames("all", sty.svg__klQw5, {
                 [sty.svgshaoe_rectangle__klQw5NmugW]: hasVariant(
                   $state,
                   "shaoe",
@@ -302,21 +302,12 @@ function PlasmicButtonWithNote__RenderFunc(props: {
         <div
           data-plasmic-name={"text"}
           data-plasmic-override={overrides.text}
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text,
-            {
-              [sty.textselect_shaoe_rectangle]:
-                hasVariant($state, "shaoe", "rectangle") &&
-                hasVariant($state, "select", "select"),
-              [sty.textshaoe_rectangle]: hasVariant(
-                $state,
-                "shaoe",
-                "rectangle"
-              )
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text, {
+            [sty.textselect_shaoe_rectangle]:
+              hasVariant($state, "shaoe", "rectangle") &&
+              hasVariant($state, "select", "select"),
+            [sty.textshaoe_rectangle]: hasVariant($state, "shaoe", "rectangle")
+          })}
         >
           {hasVariant($state, "shaoe", "rectangle") ? (
             <React.Fragment>
@@ -342,7 +333,7 @@ function PlasmicButtonWithNote__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
+        className={classNames("all", sty.freeBox, {
           [sty.freeBoxselect]: hasVariant($state, "select", "select"),
           [sty.freeBoxselect_shaoe_circle]:
             hasVariant($state, "shaoe", "circle") &&

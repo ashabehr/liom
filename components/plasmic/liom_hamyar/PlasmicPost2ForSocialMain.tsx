@@ -67,7 +67,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPost2ForSocialMain.module.css"; // plasmic-import: eaFD2jwbxRPb/css
 
 createPlasmicElementProxy;
@@ -177,10 +176,6 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -210,6 +205,11 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -227,10 +227,10 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -247,7 +247,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
       )}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__o3Uw0, {
+        className={classNames("all", sty.freeBox__o3Uw0, {
           [sty.freeBoxpostType_audio__o3Uw03CTnO]: hasVariant(
             $state,
             "postType",
@@ -296,18 +296,13 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
           }}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___8Tp8A,
-              {
-                [sty.textpostType_jastText___8Tp8AdFbbf]: hasVariant(
-                  $state,
-                  "postType",
-                  "jastText"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text___8Tp8A, {
+              [sty.textpostType_jastText___8Tp8AdFbbf]: hasVariant(
+                $state,
+                "postType",
+                "jastText"
+              )
+            })}
           >
             <React.Fragment>
               {(() => {
@@ -360,28 +355,23 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
           }}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__zh6Sl,
-              {
-                [sty.textpostType_audio__zh6Sl3CTnO]: hasVariant(
-                  $state,
-                  "postType",
-                  "audio"
-                ),
-                [sty.textpostType_image__zh6SlMadp0]: hasVariant(
-                  $state,
-                  "postType",
-                  "image"
-                ),
-                [sty.textpostType_jastText__zh6SldFbbf]: hasVariant(
-                  $state,
-                  "postType",
-                  "jastText"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__zh6Sl, {
+              [sty.textpostType_audio__zh6Sl3CTnO]: hasVariant(
+                $state,
+                "postType",
+                "audio"
+              ),
+              [sty.textpostType_image__zh6SlMadp0]: hasVariant(
+                $state,
+                "postType",
+                "image"
+              ),
+              [sty.textpostType_jastText__zh6SldFbbf]: hasVariant(
+                $state,
+                "postType",
+                "jastText"
+              )
+            })}
           >
             <React.Fragment>
               {(() => {
@@ -441,7 +431,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
         />
 
         <div
-          className={classNames(projectcss.all, sty.freeBox__t44Wv, {
+          className={classNames("all", sty.freeBox__t44Wv, {
             [sty.freeBoxpostType_audio__t44Wv3CTnO]: hasVariant(
               $state,
               "postType",
@@ -501,7 +491,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
           />
         </div>
         <div
-          className={classNames(projectcss.all, sty.freeBox___2Trdr, {
+          className={classNames("all", sty.freeBox___2Trdr, {
             [sty.freeBoxpostType_audio___2Trdr3CTnO]: hasVariant(
               $state,
               "postType",
@@ -560,7 +550,7 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
           />
         </div>
         <div
-          className={classNames(projectcss.all, sty.freeBox___1JXt, {
+          className={classNames("all", sty.freeBox___1JXt, {
             [sty.freeBoxpostType_audio___1JXt3CTnO]: hasVariant(
               $state,
               "postType",
@@ -607,18 +597,13 @@ function PlasmicPost2ForSocialMain__RenderFunc(props: {
           }}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__qUiyE,
-              {
-                [sty.textpostType_audio__qUiyE3CTnO]: hasVariant(
-                  $state,
-                  "postType",
-                  "audio"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__qUiyE, {
+              [sty.textpostType_audio__qUiyE3CTnO]: hasVariant(
+                $state,
+                "postType",
+                "audio"
+              )
+            })}
           >
             <React.Fragment>
               {(() => {

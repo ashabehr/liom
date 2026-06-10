@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReportItem.module.css"; // plasmic-import: vKRq0RilbYHc/css
 
 import Icon155Icon from "./icons/PlasmicIcon__Icon155"; // plasmic-import: 23a494aT3I5j/icon
@@ -166,10 +165,6 @@ function PlasmicReportItem__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -235,6 +230,11 @@ function PlasmicReportItem__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -252,17 +252,17 @@ function PlasmicReportItem__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         { [sty.rootselect]: hasVariant($state, "select", "select") }
       )}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox___4R0QH, {
+        className={classNames("all", sty.freeBox___4R0QH, {
           [sty.freeBoxdisable___4R0QHm6Su]: hasVariant(
             $state,
             "disable",
@@ -278,7 +278,7 @@ function PlasmicReportItem__RenderFunc(props: {
         onClick={args.onClick}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__mQuuA, {
+          className={classNames("all", sty.freeBox__mQuuA, {
             [sty.freeBoxdisable__mQuuAm6Su]: hasVariant(
               $state,
               "disable",
@@ -293,7 +293,7 @@ function PlasmicReportItem__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__tSh4J, {
+            className={classNames("all", sty.freeBox__tSh4J, {
               [sty.freeBoxdisable__tSh4Jm6Su]: hasVariant(
                 $state,
                 "disable",
@@ -301,7 +301,7 @@ function PlasmicReportItem__RenderFunc(props: {
               )
             })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__gRlB)}>
+            <div className={classNames("all", sty.freeBox__gRlB)}>
               <_3DIcon
                 data-plasmic-name={"_3DIcon"}
                 data-plasmic-override={overrides._3DIcon}
@@ -321,14 +321,8 @@ function PlasmicReportItem__RenderFunc(props: {
                 })()}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__eXpcu)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__tdMTw
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__eXpcu)}>
+              <div className={classNames("all", "__wab_text", sty.text__tdMTw)}>
                 <React.Fragment>
                   {(() => {
                     try {
@@ -353,7 +347,7 @@ function PlasmicReportItem__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__zEeJ)}>
+              <div className={classNames("all", sty.freeBox__zEeJ)}>
                 {renderPlasmicSlot({
                   defaultContents: (
                     <React.Fragment>
@@ -386,7 +380,7 @@ function PlasmicReportItem__RenderFunc(props: {
             </div>
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__qJyF, {
+            className={classNames("all", sty.freeBox__qJyF, {
               [sty.freeBoxdisable__qJyFm6Su]: hasVariant(
                 $state,
                 "disable",
@@ -401,7 +395,7 @@ function PlasmicReportItem__RenderFunc(props: {
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__xl0Yl, {
+              className={classNames("all", sty.freeBox__xl0Yl, {
                 [sty.freeBoxselect__xl0YlP3TGe]: hasVariant(
                   $state,
                   "select",
@@ -410,21 +404,16 @@ function PlasmicReportItem__RenderFunc(props: {
               })}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__w10Uk,
-                  {
-                    [sty.textselect__w10UkP3TGe]: hasVariant(
-                      $state,
-                      "select",
-                      "select"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__w10Uk, {
+                  [sty.textselect__w10UkP3TGe]: hasVariant(
+                    $state,
+                    "select",
+                    "select"
+                  )
+                })}
               >
                 <div
-                  className={projectcss.__wab_expr_html_text}
+                  className={"__wab_expr_html_text"}
                   dangerouslySetInnerHTML={{
                     __html: (() => {
                       try {
@@ -476,18 +465,13 @@ function PlasmicReportItem__RenderFunc(props: {
                     })()
               ) ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__oOec,
-                    {
-                      [sty.textselect__oOecP3TGe]: hasVariant(
-                        $state,
-                        "select",
-                        "select"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__oOec, {
+                    [sty.textselect__oOecP3TGe]: hasVariant(
+                      $state,
+                      "select",
+                      "select"
+                    )
+                  })}
                 >
                   {hasVariant($state, "select", "select") ? "|" : "|"}
                 </div>
@@ -512,18 +496,13 @@ function PlasmicReportItem__RenderFunc(props: {
                     })()
               ) ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qk4An,
-                    {
-                      [sty.textselect__qk4AnP3TGe]: hasVariant(
-                        $state,
-                        "select",
-                        "select"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__qk4An, {
+                    [sty.textselect__qk4AnP3TGe]: hasVariant(
+                      $state,
+                      "select",
+                      "select"
+                    )
+                  })}
                 >
                   {hasVariant($state, "select", "select") ? (
                     <React.Fragment>
@@ -562,7 +541,7 @@ function PlasmicReportItem__RenderFunc(props: {
               ) : null}
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox___7SeSq, {
+              className={classNames("all", sty.freeBox___7SeSq, {
                 [sty.freeBoxdisable___7SeSQm6Su]: hasVariant(
                   $state,
                   "disable",
@@ -637,9 +616,9 @@ function PlasmicReportItem__RenderFunc(props: {
                 size={"minimal"}
                 startIcon={null}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__xuhp7)}>
+                <div className={classNames("all", sty.freeBox__xuhp7)}>
                   <Icon155Icon
-                    className={classNames(projectcss.all, sty.svg__ydzWo)}
+                    className={classNames("all", sty.svg__ydzWo)}
                     role={"img"}
                   />
                 </div>
@@ -711,7 +690,7 @@ function PlasmicReportItem__RenderFunc(props: {
                 size={"compact"}
                 startIcon={
                   <Icon49Icon
-                    className={classNames(projectcss.all, sty.svg__mqVIg, {
+                    className={classNames("all", sty.svg__mqVIg, {
                       [sty.svgsend__mqVIgU6NHs]: hasVariant(
                         $state,
                         "send",
@@ -726,21 +705,16 @@ function PlasmicReportItem__RenderFunc(props: {
                 }
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__oqVXw,
-                    {
-                      [sty.textsend__oqVXwU6NHs]: hasVariant(
-                        $state,
-                        "send",
-                        "send"
-                      ),
-                      [sty.textsend_disable__oqVXwU6NHsM6Su]:
-                        hasVariant($state, "disable", "disable") &&
-                        hasVariant($state, "send", "send")
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__oqVXw, {
+                    [sty.textsend__oqVXwU6NHs]: hasVariant(
+                      $state,
+                      "send",
+                      "send"
+                    ),
+                    [sty.textsend_disable__oqVXwU6NHsM6Su]:
+                      hasVariant($state, "disable", "disable") &&
+                      hasVariant($state, "send", "send")
+                  })}
                 >
                   {"\u0627\u0641\u0632\u0648\u062f\u0646"}
                 </div>

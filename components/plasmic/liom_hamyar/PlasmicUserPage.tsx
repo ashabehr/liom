@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicUserPage.module.css"; // plasmic-import: Y_O8FNCBMxb-/css
 
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
@@ -416,10 +415,6 @@ function PlasmicUserPage__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -459,6 +454,11 @@ function PlasmicUserPage__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -476,10 +476,10 @@ function PlasmicUserPage__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.frame49
       )}
@@ -487,15 +487,15 @@ function PlasmicUserPage__RenderFunc(props: {
       <div
         data-plasmic-name={"frame25"}
         data-plasmic-override={overrides.frame25}
-        className={classNames(projectcss.all, sty.frame25)}
+        className={classNames("all", sty.frame25)}
       >
         <ChevronRightIcon
-          className={classNames(projectcss.all, sty.svg__upYe4)}
+          className={classNames("all", sty.svg__upYe4)}
           onClick={args.onBack}
           role={"img"}
         />
 
-        <div className={classNames(projectcss.all, sty.freeBox__tkYxQ)}>
+        <div className={classNames("all", sty.freeBox__tkYxQ)}>
           {renderPlasmicSlot({
             defaultContents: "Journal Name",
             value: args.children,
@@ -515,13 +515,7 @@ function PlasmicUserPage__RenderFunc(props: {
             throw e;
           }
         })() ? (
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__m8B5B
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__m8B5B)}>
             <React.Fragment>
               {$props.data?.result?.total?.toLocaleString() ?? ""}
             </React.Fragment>
@@ -531,23 +525,23 @@ function PlasmicUserPage__RenderFunc(props: {
       <div
         data-plasmic-name={"frame48"}
         data-plasmic-override={overrides.frame48}
-        className={classNames(projectcss.all, sty.frame48)}
+        className={classNames("all", sty.frame48)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__iyLtr)}>
+        <div className={classNames("all", sty.freeBox__iyLtr)}>
           <Line3Icon
-            className={classNames(projectcss.all, sty.svg__umadD)}
+            className={classNames("all", sty.svg__umadD)}
             role={"img"}
           />
         </div>
         <div
           data-plasmic-name={"frame47"}
           data-plasmic-override={overrides.frame47}
-          className={classNames(projectcss.all, sty.frame47)}
+          className={classNames("all", sty.frame47)}
         >
           <div
             data-plasmic-name={"frame41"}
             data-plasmic-override={overrides.frame41}
-            className={classNames(projectcss.all, sty.frame41)}
+            className={classNames("all", sty.frame41)}
           >
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
@@ -570,7 +564,7 @@ function PlasmicUserPage__RenderFunc(props: {
                 <div
                   data-plasmic-name={"frame35"}
                   data-plasmic-override={overrides.frame35}
-                  className={classNames(projectcss.all, sty.frame35)}
+                  className={classNames("all", sty.frame35)}
                   key={currentIndex}
                   style={(() => {
                     try {
@@ -589,11 +583,7 @@ function PlasmicUserPage__RenderFunc(props: {
                   })()}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ljvUq
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__ljvUq)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -618,7 +608,7 @@ function PlasmicUserPage__RenderFunc(props: {
           <div
             data-plasmic-name={"frame46"}
             data-plasmic-override={overrides.frame46}
-            className={classNames(projectcss.all, sty.frame46)}
+            className={classNames("all", sty.frame46)}
           >
             {(() => {
               try {
@@ -653,7 +643,7 @@ function PlasmicUserPage__RenderFunc(props: {
                   return (
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__bSsdh,
                         "shimmer"
                       )}
@@ -696,7 +686,7 @@ function PlasmicUserPage__RenderFunc(props: {
                     <div
                       data-plasmic-name={"frame42"}
                       data-plasmic-override={overrides.frame42}
-                      className={classNames(projectcss.all, sty.frame42)}
+                      className={classNames("all", sty.frame42)}
                       key={currentIndex}
                       onClick={async event => {
                         const $steps = {};
@@ -776,7 +766,7 @@ function PlasmicUserPage__RenderFunc(props: {
                           <div
                             data-plasmic-name={"frame43"}
                             data-plasmic-override={overrides.frame43}
-                            className={classNames(projectcss.all, sty.frame43)}
+                            className={classNames("all", sty.frame43)}
                             key={currentIndex}
                             style={(() => {
                               try {
@@ -834,14 +824,14 @@ function PlasmicUserPage__RenderFunc(props: {
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox___77Wiu
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__eQp1V
                                     )}
                                   >
@@ -1099,7 +1089,7 @@ function PlasmicUserPage__RenderFunc(props: {
                   );
                 })
               : null}
-            <div className={classNames(projectcss.all, sty.freeBox__d7RnW)}>
+            <div className={classNames("all", sty.freeBox__d7RnW)}>
               {renderPlasmicSlot({
                 defaultContents: null,
                 value: args.slot

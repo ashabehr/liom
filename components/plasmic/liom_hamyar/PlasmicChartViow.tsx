@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicChartViow.module.css"; // plasmic-import: npU0JycAnQRQ/css
 
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
@@ -268,10 +267,6 @@ function PlasmicChartViow__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -291,6 +286,11 @@ function PlasmicChartViow__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -308,10 +308,10 @@ function PlasmicChartViow__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.frame49
       )}
@@ -319,15 +319,15 @@ function PlasmicChartViow__RenderFunc(props: {
       <div
         data-plasmic-name={"frame25"}
         data-plasmic-override={overrides.frame25}
-        className={classNames(projectcss.all, sty.frame25)}
+        className={classNames("all", sty.frame25)}
       >
         <ChevronRightIcon
-          className={classNames(projectcss.all, sty.svg___9CbNm)}
+          className={classNames("all", sty.svg___9CbNm)}
           onClick={args.onBack}
           role={"img"}
         />
 
-        <div className={classNames(projectcss.all, sty.freeBox__j2JZd)}>
+        <div className={classNames("all", sty.freeBox__j2JZd)}>
           {renderPlasmicSlot({
             defaultContents: "\u0627\u0637\u0644\u0627\u0639\u0627\u062a",
             value: args.children,
@@ -338,16 +338,16 @@ function PlasmicChartViow__RenderFunc(props: {
       <div
         data-plasmic-name={"frame48"}
         data-plasmic-override={overrides.frame48}
-        className={classNames(projectcss.all, sty.frame48)}
+        className={classNames("all", sty.frame48)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__vlwu9)}>
+        <div className={classNames("all", sty.freeBox__vlwu9)}>
           <Line3Icon
-            className={classNames(projectcss.all, sty.svg__poTb3)}
+            className={classNames("all", sty.svg__poTb3)}
             role={"img"}
           />
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__htt0J)}>
+      <div className={classNames("all", sty.freeBox__htt0J)}>
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
@@ -367,7 +367,7 @@ function PlasmicChartViow__RenderFunc(props: {
           const currentIndex = __plasmic_idx_0;
           return (
             <div
-              className={classNames(projectcss.all, sty.freeBox___3RU1D)}
+              className={classNames("all", sty.freeBox___3RU1D)}
               key={currentIndex}
               onClick={async event => {
                 const $steps = {};
@@ -397,7 +397,7 @@ function PlasmicChartViow__RenderFunc(props: {
               }}
             >
               <div
-                className={classNames(projectcss.all, sty.freeBox__go6J6)}
+                className={classNames("all", sty.freeBox__go6J6)}
                 style={(() => {
                   try {
                     return {
@@ -418,11 +418,7 @@ function PlasmicChartViow__RenderFunc(props: {
               <div
                 data-plasmic-name={"text"}
                 data-plasmic-override={overrides.text}
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text
-                )}
+                className={classNames("all", "__wab_text", sty.text)}
               >
                 <React.Fragment>
                   {(() => {

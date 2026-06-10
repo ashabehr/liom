@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicUserPage2.module.css"; // plasmic-import: 3UGIP49FNSVo/css
 
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
@@ -367,10 +366,6 @@ function PlasmicUserPage2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -390,6 +385,11 @@ function PlasmicUserPage2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -407,10 +407,10 @@ function PlasmicUserPage2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.frame49
       )}
@@ -418,34 +418,34 @@ function PlasmicUserPage2__RenderFunc(props: {
       <div
         data-plasmic-name={"frame25"}
         data-plasmic-override={overrides.frame25}
-        className={classNames(projectcss.all, sty.frame25)}
+        className={classNames("all", sty.frame25)}
       >
         <ChevronRightIcon
-          className={classNames(projectcss.all, sty.svg__mI4Mm)}
+          className={classNames("all", sty.svg__mI4Mm)}
           onClick={args.onBack}
           role={"img"}
         />
 
-        <div className={classNames(projectcss.all, sty.freeBox___29EE)}>
+        <div className={classNames("all", sty.freeBox___29EE)}>
           {renderPlasmicSlot({
             defaultContents: "\u0627\u0637\u0644\u0627\u0639\u0627\u062a",
             value: args.children,
             className: classNames(sty.slotTargetChildren)
           })}
         </div>
-        <div className={classNames(projectcss.all, sty.freeBox___3X6Nt)}>
+        <div className={classNames("all", sty.freeBox___3X6Nt)}>
           <LetterOpenedSvgrepoComSvgIcon
-            className={classNames(projectcss.all, sty.svg__fkilX)}
+            className={classNames("all", sty.svg__fkilX)}
             role={"img"}
           />
 
           <Icons8NotificationSvgIcon
-            className={classNames(projectcss.all, sty.svg__nKSoo)}
+            className={classNames("all", sty.svg__nKSoo)}
             role={"img"}
           />
 
           <Icon47Icon
-            className={classNames(projectcss.all, sty.svg__mIaRa)}
+            className={classNames("all", sty.svg__mIaRa)}
             role={"img"}
           />
         </div>
@@ -453,11 +453,11 @@ function PlasmicUserPage2__RenderFunc(props: {
       <div
         data-plasmic-name={"frame48"}
         data-plasmic-override={overrides.frame48}
-        className={classNames(projectcss.all, sty.frame48)}
+        className={classNames("all", sty.frame48)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox___5Zz74)}>
+        <div className={classNames("all", sty.freeBox___5Zz74)}>
           <Line3Icon
-            className={classNames(projectcss.all, sty.svg___9WpV)}
+            className={classNames("all", sty.svg___9WpV)}
             role={"img"}
           />
         </div>

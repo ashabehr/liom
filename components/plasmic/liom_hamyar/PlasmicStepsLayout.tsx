@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicStepsLayout.module.css"; // plasmic-import: dHc4RrEGN9st/css
 
 import Icon77Icon from "./icons/PlasmicIcon__Icon77"; // plasmic-import: wjMNvLG8jaXy/icon
@@ -147,10 +146,6 @@ function PlasmicStepsLayout__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -162,6 +157,11 @@ function PlasmicStepsLayout__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -179,10 +179,10 @@ function PlasmicStepsLayout__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -193,7 +193,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
       )}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__zt0Vx, {
+        className={classNames("all", sty.freeBox__zt0Vx, {
           [sty.freeBoxlayout_advice__zt0Vx7UPUl]: hasVariant(
             $state,
             "layout",
@@ -212,7 +212,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__fgFjT, {
+          className={classNames("all", sty.freeBox__fgFjT, {
             [sty.freeBoxlayout_card__fgFjTy37H]: hasVariant(
               $state,
               "layout",
@@ -220,173 +220,55 @@ function PlasmicStepsLayout__RenderFunc(props: {
             )
           })}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__buiqz,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__buiqz, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__jf3Xt,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__jf3Xt, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox___944B,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox___944B, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__mzxb4,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__mzxb4, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__nusse,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__nusse, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__iygjz,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__iygjz, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__q9Xoc,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__q9Xoc, "shimmer")} />
         </div>
-        <div className={classNames(projectcss.all, sty.freeBox__mhUnt)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__o3Jq4,
-              "shimmer"
-            )}
-          />
+        <div className={classNames("all", sty.freeBox__mhUnt)}>
+          <div className={classNames("all", sty.freeBox__o3Jq4, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__wowVb,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__wowVb, "shimmer")} />
 
-          <div
-            className={classNames(projectcss.all, sty.freeBox__ap8I, "shimmer")}
-          />
+          <div className={classNames("all", sty.freeBox__ap8I, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__j9BAz,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__j9BAz, "shimmer")} />
 
-          <div className={classNames(projectcss.all, sty.freeBox___9WbtW)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__maBv8,
-                "shimmer"
-              )}
-            />
+          <div className={classNames("all", sty.freeBox___9WbtW)}>
+            <div className={classNames("all", sty.freeBox__maBv8, "shimmer")} />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__dBW,
-                "shimmer"
-              )}
-            />
+            <div className={classNames("all", sty.freeBox__dBW, "shimmer")} />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__f54ED,
-                "shimmer"
-              )}
-            />
+            <div className={classNames("all", sty.freeBox__f54ED, "shimmer")} />
           </div>
         </div>
-        <div className={classNames(projectcss.all, sty.freeBox__boooa)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox___7Kw95,
-              "shimmer"
-            )}
-          />
+        <div className={classNames("all", sty.freeBox__boooa)}>
+          <div className={classNames("all", sty.freeBox___7Kw95, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox___8InKb,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox___8InKb, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__zW5Kc,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__zW5Kc, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__b5Qc7,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__b5Qc7, "shimmer")} />
 
-          <div
-            className={classNames(projectcss.all, sty.freeBox__mQgK, "shimmer")}
-          />
+          <div className={classNames("all", sty.freeBox__mQgK, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__g2Rtg,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__g2Rtg, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__wfjJy,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__wfjJy, "shimmer")} />
         </div>
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__pHwLy, {
+        className={classNames("all", sty.freeBox__pHwLy, {
           [sty.freeBoxlayout_advice__pHwLy7UPUl]: hasVariant(
             $state,
             "layout",
@@ -407,13 +289,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
         {renderPlasmicSlot({
           defaultContents: (
             <React.Fragment>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__k21NT
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__k21NT)}>
                 {"sjdiuhvv"}
               </div>
               <LineClomp2
@@ -422,18 +298,14 @@ function PlasmicStepsLayout__RenderFunc(props: {
                 numberOfLine={2}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__es7DU
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__es7DU)}
                 >
                   {
                     "sddddddddddddddddddddddddddddddddddddddd\u0633\u062a\u0628\u0647\u0633\u0627\u06cc\u0647\u0639\u0628\u0627\u0647\u06cc\u0639\u0633\u0627\u0628\u0647\u0627\u0647 \u0627\u06cc\u0633\u0647\u0639\u062e\u0627\u0628\u0647\u0639\u0627\u0633\u06cc\u0647\u0639\u0628\u0627\u0647\u0627\u0647\u0627\u0647\u0627\u0628 \u062f\u0633\u062e\u06cc\u062a\u0633\u0639\u0647\u0627\u0647\u0639\u06cc\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0628 \u0633\u062a\u06cc\u0647\u062e\u0639\u062a\u0639\u0647\u062a\u0647\u0639\u062e\u062a\u0633\u062e\u062a\u062e\u062a\u0628 \u0633\u062f\u0627\u0639\u06cc\u0647\u0627\u0647\u0639\u0627\u0628\u0647\u0639\u0627\u0628\u0647\u0627\u0627\u0647\u0639\u0633\u0627 \u062f\u0633\u062e\u06cc\u0627\u0639\u062e\u0647\u0627\u0633\u0639\u0627\u0628\u0627\u0639\u0647\u06cc\u0633\u0627\u0628\u0639\u0647\u0633\u0627\u0628\u0633"
                   }
                 </div>
               </LineClomp2>
-              <div className={classNames(projectcss.all, sty.freeBox__rg8NU)}>
+              <div className={classNames("all", sty.freeBox__rg8NU)}>
                 <PlasmicImg__
                   alt={""}
                   className={classNames(sty.img__jgooe)}
@@ -452,28 +324,26 @@ function PlasmicStepsLayout__RenderFunc(props: {
                   }}
                 />
 
-                <div className={classNames(projectcss.all, sty.freeBox__rZt8A)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__iWkfp)}
-                  >
+                <div className={classNames("all", sty.freeBox__rZt8A)}>
+                  <div className={classNames("all", sty.freeBox__iWkfp)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__dm6Gr
                       )}
                     >
                       {"Enter some text"}
                     </div>
                     <Icon77Icon
-                      className={classNames(projectcss.all, sty.svg__v9Jx)}
+                      className={classNames("all", sty.svg__v9Jx)}
                       role={"img"}
                     />
 
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___1XAl6
                       )}
                     >
@@ -481,11 +351,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
                     </div>
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__v1Alr
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__v1Alr)}
                   >
                     {"Enter some text"}
                   </div>
@@ -504,7 +370,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
             : false
       ) ? (
         <div
-          className={classNames(projectcss.all, sty.freeBox__ueRlj, {
+          className={classNames("all", sty.freeBox__ueRlj, {
             [sty.freeBoxlayout_advice__ueRlj7UPUl]: hasVariant(
               $state,
               "layout",
@@ -526,11 +392,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
             defaultContents: (
               <React.Fragment>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ypqt2
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__ypqt2)}
                 >
                   {"sjdiuhvv"}
                 </div>
@@ -543,60 +405,35 @@ function PlasmicStepsLayout__RenderFunc(props: {
                   numberOfLine={2}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__kiEa
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__kiEa)}
                   >
                     {
                       "sddddddddddddddddddddddddddddddddddddddd\u0633\u062a\u0628\u0647\u0633\u0627\u06cc\u0647\u0639\u0628\u0627\u0647\u06cc\u0639\u0633\u0627\u0628\u0647\u0627\u0647 \u0627\u06cc\u0633\u0647\u0639\u062e\u0627\u0628\u0647\u0639\u0627\u0633\u06cc\u0647\u0639\u0628\u0627\u0647\u0627\u0647\u0627\u0647\u0627\u0628 \u062f\u0633\u062e\u06cc\u062a\u0633\u0639\u0647\u0627\u0647\u0639\u06cc\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0628 \u0633\u062a\u06cc\u0647\u062e\u0639\u062a\u0639\u0647\u062a\u0647\u0639\u062e\u062a\u0633\u062e\u062a\u062e\u062a\u0628 \u0633\u062f\u0627\u0639\u06cc\u0647\u0627\u0647\u0639\u0627\u0628\u0647\u0639\u0627\u0628\u0647\u0627\u0627\u0647\u0639\u0633\u0627 \u062f\u0633\u062e\u06cc\u0627\u0639\u062e\u0647\u0627\u0633\u0639\u0627\u0628\u0627\u0639\u0647\u06cc\u0633\u0627\u0628\u0639\u0647\u0633\u0627\u0628\u0633"
                     }
                   </div>
                 </LineClomp2>
-                <div className={classNames(projectcss.all, sty.freeBox__l9Jy)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__eprGr)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__r6Sr)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__gzJEc
-                        )}
-                      />
+                <div className={classNames("all", sty.freeBox__l9Jy)}>
+                  <div className={classNames("all", sty.freeBox__eprGr)}>
+                    <div className={classNames("all", sty.freeBox__r6Sr)}>
+                      <div className={classNames("all", sty.freeBox__gzJEc)} />
 
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__ygOrD
                         )}
                       >
                         {"Enter some text"}
                       </div>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__h1PC6)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__xxgGp
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__ct4X
-                          )}
-                        >
+                    <div className={classNames("all", sty.freeBox__h1PC6)}>
+                      <div className={classNames("all", sty.freeBox__xxgGp)}>
+                        <div className={classNames("all", sty.freeBox__ct4X)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__wWeBd
                             )}
                           >
@@ -621,7 +458,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
             : false
       ) ? (
         <div
-          className={classNames(projectcss.all, sty.freeBox__ciBcx, {
+          className={classNames("all", sty.freeBox__ciBcx, {
             [sty.freeBoxlayout_banner__ciBcxMactE]: hasVariant(
               $state,
               "layout",
@@ -638,11 +475,7 @@ function PlasmicStepsLayout__RenderFunc(props: {
             defaultContents: (
               <React.Fragment>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tkAie
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__tkAie)}
                 >
                   {"sjdiuhvv"}
                 </div>
@@ -655,21 +488,15 @@ function PlasmicStepsLayout__RenderFunc(props: {
                   numberOfLine={2}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__er5Bf
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__er5Bf)}
                   >
                     {
                       "sddddddddddddddddddddddddddddddddddddddd\u0633\u062a\u0628\u0647\u0633\u0627\u06cc\u0647\u0639\u0628\u0627\u0647\u06cc\u0639\u0633\u0627\u0628\u0647\u0627\u0647 \u0627\u06cc\u0633\u0647\u0639\u062e\u0627\u0628\u0647\u0639\u0627\u0633\u06cc\u0647\u0639\u0628\u0627\u0647\u0627\u0647\u0627\u0647\u0627\u0628 \u062f\u0633\u062e\u06cc\u062a\u0633\u0639\u0647\u0627\u0647\u0639\u06cc\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0647\u0639\u0627\u0628 \u0633\u062a\u06cc\u0647\u062e\u0639\u062a\u0639\u0647\u062a\u0647\u0639\u062e\u062a\u0633\u062e\u062a\u062e\u062a\u0628 \u0633\u062f\u0627\u0639\u06cc\u0647\u0627\u0647\u0639\u0627\u0628\u0647\u0639\u0627\u0628\u0647\u0627\u0627\u0647\u0639\u0633\u0627 \u062f\u0633\u062e\u06cc\u0627\u0639\u062e\u0647\u0627\u0633\u0639\u0627\u0628\u0627\u0639\u0647\u06cc\u0633\u0627\u0628\u0639\u0647\u0633\u0627\u0628\u0633"
                     }
                   </div>
                 </LineClomp2>
-                <div className={classNames(projectcss.all, sty.freeBox__yeAv8)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__t51UD)}
-                  >
+                <div className={classNames("all", sty.freeBox__yeAv8)}>
+                  <div className={classNames("all", sty.freeBox__t51UD)}>
                     <PlasmicImg__
                       alt={""}
                       className={classNames(sty.img___7FaVp)}
@@ -688,20 +515,10 @@ function PlasmicStepsLayout__RenderFunc(props: {
                       }}
                     />
 
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__foJba)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__mhJwC
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__foJba)}>
+                      <div className={classNames("all", sty.freeBox__mhJwC)}>
                         <Icon174Icon
-                          className={classNames(
-                            projectcss.all,
-                            sty.svg___2Qsm5
-                          )}
+                          className={classNames("all", sty.svg___2Qsm5)}
                           role={"img"}
                         />
                       </div>

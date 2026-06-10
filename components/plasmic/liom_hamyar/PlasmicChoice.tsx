@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicChoice.module.css"; // plasmic-import: PU9vKa6cnb4P/css
 
 createPlasmicElementProxy;
@@ -129,10 +128,6 @@ function PlasmicChoice__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -168,6 +163,11 @@ function PlasmicChoice__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -185,10 +185,10 @@ function PlasmicChoice__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -196,20 +196,14 @@ function PlasmicChoice__RenderFunc(props: {
       <div
         data-plasmic-name={"title"}
         data-plasmic-override={overrides.title}
-        className={classNames(projectcss.all, sty.title)}
+        className={classNames("all", sty.title)}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__pH9L9
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__pH9L9)}>
           {"title"}
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__oRccG)}>
-        <div className={classNames(projectcss.all, sty.freeBox__l9Ojq)}>
+      <div className={classNames("all", sty.freeBox__oRccG)}>
+        <div className={classNames("all", sty.freeBox__l9Ojq)}>
           {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
             (() => {
               try {
@@ -229,10 +223,10 @@ function PlasmicChoice__RenderFunc(props: {
             const currentIndex = __plasmic_idx_0;
             return (
               <div
-                className={classNames(projectcss.all, sty.freeBox__ps6IZ)}
+                className={classNames("all", sty.freeBox__ps6IZ)}
                 key={currentIndex}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__sz7WD)}>
+                <div className={classNames("all", sty.freeBox__sz7WD)}>
                   <RadioGrop
                     data-plasmic-name={"radioGrop"}
                     data-plasmic-override={overrides.radioGrop}
@@ -329,9 +323,9 @@ function PlasmicChoice__RenderFunc(props: {
         <div
           data-plasmic-name={"shimmer"}
           data-plasmic-override={overrides.shimmer}
-          className={classNames(projectcss.all, sty.shimmer)}
+          className={classNames("all", sty.shimmer)}
         >
-          <div className={classNames(projectcss.all, sty.freeBox___2EzTp)}>
+          <div className={classNames("all", sty.freeBox___2EzTp)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -351,13 +345,13 @@ function PlasmicChoice__RenderFunc(props: {
               const currentIndex = __plasmic_idx_0;
               return (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___1NI5E)}
+                  className={classNames("all", sty.freeBox___1NI5E)}
                   key={currentIndex}
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__mtyyI,
                       "shimmer"
                     )}

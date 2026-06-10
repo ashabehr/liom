@@ -76,7 +76,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicIntro.module.css"; // plasmic-import: zd6J_z-Sve9l/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -99,11 +98,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -180,12 +186,6 @@ function PlasmicIntro__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -540,6 +540,13 @@ function PlasmicIntro__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -550,7 +557,7 @@ function PlasmicIntro__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -565,17 +572,17 @@ function PlasmicIntro__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -783,7 +790,7 @@ function PlasmicIntro__RenderFunc(props: {
             className={classNames("__wab_instance", sty.sideEffect)}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__k9FFd)}>
+          <div className={classNames("all", sty.freeBox__k9FFd)}>
             <PlasmicImg__
               alt={""}
               className={classNames(sty.img__h1Sjj)}
@@ -805,13 +812,7 @@ function PlasmicIntro__RenderFunc(props: {
               }}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__c7Pzm
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__c7Pzm)}>
               {
                 "\u0644\u06cc\u0648\u0645  | \u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc"
               }
@@ -832,7 +833,7 @@ function PlasmicIntro__RenderFunc(props: {
           })() ? (
             <div
               className={classNames(
-                projectcss.all,
+                "all",
                 sty.freeBox__laGek,
                 "zoom-animation"
               )}
@@ -862,15 +863,11 @@ function PlasmicIntro__RenderFunc(props: {
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___1P3IJ
-                )}
+                className={classNames("all", "__wab_text", sty.text___1P3IJ)}
               >
                 {hasVariant(globalVariants, "screen", "mobile") ? (
                   <div
-                    className={projectcss.__wab_expr_html_text}
+                    className={"__wab_expr_html_text"}
                     dangerouslySetInnerHTML={{
                       __html: (() => {
                         try {
@@ -907,7 +904,7 @@ function PlasmicIntro__RenderFunc(props: {
                   />
                 ) : (
                   <div
-                    className={projectcss.__wab_expr_html_text}
+                    className={"__wab_expr_html_text"}
                     dangerouslySetInnerHTML={{
                       __html: (() => {
                         try {
@@ -961,7 +958,7 @@ function PlasmicIntro__RenderFunc(props: {
           })() ? (
             <div
               className={classNames(
-                projectcss.all,
+                "all",
                 sty.freeBox__iCvx9,
                 "zoom-animation"
               )}
@@ -990,15 +987,9 @@ function PlasmicIntro__RenderFunc(props: {
                 }}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__i0XsN
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__i0XsN)}>
                 <div
-                  className={projectcss.__wab_expr_html_text}
+                  className={"__wab_expr_html_text"}
                   dangerouslySetInnerHTML={{
                     __html: (() => {
                       try {
@@ -1050,7 +1041,7 @@ function PlasmicIntro__RenderFunc(props: {
           })() ? (
             <div
               className={classNames(
-                projectcss.all,
+                "all",
                 sty.freeBox__mGssn,
                 "zoom-animation"
               )}
@@ -1079,16 +1070,10 @@ function PlasmicIntro__RenderFunc(props: {
                 }}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pmql3
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__pmql3)}>
                 {hasVariant(globalVariants, "screen", "mobile") ? (
                   <div
-                    className={projectcss.__wab_expr_html_text}
+                    className={"__wab_expr_html_text"}
                     dangerouslySetInnerHTML={{
                       __html: (() => {
                         try {
@@ -1116,7 +1101,7 @@ function PlasmicIntro__RenderFunc(props: {
                   />
                 ) : (
                   <div
-                    className={projectcss.__wab_expr_html_text}
+                    className={"__wab_expr_html_text"}
                     dangerouslySetInnerHTML={{
                       __html: (() => {
                         try {
@@ -1144,7 +1129,7 @@ function PlasmicIntro__RenderFunc(props: {
                   />
                 )}
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__nGlzo)}>
+              <div className={classNames("all", sty.freeBox__nGlzo)}>
                 {(() => {
                   try {
                     return $state.userinfo.man.hamyarStatus == false;
@@ -1249,8 +1234,8 @@ function PlasmicIntro__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__jEtYi,
                         hasVariant(globalVariants, "screen", "mobile")
                           ? "animashen"
@@ -1370,8 +1355,8 @@ function PlasmicIntro__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__iz8L6,
                         hasVariant(globalVariants, "screen", "mobile")
                           ? ``
@@ -1475,8 +1460,8 @@ function PlasmicIntro__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__jshbf,
                       hasVariant(globalVariants, "screen", "mobile")
                         ? ``
@@ -1494,9 +1479,9 @@ function PlasmicIntro__RenderFunc(props: {
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+            className={classNames("all", sty.section)}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__rmy4S)}>
+            <div className={classNames("all", sty.freeBox__rmy4S)}>
               {(() => {
                 try {
                   return $state.slid != "slid3";
@@ -1613,19 +1598,15 @@ function PlasmicIntro__RenderFunc(props: {
                   size={"compact"}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__j0V1A
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__j0V1A)}
                   >
                     {"\u0628\u0639\u062f\u06cc"}
                   </div>
                 </Button>
               ) : null}
-              <div className={classNames(projectcss.all, sty.freeBox__twHqb)}>
+              <div className={classNames("all", sty.freeBox__twHqb)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__oUZm)}
+                  className={classNames("all", sty.freeBox__oUZm)}
                   style={
                     hasVariant(globalVariants, "screen", "mobile")
                       ? (() => {
@@ -1672,7 +1653,7 @@ function PlasmicIntro__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__boi5L)}
+                  className={classNames("all", sty.freeBox__boi5L)}
                   style={
                     hasVariant(globalVariants, "screen", "mobile")
                       ? (() => {
@@ -1719,7 +1700,7 @@ function PlasmicIntro__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__pHr7Z)}
+                  className={classNames("all", sty.freeBox__pHr7Z)}
                   style={
                     hasVariant(globalVariants, "screen", "mobile")
                       ? (() => {
@@ -1873,11 +1854,7 @@ function PlasmicIntro__RenderFunc(props: {
                   size={"compact"}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__sb4Z8
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__sb4Z8)}
                   >
                     {"\u0631\u062f \u0634\u062f\u0646"}
                   </div>
@@ -1945,19 +1922,15 @@ function PlasmicIntro__RenderFunc(props: {
               })()}
               errorDisplay={
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qR4Z1
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__qR4Z1)}
                 >
                   {"Error fetching data"}
                 </div>
               }
               loadingDisplay={
-                <div className={classNames(projectcss.all, sty.freeBox__hkQt0)}>
+                <div className={classNames("all", sty.freeBox__hkQt0)}>
                   <Icon115Icon
-                    className={classNames(projectcss.all, sty.svg__cOpha)}
+                    className={classNames("all", sty.svg__cOpha)}
                     role={"img"}
                   />
                 </div>
@@ -1984,14 +1957,12 @@ function PlasmicIntro__RenderFunc(props: {
               shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/hamyar/shop"}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__nFtal)}>
+              <div className={classNames("all", sty.freeBox__nFtal)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__bA6GH)}
+                  className={classNames("all", sty.freeBox__bA6GH)}
                   dir={"rtl"}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__g17O8)}
-                  />
+                  <div className={classNames("all", sty.freeBox__g17O8)} />
 
                   <DialogTitle
                     data-plasmic-name={"dialogTitle"}
@@ -2001,16 +1972,12 @@ function PlasmicIntro__RenderFunc(props: {
                     <h5
                       data-plasmic-name={"h5"}
                       data-plasmic-override={overrides.h5}
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h5,
-                        sty.h5
-                      )}
+                      className={classNames("all", "h5", "h5__suVPi", sty.h5)}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__dGzur
                         )}
                       >
@@ -2022,15 +1989,11 @@ function PlasmicIntro__RenderFunc(props: {
                   </DialogTitle>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__vpMn)}
+                  className={classNames("all", sty.freeBox__vpMn)}
                   dir={"rtl"}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zOBN
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__zOBN)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -2050,22 +2013,13 @@ function PlasmicIntro__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__u5XtQ)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__hB3Iq)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__tIkf2
-                        )}
-                      >
+                  <div className={classNames("all", sty.freeBox__u5XtQ)}>
+                    <div className={classNames("all", sty.freeBox__hB3Iq)}>
+                      <div className={classNames("all", sty.freeBox__tIkf2)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__y44Cf
                           )}
                         >
@@ -2088,16 +2042,11 @@ function PlasmicIntro__RenderFunc(props: {
                           </React.Fragment>
                         </div>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__kkm1I
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__kkm1I)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___774Wc
                           )}
                         >
@@ -2119,22 +2068,14 @@ function PlasmicIntro__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__plloH
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__plloH)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___0Vvmp
-                            )}
+                            className={classNames("all", sty.freeBox___0Vvmp)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__nnTrr
                               )}
                             >
@@ -2159,8 +2100,8 @@ function PlasmicIntro__RenderFunc(props: {
                             </div>
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__ha9Xw
                               )}
                             >
@@ -2204,15 +2145,12 @@ function PlasmicIntro__RenderFunc(props: {
                             }
                           })() ? (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__fbllt
-                              )}
+                              className={classNames("all", sty.freeBox__fbllt)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__khwW2
                                 )}
                               >
@@ -2254,8 +2192,8 @@ function PlasmicIntro__RenderFunc(props: {
                       })() ? (
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__b5Brz
                           )}
                           onClick={async event => {
@@ -2316,17 +2254,9 @@ function PlasmicIntro__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__cUNv
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__cUNv)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___3Uh8C
-                            )}
+                            className={classNames("all", sty.freeBox___3Uh8C)}
                           >
                             {(() => {
                               const child$Props = {
@@ -2351,7 +2281,7 @@ function PlasmicIntro__RenderFunc(props: {
                                 prefix: (
                                   <Icon10Icon
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.svg___92Qe1
                                     )}
                                     role={"img"}
@@ -2402,7 +2332,7 @@ function PlasmicIntro__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox___9YNd5
                                 )}
                                 onClick={async event => {
@@ -2616,8 +2546,8 @@ function PlasmicIntro__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__hctl4
                               )}
                             >
@@ -2636,10 +2566,7 @@ function PlasmicIntro__RenderFunc(props: {
                         ])}
                         endIcon={
                           <Icon12Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__nYxIw
-                            )}
+                            className={classNames("all", sty.svg__nYxIw)}
                             role={"img"}
                           />
                         }
@@ -3019,8 +2946,8 @@ function PlasmicIntro__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__rrJFl
                           )}
                         >
@@ -3044,9 +2971,10 @@ function PlasmicIntro__RenderFunc(props: {
                       })() ? (
                         <p
                           className={classNames(
-                            projectcss.all,
-                            projectcss.p,
-                            projectcss.__wab_text,
+                            "all",
+                            "p",
+                            "p__suVPi",
+                            "__wab_text",
                             sty.p__rf8Ho
                           )}
                           onClick={async event => {
@@ -3097,9 +3025,10 @@ function PlasmicIntro__RenderFunc(props: {
                       ) : null}
                       <p
                         className={classNames(
-                          projectcss.all,
-                          projectcss.p,
-                          projectcss.__wab_text,
+                          "all",
+                          "p",
+                          "p__suVPi",
+                          "__wab_text",
                           sty.p__upWkI
                         )}
                       >
@@ -3134,7 +3063,7 @@ function PlasmicIntro__RenderFunc(props: {
                   "opendialog"
                 ])}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__jtkZ)}>
+                <div className={classNames("all", sty.freeBox__jtkZ)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -3399,7 +3328,7 @@ function PlasmicIntro__RenderFunc(props: {
                     color={generateStateValueProp($state, ["button3", "color"])}
                     endIcon={
                       <Icon12Icon
-                        className={classNames(projectcss.all, sty.svg__egsL0)}
+                        className={classNames("all", sty.svg__egsL0)}
                         role={"img"}
                       />
                     }
@@ -3697,8 +3626,8 @@ function PlasmicIntro__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__lei1W
                       )}
                     >
@@ -3926,9 +3855,10 @@ export const PlasmicIntro = Object.assign(
     internalArgProps: PlasmicIntro__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/intro",
       pagePath: "/intro",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

@@ -69,7 +69,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMainHeader.module.css"; // plasmic-import: 1YQK_N8j3twT/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
@@ -200,12 +199,6 @@ function PlasmicMainHeader__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -379,6 +372,13 @@ function PlasmicMainHeader__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -396,10 +396,10 @@ function PlasmicMainHeader__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -410,22 +410,16 @@ function PlasmicMainHeader__RenderFunc(props: {
     >
       {renderPlasmicSlot({
         defaultContents: (
-          <div className={classNames(projectcss.all, sty.freeBox__tlDKw)}>
+          <div className={classNames("all", sty.freeBox__tlDKw)}>
             <Icon185Icon
-              className={classNames(projectcss.all, sty.svg__lyXjc)}
+              className={classNames("all", sty.svg__lyXjc)}
               onClick={async event => {
                 const $steps = {};
               }}
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xj0O6
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__xj0O6)}>
               {
                 "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647"
               }
@@ -435,7 +429,7 @@ function PlasmicMainHeader__RenderFunc(props: {
         value: args.children
       })}
       <div
-        className={classNames(projectcss.all, sty.freeBox__t17Fm, {
+        className={classNames("all", sty.freeBox__t17Fm, {
           [sty.freeBoxhamyar__t17Fms1T6S]: hasVariant(
             $state,
             "hamyar",
@@ -458,9 +452,9 @@ function PlasmicMainHeader__RenderFunc(props: {
         })}
         closeButtonClassName={classNames({ [sty["pcls_lqSQHfqD67bF"]]: true })}
         defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
         drawerBodyClassName={classNames({ [sty["pcls_IN1eJ6efbZad"]]: true })}
@@ -511,13 +505,13 @@ function PlasmicMainHeader__RenderFunc(props: {
         open={generateStateValueProp($state, ["drawer", "open"])}
         title={
           <div
-            className={classNames(projectcss.all, sty.freeBox__yxJdj, {
+            className={classNames("all", sty.freeBox__yxJdj, {
               [sty.freeBoxliad__yxJdjRakT6]: hasVariant($state, "liad", "liad")
             })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__qO33Y)}>
+            <div className={classNames("all", sty.freeBox__qO33Y)}>
               <div
-                className={classNames(projectcss.all, sty.freeBox__pywp4, {
+                className={classNames("all", sty.freeBox__pywp4, {
                   [sty.freeBoxhamyar__pywp4S1T6S]: hasVariant(
                     $state,
                     "hamyar",
@@ -531,7 +525,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__aMfd1, {
+                  className={classNames("all", sty.freeBox__aMfd1, {
                     [sty.freeBoxliad__aMfd1RakT6]: hasVariant(
                       $state,
                       "liad",
@@ -541,8 +535,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__yvPVb,
                       {
                         [sty.texthamyar__yvPVbs1T6S]: hasVariant(
@@ -575,11 +569,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__j6RPw
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__j6RPw)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -599,7 +589,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__iSqL)}
+                  className={classNames("all", sty.freeBox__iSqL)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -721,7 +711,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                   }}
                 >
                   <Icon187Icon
-                    className={classNames(projectcss.all, sty.svg__bTKo)}
+                    className={classNames("all", sty.svg__bTKo)}
                     role={"img"}
                   />
                 </div>
@@ -732,7 +722,7 @@ function PlasmicMainHeader__RenderFunc(props: {
               />
 
               <div
-                className={classNames(projectcss.all, sty.freeBox__nq9Fh, {
+                className={classNames("all", sty.freeBox__nq9Fh, {
                   [sty.freeBoxliad__nq9FhRakT6]: hasVariant(
                     $state,
                     "liad",
@@ -741,7 +731,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                 })}
               >
                 <Icon188Icon
-                  className={classNames(projectcss.all, sty.svg__l51C0)}
+                  className={classNames("all", sty.svg__l51C0)}
                   role={"img"}
                 />
 
@@ -790,8 +780,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                 ) ? (
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__xyhef,
                       {
                         [sty.texthamyar__xyhefs1T6S]: hasVariant(
@@ -833,8 +823,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                 ) ? (
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__azfXx,
                       {
                         [sty.texthamyar__azfXxs1T6S]: hasVariant(
@@ -957,8 +947,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                 ) ? (
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___1MNyY,
                       {
                         [sty.texthamyar___1MNyYs1T6S]: hasVariant(
@@ -1087,7 +1077,7 @@ function PlasmicMainHeader__RenderFunc(props: {
               </div>
               {(hasVariant($state, "liad", "liad") ? true : false) ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__gIdq9, {
+                  className={classNames("all", sty.freeBox__gIdq9, {
                     [sty.freeBoxliad__gIdq9RakT6]: hasVariant(
                       $state,
                       "liad",
@@ -1161,7 +1151,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                   }}
                 >
                   <Icon372Icon
-                    className={classNames(projectcss.all, sty.svg__gskra, {
+                    className={classNames("all", sty.svg__gskra, {
                       [sty.svgliad__gskraRakT6]: hasVariant(
                         $state,
                         "liad",
@@ -1216,8 +1206,8 @@ function PlasmicMainHeader__RenderFunc(props: {
                   ) ? (
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__rcKSp,
                         {
                           [sty.texthamyar__rcKSps1T6S]: hasVariant(
@@ -1285,7 +1275,7 @@ function PlasmicMainHeader__RenderFunc(props: {
         }
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__kyVHq, {
+          className={classNames("all", sty.freeBox__kyVHq, {
             [sty.freeBoxhamyar__kyVHqs1T6S]: hasVariant(
               $state,
               "hamyar",
@@ -1295,7 +1285,7 @@ function PlasmicMainHeader__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__b3Xdd, {
+            className={classNames("all", sty.freeBox__b3Xdd, {
               [sty.freeBoxhamyar__b3Xdds1T6S]: hasVariant(
                 $state,
                 "hamyar",
@@ -1305,7 +1295,7 @@ function PlasmicMainHeader__RenderFunc(props: {
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__v9VFd, {
+              className={classNames("all", sty.freeBox__v9VFd, {
                 [sty.freeBoxhamyar__v9VFds1T6S]: hasVariant(
                   $state,
                   "hamyar",
@@ -1438,18 +1428,14 @@ function PlasmicMainHeader__RenderFunc(props: {
                 }
               }}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__xcm9E)}>
+              <div className={classNames("all", sty.freeBox__xcm9E)}>
                 <Icon188Icon
-                  className={classNames(projectcss.all, sty.svg__jw7Zc)}
+                  className={classNames("all", sty.svg__jw7Zc)}
                   role={"img"}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rt55J
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__rt55J)}
                 >
                   {
                     "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0633\u0644\u0627\u0645\u062a"
@@ -1511,11 +1497,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                 size={"minimal"}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pjbda
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__pjbda)}
                 >
                   {"\u062e\u0631\u06cc\u062f"}
                 </div>
@@ -1529,7 +1511,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                   : false
             ) ? (
               <div
-                className={classNames(projectcss.all, sty.freeBox__zEJji, {
+                className={classNames("all", sty.freeBox__zEJji, {
                   [sty.freeBoxhamyar__zEJjis1T6S]: hasVariant(
                     $state,
                     "hamyar",
@@ -1658,18 +1640,14 @@ function PlasmicMainHeader__RenderFunc(props: {
                   }
                 }}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__dr9Xd)}>
+                <div className={classNames("all", sty.freeBox__dr9Xd)}>
                   <Icon188Icon
-                    className={classNames(projectcss.all, sty.svg__niTIi)}
+                    className={classNames("all", sty.svg__niTIi)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__rybY
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__rybY)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -1748,11 +1726,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                   size={"minimal"}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ca771
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__ca771)}
                   >
                     {"\u062e\u0631\u06cc\u062f"}
                   </div>
@@ -1760,7 +1734,7 @@ function PlasmicMainHeader__RenderFunc(props: {
               </div>
             ) : null}
             <div
-              className={classNames(projectcss.all, sty.freeBox__uiHmz, {
+              className={classNames("all", sty.freeBox__uiHmz, {
                 [sty.freeBoxhamyar__uiHmzs1T6S]: hasVariant(
                   $state,
                   "hamyar",
@@ -1831,28 +1805,22 @@ function PlasmicMainHeader__RenderFunc(props: {
               }}
             >
               <Icon189Icon
-                className={classNames(projectcss.all, sty.svg__hSoM5)}
+                className={classNames("all", sty.svg__hSoM5)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__tsCgJ
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__tsCgJ)}>
                 {
                   "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
                 }
               </div>
               <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg___3OeW0)}
+                className={classNames("all", sty.svg___3OeW0)}
                 role={"img"}
               />
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__nngrk, {
+              className={classNames("all", sty.freeBox__nngrk, {
                 [sty.freeBoxhamyar__nngrks1T6S]: hasVariant(
                   $state,
                   "hamyar",
@@ -1923,23 +1891,17 @@ function PlasmicMainHeader__RenderFunc(props: {
               }}
             >
               <Icon190Icon
-                className={classNames(projectcss.all, sty.svg__yq9O)}
+                className={classNames("all", sty.svg__yq9O)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__nh9B5
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__nh9B5)}>
                 {
                   "\u0646\u0634\u0627\u0646\u0647\u200c\u0647\u0627\u06cc \u0642\u0627\u0639\u062f\u06af\u06cc"
                 }
               </div>
               <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg__yasxJ)}
+                className={classNames("all", sty.svg__yasxJ)}
                 role={"img"}
               />
             </div>
@@ -1949,7 +1911,7 @@ function PlasmicMainHeader__RenderFunc(props: {
             />
 
             <div
-              className={classNames(projectcss.all, sty.freeBox__pk8S, {
+              className={classNames("all", sty.freeBox__pk8S, {
                 [sty.freeBoxhamyar__pk8SS1T6S]: hasVariant(
                   $state,
                   "hamyar",
@@ -2019,7 +1981,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                       ? Icon304Icon
                       : Icon193Icon
                 }
-                className={classNames(projectcss.all, sty.svg__f8NU, {
+                className={classNames("all", sty.svg__f8NU, {
                   [sty.svghamyar__f8NUs1T6S]: hasVariant(
                     $state,
                     "hamyar",
@@ -2031,26 +1993,21 @@ function PlasmicMainHeader__RenderFunc(props: {
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___1IMnQ,
-                  {
-                    [sty.texthamyar___1IMnQs1T6S]: hasVariant(
-                      $state,
-                      "hamyar",
-                      "hamyar"
-                    ),
-                    [sty.textliad___1IMnQRakT6]: hasVariant(
-                      $state,
-                      "liad",
-                      "liad"
-                    ),
-                    [sty.textliad_hamyar___1IMnQRakT6S1T6S]:
-                      hasVariant($state, "hamyar", "hamyar") &&
-                      hasVariant($state, "liad", "liad")
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text___1IMnQ, {
+                  [sty.texthamyar___1IMnQs1T6S]: hasVariant(
+                    $state,
+                    "hamyar",
+                    "hamyar"
+                  ),
+                  [sty.textliad___1IMnQRakT6]: hasVariant(
+                    $state,
+                    "liad",
+                    "liad"
+                  ),
+                  [sty.textliad_hamyar___1IMnQRakT6S1T6S]:
+                    hasVariant($state, "hamyar", "hamyar") &&
+                    hasVariant($state, "liad", "liad")
+                })}
               >
                 {hasVariant($state, "liad", "liad")
                   ? "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"
@@ -2059,12 +2016,12 @@ function PlasmicMainHeader__RenderFunc(props: {
                     : "\u062a\u0646\u0638\u06cc\u0645\u0627\u062a \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"}
               </div>
               <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg__v0Is6)}
+                className={classNames("all", sty.svg__v0Is6)}
                 role={"img"}
               />
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__jANpX, {
+              className={classNames("all", sty.freeBox__jANpX, {
                 [sty.freeBoxhamyar__jANpXs1T6S]: hasVariant(
                   $state,
                   "hamyar",
@@ -2135,38 +2092,33 @@ function PlasmicMainHeader__RenderFunc(props: {
               }}
             >
               <Icon193Icon
-                className={classNames(projectcss.all, sty.svg__sjF2K)}
+                className={classNames("all", sty.svg__sjF2K)}
                 role={"img"}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___32Orb,
-                  {
-                    [sty.texthamyar___32Orbs1T6S]: hasVariant(
-                      $state,
-                      "hamyar",
-                      "hamyar"
-                    ),
-                    [sty.textliad___32OrbRakT6]: hasVariant(
-                      $state,
-                      "liad",
-                      "liad"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text___32Orb, {
+                  [sty.texthamyar___32Orbs1T6S]: hasVariant(
+                    $state,
+                    "hamyar",
+                    "hamyar"
+                  ),
+                  [sty.textliad___32OrbRakT6]: hasVariant(
+                    $state,
+                    "liad",
+                    "liad"
+                  )
+                })}
               >
                 {"\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
               </div>
               <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg__bZbGw)}
+                className={classNames("all", sty.svg__bZbGw)}
                 role={"img"}
               />
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__sLwd, {
+              className={classNames("all", sty.freeBox__sLwd, {
                 [sty.freeBoxhamyar__sLwdS1T6S]: hasVariant(
                   $state,
                   "hamyar",
@@ -2233,23 +2185,17 @@ function PlasmicMainHeader__RenderFunc(props: {
               }}
             >
               <Icon194Icon
-                className={classNames(projectcss.all, sty.svg__f53AR)}
+                className={classNames("all", sty.svg__f53AR)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xkR9L
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__xkR9L)}>
                 {
                   "\u062a\u0645\u0627\u0633 \u0628\u0627 \u0645\u0627 \u0648 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"
                 }
               </div>
               <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg__qoZqU)}
+                className={classNames("all", sty.svg__qoZqU)}
                 role={"img"}
               />
             </div>
@@ -2266,14 +2212,14 @@ function PlasmicMainHeader__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__rPnJ)}>
+              <div className={classNames("all", sty.freeBox__rPnJ)}>
                 <Embed
                   className={classNames("__wab_instance", sty.embedHtml__cMXiD)}
                   code={"<hr></hr>"}
                 />
 
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__tpGb7, {
+                  className={classNames("all", sty.freeBox__tpGb7, {
                     [sty.freeBoxhamyar__tpGb7S1T6S]: hasVariant(
                       $state,
                       "hamyar",
@@ -2349,16 +2295,12 @@ function PlasmicMainHeader__RenderFunc(props: {
                   }}
                 >
                   <Icon385Icon
-                    className={classNames(projectcss.all, sty.svg__gmAY)}
+                    className={classNames("all", sty.svg__gmAY)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__a7UYh
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__a7UYh)}
                   >
                     {
                       "\u0648\u0631\u0648\u062f / \u062f\u0631 \u0644\u06cc\u0648\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u062f\u0627\u0631\u0645"
@@ -2366,7 +2308,7 @@ function PlasmicMainHeader__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___1Yv3Z, {
+                  className={classNames("all", sty.freeBox___1Yv3Z, {
                     [sty.freeBoxhamyar___1Yv3Zs1T6S]: hasVariant(
                       $state,
                       "hamyar",
@@ -2442,16 +2384,12 @@ function PlasmicMainHeader__RenderFunc(props: {
                   }}
                 >
                   <Icon385Icon
-                    className={classNames(projectcss.all, sty.svg__ckIdY)}
+                    className={classNames("all", sty.svg__ckIdY)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__lvYld
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__lvYld)}
                   >
                     {"\u062b\u0628\u062a \u0646\u0627\u0645"}
                   </div>
@@ -2473,7 +2411,7 @@ function PlasmicMainHeader__RenderFunc(props: {
             }
           })() ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox__yGyS, {
+              className={classNames("all", sty.freeBox__yGyS, {
                 [sty.freeBoxhamyar__yGySs1T6S]: hasVariant(
                   $state,
                   "hamyar",
@@ -2488,7 +2426,7 @@ function PlasmicMainHeader__RenderFunc(props: {
               />
 
               <div
-                className={classNames(projectcss.all, sty.freeBox___0Wkzo, {
+                className={classNames("all", sty.freeBox___0Wkzo, {
                   [sty.freeBoxhamyar___0WkzOs1T6S]: hasVariant(
                     $state,
                     "hamyar",
@@ -2573,16 +2511,12 @@ function PlasmicMainHeader__RenderFunc(props: {
                 }}
               >
                 <Icon226Icon
-                  className={classNames(projectcss.all, sty.svg__zvo7P)}
+                  className={classNames("all", sty.svg__zvo7P)}
                   role={"img"}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__eMuU
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__eMuU)}
                 >
                   {
                     "\u062e\u0631\u0648\u062c \u0627\u0632 \u062d\u0633\u0627\u0628"
@@ -2598,9 +2532,9 @@ function PlasmicMainHeader__RenderFunc(props: {
         data-plasmic-override={overrides.modal}
         className={classNames("__wab_instance", sty.modal)}
         defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
         hideFooter={true}
@@ -2614,38 +2548,26 @@ function PlasmicMainHeader__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["modal", "open"])}
         title={
-          <div className={classNames(projectcss.all, sty.freeBox__wmghd)}>
+          <div className={classNames("all", sty.freeBox__wmghd)}>
             <Icon157Icon
-              className={classNames(projectcss.all, sty.svg__bK9T)}
+              className={classNames("all", sty.svg__bK9T)}
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__i3NoB
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__i3NoB)}>
               {"\u062e\u0631\u0648\u062c \u0627\u0632 \u062d\u0633\u0627\u0628"}
             </div>
           </div>
         }
         trigger={null}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__ixvfL)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___6Bs4D
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__ixvfL)}>
+          <div className={classNames("all", "__wab_text", sty.text___6Bs4D)}>
             {
               "\u0627\u0632 \u062e\u0627\u0631\u062c \u0634\u062f\u0646 \u0627\u0632 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u062e\u0648\u062f \u0645\u0637\u0645\u0626\u0646 \u0647\u0633\u062a\u06cc\u062f\u061f"
             }
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__tFs5S)}>
+          <div className={classNames("all", sty.freeBox__tFs5S)}>
             <Button
               data-plasmic-name={"button2"}
               data-plasmic-override={overrides.button2}
@@ -2762,13 +2684,7 @@ function PlasmicMainHeader__RenderFunc(props: {
               }}
               size={"compact"}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yotZi
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__yotZi)}>
                 {"\u062e\u0631\u0648\u062c"}
               </div>
             </Button>
@@ -2864,11 +2780,7 @@ function PlasmicMainHeader__RenderFunc(props: {
               size={"compact"}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___05X3Z
-                )}
+                className={classNames("all", "__wab_text", sty.text___05X3Z)}
               >
                 {"\u062e\u06cc\u0631"}
               </div>

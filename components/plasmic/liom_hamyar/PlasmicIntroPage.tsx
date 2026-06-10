@@ -75,7 +75,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicIntroPage.module.css"; // plasmic-import: Po-Hnx9Mj1kJ/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -96,11 +95,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -169,12 +175,6 @@ function PlasmicIntroPage__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -627,6 +627,13 @@ function PlasmicIntroPage__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -637,7 +644,7 @@ function PlasmicIntroPage__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -652,17 +659,17 @@ function PlasmicIntroPage__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -1098,13 +1105,7 @@ function PlasmicIntroPage__RenderFunc(props: {
             }
           />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__debOo,
-              "viewPager"
-            )}
-          >
+          <div className={classNames("all", sty.freeBox__debOo, "viewPager")}>
             <SwiperSlider
               data-plasmic-name={"swiperSlider"}
               data-plasmic-override={overrides.swiperSlider}
@@ -1128,7 +1129,7 @@ function PlasmicIntroPage__RenderFunc(props: {
               ])}
               loop={false}
               nextButtonSlot={
-                <div className={classNames(projectcss.all, sty.freeBox__v3H2Y)}>
+                <div className={classNames("all", sty.freeBox__v3H2Y)}>
                   <Button
                     data-plasmic-name={"button"}
                     data-plasmic-override={overrides.button}
@@ -1665,8 +1666,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__pAlWc
                       )}
                     >
@@ -1757,7 +1758,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 ]).apply(null, eventArgs);
               }}
               prevButtonSlot={
-                <div className={classNames(projectcss.all, sty.freeBox__v5Mo)}>
+                <div className={classNames("all", sty.freeBox__v5Mo)}>
                   <Button
                     data-plasmic-name={"button2"}
                     data-plasmic-override={overrides.button2}
@@ -1819,8 +1820,8 @@ function PlasmicIntroPage__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__xrMl
                       )}
                     >
@@ -1833,11 +1834,7 @@ function PlasmicIntroPage__RenderFunc(props: {
               showPagination={true}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__u4DXd,
-                  "viewPager"
-                )}
+                className={classNames("all", sty.freeBox__u4DXd, "viewPager")}
               >
                 <IntroComponent
                   className={classNames(
@@ -1854,11 +1851,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 />
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__iCrU,
-                  "viewPager"
-                )}
+                className={classNames("all", sty.freeBox__iCrU, "viewPager")}
               >
                 <IntroComponent
                   className={classNames(
@@ -1874,13 +1867,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                   }
                 />
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__pPc,
-                  "viewPager"
-                )}
-              >
+              <div className={classNames("all", sty.freeBox__pPc, "viewPager")}>
                 <IntroComponent
                   className={classNames(
                     "__wab_instance",
@@ -1896,11 +1883,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 />
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__jVFuV,
-                  "viewPager"
-                )}
+                className={classNames("all", sty.freeBox__jVFuV, "viewPager")}
               >
                 <IntroComponent
                   className={classNames(
@@ -1917,11 +1900,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 />
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox___2Wo28,
-                  "viewPager"
-                )}
+                className={classNames("all", sty.freeBox___2Wo28, "viewPager")}
               >
                 <HamyarAddComponent
                   data-plasmic-name={"hamyarAddComponent"}
@@ -2060,11 +2039,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 />
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__nte5V,
-                  "viewPager"
-                )}
+                className={classNames("all", sty.freeBox__nte5V, "viewPager")}
               >
                 <SignsComponent
                   data-plasmic-name={"signsComponent"}
@@ -2244,11 +2219,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 />
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox___52Efx,
-                  "viewPager"
-                )}
+                className={classNames("all", sty.freeBox___52Efx, "viewPager")}
               >
                 <SignsComponent
                   data-plasmic-name={"signsComponent2"}
@@ -2441,11 +2412,7 @@ function PlasmicIntroPage__RenderFunc(props: {
                 />
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__zf5KZ,
-                  "viewPager"
-                )}
+                className={classNames("all", sty.freeBox__zf5KZ, "viewPager")}
               >
                 <ShopComponent
                   data-plasmic-name={"shopComponent"}
@@ -2659,9 +2626,10 @@ export const PlasmicIntroPage = Object.assign(
     internalArgProps: PlasmicIntroPage__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/intro-page",
       pagePath: "/intro-page",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

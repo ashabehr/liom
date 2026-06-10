@@ -75,7 +75,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicDocters.module.css"; // plasmic-import: MTBU9FtqOgNU/css
 
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
@@ -101,11 +100,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -180,12 +186,6 @@ function PlasmicDocters__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -414,6 +414,13 @@ function PlasmicDocters__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -424,7 +431,7 @@ function PlasmicDocters__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -439,17 +446,17 @@ function PlasmicDocters__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             {
@@ -495,7 +502,7 @@ function PlasmicDocters__RenderFunc(props: {
               errorDisplay={null}
               loadingDisplay={
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__uMLx5, {
+                  className={classNames("all", sty.freeBox__uMLx5, {
                     [sty.freeBox_1_docter__uMLx5WI85Y]: hasVariant(
                       $state,
                       "_1",
@@ -504,7 +511,7 @@ function PlasmicDocters__RenderFunc(props: {
                   })}
                 >
                   <Icon115Icon
-                    className={classNames(projectcss.all, sty.svg___3OhxN)}
+                    className={classNames("all", sty.svg___3OhxN)}
                     role={"img"}
                   />
                 </div>
@@ -548,7 +555,7 @@ function PlasmicDocters__RenderFunc(props: {
               url={"https://n8n.staas.ir/webhook/help/shop"}
             >
               <div
-                className={classNames(projectcss.all, sty.freeBox__oz5O7, {
+                className={classNames("all", sty.freeBox__oz5O7, {
                   [sty.freeBox_1_docter__oz5O7WI85Y]: hasVariant(
                     $state,
                     "_1",
@@ -557,33 +564,25 @@ function PlasmicDocters__RenderFunc(props: {
                 })}
               >
                 <EmojiSadSquareSvgrepoComSvgIcon
-                  className={classNames(projectcss.all, sty.svg__zpip2)}
+                  className={classNames("all", sty.svg__zpip2)}
                   role={"img"}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lDj0L
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__lDj0L)}
                 >
                   {
                     "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__z3Q6U
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__z3Q6U)}
                 >
                   {
                     "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f . "
                   }
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__mLdZc)}>
+                <div className={classNames("all", sty.freeBox__mLdZc)}>
                   <Button
                     data-plasmic-name={"button12"}
                     data-plasmic-override={overrides.button12}
@@ -605,7 +604,7 @@ function PlasmicDocters__RenderFunc(props: {
                     ])}
                     endIcon={
                       <Icon12Icon
-                        className={classNames(projectcss.all, sty.svg__fdywM)}
+                        className={classNames("all", sty.svg__fdywM)}
                         role={"img"}
                       />
                     }
@@ -832,8 +831,8 @@ function PlasmicDocters__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__juX3A
                       )}
                     >
@@ -856,7 +855,7 @@ function PlasmicDocters__RenderFunc(props: {
           />
 
           <div
-            className={classNames(projectcss.all, sty.freeBox__n1Vp4, {
+            className={classNames("all", sty.freeBox__n1Vp4, {
               [sty.freeBox_1_chatviow__n1Vp4V0Ufv]: hasVariant(
                 $state,
                 "_1",
@@ -889,7 +888,7 @@ function PlasmicDocters__RenderFunc(props: {
                           ? ChevronRightIcon
                           : ChevronRightIcon
               }
-              className={classNames(projectcss.all, sty.svg__my44E, {
+              className={classNames("all", sty.svg__my44E, {
                 [sty.svg_1_chatviow__my44EV0Ufv]: hasVariant(
                   $state,
                   "_1",
@@ -952,28 +951,23 @@ function PlasmicDocters__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__wwElL,
-                {
-                  [sty.text_1_chatviow__wwElLv0Ufv]: hasVariant(
-                    $state,
-                    "_1",
-                    "chatviow"
-                  ),
-                  [sty.text_1_docter__wwElLwI85Y]: hasVariant(
-                    $state,
-                    "_1",
-                    "docter"
-                  ),
-                  [sty.text_1_docters__wwElLiE1BA]: hasVariant(
-                    $state,
-                    "_1",
-                    "docters"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__wwElL, {
+                [sty.text_1_chatviow__wwElLv0Ufv]: hasVariant(
+                  $state,
+                  "_1",
+                  "chatviow"
+                ),
+                [sty.text_1_docter__wwElLwI85Y]: hasVariant(
+                  $state,
+                  "_1",
+                  "docter"
+                ),
+                [sty.text_1_docters__wwElLiE1BA]: hasVariant(
+                  $state,
+                  "_1",
+                  "docters"
+                )
+              })}
             >
               {"\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0644\u06cc\u0648\u0645"}
             </div>
@@ -1230,7 +1224,7 @@ function PlasmicDocters__RenderFunc(props: {
               size={"compact"}
               startIcon={
                 <Icon102Icon
-                  className={classNames(projectcss.all, sty.svg___4OeRm)}
+                  className={classNames("all", sty.svg___4OeRm)}
                   role={"img"}
                 />
               }
@@ -1239,7 +1233,7 @@ function PlasmicDocters__RenderFunc(props: {
             </Button>
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__t9Fw0, {
+            className={classNames("all", sty.freeBox__t9Fw0, {
               [sty.freeBox_1_chatviow__t9Fw0V0Ufv]: hasVariant(
                 $state,
                 "_1",
@@ -1263,7 +1257,7 @@ function PlasmicDocters__RenderFunc(props: {
                   ? ChevronRightIcon
                   : Icon22Icon
               }
-              className={classNames(projectcss.all, sty.svg__jr8Ex, {
+              className={classNames("all", sty.svg__jr8Ex, {
                 [sty.svg_1_chatviow__jr8ExV0Ufv]: hasVariant(
                   $state,
                   "_1",
@@ -1312,23 +1306,18 @@ function PlasmicDocters__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___239Xr,
-                {
-                  [sty.text_1_chatviow___239Xrv0Ufv]: hasVariant(
-                    $state,
-                    "_1",
-                    "chatviow"
-                  ),
-                  [sty.text_1_docters___239XRiE1BA]: hasVariant(
-                    $state,
-                    "_1",
-                    "docters"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text___239Xr, {
+                [sty.text_1_chatviow___239Xrv0Ufv]: hasVariant(
+                  $state,
+                  "_1",
+                  "chatviow"
+                ),
+                [sty.text_1_docters___239XRiE1BA]: hasVariant(
+                  $state,
+                  "_1",
+                  "docters"
+                )
+              })}
             >
               {hasVariant($state, "_1", "chatviow")
                 ? "\u06af\u0641\u062a\u06af\u0648 \u0647\u0627"
@@ -1487,19 +1476,13 @@ function PlasmicDocters__RenderFunc(props: {
             data-plasmic-override={overrides.docterList}
             className={classNames("__wab_instance", sty.docterList)}
             errorDisplay={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__kjwUz
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__kjwUz)}>
                 {"Error fetching data"}
               </div>
             }
             loadingDisplay={
               <div
-                className={classNames(projectcss.all, sty.freeBox__qBmP, {
+                className={classNames("all", sty.freeBox__qBmP, {
                   [sty.freeBox_1_chatviow__qBmPv0Ufv]: hasVariant(
                     $state,
                     "_1",
@@ -1538,23 +1521,18 @@ function PlasmicDocters__RenderFunc(props: {
                     <div
                       data-plasmic-name={"card7"}
                       data-plasmic-override={overrides.card7}
-                      className={classNames(
-                        projectcss.all,
-                        sty.card7,
-                        "shimmer ",
-                        {
-                          [sty.card7_1_docter]: hasVariant(
-                            $state,
-                            "_1",
-                            "docter"
-                          ),
-                          [sty.card7_1_docters]: hasVariant(
-                            $state,
-                            "_1",
-                            "docters"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.card7, "shimmer ", {
+                        [sty.card7_1_docter]: hasVariant(
+                          $state,
+                          "_1",
+                          "docter"
+                        ),
+                        [sty.card7_1_docters]: hasVariant(
+                          $state,
+                          "_1",
+                          "docters"
+                        )
+                      })}
                       key={currentIndex}
                     />
                   );
@@ -1602,7 +1580,7 @@ function PlasmicDocters__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/help/getList"}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__e9Nlk, {
+              className={classNames("all", sty.freeBox__e9Nlk, {
                 [sty.freeBox_1_chatviow__e9NlkV0Ufv]: hasVariant(
                   $state,
                   "_1",
@@ -1641,7 +1619,7 @@ function PlasmicDocters__RenderFunc(props: {
                   <div
                     data-plasmic-name={"card8"}
                     data-plasmic-override={overrides.card8}
-                    className={classNames(projectcss.all, sty.card8, {
+                    className={classNames("all", sty.card8, {
                       [sty.card8_1_docter]: hasVariant($state, "_1", "docter"),
                       [sty.card8_1_docters]: hasVariant($state, "_1", "docters")
                     })}
@@ -1692,8 +1670,8 @@ function PlasmicDocters__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__ofCwq,
                         {
                           [sty.text_1_docters__ofCwQiE1BA]: hasVariant(
@@ -1785,32 +1763,28 @@ function PlasmicDocters__RenderFunc(props: {
                     />
 
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__ly2AB,
-                        {
-                          [sty.freeBox_1_chatviow__ly2ABv0Ufv]: hasVariant(
-                            $state,
-                            "_1",
-                            "chatviow"
-                          ),
-                          [sty.freeBox_1_docter__ly2ABwI85Y]: hasVariant(
-                            $state,
-                            "_1",
-                            "docter"
-                          ),
-                          [sty.freeBox_1_docters__ly2ABiE1BA]: hasVariant(
-                            $state,
-                            "_1",
-                            "docters"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox__ly2AB, {
+                        [sty.freeBox_1_chatviow__ly2ABv0Ufv]: hasVariant(
+                          $state,
+                          "_1",
+                          "chatviow"
+                        ),
+                        [sty.freeBox_1_docter__ly2ABwI85Y]: hasVariant(
+                          $state,
+                          "_1",
+                          "docter"
+                        ),
+                        [sty.freeBox_1_docters__ly2ABiE1BA]: hasVariant(
+                          $state,
+                          "_1",
+                          "docters"
+                        )
+                      })}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__cTm9O,
                           {
                             [sty.text_1_chatviow__cTm9OV0Ufv]: hasVariant(
@@ -1866,8 +1840,8 @@ function PlasmicDocters__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__aTtJc,
                           {
                             [sty.text_1_chatviow__aTtJcV0Ufv]: hasVariant(
@@ -1919,40 +1893,32 @@ function PlasmicDocters__RenderFunc(props: {
                       </div>
                     </div>
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__fbFc3,
-                        {
-                          [sty.freeBox_1_chatviow__fbFc3V0Ufv]: hasVariant(
+                      className={classNames("all", sty.freeBox__fbFc3, {
+                        [sty.freeBox_1_chatviow__fbFc3V0Ufv]: hasVariant(
+                          $state,
+                          "_1",
+                          "chatviow"
+                        ),
+                        [sty.freeBox_1_docters__fbFc3IE1BA]: hasVariant(
+                          $state,
+                          "_1",
+                          "docters"
+                        )
+                      })}
+                    >
+                      <div
+                        className={classNames("all", sty.freeBox__y9ExH, {
+                          [sty.freeBox_1_chatviow__y9ExHv0Ufv]: hasVariant(
                             $state,
                             "_1",
                             "chatviow"
                           ),
-                          [sty.freeBox_1_docters__fbFc3IE1BA]: hasVariant(
+                          [sty.freeBox_1_docters__y9ExHiE1BA]: hasVariant(
                             $state,
                             "_1",
                             "docters"
                           )
-                        }
-                      )}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__y9ExH,
-                          {
-                            [sty.freeBox_1_chatviow__y9ExHv0Ufv]: hasVariant(
-                              $state,
-                              "_1",
-                              "chatviow"
-                            ),
-                            [sty.freeBox_1_docters__y9ExHiE1BA]: hasVariant(
-                              $state,
-                              "_1",
-                              "docters"
-                            )
-                          }
-                        )}
+                        })}
                       >
                         <Star
                           action={true}
@@ -2086,8 +2052,8 @@ function PlasmicDocters__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___9Sho,
                           {
                             [sty.text_1_chatviow___9ShoV0Ufv]: hasVariant(
@@ -2273,9 +2239,10 @@ export const PlasmicDocters = Object.assign(
     internalArgProps: PlasmicDocters__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/docters",
       pagePath: "/docters",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

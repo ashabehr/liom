@@ -67,7 +67,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicEditCustom.module.css"; // plasmic-import: pJx-OeYDO7eh/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -178,10 +177,6 @@ function PlasmicEditCustom__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -324,6 +319,11 @@ function PlasmicEditCustom__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -341,10 +341,10 @@ function PlasmicEditCustom__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -403,8 +403,8 @@ function PlasmicEditCustom__RenderFunc(props: {
         }}
         opendialog={generateStateValueProp($state, ["dialog2", "opendialog"])}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__lCl2I)}>
-          <div className={classNames(projectcss.all, sty.freeBox___5DgqV)}>
+        <div className={classNames("all", sty.freeBox__lCl2I)}>
+          <div className={classNames("all", sty.freeBox___5DgqV)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -676,16 +676,11 @@ function PlasmicEditCustom__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___5IjEe
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox___5IjEe)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__p5Ekm
                           )}
                         >
@@ -721,7 +716,7 @@ function PlasmicEditCustom__RenderFunc(props: {
               <Icon12Icon
                 data-plasmic-name={"svg"}
                 data-plasmic-override={overrides.svg}
-                className={classNames(projectcss.all, sty.svg)}
+                className={classNames("all", sty.svg)}
                 role={"img"}
               />
             }
@@ -787,13 +782,7 @@ function PlasmicEditCustom__RenderFunc(props: {
               }
             }}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ome6W
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__ome6W)}>
               {"\u0627\u0646\u062a\u062e\u0627\u0628"}
             </div>
           </Button>

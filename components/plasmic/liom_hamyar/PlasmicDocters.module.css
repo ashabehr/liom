@@ -202,7 +202,7 @@
   user-select: text;
   text-decoration-line: none !important;
   text-overflow: clip !important;
-  font-family: "yekan_bakh", sans-serif;
+  font-family: "Roboto", sans-serif;
   min-width: 0;
 }
 .svg__fdywM {
@@ -712,7 +712,7 @@
 .text__ofCwq {
   font-size: 16px;
   text-align: center;
-  font-family: "yekan_bakh";
+  font-family: "Museo Sans Cyrl";
   letter-spacing: 0.25px;
   line-height: 100%;
   color: rgba(33, 42, 68, 1);
@@ -851,7 +851,7 @@
   display: block;
   font-size: 16px;
   text-align: right;
-  font-family: "yekan_bakh";
+  font-family: "Museo Sans Cyrl";
   letter-spacing: 0.266px;
   line-height: 100%;
   color: var(--token-kjnzcds1FoVY);
@@ -889,7 +889,7 @@
   display: block;
   font-size: 14px;
   text-align: right;
-  font-family: "yekan_bakh";
+  font-family: "Museo Sans Cyrl";
   letter-spacing: 0.2px;
   line-height: 100%;
   color: var(--token-hb610yGAurc2);

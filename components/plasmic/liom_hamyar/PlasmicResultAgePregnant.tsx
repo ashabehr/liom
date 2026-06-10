@@ -76,7 +76,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicResultAgePregnant.module.css"; // plasmic-import: -_waIfkF0kiE/css
 
 import Icon230Icon from "./icons/PlasmicIcon__Icon230"; // plasmic-import: Z1yDsg70sSq3/icon
@@ -99,11 +98,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -176,12 +182,6 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -421,6 +421,13 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -431,7 +438,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -446,17 +453,17 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             { [sty.rootdark]: hasVariant($state, "dark", "dark") }
@@ -477,12 +484,12 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
           />
 
           <div
-            className={classNames(projectcss.all, sty.freeBox__gtTgm, {
+            className={classNames("all", sty.freeBox__gtTgm, {
               [sty.freeBoxdark__gtTgmWxKc]: hasVariant($state, "dark", "dark")
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__xncuu)}
+              className={classNames("all", sty.freeBox__xncuu)}
               onClick={async event => {
                 const $steps = {};
 
@@ -530,14 +537,9 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ztJk,
-                  {
-                    [sty.textdark__ztJkWxKc]: hasVariant($state, "dark", "dark")
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__ztJk, {
+                  [sty.textdark__ztJkWxKc]: hasVariant($state, "dark", "dark")
+                })}
               >
                 {
                   "\u0645\u062d\u0627\u0633\u0628\u0647 \u0633\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
@@ -545,7 +547,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
               </div>
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__iYjR)}>
+          <div className={classNames("all", sty.freeBox__iYjR)}>
             <SideEffect
               data-plasmic-name={"sideEffect"}
               data-plasmic-override={overrides.sideEffect}
@@ -674,12 +676,10 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
               }}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox___8Nyjy)}>
-              <div className={classNames(projectcss.all, sty.freeBox___7E4Xg)}>
-                <div className={classNames(projectcss.all, sty.freeBox__zqrQp)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ni1LU)}
-                  >
+            <div className={classNames("all", sty.freeBox___8Nyjy)}>
+              <div className={classNames("all", sty.freeBox___7E4Xg)}>
+                <div className={classNames("all", sty.freeBox__zqrQp)}>
+                  <div className={classNames("all", sty.freeBox__ni1LU)}>
                     <PlasmicImg__
                       alt={""}
                       className={classNames(sty.img__np8V2)}
@@ -717,18 +717,16 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                       width={"250"}
                     />
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__i2S2Z)}
-                  >
+                  <div className={classNames("all", sty.freeBox__i2S2Z)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__kIe9H
                       )}
                     >
                       <div
-                        className={projectcss.__wab_expr_html_text}
+                        className={"__wab_expr_html_text"}
                         dangerouslySetInnerHTML={{
                           __html: (() => {
                             return $state.agePregnant.week > 0
@@ -745,12 +743,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                       />
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__wwPwF)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__vF5Zh)}
-                    >
+                  <div className={classNames("all", sty.freeBox__wwPwF)}>
+                    <div className={classNames("all", sty.freeBox__vF5Zh)}>
                       {(() => {
                         try {
                           return true;
@@ -764,27 +758,17 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__lBkoh
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__tmwm
-                            )}
-                          >
+                        <div className={classNames("all", sty.freeBox__lBkoh)}>
+                          <div className={classNames("all", sty.freeBox__tmwm)}>
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__dd7Uy
                               )}
                             >
                               <div
-                                className={projectcss.__wab_expr_html_text}
+                                className={"__wab_expr_html_text"}
                                 dangerouslySetInnerHTML={{
                                   __html: (() => {
                                     try {
@@ -816,16 +800,11 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           </div>
                         </div>
                       ) : null}
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wkQRw
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__wkQRw)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__l4Fj
                           )}
                         >
@@ -871,35 +850,22 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           </React.Fragment>
                         </div>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__orysH
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__oV5Xj
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__orysH)}>
+                        <div className={classNames("all", sty.freeBox__oV5Xj)}>
                           <Icon230Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__wUpJ
-                            )}
+                            className={classNames("all", sty.svg__wUpJ)}
                             role={"img"}
                           />
 
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__rJ5Bn
                             )}
                           >
                             <div
-                              className={projectcss.__wab_expr_html_text}
+                              className={"__wab_expr_html_text"}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
@@ -925,29 +891,21 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                             />
                           </div>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__urD9W
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__urD9W)}>
                           <Icon229Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__wfFwu
-                            )}
+                            className={classNames("all", sty.svg__wfFwu)}
                             role={"img"}
                           />
 
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text___9C7Dq
                             )}
                           >
                             <div
-                              className={projectcss.__wab_expr_html_text}
+                              className={"__wab_expr_html_text"}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
@@ -977,18 +935,12 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vjVc
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__vjVc)}>
                 {
                   "\u0627\u0628\u0632\u0631\u0627\u0647\u0627\u06cc \u067e\u06cc\u0634\u0646\u0647\u0627\u062f\u06cc \u0644\u06cc\u0648\u0645:"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__zylr0)}>
+              <div className={classNames("all", sty.freeBox__zylr0)}>
                 {(() => {
                   const child$Props = {
                     bordered: true,
@@ -1062,23 +1014,18 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                     expandIconPosition: "end",
                     ghost: true,
                     label2: (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__iq8JH
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__iq8JH)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__q1XSl
                           )}
                         >
                           <React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                               }
                               style={{ color: "#000000" }}
                             >
@@ -1125,12 +1072,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                       data-plasmic-override={overrides.collapseMother}
                       {...child$Props}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wyq2C
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__wyq2C)}>
                         {(() => {
                           try {
                             return $state.advice?.length == 0;
@@ -1695,13 +1637,13 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__kC5U
                             )}
                           >
                             <div
-                              className={projectcss.__wab_expr_html_text}
+                              className={"__wab_expr_html_text"}
                               dangerouslySetInnerHTML={{
                                 __html: (() => {
                                   try {
@@ -1728,10 +1670,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           </div>
                         </LineClomp>
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__pnzMs
-                          )}
+                          className={classNames("all", sty.freeBox__pnzMs)}
                           onClick={async event => {
                             const $steps = {};
 
@@ -1763,8 +1702,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__o21R4
                             )}
                           >
@@ -1774,8 +1713,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           </div>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__yYsbE
                             )}
                           >
@@ -1787,7 +1726,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                               </React.Fragment>
                               <span
                                 className={
-                                  "plasmic_default__all plasmic_default__span"
+                                  "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                                 }
                                 style={{ textDecorationLine: "underline" }}
                               >
@@ -1804,7 +1743,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                   );
                 })()}
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__j48G4)}>
+              <div className={classNames("all", sty.freeBox__j48G4)}>
                 {(() => {
                   const child$Props = {
                     bordered: true,
@@ -1878,23 +1817,18 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                     expandIconPosition: "end",
                     ghost: true,
                     label2: (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__yJiOw
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__yJiOw)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__qcLqs
                           )}
                         >
                           <React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                               }
                               style={{ color: "#000000" }}
                             >
@@ -1941,12 +1875,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                       data-plasmic-override={overrides.collapseBaby}
                       {...child$Props}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__gwxwh
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__gwxwh)}>
                         <LineClomp
                           data-plasmic-name={"lineClomp"}
                           data-plasmic-override={overrides.lineClomp}
@@ -1972,8 +1901,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__ssVk
                             )}
                             style={{ "max-line": 2 }}
@@ -1989,12 +1918,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </LineClomp>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__ndH2B
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__ndH2B)}>
                           <BuyComponenct2
                             data-plasmic-name={"buyComponenct2"}
                             data-plasmic-override={overrides.buyComponenct2}
@@ -2544,10 +2468,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           />
                         ) : null}
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__eNwLc
-                          )}
+                          className={classNames("all", sty.freeBox__eNwLc)}
                           onClick={async event => {
                             const $steps = {};
 
@@ -2579,8 +2500,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__cEi7X
                             )}
                           >
@@ -2590,8 +2511,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                           </div>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__trthQ
                             )}
                           >
@@ -2603,7 +2524,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                               </React.Fragment>
                               <span
                                 className={
-                                  "plasmic_default__all plasmic_default__span"
+                                  "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                                 }
                                 style={{
                                   textDecorationLine: "underline",
@@ -2626,9 +2547,9 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                 })()}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__jvxzP)}>
-              <div className={classNames(projectcss.all, sty.freeBox__nfrV)}>
-                <div className={classNames(projectcss.all, sty.freeBox__jbisP)}>
+            <div className={classNames("all", sty.freeBox__jvxzP)}>
+              <div className={classNames("all", sty.freeBox__nfrV)}>
+                <div className={classNames("all", sty.freeBox__jbisP)}>
                   <Button
                     data-plasmic-name={"button3"}
                     data-plasmic-override={overrides.button3}
@@ -2718,7 +2639,7 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                     <React.Fragment>{"محاسبه مجدد"}</React.Fragment>
                   </Button>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__hucxs)}>
+                <div className={classNames("all", sty.freeBox__hucxs)}>
                   <Button
                     data-plasmic-name={"button4"}
                     data-plasmic-override={overrides.button4}
@@ -2807,8 +2728,8 @@ function PlasmicResultAgePregnant__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___9OoJ
                       )}
                     >
@@ -2962,9 +2883,10 @@ export const PlasmicResultAgePregnant = Object.assign(
     internalArgProps: PlasmicResultAgePregnant__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/result-age-pregnant",
       pagePath: "/result-age-pregnant",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicCountdown.module.css"; // plasmic-import: 1ruheQLCU5pc/css
 
 createPlasmicElementProxy;
@@ -157,10 +156,6 @@ function PlasmicCountdown__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -192,6 +187,11 @@ function PlasmicCountdown__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -209,10 +209,10 @@ function PlasmicCountdown__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -225,7 +225,7 @@ function PlasmicCountdown__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
+        className={classNames("all", sty.freeBox, {
           [sty.freeBoxcolor_base2]: hasVariant($state, "color", "base2"),
           [sty.freeBoxcolor_green]: hasVariant($state, "color", "green"),
           [sty.freeBoxdate_dey]: hasVariant($state, "date", "dey"),
@@ -266,37 +266,32 @@ function PlasmicCountdown__RenderFunc(props: {
             )}
             number={
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__lPfgf,
-                  {
-                    [sty.textcolor_green__lPfgfzcge]: hasVariant(
-                      $state,
-                      "color",
-                      "green"
-                    ),
-                    [sty.textdate_moanth__lPfgfrMljd]: hasVariant(
-                      $state,
-                      "date",
-                      "moanth"
-                    ),
-                    [sty.textnormal_color_green__lPfgfRfGe3Zcge]:
-                      hasVariant($state, "normal", "normal") &&
-                      hasVariant($state, "color", "green"),
-                    [sty.textnormal_color_red_date_moanth__lPfgfRfGe3T6TjRMljd]:
-                      hasVariant($state, "normal", "normal") &&
-                      hasVariant($state, "color", "red") &&
-                      hasVariant($state, "date", "moanth"),
-                    [sty.textnormal_date_moanth__lPfgfRfGe3RMljd]:
-                      hasVariant($state, "normal", "normal") &&
-                      hasVariant($state, "date", "moanth"),
-                    [sty.textnormal_date_moanth_color_green__lPfgfRfGe3RMljdZcge]:
-                      hasVariant($state, "normal", "normal") &&
-                      hasVariant($state, "color", "green") &&
-                      hasVariant($state, "date", "moanth")
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__lPfgf, {
+                  [sty.textcolor_green__lPfgfzcge]: hasVariant(
+                    $state,
+                    "color",
+                    "green"
+                  ),
+                  [sty.textdate_moanth__lPfgfrMljd]: hasVariant(
+                    $state,
+                    "date",
+                    "moanth"
+                  ),
+                  [sty.textnormal_color_green__lPfgfRfGe3Zcge]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "green"),
+                  [sty.textnormal_color_red_date_moanth__lPfgfRfGe3T6TjRMljd]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "red") &&
+                    hasVariant($state, "date", "moanth"),
+                  [sty.textnormal_date_moanth__lPfgfRfGe3RMljd]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "date", "moanth"),
+                  [sty.textnormal_date_moanth_color_green__lPfgfRfGe3RMljdZcge]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "green") &&
+                    hasVariant($state, "date", "moanth")
+                })}
               >
                 {hasVariant($state, "normal", "normal") &&
                 hasVariant($state, "date", "moanth") ? (
@@ -382,34 +377,29 @@ function PlasmicCountdown__RenderFunc(props: {
             }
             unit={
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oilAg,
-                  {
-                    [sty.textcolor_green__oilAgzcge]: hasVariant(
-                      $state,
-                      "color",
-                      "green"
-                    ),
-                    [sty.textdate_moanth__oilAgrMljd]: hasVariant(
-                      $state,
-                      "date",
-                      "moanth"
-                    ),
-                    [sty.textnormal_color_red_date_moanth__oilAgRfGe3T6TjRMljd]:
-                      hasVariant($state, "normal", "normal") &&
-                      hasVariant($state, "color", "red") &&
-                      hasVariant($state, "date", "moanth"),
-                    [sty.textnormal_date_moanth__oilAgRfGe3RMljd]:
-                      hasVariant($state, "normal", "normal") &&
-                      hasVariant($state, "date", "moanth"),
-                    [sty.textnormal_date_moanth_color_green__oilAgRfGe3RMljdZcge]:
-                      hasVariant($state, "normal", "normal") &&
-                      hasVariant($state, "date", "moanth") &&
-                      hasVariant($state, "color", "green")
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__oilAg, {
+                  [sty.textcolor_green__oilAgzcge]: hasVariant(
+                    $state,
+                    "color",
+                    "green"
+                  ),
+                  [sty.textdate_moanth__oilAgrMljd]: hasVariant(
+                    $state,
+                    "date",
+                    "moanth"
+                  ),
+                  [sty.textnormal_color_red_date_moanth__oilAgRfGe3T6TjRMljd]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "color", "red") &&
+                    hasVariant($state, "date", "moanth"),
+                  [sty.textnormal_date_moanth__oilAgRfGe3RMljd]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "date", "moanth"),
+                  [sty.textnormal_date_moanth_color_green__oilAgRfGe3RMljdZcge]:
+                    hasVariant($state, "normal", "normal") &&
+                    hasVariant($state, "date", "moanth") &&
+                    hasVariant($state, "color", "green")
+                })}
               >
                 {"\u0631\u0648\u0632"}
               </div>
@@ -444,42 +434,37 @@ function PlasmicCountdown__RenderFunc(props: {
           })}
           number={
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___77QVc,
-                {
-                  [sty.textcolor_base2___77QVCw7ETd]: hasVariant(
-                    $state,
-                    "color",
-                    "base2"
-                  ),
-                  [sty.textcolor_green___77QVCzcge]: hasVariant(
-                    $state,
-                    "color",
-                    "green"
-                  ),
-                  [sty.textdate_moanth___77QVCrMljd]: hasVariant(
-                    $state,
-                    "date",
-                    "moanth"
-                  ),
-                  [sty.textnormal___77QVcRfGe3]: hasVariant(
-                    $state,
-                    "normal",
-                    "normal"
-                  ),
-                  [sty.textnormal_color_green___77QVcRfGe3Zcge]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "green"),
-                  [sty.textnormal_color_red___77QVcRfGe3T6Tj]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "red"),
-                  [sty.textnormal_date_moanth___77QVcRfGe3RMljd]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "date", "moanth")
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text___77QVc, {
+                [sty.textcolor_base2___77QVCw7ETd]: hasVariant(
+                  $state,
+                  "color",
+                  "base2"
+                ),
+                [sty.textcolor_green___77QVCzcge]: hasVariant(
+                  $state,
+                  "color",
+                  "green"
+                ),
+                [sty.textdate_moanth___77QVCrMljd]: hasVariant(
+                  $state,
+                  "date",
+                  "moanth"
+                ),
+                [sty.textnormal___77QVcRfGe3]: hasVariant(
+                  $state,
+                  "normal",
+                  "normal"
+                ),
+                [sty.textnormal_color_green___77QVcRfGe3Zcge]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "green"),
+                [sty.textnormal_color_red___77QVcRfGe3T6Tj]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "red"),
+                [sty.textnormal_date_moanth___77QVcRfGe3RMljd]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "date", "moanth")
+              })}
             >
               {hasVariant($state, "normal", "normal") &&
               hasVariant($state, "date", "moanth") ? (
@@ -539,42 +524,37 @@ function PlasmicCountdown__RenderFunc(props: {
           }
           unit={
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__qsTu,
-                {
-                  [sty.textcolor_base2__qsTuw7ETd]: hasVariant(
-                    $state,
-                    "color",
-                    "base2"
-                  ),
-                  [sty.textcolor_green__qsTuzcge]: hasVariant(
-                    $state,
-                    "color",
-                    "green"
-                  ),
-                  [sty.textdate_moanth__qsTurMljd]: hasVariant(
-                    $state,
-                    "date",
-                    "moanth"
-                  ),
-                  [sty.textnormal__qsTuRfGe3]: hasVariant(
-                    $state,
-                    "normal",
-                    "normal"
-                  ),
-                  [sty.textnormal_color_green__qsTuRfGe3Zcge]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "green"),
-                  [sty.textnormal_color_red__qsTuRfGe3T6Tj]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "red"),
-                  [sty.textnormal_date_moanth__qsTuRfGe3RMljd]:
-                    hasVariant($state, "date", "moanth") &&
-                    hasVariant($state, "normal", "normal")
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__qsTu, {
+                [sty.textcolor_base2__qsTuw7ETd]: hasVariant(
+                  $state,
+                  "color",
+                  "base2"
+                ),
+                [sty.textcolor_green__qsTuzcge]: hasVariant(
+                  $state,
+                  "color",
+                  "green"
+                ),
+                [sty.textdate_moanth__qsTurMljd]: hasVariant(
+                  $state,
+                  "date",
+                  "moanth"
+                ),
+                [sty.textnormal__qsTuRfGe3]: hasVariant(
+                  $state,
+                  "normal",
+                  "normal"
+                ),
+                [sty.textnormal_color_green__qsTuRfGe3Zcge]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "green"),
+                [sty.textnormal_color_red__qsTuRfGe3T6Tj]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "red"),
+                [sty.textnormal_date_moanth__qsTuRfGe3RMljd]:
+                  hasVariant($state, "date", "moanth") &&
+                  hasVariant($state, "normal", "normal")
+              })}
             >
               {hasVariant($state, "date", "moanth")
                 ? "\u0645\u0627\u0647"
@@ -614,39 +594,34 @@ function PlasmicCountdown__RenderFunc(props: {
           })}
           number={
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__nCs9,
-                {
-                  [sty.textcolor_base2__nCs9W7ETd]: hasVariant(
-                    $state,
-                    "color",
-                    "base2"
-                  ),
-                  [sty.textcolor_green__nCs9Zcge]: hasVariant(
-                    $state,
-                    "color",
-                    "green"
-                  ),
-                  [sty.textdate_moanth__nCs9RMljd]: hasVariant(
-                    $state,
-                    "date",
-                    "moanth"
-                  ),
-                  [sty.textnormal__nCs9RfGe3]: hasVariant(
-                    $state,
-                    "normal",
-                    "normal"
-                  ),
-                  [sty.textnormal_color_green__nCs9RfGe3Zcge]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "green"),
-                  [sty.textnormal_color_red__nCs9RfGe3T6Tj]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "red")
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__nCs9, {
+                [sty.textcolor_base2__nCs9W7ETd]: hasVariant(
+                  $state,
+                  "color",
+                  "base2"
+                ),
+                [sty.textcolor_green__nCs9Zcge]: hasVariant(
+                  $state,
+                  "color",
+                  "green"
+                ),
+                [sty.textdate_moanth__nCs9RMljd]: hasVariant(
+                  $state,
+                  "date",
+                  "moanth"
+                ),
+                [sty.textnormal__nCs9RfGe3]: hasVariant(
+                  $state,
+                  "normal",
+                  "normal"
+                ),
+                [sty.textnormal_color_green__nCs9RfGe3Zcge]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "green"),
+                [sty.textnormal_color_red__nCs9RfGe3T6Tj]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "red")
+              })}
             >
               <React.Fragment>
                 {(() => {
@@ -667,46 +642,41 @@ function PlasmicCountdown__RenderFunc(props: {
           }
           unit={
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__gpy6Q,
-                {
-                  [sty.textcolor_base2__gpy6Qw7ETd]: hasVariant(
-                    $state,
-                    "color",
-                    "base2"
-                  ),
-                  [sty.textcolor_green__gpy6Qzcge]: hasVariant(
-                    $state,
-                    "color",
-                    "green"
-                  ),
-                  [sty.textdate_moanth__gpy6QrMljd]: hasVariant(
-                    $state,
-                    "date",
-                    "moanth"
-                  ),
-                  [sty.textnormal__gpy6QRfGe3]: hasVariant(
-                    $state,
-                    "normal",
-                    "normal"
-                  ),
-                  [sty.textnormal_color_green__gpy6QRfGe3Zcge]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "green"),
-                  [sty.textnormal_color_red__gpy6QRfGe3T6Tj]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "red"),
-                  [sty.textnormal_color_red_date_moanth__gpy6QRfGe3T6TjRMljd]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "red") &&
-                    hasVariant($state, "date", "moanth"),
-                  [sty.textnormal_date_moanth__gpy6QRfGe3RMljd]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "date", "moanth")
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__gpy6Q, {
+                [sty.textcolor_base2__gpy6Qw7ETd]: hasVariant(
+                  $state,
+                  "color",
+                  "base2"
+                ),
+                [sty.textcolor_green__gpy6Qzcge]: hasVariant(
+                  $state,
+                  "color",
+                  "green"
+                ),
+                [sty.textdate_moanth__gpy6QrMljd]: hasVariant(
+                  $state,
+                  "date",
+                  "moanth"
+                ),
+                [sty.textnormal__gpy6QRfGe3]: hasVariant(
+                  $state,
+                  "normal",
+                  "normal"
+                ),
+                [sty.textnormal_color_green__gpy6QRfGe3Zcge]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "green"),
+                [sty.textnormal_color_red__gpy6QRfGe3T6Tj]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "red"),
+                [sty.textnormal_color_red_date_moanth__gpy6QRfGe3T6TjRMljd]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "red") &&
+                  hasVariant($state, "date", "moanth"),
+                [sty.textnormal_date_moanth__gpy6QRfGe3RMljd]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "date", "moanth")
+              })}
             >
               {"\u0633\u0627\u0639\u062a"}
             </div>
@@ -726,43 +696,38 @@ function PlasmicCountdown__RenderFunc(props: {
           })}
           number={
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__u8Ay,
-                {
-                  [sty.textcolor_base2__u8AyW7ETd]: hasVariant(
-                    $state,
-                    "color",
-                    "base2"
-                  ),
-                  [sty.textcolor_green__u8AyZcge]: hasVariant(
-                    $state,
-                    "color",
-                    "green"
-                  ),
-                  [sty.textdate_moanth__u8AyRMljd]: hasVariant(
-                    $state,
-                    "date",
-                    "moanth"
-                  ),
-                  [sty.textnormal__u8AyRfGe3]: hasVariant(
-                    $state,
-                    "normal",
-                    "normal"
-                  ),
-                  [sty.textnormal_color_green__u8AyRfGe3Zcge]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "green"),
-                  [sty.textnormal_color_red__u8AyRfGe3T6Tj]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "red"),
-                  [sty.textnormal_date_moanth_color_green__u8AyRfGe3RMljdZcge]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "green") &&
-                    hasVariant($state, "date", "moanth")
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__u8Ay, {
+                [sty.textcolor_base2__u8AyW7ETd]: hasVariant(
+                  $state,
+                  "color",
+                  "base2"
+                ),
+                [sty.textcolor_green__u8AyZcge]: hasVariant(
+                  $state,
+                  "color",
+                  "green"
+                ),
+                [sty.textdate_moanth__u8AyRMljd]: hasVariant(
+                  $state,
+                  "date",
+                  "moanth"
+                ),
+                [sty.textnormal__u8AyRfGe3]: hasVariant(
+                  $state,
+                  "normal",
+                  "normal"
+                ),
+                [sty.textnormal_color_green__u8AyRfGe3Zcge]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "green"),
+                [sty.textnormal_color_red__u8AyRfGe3T6Tj]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "red"),
+                [sty.textnormal_date_moanth_color_green__u8AyRfGe3RMljdZcge]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "green") &&
+                  hasVariant($state, "date", "moanth")
+              })}
             >
               <React.Fragment>
                 {(() => {
@@ -783,34 +748,29 @@ function PlasmicCountdown__RenderFunc(props: {
           }
           unit={
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__rdxiz,
-                {
-                  [sty.textcolor_base2__rdxiZw7ETd]: hasVariant(
-                    $state,
-                    "color",
-                    "base2"
-                  ),
-                  [sty.textcolor_green__rdxiZzcge]: hasVariant(
-                    $state,
-                    "color",
-                    "green"
-                  ),
-                  [sty.textnormal__rdxizRfGe3]: hasVariant(
-                    $state,
-                    "normal",
-                    "normal"
-                  ),
-                  [sty.textnormal_color_green__rdxizRfGe3Zcge]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "green"),
-                  [sty.textnormal_color_red__rdxizRfGe3T6Tj]:
-                    hasVariant($state, "normal", "normal") &&
-                    hasVariant($state, "color", "red")
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__rdxiz, {
+                [sty.textcolor_base2__rdxiZw7ETd]: hasVariant(
+                  $state,
+                  "color",
+                  "base2"
+                ),
+                [sty.textcolor_green__rdxiZzcge]: hasVariant(
+                  $state,
+                  "color",
+                  "green"
+                ),
+                [sty.textnormal__rdxizRfGe3]: hasVariant(
+                  $state,
+                  "normal",
+                  "normal"
+                ),
+                [sty.textnormal_color_green__rdxizRfGe3Zcge]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "green"),
+                [sty.textnormal_color_red__rdxizRfGe3T6Tj]:
+                  hasVariant($state, "normal", "normal") &&
+                  hasVariant($state, "color", "red")
+              })}
             >
               {"\u062f\u0642\u06cc\u0642\u0647"}
             </div>

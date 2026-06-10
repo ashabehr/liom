@@ -70,7 +70,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicNoname.module.css"; // plasmic-import: EIo8r8kqzGza/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -91,11 +90,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -162,10 +168,6 @@ function PlasmicNoname__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -201,6 +203,11 @@ function PlasmicNoname__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -211,7 +218,7 @@ function PlasmicNoname__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -226,17 +233,17 @@ function PlasmicNoname__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -244,31 +251,25 @@ function PlasmicNoname__RenderFunc(props: {
           <div
             data-plasmic-name={"halamanUtama"}
             data-plasmic-override={overrides.halamanUtama}
-            className={classNames(projectcss.all, sty.halamanUtama)}
+            className={classNames("all", sty.halamanUtama)}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__aVeVu)}>
+            <div className={classNames("all", sty.freeBox__aVeVu)}>
               <div
                 data-plasmic-name={"group35"}
                 data-plasmic-override={overrides.group35}
-                className={classNames(projectcss.all, sty.group35)}
+                className={classNames("all", sty.group35)}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kNmmo
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__kNmmo)}
                 >
                   {"\u0630\u06a9\u0631 \u0647\u0627\u06cc \u0645\u0646"}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__kX1T7)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__tBcMg)}
-                  >
+                <div className={classNames("all", sty.freeBox__kX1T7)}>
+                  <div className={classNames("all", sty.freeBox__tBcMg)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__uPqrb
                       )}
                     >
@@ -278,8 +279,8 @@ function PlasmicNoname__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__ren3Z
                       )}
                     >
@@ -352,8 +353,8 @@ function PlasmicNoname__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__mEOo
                       )}
                     >
@@ -386,11 +387,7 @@ function PlasmicNoname__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__xzhQ6
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__xzhQ6)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -418,7 +415,7 @@ function PlasmicNoname__RenderFunc(props: {
                   overrides.pngtreeRamadanIllustrationMuslimFamilyPraying74668381
                 }
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.pngtreeRamadanIllustrationMuslimFamilyPraying74668381
                 )}
               />
@@ -626,9 +623,10 @@ export const PlasmicNoname = Object.assign(
     internalArgProps: PlasmicNoname__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/noname",
       pagePath: "/noname",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

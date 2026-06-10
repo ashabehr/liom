@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicCreaditButten.module.css"; // plasmic-import: 1skTNuQS9BUR/css
 
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
@@ -158,10 +157,6 @@ function PlasmicCreaditButten__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -259,6 +254,11 @@ function PlasmicCreaditButten__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -276,10 +276,10 @@ function PlasmicCreaditButten__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -292,12 +292,12 @@ function PlasmicCreaditButten__RenderFunc(props: {
       onClick={args.onClick}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__cIMgF, {
+        className={classNames("all", sty.freeBox__cIMgF, {
           [sty.freeBoxsize_larg__cIMgFGg7Em]: hasVariant($state, "size", "larg")
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__fvhYh, {
+          className={classNames("all", sty.freeBox__fvhYh, {
             [sty.freeBoxsize_larg__fvhYhGg7Em]: hasVariant(
               $state,
               "size",
@@ -332,7 +332,7 @@ function PlasmicCreaditButten__RenderFunc(props: {
             errorDisplay={null}
             loadingDisplay={
               <Icon115Icon
-                className={classNames(projectcss.all, sty.svg__cSlIz, {
+                className={classNames("all", sty.svg__cSlIz, {
                   [sty.svgaction_red__cSlIzWe6Q]: hasVariant(
                     $state,
                     "action",
@@ -405,8 +405,8 @@ function PlasmicCreaditButten__RenderFunc(props: {
           >
             <div
               className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
+                "all",
+                "__wab_text",
                 sty.text__yvOe,
                 "swiper-ltr",
                 {
@@ -508,17 +508,11 @@ function PlasmicCreaditButten__RenderFunc(props: {
         shape={"round"}
         size={"minimal"}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__izlpC
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__izlpC)}>
           {"Button"}
         </div>
         <Icon372Icon
-          className={classNames(projectcss.all, sty.svg__xXrFq)}
+          className={classNames("all", sty.svg__xXrFq)}
           role={"img"}
         />
       </Button>

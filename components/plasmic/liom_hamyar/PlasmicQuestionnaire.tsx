@@ -75,7 +75,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicQuestionnaire.module.css"; // plasmic-import: VgOjUIjY96PP/css
 
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
@@ -97,11 +96,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -173,12 +179,6 @@ function PlasmicQuestionnaire__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -433,6 +433,13 @@ function PlasmicQuestionnaire__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -443,7 +450,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -458,17 +465,17 @@ function PlasmicQuestionnaire__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -526,12 +533,12 @@ function PlasmicQuestionnaire__RenderFunc(props: {
           <div
             data-plasmic-name={"top3"}
             data-plasmic-override={overrides.top3}
-            className={classNames(projectcss.all, sty.top3)}
+            className={classNames("all", sty.top3)}
           >
             <ChevronRightIcon
               data-plasmic-name={"svg"}
               data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
+              className={classNames("all", sty.svg)}
               onClick={async event => {
                 const $steps = {};
 
@@ -560,13 +567,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xLjSj
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__xLjSj)}>
               {"\u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"}
             </div>
           </div>
@@ -576,90 +577,54 @@ function PlasmicQuestionnaire__RenderFunc(props: {
             className={classNames("__wab_instance", sty.apiRequest2)}
             errorDisplay={null}
             loadingDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__xkAyc)}>
-                <div className={classNames(projectcss.all, sty.freeBox__hahJj)}>
+              <div className={classNames("all", sty.freeBox__xkAyc)}>
+                <div className={classNames("all", sty.freeBox__hahJj)}>
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox___6ROFz,
                       "shimmer"
                     )}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__zwip0,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__zwip0, "shimmer")}
                   />
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__cjo21)}>
+                <div className={classNames("all", sty.freeBox__cjo21)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__r5At4,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__r5At4, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__j9Oyk,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__j9Oyk, "shimmer")}
                   />
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__hVuSn)}>
+                <div className={classNames("all", sty.freeBox__hVuSn)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__p0JV,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__p0JV, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__rqziw,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__rqziw, "shimmer")}
                   />
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__qjvaa)}>
+                <div className={classNames("all", sty.freeBox__qjvaa)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__g0So1,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__g0So1, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__eRvWc,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__eRvWc, "shimmer")}
                   />
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__vcSt7)}>
+                <div className={classNames("all", sty.freeBox__vcSt7)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__bbp6E,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__bbp6E, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__ibvVb,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__ibvVb, "shimmer")}
                   />
                 </div>
               </div>
@@ -704,7 +669,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
             shouldFetch={true}
             url={"https://n8n.staas.ir/webhook/help/Question"}
           >
-            <div className={classNames(projectcss.all, sty.freeBox___9AwXk)}>
+            <div className={classNames("all", sty.freeBox___9AwXk)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -731,8 +696,8 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___8ItEf
                       )}
                     >
@@ -765,12 +730,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___9Hbb4
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox___9Hbb4)}>
                         {(() => {
                           const child$Props = {
                             autoSize: true,
@@ -870,12 +830,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___47OiX
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox___47OiX)}>
                         {(() => {
                           const child$Props = {
                             children: null,
@@ -989,12 +944,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__oAJu
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__oAJu)}>
                         {(() => {
                           const child$Props = {
                             children: null,
@@ -1098,16 +1048,14 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                   </Question>
                 );
               })}
-              <div className={classNames(projectcss.all, sty.freeBox__sKbFm)} />
+              <div className={classNames("all", sty.freeBox__sKbFm)} />
 
               <section
                 data-plasmic-name={"section"}
                 data-plasmic-override={overrides.section}
-                className={classNames(projectcss.all, sty.section)}
+                className={classNames("all", sty.section)}
               >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___9Qi7N)}
-                >
+                <div className={classNames("all", sty.freeBox___9Qi7N)}>
                   <Button
                     data-plasmic-name={"button5"}
                     data-plasmic-override={overrides.button5}
@@ -1540,7 +1488,7 @@ function PlasmicQuestionnaire__RenderFunc(props: {
                 </div>
               </section>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__pknRw)} />
+            <div className={classNames("all", sty.freeBox__pknRw)} />
           </ApiRequest>
         </div>
       </div>
@@ -1710,9 +1658,10 @@ export const PlasmicQuestionnaire = Object.assign(
     internalArgProps: PlasmicQuestionnaire__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/Questionnaire",
       pagePath: "/Questionnaire",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

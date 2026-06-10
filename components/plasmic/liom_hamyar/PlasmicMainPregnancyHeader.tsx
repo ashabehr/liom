@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMainPregnancyHeader.module.css"; // plasmic-import: 9xsQ86WEmeJv/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
@@ -175,12 +174,6 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -279,6 +272,13 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -296,19 +296,19 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
       {renderPlasmicSlot({
         defaultContents: (
-          <div className={classNames(projectcss.all, sty.freeBox__q7Hh6)}>
+          <div className={classNames("all", sty.freeBox__q7Hh6)}>
             <Icon185Icon
-              className={classNames(projectcss.all, sty.svg__aGsZw)}
+              className={classNames("all", sty.svg__aGsZw)}
               onClick={async event => {
                 const $steps = {};
 
@@ -349,13 +349,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xn3Am
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__xn3Am)}>
               {
                 "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647"
               }
@@ -364,7 +358,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
         ),
         value: args.children
       })}
-      <div className={classNames(projectcss.all, sty.freeBox__kTwNk)}>
+      <div className={classNames("all", sty.freeBox__kTwNk)}>
         {renderPlasmicSlot({
           defaultContents: null,
           value: args.slot
@@ -376,9 +370,9 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
         className={classNames("__wab_instance", sty.drawer)}
         closeButtonClassName={classNames({ [sty["pcls_EKctgOcT-HA7"]]: true })}
         defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
         drawerBodyClassName={classNames({ [sty["pcls_4pFLvStHepAg"]]: true })}
@@ -429,7 +423,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
         open={generateStateValueProp($state, ["drawer", "open"])}
         title={
           <div
-            className={classNames(projectcss.all, sty.freeBox__xiPYl, {
+            className={classNames("all", sty.freeBox__xiPYl, {
               [sty.freeBoxglobal_newView_newView__xiPYl0DHva]: hasVariant(
                 globalVariants,
                 "newView",
@@ -437,15 +431,11 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
               )
             })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__gXdLc)}>
-              <div className={classNames(projectcss.all, sty.freeBox__xx1Ox)}>
-                <div className={classNames(projectcss.all, sty.freeBox__d8Mvy)}>
+            <div className={classNames("all", sty.freeBox__gXdLc)}>
+              <div className={classNames("all", sty.freeBox__xx1Ox)}>
+                <div className={classNames("all", sty.freeBox__d8Mvy)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__qPTr3
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__qPTr3)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -464,11 +454,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__bEsjI
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__bEsjI)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -488,7 +474,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___8UzrI)}
+                  className={classNames("all", sty.freeBox___8UzrI)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -610,7 +596,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                   }}
                 >
                   <Icon187Icon
-                    className={classNames(projectcss.all, sty.svg__jhx1)}
+                    className={classNames("all", sty.svg__jhx1)}
                     role={"img"}
                   />
                 </div>
@@ -620,9 +606,9 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                 code={"<hr></hr>"}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__xk0Sm)}>
+              <div className={classNames("all", sty.freeBox__xk0Sm)}>
                 <Icon188Icon
-                  className={classNames(projectcss.all, sty.svg__usR8H)}
+                  className={classNames("all", sty.svg__usR8H)}
                   role={"img"}
                 />
 
@@ -640,11 +626,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                   }
                 })() ? (
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__qImgm
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__qImgm)}
                   >
                     {
                       "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0641\u0639\u0627\u0644\u06cc \u0646\u062f\u0627\u0631\u06cc!"
@@ -665,11 +647,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                   }
                 })() ? (
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__cw9HC
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__cw9HC)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -750,10 +728,10 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
           </div>
         }
       >
-        <div className={classNames(projectcss.all, sty.freeBox__yJmcQ)}>
-          <div className={classNames(projectcss.all, sty.freeBox__w6Tch)}>
+        <div className={classNames("all", sty.freeBox__yJmcQ)}>
+          <div className={classNames("all", sty.freeBox__w6Tch)}>
             <div
-              className={classNames(projectcss.all, sty.freeBox__ewdKk)}
+              className={classNames("all", sty.freeBox__ewdKk)}
               onClick={async event => {
                 const $steps = {};
 
@@ -875,18 +853,14 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                 }
               }}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__h4FvN)}>
+              <div className={classNames("all", sty.freeBox__h4FvN)}>
                 <Icon188Icon
-                  className={classNames(projectcss.all, sty.svg__arczI)}
+                  className={classNames("all", sty.svg__arczI)}
                   role={"img"}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___2XOrn
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___2XOrn)}
                 >
                   {
                     "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u0633\u0644\u0627\u0645\u062a"
@@ -948,18 +922,14 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
                 size={"minimal"}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__mx44Q
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__mx44Q)}
                 >
                   {"\u062e\u0631\u06cc\u062f"}
                 </div>
               </Button>
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__lvNu4)}
+              className={classNames("all", sty.freeBox__lvNu4)}
               onClick={async event => {
                 const $steps = {};
 
@@ -1022,28 +992,24 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
               }}
             >
               <Icon189Icon
-                className={classNames(projectcss.all, sty.svg__irc8L)}
+                className={classNames("all", sty.svg__irc8L)}
                 role={"img"}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___1GTjd
-                )}
+                className={classNames("all", "__wab_text", sty.text___1GTjd)}
               >
                 {
                   "\u0628\u0631\u0646\u0627\u0645\u0647 \u0631\u06cc\u0632\u06cc \u0627\u0645\u0631\u0648\u0632"
                 }
               </div>
               <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg___5IiZ)}
+                className={classNames("all", sty.svg___5IiZ)}
                 role={"img"}
               />
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__d91Sk)}
+              className={classNames("all", sty.freeBox__d91Sk)}
               onClick={async event => {
                 const $steps = {};
 
@@ -1106,26 +1072,20 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
               }}
             >
               <Icon190Icon
-                className={classNames(projectcss.all, sty.svg___8Il1K)}
+                className={classNames("all", sty.svg___8Il1K)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bf7A
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__bf7A)}>
                 <React.Fragment>{"نشانه های بارداری"}</React.Fragment>
               </div>
               <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg__lpT7)}
+                className={classNames("all", sty.svg__lpT7)}
                 role={"img"}
               />
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__u9Q2P)}
+              className={classNames("all", sty.freeBox__u9Q2P)}
               onClick={async event => {
                 const $steps = {};
 
@@ -1191,21 +1151,15 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
               }}
             >
               <Icon190Icon
-                className={classNames(projectcss.all, sty.svg__sksbq)}
+                className={classNames("all", sty.svg__sksbq)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__d17G8
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__d17G8)}>
                 <React.Fragment>{"تنظیمات"}</React.Fragment>
               </div>
               <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg__te8Xz)}
+                className={classNames("all", sty.svg__te8Xz)}
                 role={"img"}
               />
             </div>
@@ -1215,7 +1169,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
             />
 
             <div
-              className={classNames(projectcss.all, sty.freeBox__sUNtF)}
+              className={classNames("all", sty.freeBox__sUNtF)}
               onClick={async event => {
                 const $steps = {};
 
@@ -1275,26 +1229,22 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
               }}
             >
               <Icon193Icon
-                className={classNames(projectcss.all, sty.svg__vI55E)}
+                className={classNames("all", sty.svg__vI55E)}
                 role={"img"}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___8Vvm2
-                )}
+                className={classNames("all", "__wab_text", sty.text___8Vvm2)}
               >
                 {"\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
               </div>
               <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg__rrbJy)}
+                className={classNames("all", sty.svg__rrbJy)}
                 role={"img"}
               />
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__eNyRe)}
+              className={classNames("all", sty.freeBox__eNyRe)}
               onClick={async event => {
                 const $steps = {};
 
@@ -1354,35 +1304,29 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
               }}
             >
               <Icon194Icon
-                className={classNames(projectcss.all, sty.svg__gE2Ka)}
+                className={classNames("all", sty.svg__gE2Ka)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__t98RH
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__t98RH)}>
                 {
                   "\u062a\u0645\u0627\u0633 \u0628\u0627 \u0645\u0627 \u0648 \u067e\u0634\u062a\u06cc\u0628\u0627\u0646\u06cc"
                 }
               </div>
               <ChevronLeftIcon
-                className={classNames(projectcss.all, sty.svg___7GpLs)}
+                className={classNames("all", sty.svg___7GpLs)}
                 role={"img"}
               />
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__eaBZv)}>
+          <div className={classNames("all", sty.freeBox__eaBZv)}>
             <Embed
               className={classNames("__wab_instance", sty.embedHtml__qam0B)}
               code={"<hr></hr>"}
             />
 
             <div
-              className={classNames(projectcss.all, sty.freeBox__zNbpi)}
+              className={classNames("all", sty.freeBox__zNbpi)}
               onClick={async event => {
                 const $steps = {};
 
@@ -1456,17 +1400,11 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
               }}
             >
               <Icon226Icon
-                className={classNames(projectcss.all, sty.svg__vc0Cb)}
+                className={classNames("all", sty.svg__vc0Cb)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__g1UV
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__g1UV)}>
                 {
                   "\u062e\u0631\u0648\u062c \u0627\u0632 \u062d\u0633\u0627\u0628"
                 }
@@ -1480,9 +1418,9 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
         data-plasmic-override={overrides.modal}
         className={classNames("__wab_instance", sty.modal)}
         defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
         hideFooter={true}
@@ -1496,38 +1434,26 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["modal", "open"])}
         title={
-          <div className={classNames(projectcss.all, sty.freeBox__jJgjy)}>
+          <div className={classNames("all", sty.freeBox__jJgjy)}>
             <Icon157Icon
-              className={classNames(projectcss.all, sty.svg___15Dmw)}
+              className={classNames("all", sty.svg___15Dmw)}
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__rKcGo
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__rKcGo)}>
               {"\u062e\u0631\u0648\u062c \u0627\u0632 \u062d\u0633\u0627\u0628"}
             </div>
           </div>
         }
         trigger={null}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__qiA5T)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___40J2J
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__qiA5T)}>
+          <div className={classNames("all", "__wab_text", sty.text___40J2J)}>
             {
               "\u0627\u0632 \u062e\u0627\u0631\u062c \u0634\u062f\u0646 \u0627\u0632 \u062d\u0633\u0627\u0628 \u06a9\u0627\u0631\u0628\u0631\u06cc \u062e\u0648\u062f \u0645\u0637\u0645\u0626\u0646 \u0647\u0633\u062a\u06cc\u062f\u061f"
             }
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__iv6Go)}>
+          <div className={classNames("all", sty.freeBox__iv6Go)}>
             <Button
               data-plasmic-name={"button2"}
               data-plasmic-override={overrides.button2}
@@ -1644,13 +1570,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
               }}
               size={"compact"}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__r8Gp6
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__r8Gp6)}>
                 {"\u062e\u0631\u0648\u062c"}
               </div>
             </Button>
@@ -1746,11 +1666,7 @@ function PlasmicMainPregnancyHeader__RenderFunc(props: {
               size={"compact"}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___5E9Ke
-                )}
+                className={classNames("all", "__wab_text", sty.text___5E9Ke)}
               >
                 {"\u062e\u06cc\u0631"}
               </div>

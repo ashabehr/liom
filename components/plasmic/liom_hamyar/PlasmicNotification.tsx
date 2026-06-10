@@ -71,7 +71,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicNotification.module.css"; // plasmic-import: YKiT8gl73-sD/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -91,11 +90,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -168,12 +174,6 @@ function PlasmicNotification__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -270,6 +270,13 @@ function PlasmicNotification__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -280,7 +287,7 @@ function PlasmicNotification__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -295,17 +302,17 @@ function PlasmicNotification__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             {
@@ -338,7 +345,7 @@ function PlasmicNotification__RenderFunc(props: {
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section, {
+            className={classNames("all", sty.section, {
               [sty.sectionnoNotification]: hasVariant(
                 $state,
                 "noNotification",
@@ -364,11 +371,11 @@ function PlasmicNotification__RenderFunc(props: {
                 data-plasmic-override={overrides.headerLiom}
                 className={classNames("__wab_instance", sty.headerLiom)}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__vbUj4)}>
+                <div className={classNames("all", sty.freeBox__vbUj4)}>
                   <XIcon
                     data-plasmic-name={"svg"}
                     data-plasmic-override={overrides.svg}
-                    className={classNames(projectcss.all, sty.svg)}
+                    className={classNames("all", sty.svg)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -398,11 +405,7 @@ function PlasmicNotification__RenderFunc(props: {
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__dXtwM
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__dXtwM)}
                   >
                     {"\u0627\u0639\u0644\u0627\u0646\u0627\u062a"}
                   </div>
@@ -411,7 +414,7 @@ function PlasmicNotification__RenderFunc(props: {
             ) : null}
           </section>
           <div
-            className={classNames(projectcss.all, sty.freeBox__xZf, {
+            className={classNames("all", sty.freeBox__xZf, {
               [sty.freeBoxnoNotification__xZfObwoa]: hasVariant(
                 $state,
                 "noNotification",
@@ -455,18 +458,13 @@ function PlasmicNotification__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__uV80F,
-                {
-                  [sty.textnoNotification__uV80Fobwoa]: hasVariant(
-                    $state,
-                    "noNotification",
-                    "noNotification"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__uV80F, {
+                [sty.textnoNotification__uV80Fobwoa]: hasVariant(
+                  $state,
+                  "noNotification",
+                  "noNotification"
+                )
+              })}
             >
               {hasVariant($state, "noNotification", "noNotification")
                 ? "\u0627\u0639\u0644\u0627\u0646\u06cc \u0628\u0631\u0627\u06cc \u0634\u0645\u0627 \u0648\u062c\u0648\u062f \u0646\u062f\u0627\u0631\u062f."
@@ -485,7 +483,7 @@ function PlasmicNotification__RenderFunc(props: {
             })}
             errorDisplay={null}
             loadingDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__knz2I)}>
+              <div className={classNames("all", sty.freeBox__knz2I)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
                   2, 3, 4
                 ]).map((__plasmic_item_0, __plasmic_idx_0) => {
@@ -494,7 +492,7 @@ function PlasmicNotification__RenderFunc(props: {
                   return (
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__ufOCw,
                         "shimmer"
                       )}
@@ -578,7 +576,7 @@ function PlasmicNotification__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/notification"}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox___8LpCi, {
+              className={classNames("all", sty.freeBox___8LpCi, {
                 [sty.freeBoxnoNotification___8LpCIobwoa]: hasVariant(
                   $state,
                   "noNotification",
@@ -606,18 +604,8 @@ function PlasmicNotification__RenderFunc(props: {
                 return (() => {
                   const child$Props = {
                     button2: (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__jDwMo
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__lxT1E
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__jDwMo)}>
+                        <div className={classNames("all", sty.freeBox__lxT1E)}>
                           {(_par =>
                             !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                             (() => {
@@ -639,7 +627,7 @@ function PlasmicNotification__RenderFunc(props: {
                             return (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__u7Atx
                                 )}
                                 key={currentIndex}
@@ -749,8 +737,8 @@ function PlasmicNotification__RenderFunc(props: {
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__fUm1J
                                   )}
                                 >
@@ -1345,9 +1333,10 @@ export const PlasmicNotification = Object.assign(
     internalArgProps: PlasmicNotification__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/notification",
       pagePath: "/notification",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

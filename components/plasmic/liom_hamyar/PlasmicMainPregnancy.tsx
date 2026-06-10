@@ -75,7 +75,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMainPregnancy.module.css"; // plasmic-import: x3lX8YdIXcEA/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
@@ -96,11 +95,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -180,12 +186,6 @@ function PlasmicMainPregnancy__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -372,6 +372,13 @@ function PlasmicMainPregnancy__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -382,7 +389,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -397,17 +404,17 @@ function PlasmicMainPregnancy__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             {
@@ -516,7 +523,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
           <div
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
-            className={classNames(projectcss.all, sty.main, {
+            className={classNames("all", sty.main, {
               [sty.mainedit]: hasVariant($state, "edit", "edit"),
               [sty.mainglobal_newView_newView]: hasVariant(
                 globalVariants,
@@ -622,7 +629,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
               ])}
             />
 
-            <section className={classNames(projectcss.all, sty.section__jlfOv)}>
+            <section className={classNames("all", sty.section__jlfOv)}>
               <MainPregnancyHeader
                 data-plasmic-name={"mainHeader"}
                 data-plasmic-override={overrides.mainHeader}
@@ -706,12 +713,10 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                   }
                 })()}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__fjnux)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ms9Sv)}
-                  >
+                <div className={classNames("all", sty.freeBox__fjnux)}>
+                  <div className={classNames("all", sty.freeBox__ms9Sv)}>
                     <Icon185Icon
-                      className={classNames(projectcss.all, sty.svg__scrJg)}
+                      className={classNames("all", sty.svg__scrJg)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -756,8 +761,8 @@ function PlasmicMainPregnancy__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__jLk9U
                       )}
                     >
@@ -781,7 +786,7 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                     </div>
                   </div>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__fTwpz)}
+                    className={classNames("all", sty.freeBox__fTwpz)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -813,8 +818,8 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__g7Glx
                       )}
                     >
@@ -835,16 +840,14 @@ function PlasmicMainPregnancy__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                     <Icons8NotificationSvgIcon
-                      className={classNames(projectcss.all, sty.svg__eZlFs)}
+                      className={classNames("all", sty.svg__eZlFs)}
                       role={"img"}
                     />
                   </div>
                 </div>
               </MainPregnancyHeader>
             </section>
-            <section
-              className={classNames(projectcss.all, sty.section___7Bu3P)}
-            >
+            <section className={classNames("all", sty.section___7Bu3P)}>
               {(() => {
                 const child$Props = {
                   className: classNames("__wab_instance", sty.footerMain, {
@@ -1385,9 +1388,10 @@ export const PlasmicMainPregnancy = Object.assign(
     internalArgProps: PlasmicMainPregnancy__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/mainPregnancy",
       pagePath: "/mainPregnancy",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

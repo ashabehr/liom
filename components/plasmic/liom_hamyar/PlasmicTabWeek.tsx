@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicTabWeek.module.css"; // plasmic-import: IgINnoB13B8X/css
 
 createPlasmicElementProxy;
@@ -152,10 +151,6 @@ function PlasmicTabWeek__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -186,6 +181,11 @@ function PlasmicTabWeek__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -203,10 +203,10 @@ function PlasmicTabWeek__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -227,29 +227,24 @@ function PlasmicTabWeek__RenderFunc(props: {
       onClick={args.onClick}
     >
       <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__eo2BK,
-          {
-            [sty.textcurrentWeek__eo2BKwqQp5]: hasVariant(
-              $state,
-              "currentWeek",
-              "currentWeek"
-            ),
-            [sty.textdarkSelected__eo2BKcPpzb]: hasVariant(
-              $state,
-              "darkSelected",
-              "darkSelected"
-            ),
-            [sty.textdark__eo2BKeZSc]: hasVariant($state, "dark", "dark"),
-            [sty.textselected__eo2BKpVhC]: hasVariant(
-              $state,
-              "selected",
-              "selected"
-            )
-          }
-        )}
+        className={classNames("all", "__wab_text", sty.text__eo2BK, {
+          [sty.textcurrentWeek__eo2BKwqQp5]: hasVariant(
+            $state,
+            "currentWeek",
+            "currentWeek"
+          ),
+          [sty.textdarkSelected__eo2BKcPpzb]: hasVariant(
+            $state,
+            "darkSelected",
+            "darkSelected"
+          ),
+          [sty.textdark__eo2BKeZSc]: hasVariant($state, "dark", "dark"),
+          [sty.textselected__eo2BKpVhC]: hasVariant(
+            $state,
+            "selected",
+            "selected"
+          )
+        })}
       >
         <React.Fragment>
           {(() => {
@@ -268,24 +263,19 @@ function PlasmicTabWeek__RenderFunc(props: {
         </React.Fragment>
       </div>
       <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__cIwtp,
-          {
-            [sty.textdarkSelected__cIwtPcPpzb]: hasVariant(
-              $state,
-              "darkSelected",
-              "darkSelected"
-            ),
-            [sty.textdark__cIwtpeZSc]: hasVariant($state, "dark", "dark"),
-            [sty.textselected__cIwtPpVhC]: hasVariant(
-              $state,
-              "selected",
-              "selected"
-            )
-          }
-        )}
+        className={classNames("all", "__wab_text", sty.text__cIwtp, {
+          [sty.textdarkSelected__cIwtPcPpzb]: hasVariant(
+            $state,
+            "darkSelected",
+            "darkSelected"
+          ),
+          [sty.textdark__cIwtpeZSc]: hasVariant($state, "dark", "dark"),
+          [sty.textselected__cIwtPpVhC]: hasVariant(
+            $state,
+            "selected",
+            "selected"
+          )
+        })}
       >
         {"\u0647\u0641\u062a\u0647"}
       </div>

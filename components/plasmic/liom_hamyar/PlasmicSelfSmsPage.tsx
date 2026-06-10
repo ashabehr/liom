@@ -80,7 +80,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSelfSmsPage.module.css"; // plasmic-import: sERPxqzz7wf3/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -102,11 +101,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -177,12 +183,6 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -378,6 +378,13 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -390,7 +397,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -405,23 +412,23 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__s7Ms7)}
+            className={classNames("all", sty.freeBox__s7Ms7)}
             style={(() => {
               try {
                 return {
@@ -882,11 +889,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
               }
             })() ? (
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__cMoHt,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__cMoHt, "shimmer")}
               />
             ) : null}
             {(
@@ -909,8 +912,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     }
                   })()
             ) ? (
-              <div className={classNames(projectcss.all, sty.freeBox___2HVpP)}>
-                <div className={classNames(projectcss.all, sty.freeBox__kbF6)}>
+              <div className={classNames("all", sty.freeBox___2HVpP)}>
+                <div className={classNames("all", sty.freeBox__kbF6)}>
                   {(() => {
                     try {
                       return $state.reload;
@@ -925,10 +928,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___2D3Xa
-                      )}
+                      className={classNames("all", sty.freeBox___2D3Xa)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -957,8 +957,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___3ZnEs
                         )}
                       >
@@ -981,13 +981,11 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__jFfaO)}
-                    >
+                    <div className={classNames("all", sty.freeBox__jFfaO)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__qbI5J
                         )}
                         onClick={async event => {
@@ -1002,7 +1000,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1011,7 +1009,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           <React.Fragment>{" \u0648  "}</React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1024,8 +1022,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__vrRcS
                         )}
                         onClick={async event => {
@@ -1040,7 +1038,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 500 }}
                           >
@@ -1053,36 +1051,30 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                         </React.Fragment>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__vw2Q
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__vw2Q)}>
                         <ul
                           className={classNames(
-                            projectcss.all,
-                            projectcss.ul,
+                            "all",
+                            "ul",
+                            "ul__suVPi",
                             sty.ul__p75F1
                           )}
                         >
                           <li
                             className={classNames(
-                              projectcss.all,
-                              projectcss.li,
+                              "all",
+                              "li",
+                              "li__suVPi",
                               sty.li__cvkGu
                             )}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__uYnqz
-                              )}
+                              className={classNames("all", sty.freeBox__uYnqz)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__dBsYg
                                 )}
                               >
@@ -1091,23 +1083,25 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                   {
                                     <ul
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.ul,
+                                        "all",
+                                        "ul",
+                                        "ul__suVPi",
                                         sty.ul__eceL4
                                       )}
                                     >
                                       <li
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.li,
-                                          projectcss.__wab_text,
+                                          "all",
+                                          "li",
+                                          "li__suVPi",
+                                          "__wab_text",
                                           sty.li__iqCDt
                                         )}
                                       >
                                         <React.Fragment>
                                           <span
                                             className={
-                                              "plasmic_default__all plasmic_default__span"
+                                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                                             }
                                             style={{ fontWeight: 500 }}
                                           >
@@ -1132,35 +1126,34 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         </ul>
                         <ul
                           className={classNames(
-                            projectcss.all,
-                            projectcss.ul,
+                            "all",
+                            "ul",
+                            "ul__suVPi",
                             sty.ul__hskj
                           )}
                         >
                           <li
                             className={classNames(
-                              projectcss.all,
-                              projectcss.li,
+                              "all",
+                              "li",
+                              "li__suVPi",
                               sty.li__wjBi6
                             )}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__i1Opm
-                              )}
+                              className={classNames("all", sty.freeBox__i1Opm)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__fq8G9
                                 )}
                               >
                                 <React.Fragment>
                                   <span
                                     className={
-                                      "plasmic_default__all plasmic_default__span"
+                                      "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                                     }
                                     style={{ fontWeight: 500 }}
                                   >
@@ -1180,35 +1173,34 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         </ul>
                         <ul
                           className={classNames(
-                            projectcss.all,
-                            projectcss.ul,
+                            "all",
+                            "ul",
+                            "ul__suVPi",
                             sty.ul__rrg2B
                           )}
                         >
                           <li
                             className={classNames(
-                              projectcss.all,
-                              projectcss.li,
+                              "all",
+                              "li",
+                              "li__suVPi",
                               sty.li__k60EL
                             )}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___5In2E
-                              )}
+                              className={classNames("all", sty.freeBox___5In2E)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__or0X1
                                 )}
                               >
                                 <React.Fragment>
                                   <span
                                     className={
-                                      "plasmic_default__all plasmic_default__span"
+                                      "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                                     }
                                     style={{ fontWeight: 500 }}
                                   >
@@ -1228,35 +1220,34 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         </ul>
                         <ul
                           className={classNames(
-                            projectcss.all,
-                            projectcss.ul,
+                            "all",
+                            "ul",
+                            "ul__suVPi",
                             sty.ul__bNpGs
                           )}
                         >
                           <li
                             className={classNames(
-                              projectcss.all,
-                              projectcss.li,
+                              "all",
+                              "li",
+                              "li__suVPi",
                               sty.li__ecUcs
                             )}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___4WxZ1
-                              )}
+                              className={classNames("all", sty.freeBox___4WxZ1)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__kz9ZQ
                                 )}
                               >
                                 <React.Fragment>
                                   <span
                                     className={
-                                      "plasmic_default__all plasmic_default__span"
+                                      "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                                     }
                                     style={{ fontWeight: 500 }}
                                   >
@@ -1275,8 +1266,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__jaOdM
                         )}
                         onClick={async event => {
@@ -1287,7 +1278,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           <React.Fragment>{"\u0628\u0627 "}</React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ color: "#8254C6", fontWeight: 700 }}
                           >
@@ -1302,7 +1293,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ color: "#8254C6", fontWeight: 700 }}
                           >
@@ -1315,36 +1306,30 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                         </React.Fragment>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__rZ4DS
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__rZ4DS)}>
                         <ul
                           className={classNames(
-                            projectcss.all,
-                            projectcss.ul,
+                            "all",
+                            "ul",
+                            "ul__suVPi",
                             sty.ul__qs5Tj
                           )}
                         >
                           <li
                             className={classNames(
-                              projectcss.all,
-                              projectcss.li,
+                              "all",
+                              "li",
+                              "li__suVPi",
                               sty.li__uwe9
                             )}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__lwwzH
-                              )}
+                              className={classNames("all", sty.freeBox__lwwzH)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__uiFDw
                                 )}
                               >
@@ -1353,16 +1338,18 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                   {
                                     <ul
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.ul,
+                                        "all",
+                                        "ul",
+                                        "ul__suVPi",
                                         sty.ul__xUnBr
                                       )}
                                     >
                                       <li
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.li,
-                                          projectcss.__wab_text,
+                                          "all",
+                                          "li",
+                                          "li__suVPi",
+                                          "__wab_text",
                                           sty.li__mnOx
                                         )}
                                       >
@@ -1380,28 +1367,27 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         </ul>
                         <ul
                           className={classNames(
-                            projectcss.all,
-                            projectcss.ul,
+                            "all",
+                            "ul",
+                            "ul__suVPi",
                             sty.ul__adkIe
                           )}
                         >
                           <li
                             className={classNames(
-                              projectcss.all,
-                              projectcss.li,
+                              "all",
+                              "li",
+                              "li__suVPi",
                               sty.li__v2WzG
                             )}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__gEgui
-                              )}
+                              className={classNames("all", sty.freeBox__gEgui)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__t1Cj
                                 )}
                               >
@@ -1414,28 +1400,27 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         </ul>
                         <ul
                           className={classNames(
-                            projectcss.all,
-                            projectcss.ul,
+                            "all",
+                            "ul",
+                            "ul__suVPi",
                             sty.ul__q4Qky
                           )}
                         >
                           <li
                             className={classNames(
-                              projectcss.all,
-                              projectcss.li,
+                              "all",
+                              "li",
+                              "li__suVPi",
                               sty.li__iaBz2
                             )}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__cYWbc
-                              )}
+                              className={classNames("all", sty.freeBox__cYWbc)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__broLr
                                 )}
                               >
@@ -1448,28 +1433,27 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         </ul>
                         <ul
                           className={classNames(
-                            projectcss.all,
-                            projectcss.ul,
+                            "all",
+                            "ul",
+                            "ul__suVPi",
                             sty.ul__n1TkR
                           )}
                         >
                           <li
                             className={classNames(
-                              projectcss.all,
-                              projectcss.li,
+                              "all",
+                              "li",
+                              "li__suVPi",
                               sty.li__hPp2
                             )}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ibCz6
-                              )}
+                              className={classNames("all", sty.freeBox__ibCz6)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__wW0Pc
                                 )}
                               >
@@ -1483,8 +1467,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__jnXv9
                         )}
                         onClick={async event => {
@@ -1510,16 +1494,11 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___26DdR
-                      )}
-                    >
+                    <div className={classNames("all", sty.freeBox___26DdR)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__iZlr6
                         )}
                         onClick={async event => {
@@ -1534,7 +1513,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1547,7 +1526,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1560,7 +1539,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1573,7 +1552,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1588,7 +1567,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1601,7 +1580,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1614,8 +1593,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__t9B0O
                         )}
                         onClick={async event => {
@@ -1630,7 +1609,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1641,7 +1620,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           <React.Fragment>{" \u0648 "}</React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1652,7 +1631,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           <React.Fragment> </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1665,7 +1644,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1674,7 +1653,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           <React.Fragment>{" \u0648 "}</React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1687,7 +1666,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1698,7 +1677,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           <React.Fragment>{" \u0648 "}</React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1711,7 +1690,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1720,7 +1699,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           <React.Fragment>{" \u0648 "}</React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1733,7 +1712,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{
                               fontWeight: 700,
@@ -1751,7 +1730,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           </React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1760,7 +1739,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           <React.Fragment>{" \u0648 "}</React.Fragment>
                           <span
                             className={
-                              "plasmic_default__all plasmic_default__span"
+                              "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                             }
                             style={{ fontWeight: 700 }}
                           >
@@ -1796,9 +1775,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__cm9TK)}
-                    >
+                    <div className={classNames("all", sty.freeBox__cm9TK)}>
                       {(
                         hasVariant(globalVariants, "screen", "mobile")
                           ? (() => {
@@ -1835,10 +1812,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             })()
                       ) ? (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__njRxo
-                          )}
+                          className={classNames("all", sty.freeBox__njRxo)}
                           onClick={async event => {
                             const $steps = {};
 
@@ -1927,8 +1901,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__uoaiw
                             )}
                           >
@@ -1941,7 +1915,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                                 </React.Fragment>
                                 <span
                                   className={
-                                    "plasmic_default__all plasmic_default__span"
+                                    "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                                   }
                                   style={{ fontWeight: 700 }}
                                 >
@@ -1958,15 +1932,12 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             )}
                           </div>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__u4OfL
-                            )}
+                            className={classNames("all", sty.freeBox__u4OfL)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__uuiMk
                               )}
                             >
@@ -1978,10 +1949,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         </div>
                       ) : null}
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__nDjGi
-                        )}
+                        className={classNames("all", sty.freeBox__nDjGi)}
                         style={(() => {
                           try {
                             return (() => {
@@ -2021,23 +1989,15 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                           }
                         })()}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__fyj3R
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__fyj3R)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__bTEuD
-                            )}
+                            className={classNames("all", sty.freeBox__bTEuD)}
                           />
 
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__iEpf
                             )}
                           >
@@ -2048,8 +2008,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__fX6Hp
                           )}
                         >
@@ -2159,8 +2119,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__uuqzz
                         )}
                       >
@@ -2613,8 +2573,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__mO1E
                             )}
                           >
@@ -2662,8 +2622,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       })() ? (
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___5ZwdQ
                           )}
                         >
@@ -2675,7 +2635,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             </React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                               }
                               style={{ fontWeight: 700 }}
                             >
@@ -2688,7 +2648,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                             </React.Fragment>
                             <span
                               className={
-                                "plasmic_default__all plasmic_default__span"
+                                "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                               }
                               style={{ fontWeight: 700 }}
                             >
@@ -3027,8 +2987,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__yTdjn
                         )}
                       >
@@ -3075,8 +3035,8 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   })() ? (
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__e7S9C
                       )}
                       onClick={async event => {
@@ -3135,7 +3095,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                       <React.Fragment>
                         <span
                           className={
-                            "plasmic_default__all plasmic_default__span"
+                            "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                           }
                           style={{ color: "var(--token-55cSeNPovQFh)" }}
                         >
@@ -3146,7 +3106,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         <React.Fragment>{""}</React.Fragment>
                         <span
                           className={
-                            "plasmic_default__all plasmic_default__span"
+                            "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                           }
                           style={{
                             color: "var(--token-55cSeNPovQFh)",
@@ -3158,7 +3118,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                         <React.Fragment>{""}</React.Fragment>
                         <span
                           className={
-                            "plasmic_default__all plasmic_default__span"
+                            "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                           }
                           style={{ color: "var(--token-55cSeNPovQFh)" }}
                         >
@@ -37146,18 +37106,18 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
             <section
               data-plasmic-name={"section"}
               data-plasmic-override={overrides.section}
-              className={classNames(projectcss.all, sty.section)}
+              className={classNames("all", sty.section)}
             >
               <HeaderLiom
                 data-plasmic-name={"headerLiom"}
                 data-plasmic-override={overrides.headerLiom}
                 className={classNames("__wab_instance", sty.headerLiom)}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__bNved)}>
+                <div className={classNames("all", sty.freeBox__bNved)}>
                   <XIcon
                     data-plasmic-name={"svg"}
                     data-plasmic-override={overrides.svg}
-                    className={classNames(projectcss.all, sty.svg)}
+                    className={classNames("all", sty.svg)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -37187,11 +37147,7 @@ function PlasmicSelfSmsPage__RenderFunc(props: {
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nJwMo
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__nJwMo)}
                   >
                     {
                       "\u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0628\u0647 \u062e\u0648\u062f\u062a"
@@ -37356,9 +37312,10 @@ export const PlasmicSelfSmsPage = Object.assign(
     internalArgProps: PlasmicSelfSmsPage__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/self-sms-page",
       pagePath: "/self-sms-page",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

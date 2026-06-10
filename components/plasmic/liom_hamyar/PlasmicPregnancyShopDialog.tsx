@@ -69,7 +69,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicPregnancyShopDialog.module.css"; // plasmic-import: IAJ66TL6W-0T/css
 
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
@@ -168,12 +167,6 @@ function PlasmicPregnancyShopDialog__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -248,6 +241,13 @@ function PlasmicPregnancyShopDialog__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -266,9 +266,9 @@ function PlasmicPregnancyShopDialog__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       className={classNames(
         "__wab_instance",
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.dialog3,
         { [sty.dialog3fullpage]: hasVariant($state, "fullpage", "fullpage") }
@@ -336,9 +336,9 @@ function PlasmicPregnancyShopDialog__RenderFunc(props: {
         [sty["pcls_aq6PKg0Zwc3s"]]: true
       })}
       themeResetClass={classNames(
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames
       )}
       triggerSlot={
@@ -349,7 +349,7 @@ function PlasmicPregnancyShopDialog__RenderFunc(props: {
           color={generateStateValueProp($state, ["button3", "color"])}
           endIcon={
             <ChevronLeftIcon
-              className={classNames(projectcss.all, sty.svg__x0OSa)}
+              className={classNames("all", sty.svg__x0OSa)}
               role={"img"}
             />
           }
@@ -402,7 +402,7 @@ function PlasmicPregnancyShopDialog__RenderFunc(props: {
           }}
           startIcon={
             <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__z6PrD)}
+              className={classNames("all", sty.svg__z6PrD)}
               role={"img"}
             />
           }
@@ -433,9 +433,9 @@ function PlasmicPregnancyShopDialog__RenderFunc(props: {
         }
         exitDuration={0.5}
         themeResetClass={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
       >
@@ -444,16 +444,10 @@ function PlasmicPregnancyShopDialog__RenderFunc(props: {
           data-plasmic-override={overrides.dialogTitle}
           className={classNames("__wab_instance", sty.dialogTitle)}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__qSkff
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__qSkff)}>
             {"Sheet title"}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__lKaeq)}>
+          <div className={classNames("all", sty.freeBox__lKaeq)}>
             <PlasmicImg__
               data-plasmic-name={"img"}
               data-plasmic-override={overrides.img}
@@ -475,27 +469,15 @@ function PlasmicPregnancyShopDialog__RenderFunc(props: {
             />
           </div>
         </DialogTitle>
-        <div className={classNames(projectcss.all, sty.freeBox__mtOBf)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__daNbF
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__mtOBf)}>
+          <div className={classNames("all", "__wab_text", sty.text__daNbF)}>
             {
               "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f\u062a\u060c \u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u0628\u0686\u062a\u0647"
             }
           </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__xE1Di
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__xE1Di)}>
             <div
-              className={projectcss.__wab_expr_html_text}
+              className={"__wab_expr_html_text"}
               dangerouslySetInnerHTML={{
                 __html: `<div style="
   font-family: 'IRANSans', sans-serif;
@@ -737,10 +719,7 @@ function PlasmicPregnancyShopDialog__RenderFunc(props: {
           data-plasmic-override={overrides.dialogClose}
           className={classNames("__wab_instance", sty.dialogClose)}
         >
-          <XIcon
-            className={classNames(projectcss.all, sty.svg__vHBjY)}
-            role={"img"}
-          />
+          <XIcon className={classNames("all", sty.svg__vHBjY)} role={"img"} />
         </DialogClose>
       </DialogContent>
     </Dialog>

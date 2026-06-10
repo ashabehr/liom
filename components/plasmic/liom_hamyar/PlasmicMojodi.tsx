@@ -78,7 +78,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMojodi.module.css"; // plasmic-import: esrmcWMeqrsz/css
 
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
@@ -110,11 +109,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -194,12 +200,6 @@ function PlasmicMojodi__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -382,6 +382,13 @@ function PlasmicMojodi__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -392,7 +399,7 @@ function PlasmicMojodi__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -413,10 +420,10 @@ function PlasmicMojodi__RenderFunc(props: {
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
         className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "all",
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames,
           sty.root,
           {
@@ -479,7 +486,7 @@ function PlasmicMojodi__RenderFunc(props: {
         />
 
         <div
-          className={classNames(projectcss.all, sty.freeBox__eUsCf, {
+          className={classNames("all", sty.freeBox__eUsCf, {
             [sty.freeBoxfull2__eUsCfIXwbM]: hasVariant(
               $state,
               "full2",
@@ -522,21 +529,15 @@ function PlasmicMojodi__RenderFunc(props: {
               }
             })()}
             errorDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__z5V5X)}>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___8Ba4Q)}
-                >
+              <div className={classNames("all", sty.freeBox__z5V5X)}>
+                <div className={classNames("all", sty.freeBox___8Ba4Q)}>
                   <Icon143Icon
-                    className={classNames(projectcss.all, sty.svg___6Nw44)}
+                    className={classNames("all", sty.svg___6Nw44)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__iKelK
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__iKelK)}
                   >
                     {
                       "\u062e\u0637\u0627 \u062f\u0631 \u062f\u0631\u06cc\u0627\u0641\u062a \u0627\u0637\u0644\u0627\u0639\u0627\u062a"
@@ -550,7 +551,7 @@ function PlasmicMojodi__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button", "color"])}
                   endIcon={
                     <Icon144Icon
-                      className={classNames(projectcss.all, sty.svg__riJfH)}
+                      className={classNames("all", sty.svg__riJfH)}
                       role={"img"}
                     />
                   }
@@ -608,7 +609,7 @@ function PlasmicMojodi__RenderFunc(props: {
                   showEndIcon={true}
                   startIcon={
                     <ChevronRightIcon
-                      className={classNames(projectcss.all, sty.svg__s3CdR)}
+                      className={classNames("all", sty.svg__s3CdR)}
                       role={"img"}
                     />
                   }
@@ -618,7 +619,7 @@ function PlasmicMojodi__RenderFunc(props: {
             loadingDisplay={
               <React.Fragment>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___916Te, {
+                  className={classNames("all", sty.freeBox___916Te, {
                     [sty.freeBoxfull2___916TeIXwbM]: hasVariant(
                       $state,
                       "full2",
@@ -626,18 +627,16 @@ function PlasmicMojodi__RenderFunc(props: {
                     )
                   })}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__sbghq)}
-                  >
+                  <div className={classNames("all", sty.freeBox__sbghq)}>
                     <Icon115Icon
-                      className={classNames(projectcss.all, sty.svg__gsp29)}
+                      className={classNames("all", sty.svg__gsp29)}
                       role={"img"}
                     />
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__ldpl9,
                       {
                         [sty.textfull2__ldpl9IXwbM]: hasVariant(
@@ -650,51 +649,35 @@ function PlasmicMojodi__RenderFunc(props: {
                   >
                     {"\u0627\u0639\u062a\u0628\u0627\u0631 \u0634\u0645\u0627"}
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__j75Ls)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__phNiN)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wyXzD
-                        )}
-                      >
+                  <div className={classNames("all", sty.freeBox__j75Ls)}>
+                    <div className={classNames("all", sty.freeBox__phNiN)}>
+                      <div className={classNames("all", sty.freeBox__wyXzD)}>
                         <Icon364Icon
-                          className={classNames(projectcss.all, sty.svg__gsoeL)}
+                          className={classNames("all", sty.svg__gsoeL)}
                           role={"img"}
                         />
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__shrUf
                         )}
                       >
                         {"\u0634\u0627\u0631\u0698 \u062d\u0633\u0627\u0628"}
                       </div>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__uWSpn)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__eZf41
-                        )}
-                      >
+                    <div className={classNames("all", sty.freeBox__uWSpn)}>
+                      <div className={classNames("all", sty.freeBox__eZf41)}>
                         <Icon365Icon
-                          className={classNames(projectcss.all, sty.svg__ktA4D)}
+                          className={classNames("all", sty.svg__ktA4D)}
                           role={"img"}
                         />
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__gr8Gv
                         )}
                       >
@@ -703,21 +686,19 @@ function PlasmicMojodi__RenderFunc(props: {
                     </div>
                   </div>
                   <Icon358Icon
-                    className={classNames(projectcss.all, sty.svg___3ECBe)}
+                    className={classNames("all", sty.svg___3ECBe)}
                     role={"img"}
                   />
 
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__xeSqh)}
-                  >
+                  <div className={classNames("all", sty.freeBox__xeSqh)}>
                     <Icon366Icon
-                      className={classNames(projectcss.all, sty.svg__c864W)}
+                      className={classNames("all", sty.svg__c864W)}
                       role={"img"}
                     />
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___20000, {
+                  className={classNames("all", sty.freeBox___20000, {
                     [sty.freeBoxfull2___20000IXwbM]: hasVariant(
                       $state,
                       "full2",
@@ -726,7 +707,7 @@ function PlasmicMojodi__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__corSz, {
+                    className={classNames("all", sty.freeBox__corSz, {
                       [sty.freeBoxfull2__corSzIXwbM]: hasVariant(
                         $state,
                         "full2",
@@ -754,22 +735,18 @@ function PlasmicMojodi__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_0;
                       return (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__bcFud,
-                            {
-                              [sty.freeBoxfull2__bcFudIXwbM]: hasVariant(
-                                $state,
-                                "full2",
-                                "full2"
-                              )
-                            }
-                          )}
+                          className={classNames("all", sty.freeBox__bcFud, {
+                            [sty.freeBoxfull2__bcFudIXwbM]: hasVariant(
+                              $state,
+                              "full2",
+                              "full2"
+                            )
+                          })}
                           key={currentIndex}
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
+                              "all",
                               sty.freeBox__up0VK,
                               "shimmer"
                             )}
@@ -777,7 +754,7 @@ function PlasmicMojodi__RenderFunc(props: {
 
                           <div
                             className={classNames(
-                              projectcss.all,
+                              "all",
                               sty.freeBox__ajPib,
                               "shimmer",
                               {
@@ -794,7 +771,7 @@ function PlasmicMojodi__RenderFunc(props: {
                     })}
                   </div>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__yJQqX, {
+                    className={classNames("all", sty.freeBox__yJQqX, {
                       [sty.freeBoxfull2__yJQqXiXwbM]: hasVariant(
                         $state,
                         "full2",
@@ -840,7 +817,7 @@ function PlasmicMojodi__RenderFunc(props: {
             url={"https://n8n.staas.ir/webhook/walletHistory"}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__ibhO4, {
+              className={classNames("all", sty.freeBox__ibhO4, {
                 [sty.freeBoxfull2__ibhO4IXwbM]: hasVariant(
                   $state,
                   "full2",
@@ -855,7 +832,7 @@ function PlasmicMojodi__RenderFunc(props: {
                 color={generateStateValueProp($state, ["button2", "color"])}
                 endIcon={
                   <Icon367Icon
-                    className={classNames(projectcss.all, sty.svg___8Ruo8)}
+                    className={classNames("all", sty.svg___8Ruo8)}
                     role={"img"}
                   />
                 }
@@ -941,22 +918,18 @@ function PlasmicMojodi__RenderFunc(props: {
                 size={"compact"}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__h9Cu0
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__h9Cu0)}
                 >
                   {
                     "\u062a\u0639\u0631\u0641\u0647 \u0627\u0631\u0633\u0627\u0644"
                   }
                 </div>
               </Button>
-              <div className={classNames(projectcss.all, sty.freeBox__nOtqh)}>
+              <div className={classNames("all", sty.freeBox__nOtqh)}>
                 <div
                   className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
+                    "all",
+                    "__wab_text",
                     sty.text__vftRm,
                     "swiper-ltr",
                     {
@@ -1010,11 +983,7 @@ function PlasmicMojodi__RenderFunc(props: {
                   </React.Fragment>
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pW6EN
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__pW6EN)}
                   style={(() => {
                     try {
                       return $state.history.data.balance < 0
@@ -1043,24 +1012,19 @@ function PlasmicMojodi__RenderFunc(props: {
                 </div>
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__j9W2A,
-                  {
-                    [sty.textfull2__j9W2AIXwbM]: hasVariant(
-                      $state,
-                      "full2",
-                      "full2"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__j9W2A, {
+                  [sty.textfull2__j9W2AIXwbM]: hasVariant(
+                    $state,
+                    "full2",
+                    "full2"
+                  )
+                })}
               >
                 {"\u0627\u0639\u062a\u0628\u0627\u0631 \u0634\u0645\u0627"}
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___1ZVcl)}>
+              <div className={classNames("all", sty.freeBox___1ZVcl)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__nZ7YP, {
+                  className={classNames("all", sty.freeBox__nZ7YP, {
                     [sty.freeBoxpage_report__nZ7YPtxlqB]: hasVariant(
                       $state,
                       "page",
@@ -1143,7 +1107,7 @@ function PlasmicMojodi__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__zbaKg, {
+                    className={classNames("all", sty.freeBox__zbaKg, {
                       [sty.freeBoxpage_report__zbaKGtxlqB]: hasVariant(
                         $state,
                         "page",
@@ -1152,22 +1116,18 @@ function PlasmicMojodi__RenderFunc(props: {
                     })}
                   >
                     <Icon364Icon
-                      className={classNames(projectcss.all, sty.svg__o5LF4)}
+                      className={classNames("all", sty.svg__o5LF4)}
                       role={"img"}
                     />
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__wSHkG
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__wSHkG)}
                   >
                     {"\u0634\u0627\u0631\u0698 \u062d\u0633\u0627\u0628"}
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__ok9S, {
+                  className={classNames("all", sty.freeBox__ok9S, {
                     [sty.freeBoxpage_report__ok9STxlqB]: hasVariant(
                       $state,
                       "page",
@@ -1205,11 +1165,9 @@ function PlasmicMojodi__RenderFunc(props: {
                     }
                   }}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__cpsHd)}
-                  >
+                  <div className={classNames("all", sty.freeBox__cpsHd)}>
                     <Icon365Icon
-                      className={classNames(projectcss.all, sty.svg__e8CQc, {
+                      className={classNames("all", sty.svg__e8CQc, {
                         [sty.svgfull2__e8CQcIXwbM]: hasVariant(
                           $state,
                           "full2",
@@ -1225,31 +1183,27 @@ function PlasmicMojodi__RenderFunc(props: {
                     />
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__yMlJ7
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__yMlJ7)}
                   >
                     {"\u067e\u06cc\u0634\u200c\u0628\u06cc\u0646\u06cc "}
                   </div>
                 </div>
               </div>
               <Icon358Icon
-                className={classNames(projectcss.all, sty.svg__bGIek)}
+                className={classNames("all", sty.svg__bGIek)}
                 role={"img"}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__mDtp)}>
+              <div className={classNames("all", sty.freeBox__mDtp)}>
                 <Icon366Icon
-                  className={classNames(projectcss.all, sty.svg__nf6Aw)}
+                  className={classNames("all", sty.svg__nf6Aw)}
                   role={"img"}
                 />
               </div>
             </div>
             <div
               className={classNames(
-                projectcss.all,
+                "all",
                 sty.freeBox___8JsV3,
                 hasVariant($state, "full2", "full2") ? "fade-in" : undefined,
                 {
@@ -1332,7 +1286,7 @@ function PlasmicMojodi__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__sas6P, {
+                    className={classNames("all", sty.freeBox__sas6P, {
                       [sty.freeBoxfull2__sas6PiXwbM]: hasVariant(
                         $state,
                         "full2",
@@ -1342,22 +1296,18 @@ function PlasmicMojodi__RenderFunc(props: {
                     key={currentIndex}
                   >
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___47Dj4,
-                        {
-                          [sty.freeBoxfull2___47Dj4IXwbM]: hasVariant(
-                            $state,
-                            "full2",
-                            "full2"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox___47Dj4, {
+                        [sty.freeBoxfull2___47Dj4IXwbM]: hasVariant(
+                          $state,
+                          "full2",
+                          "full2"
+                        )
+                      })}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__vTitB,
                           {
                             [sty.textfull2__vTitBiXwbM]: hasVariant(
@@ -1419,24 +1369,17 @@ function PlasmicMojodi__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_1;
                       return (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__fnZO,
-                            {
-                              [sty.freeBoxfull2__fnZOIXwbM]: hasVariant(
-                                $state,
-                                "full2",
-                                "full2"
-                              )
-                            }
-                          )}
+                          className={classNames("all", sty.freeBox__fnZO, {
+                            [sty.freeBoxfull2__fnZOIXwbM]: hasVariant(
+                              $state,
+                              "full2",
+                              "full2"
+                            )
+                          })}
                           key={currentIndex}
                         >
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__qhhWh
-                            )}
+                            className={classNames("all", sty.freeBox__qhhWh)}
                           >
                             <MenuIcon
                               data-plasmic-name={"menuIcon"}
@@ -1482,35 +1425,27 @@ function PlasmicMojodi__RenderFunc(props: {
                             />
                           </div>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__lmeU1,
-                              {
-                                [sty.freeBoxfull2__lmeU1IXwbM]: hasVariant(
+                            className={classNames("all", sty.freeBox__lmeU1, {
+                              [sty.freeBoxfull2__lmeU1IXwbM]: hasVariant(
+                                $state,
+                                "full2",
+                                "full2"
+                              )
+                            })}
+                          >
+                            <div
+                              className={classNames("all", sty.freeBox__bfGsA, {
+                                [sty.freeBoxfull2__bfGsAiXwbM]: hasVariant(
                                   $state,
                                   "full2",
                                   "full2"
                                 )
-                              }
-                            )}
-                          >
-                            <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__bfGsA,
-                                {
-                                  [sty.freeBoxfull2__bfGsAiXwbM]: hasVariant(
-                                    $state,
-                                    "full2",
-                                    "full2"
-                                  )
-                                }
-                              )}
+                              })}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__otxJz
                                 )}
                               >
@@ -1533,8 +1468,8 @@ function PlasmicMojodi__RenderFunc(props: {
                               </div>
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__i1ADb,
                                   ``,
                                   {
@@ -1549,7 +1484,7 @@ function PlasmicMojodi__RenderFunc(props: {
                                 )}
                               >
                                 <div
-                                  className={projectcss.__wab_expr_html_text}
+                                  className={"__wab_expr_html_text"}
                                   dangerouslySetInnerHTML={{
                                     __html: (() => {
                                       try {
@@ -1570,29 +1505,23 @@ function PlasmicMojodi__RenderFunc(props: {
                               </div>
                             </div>
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__gRdwO
-                              )}
+                              className={classNames("all", sty.freeBox__gRdwO)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__hgU8Y
                                 )}
                               >
                                 <Icon290Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__laFc
-                                  )}
+                                  className={classNames("all", sty.svg__laFc)}
                                   role={"img"}
                                 />
 
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__cIqm1,
                                     {
                                       [sty.textfull2__cIqm1IXwbM]: hasVariant(
@@ -1654,22 +1583,19 @@ function PlasmicMojodi__RenderFunc(props: {
                               </div>
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__hKBw2
                                 )}
                               >
                                 <Icon291Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__izIJh
-                                  )}
+                                  className={classNames("all", sty.svg__izIJh)}
                                   role={"img"}
                                 />
 
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__z6KsZ,
                                     {
                                       [sty.textfull2__z6KsZiXwbM]: hasVariant(
@@ -1738,7 +1664,7 @@ function PlasmicMojodi__RenderFunc(props: {
                 );
               })}
               <div
-                className={classNames(projectcss.all, sty.freeBox__uEw17, {
+                className={classNames("all", sty.freeBox__uEw17, {
                   [sty.freeBoxfull2__uEw17IXwbM]: hasVariant(
                     $state,
                     "full2",
@@ -1758,9 +1684,9 @@ function PlasmicMojodi__RenderFunc(props: {
           })}
           slot={null}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__yUzVo)}>
+          <div className={classNames("all", sty.freeBox__yUzVo)}>
             <XIcon
-              className={classNames(projectcss.all, sty.svg___2VehZ)}
+              className={classNames("all", sty.svg___2VehZ)}
               onClick={async event => {
                 const $steps = {};
 
@@ -1787,13 +1713,7 @@ function PlasmicMojodi__RenderFunc(props: {
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__bGjB
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__bGjB)}>
               {
                 "\u0627\u0639\u062a\u0628\u0627\u0631 \u06cc\u0627\u062f \u0622\u0648\u0631\u06cc \u0647\u0627"
               }
@@ -2254,9 +2174,10 @@ export const PlasmicMojodi = Object.assign(
     internalArgProps: PlasmicMojodi__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/mojod/[home]",
       pagePath: "/mojod/[home]",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

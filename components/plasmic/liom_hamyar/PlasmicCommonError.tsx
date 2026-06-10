@@ -69,7 +69,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicCommonError.module.css"; // plasmic-import: EuakjgrXA2xz/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -91,11 +90,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -161,10 +167,6 @@ function PlasmicCommonError__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -206,6 +208,11 @@ function PlasmicCommonError__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -216,7 +223,7 @@ function PlasmicCommonError__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -231,43 +238,31 @@ function PlasmicCommonError__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
         >
-          <div className={classNames(projectcss.all, sty.freeBox___5UHuW)}>
-            <div className={classNames(projectcss.all, sty.freeBox__pzAMj)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__gb0Jt
-                )}
-              >
+          <div className={classNames("all", sty.freeBox___5UHuW)}>
+            <div className={classNames("all", sty.freeBox__pzAMj)}>
+              <div className={classNames("all", "__wab_text", sty.text__gb0Jt)}>
                 {
                   "\u0627\u06af\u0647 \u067e\u0631\u062f\u0627\u062e\u062a \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u06cc \u0627\u0645\u0627 \u0628\u0627 \u067e\u06cc\u0627\u0645 \u062e\u0631\u06cc\u062f \u0646\u0627\u0645\u0648\u0641\u0642 \u0645\u0648\u0627\u062c\u0647 \u0634\u062f\u06cc\u066c \u0637\u0628\u0642 \u0645\u0631\u0627\u062d\u0644 \u0632\u06cc\u0631 \u0628\u0631\u0648 \u062c\u0644\u0648:"
                 }
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__wZMbc
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__wZMbc)}>
                 <div
-                  className={projectcss.__wab_expr_html_text}
+                  className={"__wab_expr_html_text"}
                   dangerouslySetInnerHTML={{
                     __html: (() => {
                       try {
@@ -294,27 +289,15 @@ function PlasmicCommonError__RenderFunc(props: {
                 />
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__beUdC)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__m1Adi
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__beUdC)}>
+              <div className={classNames("all", "__wab_text", sty.text__m1Adi)}>
                 {
                   "\u0627\u06af\u0647 \u062f\u0631 \u0647\u0646\u06af\u0627\u0645 \u0627\u0646\u062a\u062e\u0627\u0628 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645\u0627 \u0648\u0627\u0631\u062f \u0635\u0641\u062d\u0647 \u062e\u0631\u06cc\u062f \u0646\u0627\u0645\u0648\u0641\u0642 \u0634\u062f\u06cc \u0637\u0628\u0642 \u0645\u0631\u0627\u062d\u0644 \u0632\u06cc\u0631 \u062c\u0644\u0648 \u0628\u0631\u0648:"
                 }
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pv7Rg
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__pv7Rg)}>
                 <div
-                  className={projectcss.__wab_expr_html_text}
+                  className={"__wab_expr_html_text"}
                   dangerouslySetInnerHTML={{
                     __html: (() => {
                       try {
@@ -338,19 +321,13 @@ function PlasmicCommonError__RenderFunc(props: {
                 />
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__n1IM)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__qW1E
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__n1IM)}>
+              <div className={classNames("all", "__wab_text", sty.text__qW1E)}>
                 {
                   "\u0627\u06af\u0647 \u0647\u06cc\u0686 \u06a9\u062f\u0648\u0645 \u0627\u0632 \u0631\u0648\u0634 \u0647\u0627\u06cc \u0628\u0627\u0644\u0627 \u062c\u0648\u0627\u0628 \u0646\u062f\u0627\u062f \u0644\u0637\u0641\u0627 \u0628\u0647 \u0645\u0627 \u067e\u06cc\u0627\u0645 \u0628\u062f\u0647:"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__fdoH)}>
+              <div className={classNames("all", sty.freeBox__fdoH)}>
                 <Button
                   data-plasmic-name={"button5"}
                   data-plasmic-override={overrides.button5}
@@ -536,34 +513,30 @@ function PlasmicCommonError__RenderFunc(props: {
                   size={"compact"}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__gsD7
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__gsD7)}
                   >
                     {"\u067e\u06cc\u0627\u0645 \u062f\u0631 \u0628\u0644\u0647"}
                   </div>
                 </Button>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__w61Hb)} />
+            <div className={classNames("all", sty.freeBox__w61Hb)} />
           </div>
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+            className={classNames("all", sty.section)}
           >
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox___7RbSj)}>
+              <div className={classNames("all", sty.freeBox___7RbSj)}>
                 <XIcon
                   data-plasmic-name={"svg"}
                   data-plasmic-override={overrides.svg}
-                  className={classNames(projectcss.all, sty.svg)}
+                  className={classNames("all", sty.svg)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -593,11 +566,7 @@ function PlasmicCommonError__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__l2TQf
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__l2TQf)}
                 >
                   {
                     "\u062e\u0637\u0627\u200c\u0647\u0627\u06cc \u0645\u062a\u062f\u0627\u0648\u0644 \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
@@ -730,9 +699,10 @@ export const PlasmicCommonError = Object.assign(
     internalArgProps: PlasmicCommonError__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/common-error",
       pagePath: "/common-error",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

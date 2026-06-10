@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicCountdownNumber.module.css"; // plasmic-import: JBCCrVmIFPYL/css
 
 createPlasmicElementProxy;
@@ -147,22 +146,22 @@ function PlasmicCountdownNumber__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__yzZcV)}>
+      <div className={classNames("all", sty.freeBox__yzZcV)}>
         {renderPlasmicSlot({
           defaultContents: "42",
           value: args.number,
           className: classNames(sty.slotTargetNumber)
         })}
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__zcNl4)}>
+      <div className={classNames("all", sty.freeBox__zcNl4)}>
         {renderPlasmicSlot({
           defaultContents: "Days",
           value: args.unit

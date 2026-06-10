@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicFooterMain.module.css"; // plasmic-import: ev8_tr4YKTDz/css
 
 import Icon382Icon from "./icons/PlasmicIcon__Icon382"; // plasmic-import: nrRedgSJpmu0/icon
@@ -166,10 +165,6 @@ function PlasmicFooterMain__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -202,6 +197,11 @@ function PlasmicFooterMain__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -219,10 +219,10 @@ function PlasmicFooterMain__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.footer,
         {
@@ -250,9 +250,9 @@ function PlasmicFooterMain__RenderFunc(props: {
         }
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__ijEra)}>
+      <div className={classNames("all", sty.freeBox__ijEra)}>
         <div
-          className={classNames(projectcss.all, sty.freeBox__vbOad, {
+          className={classNames("all", sty.freeBox__vbOad, {
             [sty.freeBoxfooter2_calendar__vbOad6MXal]: hasVariant(
               $state,
               "footer2",
@@ -290,7 +290,7 @@ function PlasmicFooterMain__RenderFunc(props: {
         >
           <div
             aria-pressed={undefined}
-            className={classNames(projectcss.all, sty.freeBox__xxHsQ, {
+            className={classNames("all", sty.freeBox__xxHsQ, {
               [sty.freeBoxfooter2_bot__xxHsQ9Lw3]: hasVariant(
                 $state,
                 "footer2",
@@ -391,7 +391,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                     ? Icon382Icon
                     : Icon382Icon
               }
-              className={classNames(projectcss.all, sty.svg__eHldg, {
+              className={classNames("all", sty.svg__eHldg, {
                 [sty.svgfooter2_self__eHldGtRqqb]: hasVariant(
                   $state,
                   "footer2",
@@ -407,44 +407,39 @@ function PlasmicFooterMain__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___43DKw,
-                {
-                  [sty.textfooter2_bot___43DKw9Lw3]: hasVariant(
-                    $state,
-                    "footer2",
-                    "bot"
-                  ),
-                  [sty.textfooter2_calendar___43DKw6MXal]: hasVariant(
-                    $state,
-                    "footer2",
-                    "calendar"
-                  ),
-                  [sty.textfooter2_self___43DKWtRqqb]: hasVariant(
-                    $state,
-                    "footer2",
-                    "self"
-                  ),
-                  [sty.textfooter2_social___43DKwm4HuD]: hasVariant(
-                    $state,
-                    "footer2",
-                    "social"
-                  ),
-                  [sty.texthamyar___43DKwiriP]: hasVariant(
-                    $state,
-                    "hamyar",
-                    "hamyar"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text___43DKw, {
+                [sty.textfooter2_bot___43DKw9Lw3]: hasVariant(
+                  $state,
+                  "footer2",
+                  "bot"
+                ),
+                [sty.textfooter2_calendar___43DKw6MXal]: hasVariant(
+                  $state,
+                  "footer2",
+                  "calendar"
+                ),
+                [sty.textfooter2_self___43DKWtRqqb]: hasVariant(
+                  $state,
+                  "footer2",
+                  "self"
+                ),
+                [sty.textfooter2_social___43DKwm4HuD]: hasVariant(
+                  $state,
+                  "footer2",
+                  "social"
+                ),
+                [sty.texthamyar___43DKwiriP]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
             >
               {"\u06af\u0641\u062a\u06af\u0648"}
             </div>
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__j5Log, {
+            className={classNames("all", sty.freeBox__j5Log, {
               [sty.freeBoxfooter2_calendar__j5Log6MXal]: hasVariant(
                 $state,
                 "footer2",
@@ -548,7 +543,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                     ? Icon353Icon
                     : Icon353Icon
               }
-              className={classNames(projectcss.all, sty.svg__i4AIi, {
+              className={classNames("all", sty.svg__i4AIi, {
                 [sty.svgfooter2_bot__i4AIi9Lw3]: hasVariant(
                   $state,
                   "footer2",
@@ -589,44 +584,39 @@ function PlasmicFooterMain__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__lgqVo,
-                {
-                  [sty.textfooter2_bot__lgqVo9Lw3]: hasVariant(
-                    $state,
-                    "footer2",
-                    "bot"
-                  ),
-                  [sty.textfooter2_calendar__lgqVo6MXal]: hasVariant(
-                    $state,
-                    "footer2",
-                    "calendar"
-                  ),
-                  [sty.textfooter2_hamyar__lgqVocU6G5]: hasVariant(
-                    $state,
-                    "footer2",
-                    "hamyar"
-                  ),
-                  [sty.textfooter2_reminder__lgqVoqKid7]: hasVariant(
-                    $state,
-                    "footer2",
-                    "reminder"
-                  ),
-                  [sty.textfooter2_self__lgqVotRqqb]: hasVariant(
-                    $state,
-                    "footer2",
-                    "self"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__lgqVo, {
+                [sty.textfooter2_bot__lgqVo9Lw3]: hasVariant(
+                  $state,
+                  "footer2",
+                  "bot"
+                ),
+                [sty.textfooter2_calendar__lgqVo6MXal]: hasVariant(
+                  $state,
+                  "footer2",
+                  "calendar"
+                ),
+                [sty.textfooter2_hamyar__lgqVocU6G5]: hasVariant(
+                  $state,
+                  "footer2",
+                  "hamyar"
+                ),
+                [sty.textfooter2_reminder__lgqVoqKid7]: hasVariant(
+                  $state,
+                  "footer2",
+                  "reminder"
+                ),
+                [sty.textfooter2_self__lgqVotRqqb]: hasVariant(
+                  $state,
+                  "footer2",
+                  "self"
+                )
+              })}
             >
               {"\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc"}
             </div>
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__i6PSp, {
+            className={classNames("all", sty.freeBox__i6PSp, {
               [sty.freeBoxfooter2_hamyar__i6PSPcU6G5]: hasVariant(
                 $state,
                 "footer2",
@@ -718,7 +708,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                   ? Icon315Icon
                   : Icon314Icon
               }
-              className={classNames(projectcss.all, sty.svg__ldrta, {
+              className={classNames("all", sty.svg__ldrta, {
                 [sty.svgfooter2_hamyar__ldrtAcU6G5]: hasVariant(
                   $state,
                   "footer2",
@@ -729,29 +719,24 @@ function PlasmicFooterMain__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___0XkYn,
-                {
-                  [sty.textfooter2_bot___0XkYn9Lw3]: hasVariant(
-                    $state,
-                    "footer2",
-                    "bot"
-                  ),
-                  [sty.textfooter2_hamyar___0XkYNcU6G5]: hasVariant(
-                    $state,
-                    "footer2",
-                    "hamyar"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text___0XkYn, {
+                [sty.textfooter2_bot___0XkYn9Lw3]: hasVariant(
+                  $state,
+                  "footer2",
+                  "bot"
+                ),
+                [sty.textfooter2_hamyar___0XkYNcU6G5]: hasVariant(
+                  $state,
+                  "footer2",
+                  "hamyar"
+                )
+              })}
             >
               {"\u0647\u0645\u06cc\u0627\u0631"}
             </div>
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__s1U6A, {
+            className={classNames("all", sty.freeBox__s1U6A, {
               [sty.freeBoxfooter2_bot__s1U6A9Lw3]: hasVariant(
                 $state,
                 "footer2",
@@ -858,7 +843,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                     ? Icon137Icon
                     : Icon316Icon
               }
-              className={classNames(projectcss.all, sty.svg__bb57K, {
+              className={classNames("all", sty.svg__bb57K, {
                 [sty.svgfooter2_calendar__bb57K6MXal]: hasVariant(
                   $state,
                   "footer2",
@@ -874,39 +859,34 @@ function PlasmicFooterMain__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__tgp8U,
-                {
-                  [sty.textfooter2_bot__tgp8U9Lw3]: hasVariant(
-                    $state,
-                    "footer2",
-                    "bot"
-                  ),
-                  [sty.textfooter2_calendar__tgp8U6MXal]: hasVariant(
-                    $state,
-                    "footer2",
-                    "calendar"
-                  ),
-                  [sty.textfooter2_self__tgp8UtRqqb]: hasVariant(
-                    $state,
-                    "footer2",
-                    "self"
-                  ),
-                  [sty.textfooter2_social__tgp8UM4HuD]: hasVariant(
-                    $state,
-                    "footer2",
-                    "social"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__tgp8U, {
+                [sty.textfooter2_bot__tgp8U9Lw3]: hasVariant(
+                  $state,
+                  "footer2",
+                  "bot"
+                ),
+                [sty.textfooter2_calendar__tgp8U6MXal]: hasVariant(
+                  $state,
+                  "footer2",
+                  "calendar"
+                ),
+                [sty.textfooter2_self__tgp8UtRqqb]: hasVariant(
+                  $state,
+                  "footer2",
+                  "self"
+                ),
+                [sty.textfooter2_social__tgp8UM4HuD]: hasVariant(
+                  $state,
+                  "footer2",
+                  "social"
+                )
+              })}
             >
               {"\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"}
             </div>
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__eSfbJ, {
+            className={classNames("all", sty.freeBox__eSfbJ, {
               [sty.freeBoxfooter2_bot__eSfbJ9Lw3]: hasVariant(
                 $state,
                 "footer2",
@@ -1007,7 +987,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                       ? Icon137Icon
                       : Icon318Icon
               }
-              className={classNames(projectcss.all, sty.svg__h7Klx, {
+              className={classNames("all", sty.svg__h7Klx, {
                 [sty.svgfooter2_bot__h7Klx9Lw3]: hasVariant(
                   $state,
                   "footer2",
@@ -1031,45 +1011,40 @@ function PlasmicFooterMain__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__egDub,
-                {
-                  [sty.textfooter2_bot__egDub9Lw3]: hasVariant(
-                    $state,
-                    "footer2",
-                    "bot"
-                  ),
-                  [sty.textfooter2_calendar__egDub6MXal]: hasVariant(
-                    $state,
-                    "footer2",
-                    "calendar"
-                  ),
-                  [sty.textfooter2_self__egDubtRqqb]: hasVariant(
-                    $state,
-                    "footer2",
-                    "self"
-                  ),
-                  [sty.textfooter2_social__egDubM4HuD]: hasVariant(
-                    $state,
-                    "footer2",
-                    "social"
-                  ),
-                  [sty.texthamyar__egDubIriP]: hasVariant(
-                    $state,
-                    "hamyar",
-                    "hamyar"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__egDub, {
+                [sty.textfooter2_bot__egDub9Lw3]: hasVariant(
+                  $state,
+                  "footer2",
+                  "bot"
+                ),
+                [sty.textfooter2_calendar__egDub6MXal]: hasVariant(
+                  $state,
+                  "footer2",
+                  "calendar"
+                ),
+                [sty.textfooter2_self__egDubtRqqb]: hasVariant(
+                  $state,
+                  "footer2",
+                  "self"
+                ),
+                [sty.textfooter2_social__egDubM4HuD]: hasVariant(
+                  $state,
+                  "footer2",
+                  "social"
+                ),
+                [sty.texthamyar__egDubIriP]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
             >
               {"\u0639\u0644\u0627\u0645\u0647"}
             </div>
           </div>
           <div
             aria-pressed={undefined}
-            className={classNames(projectcss.all, sty.freeBox__aa3ND, {
+            className={classNames("all", sty.freeBox__aa3ND, {
               [sty.freeBoxfooter2_bot__aa3ND9Lw3]: hasVariant(
                 $state,
                 "footer2",
@@ -1169,7 +1144,7 @@ function PlasmicFooterMain__RenderFunc(props: {
                       ? Icon213Icon
                       : Icon213Icon
               }
-              className={classNames(projectcss.all, sty.svg__lj8T3, {
+              className={classNames("all", sty.svg__lj8T3, {
                 [sty.svgfooter2_self__lj8T3TRqqb]: hasVariant(
                   $state,
                   "footer2",
@@ -1185,38 +1160,33 @@ function PlasmicFooterMain__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__zvQAq,
-                {
-                  [sty.textfooter2_bot__zvQAq9Lw3]: hasVariant(
-                    $state,
-                    "footer2",
-                    "bot"
-                  ),
-                  [sty.textfooter2_calendar__zvQAq6MXal]: hasVariant(
-                    $state,
-                    "footer2",
-                    "calendar"
-                  ),
-                  [sty.textfooter2_self__zvQAqtRqqb]: hasVariant(
-                    $state,
-                    "footer2",
-                    "self"
-                  ),
-                  [sty.textfooter2_social__zvQAqM4HuD]: hasVariant(
-                    $state,
-                    "footer2",
-                    "social"
-                  ),
-                  [sty.texthamyar__zvQAqIriP]: hasVariant(
-                    $state,
-                    "hamyar",
-                    "hamyar"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__zvQAq, {
+                [sty.textfooter2_bot__zvQAq9Lw3]: hasVariant(
+                  $state,
+                  "footer2",
+                  "bot"
+                ),
+                [sty.textfooter2_calendar__zvQAq6MXal]: hasVariant(
+                  $state,
+                  "footer2",
+                  "calendar"
+                ),
+                [sty.textfooter2_self__zvQAqtRqqb]: hasVariant(
+                  $state,
+                  "footer2",
+                  "self"
+                ),
+                [sty.textfooter2_social__zvQAqM4HuD]: hasVariant(
+                  $state,
+                  "footer2",
+                  "social"
+                ),
+                [sty.texthamyar__zvQAqIriP]: hasVariant(
+                  $state,
+                  "hamyar",
+                  "hamyar"
+                )
+              })}
             >
               {
                 "\u0645\u0631\u0627\u0642\u0628\u062a \u0627\u0632 \u062e\u0648\u062f"

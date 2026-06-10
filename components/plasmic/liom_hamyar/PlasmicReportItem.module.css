@@ -110,7 +110,7 @@
   font-size: var(--token-Wa5tmrNKVUYF);
   text-align: right;
   font-weight: 700;
-  font-family: "yekan_bakh", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   text-transform: none;
   line-height: 1.5;
@@ -139,7 +139,7 @@
   }
 }
 .slotTargetChildren {
-  font-family: "yekan_bakh", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: var(--token-Wa5tmrNKVUYF);
   font-weight: 700;
   font-style: normal;
@@ -192,7 +192,7 @@
   color: var(--token-DFwge94Hey3F);
   text-align: right;
   font-weight: 700;
-  font-family: "yekan_bakh", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   text-transform: none;
   line-height: 1.5;

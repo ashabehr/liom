@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicCommentNum.module.css"; // plasmic-import: qNEIB2lcMLwU/css
 
 import Icon150Icon from "./icons/PlasmicIcon__Icon150"; // plasmic-import: 4NJq6NYKqIPu/icon
@@ -146,10 +145,6 @@ function PlasmicCommentNum__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -167,6 +162,11 @@ function PlasmicCommentNum__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -184,10 +184,10 @@ function PlasmicCommentNum__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -251,7 +251,7 @@ function PlasmicCommentNum__RenderFunc(props: {
               ? Icon150Icon
               : Icon150Icon
         }
-        className={classNames(projectcss.all, sty.svg, {
+        className={classNames("all", sty.svg, {
           [sty.svgactive]: hasVariant($state, "active", "active"),
           [sty.svgactive_main]:
             hasVariant($state, "main", "main") &&
@@ -264,7 +264,7 @@ function PlasmicCommentNum__RenderFunc(props: {
       <div
         data-plasmic-name={"text"}
         data-plasmic-override={overrides.text}
-        className={classNames(projectcss.all, projectcss.__wab_text, sty.text, {
+        className={classNames("all", "__wab_text", sty.text, {
           [sty.textactive]: hasVariant($state, "active", "active"),
           [sty.textmain]: hasVariant($state, "main", "main")
         })}

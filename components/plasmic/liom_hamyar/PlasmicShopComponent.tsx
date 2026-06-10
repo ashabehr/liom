@@ -69,7 +69,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShopComponent.module.css"; // plasmic-import: gkIHYHT9LpaR/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -157,12 +156,6 @@ function PlasmicShopComponent__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -306,6 +299,13 @@ function PlasmicShopComponent__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -323,15 +323,15 @@ function PlasmicShopComponent__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <section className={classNames(projectcss.all, sty.section__r9Pg)}>
+      <section className={classNames("all", sty.section__r9Pg)}>
         <SideEffect
           data-plasmic-name={"sideEffect"}
           data-plasmic-override={overrides.sideEffect}
@@ -399,8 +399,8 @@ function PlasmicShopComponent__RenderFunc(props: {
           }}
         />
 
-        <div className={classNames(projectcss.all, sty.freeBox__n3Wkk)}>
-          <div className={classNames(projectcss.all, sty.freeBox__hzFuF)}>
+        <div className={classNames("all", sty.freeBox__n3Wkk)}>
+          <div className={classNames("all", sty.freeBox__hzFuF)}>
             <LottieWrapper
               data-plasmic-name={"lottie"}
               data-plasmic-override={overrides.lottie}
@@ -20085,20 +20085,14 @@ function PlasmicShopComponent__RenderFunc(props: {
               className={classNames("__wab_instance", sty.lottie)}
             />
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__v2LVo)}>
-            <div className={classNames(projectcss.all, sty.freeBox___0HLqo)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__kuHww
-                )}
-              >
+          <div className={classNames("all", sty.freeBox__v2LVo)}>
+            <div className={classNames("all", sty.freeBox___0HLqo)}>
+              <div className={classNames("all", "__wab_text", sty.text__kuHww)}>
                 {
                   "\u062f\u0648\u0633\u062a \u062f\u0627\u0631\u06cc \u0686\u0646\u062f\u062a\u0627 \u067e\u06cc\u0627\u0645\u06a9 \u062f\u0631 \u0631\u0648\u0632 \u0628\u0631\u0627\u06cc \u0647\u0645\u0633\u0631\u062a \u0627\u0631\u0633\u0627\u0644 \u0628\u0634\u0647\u061f"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__andOg)}>
+              <div className={classNames("all", sty.freeBox__andOg)}>
                 {(() => {
                   const child$Props = {
                     className: classNames("__wab_instance", sty.select),
@@ -20369,14 +20363,10 @@ function PlasmicShopComponent__RenderFunc(props: {
                 })()}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__k0Rnt)}>
-              <div className={classNames(projectcss.all, sty.freeBox__q7AKi)}>
+            <div className={classNames("all", sty.freeBox__k0Rnt)}>
+              <div className={classNames("all", sty.freeBox__q7AKi)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__twwCj
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__twwCj)}
                 >
                   {
                     "\u0645\u062f\u062a \u0632\u0645\u0627\u0646 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646 :"
@@ -20395,9 +20385,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__akPvk)}
-                  >
+                  <div className={classNames("all", sty.freeBox__akPvk)}>
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
@@ -20420,24 +20408,18 @@ function PlasmicShopComponent__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_0;
                       return (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox___9Kgo1
-                          )}
+                          className={classNames("all", sty.freeBox___9Kgo1)}
                           key={currentIndex}
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
+                              "all",
                               sty.freeBox__sdjFw,
                               "shimmer"
                             )}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__vYpW
-                              )}
+                              className={classNames("all", sty.freeBox__vYpW)}
                             />
                           </div>
                         </div>
@@ -20458,9 +20440,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__poo6F)}
-                  >
+                  <div className={classNames("all", sty.freeBox__poo6F)}>
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
@@ -20483,17 +20463,11 @@ function PlasmicShopComponent__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_0;
                       return (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__sowFe
-                          )}
+                          className={classNames("all", sty.freeBox__sowFe)}
                           key={currentIndex}
                         >
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__priiF
-                            )}
+                            className={classNames("all", sty.freeBox__priiF)}
                             onClick={async event => {
                               const $steps = {};
 
@@ -20597,21 +20571,18 @@ function PlasmicShopComponent__RenderFunc(props: {
                             })()}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__xjxTn
-                              )}
+                              className={classNames("all", sty.freeBox__xjxTn)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox___1Lxj3
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text___0QjlW
                                   )}
                                 >
@@ -20634,21 +20605,18 @@ function PlasmicShopComponent__RenderFunc(props: {
                                 </div>
                               </div>
                               <div
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.freeBox__rWcd
-                                )}
+                                className={classNames("all", sty.freeBox__rWcd)}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__fJtKj
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__q4DnT
                                     )}
                                   >
@@ -20671,8 +20639,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                                   </div>
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__fP4Uc
                                     )}
                                   >
@@ -20699,7 +20667,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                                 </div>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__qh8Le
                                   )}
                                 >
@@ -20719,8 +20687,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                                   })() ? (
                                     <div
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
+                                        "all",
+                                        "__wab_text",
                                         sty.text__ceUXe
                                       )}
                                     >
@@ -20756,8 +20724,8 @@ function PlasmicShopComponent__RenderFunc(props: {
           </div>
         </div>
       </section>
-      <section className={classNames(projectcss.all, sty.section___4Iz1I)}>
-        <div className={classNames(projectcss.all, sty.freeBox__y2Bqc)}>
+      <section className={classNames("all", sty.section___4Iz1I)}>
+        <div className={classNames("all", sty.freeBox__y2Bqc)}>
           {(() => {
             try {
               return (
@@ -20774,19 +20742,13 @@ function PlasmicShopComponent__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__zso2O)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__guNJc
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__zso2O)}>
+              <div className={classNames("all", "__wab_text", sty.text__guNJc)}>
                 {
                   "\u0633\u0648\u062f \u0634\u0645\u0627 \u0627\u0632 \u0627\u06cc\u0646 \u062e\u0631\u06cc\u062f:"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___3Qln)}>
+              <div className={classNames("all", sty.freeBox___3Qln)}>
                 {(() => {
                   try {
                     return !$state.loading;
@@ -20802,8 +20764,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                 })() ? (
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___2He9A
                     )}
                   >
@@ -20846,8 +20808,8 @@ function PlasmicShopComponent__RenderFunc(props: {
                 })() ? (
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__h6Zvi,
                       "shimmer"
                     )}
@@ -20858,17 +20820,11 @@ function PlasmicShopComponent__RenderFunc(props: {
               </div>
             </div>
           ) : null}
-          <div className={classNames(projectcss.all, sty.freeBox__ez3Uk)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___525A
-              )}
-            >
+          <div className={classNames("all", sty.freeBox__ez3Uk)}>
+            <div className={classNames("all", "__wab_text", sty.text___525A)}>
               {"\u0645\u0628\u0644\u063a \u06a9\u0644:"}
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__yx5Zl)}>
+            <div className={classNames("all", sty.freeBox__yx5Zl)}>
               {(() => {
                 try {
                   return !$state.loading;
@@ -20883,11 +20839,7 @@ function PlasmicShopComponent__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___1L5QW
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___1L5QW)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -20925,8 +20877,8 @@ function PlasmicShopComponent__RenderFunc(props: {
               })() ? (
                 <div
                   className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
+                    "all",
+                    "__wab_text",
                     sty.text__mgMx3,
                     "shimmer"
                   )}
@@ -21220,18 +21172,12 @@ function PlasmicShopComponent__RenderFunc(props: {
               }
             }}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__zxUuR
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__zxUuR)}>
               {"\u067e\u0631\u062f\u0627\u062e\u062a"}
             </div>
           </Button>
           <div
-            className={classNames(projectcss.all, sty.freeBox__jf57)}
+            className={classNames("all", sty.freeBox__jf57)}
             onClick={async event => {
               const $steps = {};
 
@@ -21262,13 +21208,7 @@ function PlasmicShopComponent__RenderFunc(props: {
               }
             }}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__caKw3
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__caKw3)}>
               {
                 "\u0628\u0639\u062f\u0627 \u067e\u0631\u062f\u0627\u062e\u062a \u0645\u06cc\u06a9\u0646\u0645 >"
               }
@@ -21276,7 +21216,7 @@ function PlasmicShopComponent__RenderFunc(props: {
             <CheckSvgIcon
               data-plasmic-name={"svg"}
               data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
+              className={classNames("all", sty.svg)}
               role={"img"}
             />
           </div>

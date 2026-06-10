@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicAboutUsPregnancy.module.css"; // plasmic-import: 6gW75kKqp0CM/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -90,11 +89,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -164,7 +170,7 @@ function PlasmicAboutUsPregnancy__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -179,17 +185,17 @@ function PlasmicAboutUsPregnancy__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -197,16 +203,16 @@ function PlasmicAboutUsPregnancy__RenderFunc(props: {
           <section
             data-plasmic-name={"section"}
             data-plasmic-override={overrides.section}
-            className={classNames(projectcss.all, sty.section)}
+            className={classNames("all", sty.section)}
           >
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__gw1Dp)}>
+              <div className={classNames("all", sty.freeBox__gw1Dp)}>
                 <XIcon
-                  className={classNames(projectcss.all, sty.svg__z3Ryl)}
+                  className={classNames("all", sty.svg__z3Ryl)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -236,55 +242,35 @@ function PlasmicAboutUsPregnancy__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__hRnlx
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__hRnlx)}
                 >
                   {"\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
                 </div>
               </div>
             </HeaderLiom>
           </section>
-          <div className={classNames(projectcss.all, sty.freeBox__fzb2P)}>
-            <div className={classNames(projectcss.all, sty.freeBox__pTs6O)}>
+          <div className={classNames("all", sty.freeBox__fzb2P)}>
+            <div className={classNames("all", sty.freeBox__pTs6O)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___34VaL
-                )}
+                className={classNames("all", "__wab_text", sty.text___34VaL)}
               >
                 {"\u062f\u0631\u0628\u0627\u0631\u0647 \u0645\u0627"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__hp1Ls
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__hp1Ls)}>
                 {
                   "\u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u06cc\u06a9 \u0633\u0641\u0631 \u0634\u06af\u0641\u062a\u200c\u0627\u0646\u06af\u06cc\u0632 \u0648 \u067e\u0631 \u0627\u0632 \u062a\u063a\u06cc\u06cc\u0631 \u0627\u0633\u062a\u060c \u0648 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0647\u0645\u0631\u0627\u0647 \u0647\u0648\u0634\u0645\u0646\u062f \u0634\u0645\u0627\u0633\u062a \u062a\u0627 \u0627\u06cc\u0646 \u0645\u0633\u06cc\u0631 \u0631\u0627 \u0628\u0627 \u0622\u0631\u0627\u0645\u0634 \u0648 \u0627\u0637\u0645\u06cc\u0646\u0627\u0646 \u0628\u06cc\u0634\u062a\u0631\u06cc \u0637\u06cc \u06a9\u0646\u06cc\u062f. \u0627\u06cc\u0646 \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0628\u0647 \u0634\u0645\u0627 \u0627\u0645\u06a9\u0627\u0646 \u0645\u06cc\u200c\u062f\u0647\u062f \u0647\u0641\u062a\u0647 \u0628\u0647 \u0647\u0641\u062a\u0647 \u0631\u0648\u0646\u062f \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u062e\u0648\u062f \u0631\u0627 \u062f\u0646\u0628\u0627\u0644 \u06a9\u0646\u06cc\u062f\u060c \u0639\u0644\u0627\u0626\u0645 \u0648 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a \u0628\u062f\u0646\u06cc \u0631\u0627 \u062b\u0628\u062a \u0646\u0645\u0627\u06cc\u06cc\u062f \u0648 \u062f\u0631 \u0647\u0631 \u0645\u0631\u062d\u0644\u0647 \u062a\u0648\u0635\u06cc\u0647\u200c\u0647\u0627\u06cc \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0648 \u0628\u0647\u062f\u0627\u0634\u062a\u06cc \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f.\n\n\u0647\u062f\u0641 \u0645\u0627 \u0627\u06cc\u0646 \u0627\u0633\u062a \u06a9\u0647 \u0634\u0645\u0627 \u062a\u062c\u0631\u0628\u0647\u200c\u0627\u06cc \u0631\u0627\u062d\u062a\u200c\u062a\u0631 \u0648 \u0622\u06af\u0627\u0647\u0627\u0646\u0647\u200c\u062a\u0631 \u0627\u0632 \u062f\u0648\u0631\u0627\u0646 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f \u0648 \u0628\u062a\u0648\u0627\u0646\u06cc\u062f \u0628\u0627 \u0634\u0646\u0627\u062e\u062a \u0628\u0647\u062a\u0631 \u0627\u0632 \u0628\u062f\u0646 \u0648 \u0646\u06cc\u0627\u0632\u0647\u0627\u06cc \u062e\u0648\u062f\u060c \u0628\u0647 \u0633\u0644\u0627\u0645\u062a \u0648 \u0622\u0631\u0627\u0645\u0634 \u062c\u0633\u0645\u06cc \u0648 \u0631\u0648\u062d\u06cc \u0627\u0647\u0645\u06cc\u062a \u062f\u0647\u06cc\u062f.\n\n\u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0647\u0645\u06cc\u0634\u0647 \u062f\u0631 \u06a9\u0646\u0627\u0631 \u0634\u0645\u0627\u0633\u062a \u062a\u0627 \u0627\u06cc\u0646 \u0633\u0641\u0631 \u0646\u0647\u200c\u062a\u0646\u0647\u0627 \u0622\u0633\u0627\u0646\u200c\u062a\u0631\u060c \u0628\u0644\u06a9\u0647 \u062f\u0644\u067e\u0630\u06cc\u0631\u062a\u0631 \u0648 \u0645\u0637\u0645\u0626\u0646\u200c\u062a\u0631 \u0634\u0648\u062f."
                 }
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__kuL6)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yrJ2M
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__kuL6)}>
+              <div className={classNames("all", "__wab_text", sty.text__yrJ2M)}>
                 {
                   "\u0645\u0627 \u0631\u0648 \u062f\u0631 \u0634\u0628\u06a9\u0647 \u0647\u0627\u06cc \u0627\u062c\u062a\u0645\u0627\u0639\u06cc \u062f\u0646\u0628\u0627\u0644 \u06a9\u0646"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__lM32)}>
+              <div className={classNames("all", sty.freeBox__lM32)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___0W9U)}
+                  className={classNames("all", sty.freeBox___0W9U)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -329,16 +315,12 @@ function PlasmicAboutUsPregnancy__RenderFunc(props: {
                   }}
                 >
                   <Icon191Icon
-                    className={classNames(projectcss.all, sty.svg__tkdq6)}
+                    className={classNames("all", sty.svg__tkdq6)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__sp8M5
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__sp8M5)}
                   >
                     {
                       "\u0627\u06cc\u0646\u0633\u062a\u0627\u06af\u0631\u0627\u0645"
@@ -346,7 +328,7 @@ function PlasmicAboutUsPregnancy__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___7OuTn)}
+                  className={classNames("all", sty.freeBox___7OuTn)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -381,16 +363,12 @@ function PlasmicAboutUsPregnancy__RenderFunc(props: {
                   }}
                 >
                   <Icon192Icon
-                    className={classNames(projectcss.all, sty.svg__fblkg)}
+                    className={classNames("all", sty.svg__fblkg)}
                     role={"img"}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__mKw1W
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__mKw1W)}
                   >
                     {"\u062a\u0644\u06af\u0631\u0627\u0645"}
                   </div>
@@ -513,9 +491,10 @@ export const PlasmicAboutUsPregnancy = Object.assign(
     internalArgProps: PlasmicAboutUsPregnancy__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/about-us-pregnancy",
       pagePath: "/about-us-pregnancy",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

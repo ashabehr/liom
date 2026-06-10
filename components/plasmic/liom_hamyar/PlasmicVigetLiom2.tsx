@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicVigetLiom2.module.css"; // plasmic-import: 38exw8bGQf_v/css
 
 createPlasmicElementProxy;
@@ -140,10 +139,10 @@ function PlasmicVigetLiom2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -158,13 +157,7 @@ function PlasmicVigetLiom2__RenderFunc(props: {
       {renderPlasmicSlot({
         defaultContents: (
           <React.Fragment>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__osPjb
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__osPjb)}>
               {"Enter some text"}
             </div>
             <Embed
@@ -172,7 +165,7 @@ function PlasmicVigetLiom2__RenderFunc(props: {
               code={"<hr></hr>"}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__ggR9P)} />
+            <div className={classNames("all", sty.freeBox__ggR9P)} />
           </React.Fragment>
         ),
         value: args.children

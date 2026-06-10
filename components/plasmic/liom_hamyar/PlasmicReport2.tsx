@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReport2.module.css"; // plasmic-import: gmdZmHDhwt9V/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -184,12 +183,6 @@ function PlasmicReport2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -267,6 +260,13 @@ function PlasmicReport2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -284,10 +284,10 @@ function PlasmicReport2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -298,29 +298,17 @@ function PlasmicReport2__RenderFunc(props: {
         className={classNames("__wab_instance", sty.sideEffect)}
       />
 
-      <div className={classNames(projectcss.all, sty.freeBox__hqJ)}>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__naebj
-          )}
-        >
+      <div className={classNames("all", sty.freeBox__hqJ)}>
+        <div className={classNames("all", "__wab_text", sty.text__naebj)}>
           {"1000000 \u062a\u0648\u0645\u0627\u0646"}
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__czSdf
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text__czSdf)}>
           {
             "\u0645\u062c\u0645\u0648\u0639\u0647 \u0647\u0632\u06cc\u0646\u0647 \u0645\u0627\u0647"
           }
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__dfkb)}>
+      <div className={classNames("all", sty.freeBox__dfkb)}>
         <ApiRequest
           data-plasmic-name={"apiRequest"}
           data-plasmic-override={overrides.apiRequest}
@@ -342,21 +330,13 @@ function PlasmicReport2__RenderFunc(props: {
           className={classNames("__wab_instance", sty.apiRequest)}
           errorDisplay={null}
           loadingDisplay={
-            <div className={classNames(projectcss.all, sty.freeBox__ocX3S)}>
+            <div className={classNames("all", sty.freeBox__ocX3S)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__qfs9E,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__qfs9E, "shimmer")}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__vhgb,
-                  "shimmer"
-                )}
+                className={classNames("all", sty.freeBox__vhgb, "shimmer")}
               />
             </div>
           }
@@ -394,14 +374,8 @@ function PlasmicReport2__RenderFunc(props: {
           })()}
           url={"https://n8n.staas.ir/webhook/report/insert"}
         >
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__ldo16,
-              "fade-in"
-            )}
-          >
-            <div className={classNames(projectcss.all, sty.freeBox__a4KrN)}>
+          <div className={classNames("all", sty.freeBox__ldo16, "fade-in")}>
+            <div className={classNames("all", sty.freeBox__a4KrN)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -421,7 +395,7 @@ function PlasmicReport2__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__kzTo)}
+                    className={classNames("all", sty.freeBox__kzTo)}
                     key={currentIndex}
                   >
                     <ReportItem
@@ -546,13 +520,13 @@ function PlasmicReport2__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__iCg5C
                         )}
                       >
                         <div
-                          className={projectcss.__wab_expr_html_text}
+                          className={"__wab_expr_html_text"}
                           dangerouslySetInnerHTML={{
                             __html: (() => {
                               try {
@@ -577,19 +551,13 @@ function PlasmicReport2__RenderFunc(props: {
                 );
               })}
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__cjfU)} />
+            <div className={classNames("all", sty.freeBox__cjfU)} />
 
-            <div className={classNames(projectcss.all, sty.freeBox__hSJw)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__a6D3Y
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__hSJw)}>
+              <div className={classNames("all", "__wab_text", sty.text__a6D3Y)}>
                 {"\u0635\u0648\u0631\u062a\u062d\u0633\u0627\u0628"}
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__gnola)}>
+              <div className={classNames("all", sty.freeBox__gnola)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -609,19 +577,14 @@ function PlasmicReport2__RenderFunc(props: {
                   const currentIndex = __plasmic_idx_0;
                   return (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__z9IUv)}
+                      className={classNames("all", sty.freeBox__z9IUv)}
                       key={currentIndex}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___5Sq04
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox___5Sq04)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__o2PRv
                           )}
                         >
@@ -651,8 +614,8 @@ function PlasmicReport2__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___7SN
                           )}
                         >
@@ -675,13 +638,13 @@ function PlasmicReport2__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__xmREq
                         )}
                       >
                         <div
-                          className={projectcss.__wab_expr_html_text}
+                          className={"__wab_expr_html_text"}
                           dangerouslySetInnerHTML={{
                             __html: (() => {
                               try {
@@ -712,12 +675,12 @@ function PlasmicReport2__RenderFunc(props: {
                   );
                 })}
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__pi8Zz)}>
-                <div className={classNames(projectcss.all, sty.freeBox__ug39R)}>
+              <div className={classNames("all", sty.freeBox__pi8Zz)}>
+                <div className={classNames("all", sty.freeBox__ug39R)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___9PBdN
                     )}
                   >
@@ -726,19 +689,13 @@ function PlasmicReport2__RenderFunc(props: {
                     }
                   </div>
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___5K4Xm)}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__i19XF)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__sSw0T)}
-                    >
+                <div className={classNames("all", sty.freeBox___5K4Xm)}>
+                  <div className={classNames("all", sty.freeBox__i19XF)}>
+                    <div className={classNames("all", sty.freeBox__sSw0T)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___8WMGm
                         )}
                       >
@@ -747,13 +704,13 @@ function PlasmicReport2__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__nVjJw
                       )}
                     >
                       <div
-                        className={projectcss.__wab_expr_html_text}
+                        className={"__wab_expr_html_text"}
                         dangerouslySetInnerHTML={{
                           __html: (() => {
                             try {

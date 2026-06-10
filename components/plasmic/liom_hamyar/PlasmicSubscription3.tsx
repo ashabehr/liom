@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSubscription3.module.css"; // plasmic-import: vcwQDI5OpjvX/css
 
 createPlasmicElementProxy;
@@ -170,10 +169,6 @@ function PlasmicSubscription3__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -238,6 +233,11 @@ function PlasmicSubscription3__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -255,36 +255,31 @@ function PlasmicSubscription3__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         { [sty.rootclick]: hasVariant($state, "click", "click") }
       )}
       onClick={args.onClick}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__eDg1A)}>
+      <div className={classNames("all", sty.freeBox__eDg1A)}>
         {renderPlasmicSlot({
           defaultContents: null,
           value: args.children
         })}
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__msyU3, {
+        className={classNames("all", sty.freeBox__msyU3, {
           [sty.freeBoxclick__msyU3MGxtU]: hasVariant($state, "click", "click")
         })}
       >
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__qrbsi,
-            {
-              [sty.textclick__qrbsimGxtU]: hasVariant($state, "click", "click")
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text__qrbsi, {
+            [sty.textclick__qrbsimGxtU]: hasVariant($state, "click", "click")
+          })}
         >
           <React.Fragment>
             {(() => {
@@ -303,7 +298,7 @@ function PlasmicSubscription3__RenderFunc(props: {
           </React.Fragment>
         </div>
         <div
-          className={classNames(projectcss.all, sty.freeBox__apZ9L, {
+          className={classNames("all", sty.freeBox__apZ9L, {
             [sty.freeBoxclick__apZ9LmGxtU]: hasVariant($state, "click", "click")
           })}
         >
@@ -321,18 +316,13 @@ function PlasmicSubscription3__RenderFunc(props: {
             }
           })() ? (
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__xBk9C,
-                {
-                  [sty.textclick__xBk9CmGxtU]: hasVariant(
-                    $state,
-                    "click",
-                    "click"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__xBk9C, {
+                [sty.textclick__xBk9CmGxtU]: hasVariant(
+                  $state,
+                  "click",
+                  "click"
+                )
+              })}
             >
               <React.Fragment>
                 {(() => {
@@ -352,18 +342,9 @@ function PlasmicSubscription3__RenderFunc(props: {
             </div>
           ) : null}
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___0AMav,
-              {
-                [sty.textclick___0AMavmGxtU]: hasVariant(
-                  $state,
-                  "click",
-                  "click"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text___0AMav, {
+              [sty.textclick___0AMavmGxtU]: hasVariant($state, "click", "click")
+            })}
           >
             {hasVariant($state, "click", "click") ? (
               <React.Fragment>
@@ -413,7 +394,7 @@ function PlasmicSubscription3__RenderFunc(props: {
             }
           })() ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox___6WHA, {
+              className={classNames("all", sty.freeBox___6WHA, {
                 [sty.freeBoxclick___6WHAmGxtU]: hasVariant(
                   $state,
                   "click",
@@ -422,18 +403,13 @@ function PlasmicSubscription3__RenderFunc(props: {
               })}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__fPwYn,
-                  {
-                    [sty.textclick__fPwYnmGxtU]: hasVariant(
-                      $state,
-                      "click",
-                      "click"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__fPwYn, {
+                  [sty.textclick__fPwYnmGxtU]: hasVariant(
+                    $state,
+                    "click",
+                    "click"
+                  )
+                })}
               >
                 {hasVariant($state, "click", "click") ? (
                   <React.Fragment>

@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReminderBox.module.css"; // plasmic-import: g0um5JESG1KZ/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -162,10 +161,6 @@ function PlasmicReminderBox__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -230,6 +225,11 @@ function PlasmicReminderBox__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -264,10 +264,10 @@ function PlasmicReminderBox__RenderFunc(props: {
         data-plasmic-root={true}
         data-plasmic-for-node={forNode}
         className={classNames(
-          projectcss.all,
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "all",
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames,
           sty.reminderbox,
           {
@@ -290,7 +290,7 @@ function PlasmicReminderBox__RenderFunc(props: {
         )}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__qjT2R, {
+          className={classNames("all", sty.freeBox__qjT2R, {
             [sty.freeBoxsugRec__qjT2RiJi5]: hasVariant(
               $state,
               "sugRec",
@@ -302,7 +302,7 @@ function PlasmicReminderBox__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__f6Cap, {
+            className={classNames("all", sty.freeBox__f6Cap, {
               [sty.freeBoxsugRec__f6CapIJi5]: hasVariant(
                 $state,
                 "sugRec",
@@ -313,12 +313,9 @@ function PlasmicReminderBox__RenderFunc(props: {
             <div
               data-plasmic-name={"text"}
               data-plasmic-override={overrides.text}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text,
-                { [sty.textsugRec]: hasVariant($state, "sugRec", "sugRec") }
-              )}
+              className={classNames("all", "__wab_text", sty.text, {
+                [sty.textsugRec]: hasVariant($state, "sugRec", "sugRec")
+              })}
             >
               {hasVariant($state, "sugRec", "sugRec")
                 ? "\u0631\u0648\u0632\u0647\u0627\u06cc \u0645\u0647\u0645 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646!"
@@ -327,7 +324,7 @@ function PlasmicReminderBox__RenderFunc(props: {
                   : "\u0645\u0646\u0627\u0633\u0628\u062a\u200c\u0647\u0627\u06cc \u0646\u0632\u062f\u06cc\u06a9 \u0631\u0648 \u0641\u0631\u0627\u0645\u0648\u0634 \u0646\u06a9\u0646 ! "}
             </div>
             <XIcon
-              className={classNames(projectcss.all, sty.svg__evZmj, {
+              className={classNames("all", sty.svg__evZmj, {
                 [sty.svgsugRec__evZmjIJi5]: hasVariant(
                   $state,
                   "sugRec",
@@ -364,7 +361,7 @@ function PlasmicReminderBox__RenderFunc(props: {
             />
 
             <XIcon
-              className={classNames(projectcss.all, sty.svg__md7W1, {
+              className={classNames("all", sty.svg__md7W1, {
                 [sty.svgsugRec__md7W1IJi5]: hasVariant(
                   $state,
                   "sugRec",
@@ -401,7 +398,7 @@ function PlasmicReminderBox__RenderFunc(props: {
             />
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__sN06U, {
+            className={classNames("all", sty.freeBox__sN06U, {
               [sty.freeBoxlackOfCourseInformation__sN06Us1Qe]: hasVariant(
                 $state,
                 "lackOfCourseInformation",

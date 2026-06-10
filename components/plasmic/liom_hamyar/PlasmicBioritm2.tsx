@@ -80,7 +80,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicBioritm2.module.css"; // plasmic-import: asaCgPeO3i7V/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
@@ -110,7 +109,14 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     title: "همیار لیوم",
 
@@ -118,7 +124,7 @@ export function generateDynamicMetadata($q: any, $ctx: any) {
       title: "همیار لیوم"
     },
     twitter: {
-      card: "summary",
+      card: "summary" as const,
       title: "همیار لیوم"
     }
   };
@@ -214,12 +220,6 @@ function PlasmicBioritm2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -628,6 +628,13 @@ function PlasmicBioritm2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -638,7 +645,7 @@ function PlasmicBioritm2__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -662,17 +669,17 @@ function PlasmicBioritm2__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             {
@@ -825,7 +832,7 @@ function PlasmicBioritm2__RenderFunc(props: {
           />
 
           <section
-            className={classNames(projectcss.all, sty.section__cng3X, {
+            className={classNames("all", sty.section__cng3X, {
               [sty.sectionferstTimepage__cng3XGb6Kk]: hasVariant(
                 $state,
                 "ferstTimepage",
@@ -927,9 +934,9 @@ function PlasmicBioritm2__RenderFunc(props: {
                   : undefined
               }
             >
-              <div className={classNames(projectcss.all, sty.freeBox__s2I8N)}>
+              <div className={classNames("all", sty.freeBox__s2I8N)}>
                 <Icon185Icon
-                  className={classNames(projectcss.all, sty.svg__hYrgG)}
+                  className={classNames("all", sty.svg__hYrgG)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -972,11 +979,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xotO3
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__xotO3)}
                 >
                   {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
                 </div>
@@ -987,9 +990,9 @@ function PlasmicBioritm2__RenderFunc(props: {
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__yquaX)}>
+              <div className={classNames("all", sty.freeBox__yquaX)}>
                 <XIcon
-                  className={classNames(projectcss.all, sty.svg__ioLLs)}
+                  className={classNames("all", sty.svg__ioLLs)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -1019,11 +1022,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lffY7
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__lffY7)}
                 >
                   {"\u062d\u0627\u0644 \u0627\u0645\u0631\u0648\u0632"}
                 </div>
@@ -1137,14 +1136,10 @@ function PlasmicBioritm2__RenderFunc(props: {
                   })()
             }
             errorDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__iq5Iu)}>
-                <div className={classNames(projectcss.all, sty.freeBox__iEctS)}>
+              <div className={classNames("all", sty.freeBox__iq5Iu)}>
+                <div className={classNames("all", sty.freeBox__iEctS)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__xwFcR
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__xwFcR)}
                   >
                     {
                       "\u0644\u0637\u0641\u0627 \u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u062e\u0648\u062f \u0645\u0637\u0645\u0639\u0646 \u0634\u0648\u06cc\u062f."
@@ -1158,7 +1153,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button7", "color"])}
                   endIcon={
                     <Icon144Icon
-                      className={classNames(projectcss.all, sty.svg__r5Uee)}
+                      className={classNames("all", sty.svg__r5Uee)}
                       role={"img"}
                     />
                   }
@@ -1240,17 +1235,13 @@ function PlasmicBioritm2__RenderFunc(props: {
                   }}
                   startIcon={
                     <ChevronRightIcon
-                      className={classNames(projectcss.all, sty.svg__vyhxn)}
+                      className={classNames("all", sty.svg__vyhxn)}
                       role={"img"}
                     />
                   }
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__sYiu8
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__sYiu8)}
                   >
                     {
                       "\u0628\u0627\u0631\u06af\u0632\u0627\u0631\u06cc \u0645\u062c\u062f\u062f"
@@ -1260,28 +1251,19 @@ function PlasmicBioritm2__RenderFunc(props: {
               </div>
             }
             loadingDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__qUyw3)}>
+              <div className={classNames("all", sty.freeBox__qUyw3)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__xJx0S,
-                    "shimmer"
-                  )}
+                  className={classNames("all", sty.freeBox__xJx0S, "shimmer")}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__bd28B,
-                    "shimmer",
-                    {
-                      [sty.freeBoxferstTimepage__bd28BGb6Kk]: hasVariant(
-                        $state,
-                        "ferstTimepage",
-                        "ferstTimepage"
-                      )
-                    }
-                  )}
+                  className={classNames("all", sty.freeBox__bd28B, "shimmer", {
+                    [sty.freeBoxferstTimepage__bd28BGb6Kk]: hasVariant(
+                      $state,
+                      "ferstTimepage",
+                      "ferstTimepage"
+                    )
+                  })}
                 />
 
                 <SlideinModal
@@ -1387,7 +1369,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__bzvux, {
+                    className={classNames("all", sty.freeBox__bzvux, {
                       [sty.freeBoxferstTimepage__bzvuxGb6Kk]: hasVariant(
                         $state,
                         "ferstTimepage",
@@ -1397,8 +1379,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__dxHuM
                       )}
                     >
@@ -1464,17 +1446,13 @@ function PlasmicBioritm2__RenderFunc(props: {
                     />
 
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__nAqHf,
-                        {
-                          [sty.freeBoxferstTimepage__nAqHfGb6Kk]: hasVariant(
-                            $state,
-                            "ferstTimepage",
-                            "ferstTimepage"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox__nAqHf, {
+                        [sty.freeBoxferstTimepage__nAqHfGb6Kk]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      })}
                     >
                       <Button
                         data-plasmic-name={"button8"}
@@ -1840,8 +1818,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__rg5L
                           )}
                         >
@@ -1962,7 +1940,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                   })()
             ) ? (
               <div
-                className={classNames(projectcss.all, sty.freeBox__apHt, {
+                className={classNames("all", sty.freeBox__apHt, {
                   [sty.freeBoxferstTimepage__apHtGb6Kk]: hasVariant(
                     $state,
                     "ferstTimepage",
@@ -1971,7 +1949,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__fSiXi, {
+                  className={classNames("all", sty.freeBox__fSiXi, {
                     [sty.freeBoxferstTimepage__fSiXiGb6Kk]: hasVariant(
                       $state,
                       "ferstTimepage",
@@ -1981,9 +1959,10 @@ function PlasmicBioritm2__RenderFunc(props: {
                 >
                   <p
                     className={classNames(
-                      projectcss.all,
-                      projectcss.p,
-                      projectcss.__wab_text,
+                      "all",
+                      "p",
+                      "p__suVPi",
+                      "__wab_text",
                       sty.p__twofn,
                       {
                         [sty.pferstTimepage__twofnGb6Kk]: hasVariant(
@@ -2038,7 +2017,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       : "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f"}
                   </p>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox___71LmI, {
+                    className={classNames("all", sty.freeBox___71LmI, {
                       [sty.freeBoxferstTimepage___71LmIGb6Kk]: hasVariant(
                         $state,
                         "ferstTimepage",
@@ -2065,8 +2044,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                     ) ? (
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__pAflK,
                           {
                             [sty.textferstTimepage__pAflKGb6Kk]: hasVariant(
@@ -2079,7 +2058,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       >
                         {hasVariant(globalVariants, "screen", "mobile") ? (
                           <div
-                            className={projectcss.__wab_expr_html_text}
+                            className={"__wab_expr_html_text"}
                             dangerouslySetInnerHTML={{
                               __html: (() => {
                                 try {
@@ -2113,7 +2092,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                           />
                         ) : (
                           <div
-                            className={projectcss.__wab_expr_html_text}
+                            className={"__wab_expr_html_text"}
                             dangerouslySetInnerHTML={{
                               __html: (() => {
                                 try {
@@ -2179,8 +2158,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                     ) ? (
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___4E1Uc,
                           {
                             [sty.textferstTimepage___4E1UcGb6Kk]: hasVariant(
@@ -2192,7 +2171,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                         )}
                       >
                         <div
-                          className={projectcss.__wab_expr_html_text}
+                          className={"__wab_expr_html_text"}
                           dangerouslySetInnerHTML={{
                             __html: (() => {
                               try {
@@ -2213,7 +2192,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                     ) : null}
                   </div>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__uH8Z, {
+                    className={classNames("all", sty.freeBox__uH8Z, {
                       [sty.freeBoxferstTimepage__uH8ZGb6Kk]: hasVariant(
                         $state,
                         "ferstTimepage",
@@ -2223,7 +2202,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__ccM8N,
                         "bioritmbox"
                       )}
@@ -2235,14 +2214,14 @@ function PlasmicBioritm2__RenderFunc(props: {
                             ? Icon25Icon
                             : Icon25Icon
                         }
-                        className={classNames(projectcss.all, sty.svg__tx2If)}
+                        className={classNames("all", sty.svg__tx2If)}
                         role={"img"}
                       />
 
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__gqWlr,
                           {
                             [sty.textferstTimepage__gqWlrGb6Kk]: hasVariant(
@@ -2257,8 +2236,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__bzwLj,
                           "negative",
                           {
@@ -2334,21 +2313,21 @@ function PlasmicBioritm2__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__kF2,
                         "bioritmbox"
                       )}
                       dir={"ltr"}
                     >
                       <Icon17Icon
-                        className={classNames(projectcss.all, sty.svg__aeWbR)}
+                        className={classNames("all", sty.svg__aeWbR)}
                         role={"img"}
                       />
 
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__s2NK
                         )}
                       >
@@ -2356,8 +2335,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__hradF,
                           "negative",
                           {
@@ -2432,21 +2411,21 @@ function PlasmicBioritm2__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox___23SJt,
                         "bioritmbox"
                       )}
                       dir={"ltr"}
                     >
                       <Icon16Icon
-                        className={classNames(projectcss.all, sty.svg__gziK)}
+                        className={classNames("all", sty.svg__gziK)}
                         role={"img"}
                       />
 
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__u0Awo
                         )}
                       >
@@ -2454,8 +2433,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__rkNd,
                           "negative",
                           {
@@ -2577,7 +2556,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                     </div>
                   </div>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__nKHlm, {
+                    className={classNames("all", sty.freeBox__nKHlm, {
                       [sty.freeBoxferstTimepage__nKHlmGb6Kk]: hasVariant(
                         $state,
                         "ferstTimepage",
@@ -2587,9 +2566,10 @@ function PlasmicBioritm2__RenderFunc(props: {
                   >
                     <p
                       className={classNames(
-                        projectcss.all,
-                        projectcss.p,
-                        projectcss.__wab_text,
+                        "all",
+                        "p",
+                        "p__suVPi",
+                        "__wab_text",
                         sty.p__mIwbv
                       )}
                     >
@@ -2597,8 +2577,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                     </p>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__dnfhe,
                         "negative",
                         {
@@ -2650,9 +2630,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       )}
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__sMvC)}
-                  >
+                  <div className={classNames("all", sty.freeBox__sMvC)}>
                     <Button
                       data-plasmic-name={"button2"}
                       data-plasmic-override={overrides.button2}
@@ -2919,7 +2897,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__fzEGz, {
+                  className={classNames("all", sty.freeBox__fzEGz, {
                     [sty.freeBoxferstTimepage__fzEGzGb6Kk]: hasVariant(
                       $state,
                       "ferstTimepage",
@@ -2927,14 +2905,13 @@ function PlasmicBioritm2__RenderFunc(props: {
                     )
                   })}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__jejmn)}
-                  >
+                  <div className={classNames("all", sty.freeBox__jejmn)}>
                     <p
                       className={classNames(
-                        projectcss.all,
-                        projectcss.p,
-                        projectcss.__wab_text,
+                        "all",
+                        "p",
+                        "p__suVPi",
+                        "__wab_text",
                         sty.p__wtS16
                       )}
                     >
@@ -2943,9 +2920,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                       }
                     </p>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__rte6C)}
-                  >
+                  <div className={classNames("all", sty.freeBox__rte6C)}>
                     {(
                       hasVariant($state, "ferstTimepage", "ferstTimepage")
                         ? true
@@ -2967,8 +2942,9 @@ function PlasmicBioritm2__RenderFunc(props: {
                         data-plasmic-name={"ul"}
                         data-plasmic-override={overrides.ul}
                         className={classNames(
-                          projectcss.all,
-                          projectcss.ul,
+                          "all",
+                          "ul",
+                          "ul__suVPi",
                           sty.ul,
                           {
                             [sty.ulferstTimepage]: hasVariant(
@@ -3005,9 +2981,10 @@ function PlasmicBioritm2__RenderFunc(props: {
                               data-plasmic-name={"li"}
                               data-plasmic-override={overrides.li}
                               className={classNames(
-                                projectcss.all,
-                                projectcss.li,
-                                projectcss.__wab_text,
+                                "all",
+                                "li",
+                                "li__suVPi",
+                                "__wab_text",
                                 sty.li,
                                 {
                                   [sty.liferstTimepage]: hasVariant(
@@ -5666,13 +5643,11 @@ function PlasmicBioritm2__RenderFunc(props: {
                     }
                   }}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__vEg5S)}
-                  >
+                  <div className={classNames("all", sty.freeBox__vEg5S)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___2Kznl
                       )}
                     >
@@ -5680,8 +5655,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__gsSH
                       )}
                     >
@@ -5724,7 +5699,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__ixKRw, {
+                    className={classNames("all", sty.freeBox__ixKRw, {
                       [sty.freeBoxferstTimepage__ixKRwGb6Kk]: hasVariant(
                         $state,
                         "ferstTimepage",
@@ -5734,8 +5709,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__ztsqX
                       )}
                     >
@@ -5801,17 +5776,13 @@ function PlasmicBioritm2__RenderFunc(props: {
                     />
 
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__mhCk0,
-                        {
-                          [sty.freeBoxferstTimepage__mhCk0Gb6Kk]: hasVariant(
-                            $state,
-                            "ferstTimepage",
-                            "ferstTimepage"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox__mhCk0, {
+                        [sty.freeBoxferstTimepage__mhCk0Gb6Kk]: hasVariant(
+                          $state,
+                          "ferstTimepage",
+                          "ferstTimepage"
+                        )
+                      })}
                     >
                       <Button
                         data-plasmic-name={"button5"}
@@ -6177,8 +6148,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__hyK9M
                           )}
                         >
@@ -6191,7 +6162,7 @@ function PlasmicBioritm2__RenderFunc(props: {
               </div>
             ) : null}
             <div
-              className={classNames(projectcss.all, sty.freeBox__i4FpF, {
+              className={classNames("all", sty.freeBox__i4FpF, {
                 [sty.freeBoxferstTimepage__i4FpFGb6Kk]: hasVariant(
                   $state,
                   "ferstTimepage",
@@ -6230,9 +6201,10 @@ function PlasmicBioritm2__RenderFunc(props: {
             >
               <p
                 className={classNames(
-                  projectcss.all,
-                  projectcss.p,
-                  projectcss.__wab_text,
+                  "all",
+                  "p",
+                  "p__suVPi",
+                  "__wab_text",
                   sty.p___3LAkr,
                   {
                     [sty.pferstTimepage___3LAkrGb6Kk]: hasVariant(
@@ -6286,18 +6258,13 @@ function PlasmicBioritm2__RenderFunc(props: {
                   : "\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u06cc\u0633\u062a\u061f"}
               </p>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__v7Gy,
-                  {
-                    [sty.textferstTimepage__v7GyGb6Kk]: hasVariant(
-                      $state,
-                      "ferstTimepage",
-                      "ferstTimepage"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__v7Gy, {
+                  [sty.textferstTimepage__v7GyGb6Kk]: hasVariant(
+                    $state,
+                    "ferstTimepage",
+                    "ferstTimepage"
+                  )
+                })}
               >
                 {
                   "\u0628\u0631\u0627\u06cc \u0645\u062d\u0627\u0633\u0628\u0647 \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0627\u0645\u0631\u0648\u0632\u062a \u0644\u0637\u0641\u0627 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u062e\u0648\u062f\u062a \u06cc\u0627 \u06a9\u0633\u06cc \u06a9\u0647 \u0645\u06cc\u062e\u0648\u0627\u06cc \u0628\u0631\u0627\u0634 \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0645\u062d\u0627\u0633\u06cc\u0647 \u0628\u0634\u0647 \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646."
@@ -6401,11 +6368,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ls4I
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__ls4I)}
                 >
                   {
                     "\u062b\u0628\u062a \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
@@ -6449,7 +6412,7 @@ function PlasmicBioritm2__RenderFunc(props: {
             ) : null}
           </ApiRequest>
           <section
-            className={classNames(projectcss.all, sty.section__htBqi, {
+            className={classNames("all", sty.section__htBqi, {
               [sty.sectionferstTimepage__htBqiGb6Kk]: hasVariant(
                 $state,
                 "ferstTimepage",
@@ -6486,29 +6449,20 @@ function PlasmicBioritm2__RenderFunc(props: {
                 "opendialog"
               ])}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__vxzJu)}>
+              <div className={classNames("all", sty.freeBox__vxzJu)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__a8JN
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__a8JN)}
                 >
                   {"\u0628\u06cc\u0648\u0631\u06cc\u062a\u0645"}
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__eegmp,
-                    {
-                      [sty.textferstTimepage__eegmpGb6Kk]: hasVariant(
-                        $state,
-                        "ferstTimepage",
-                        "ferstTimepage"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__eegmp, {
+                    [sty.textferstTimepage__eegmpGb6Kk]: hasVariant(
+                      $state,
+                      "ferstTimepage",
+                      "ferstTimepage"
+                    )
+                  })}
                 >
                   {
                     "\u0634\u062f\u0647 \u06af\u0627\u0647\u06cc \u0627\u0648\u0642\u0627\u062a \u0628\u0627 \u062e\u0648\u062f\u062a \u0628\u06af\u06cc \u0627\u0644\u0627\u0646 \u00bb \u062d\u0648\u0635\u0644\u0647 \u0647\u06cc\u0686 \u06a9\u0627\u0631\u06cc \u0631\u0648 \u0646\u062f\u0627\u0631\u0645 \u061b \u06cc\u0627 \u0627\u0645\u0631\u0648\u0632 \u0631\u0648\u06cc \u0645\u0646 \u0646\u06cc\u0633\u062a . \u00bb \u0627\u06cc\u0646\u0637\u0648\u0631 \u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0631\u0633\u0647 \u06a9\u0647 \u062f\u0631 \u0628\u0639\u0636\u06cc \u0634\u0631\u0627\u06cc\u0637 \u060c \u0642\u062f\u0631\u062a \u062c\u0633\u0645\u06cc \u0630\u0647\u0646\u06cc \u0648 \u0627\u062d\u0633\u0627\u0633\u06cc \u060c \u0645\u0627 \u0628\u0627 \u0647\u0645 . \u0647\u0645\u0627\u0647\u0646\u06af \u0646\u06cc\u0633\u062a\u0646 \u06a9\u0647 \u0647\u0645\u0647 \u0627\u06cc\u0646\u0647\u0627 \u0628\u0647 \u0633\u06cc\u06a9\u0644\u0647\u0627\u06cc \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0628\u0631\u0645\u06cc\u06af\u0631\u062f\u0647.\n\u062f\u0631 \u0648\u0627\u0642\u0639 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0646\u0628\u0636 \u062d\u064a\u0627\u062a \u06cc\u0627 \u0632\u06cc\u0633\u062a \u060c \u0622\u0647\u0646\u06af \u0639\u0644\u0645 \u0648 \u062f\u0627\u0646\u0634\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0628\u0647 \u0648\u0627\u0633\u0637\u0647 \u0627\u0648\u0646 \u0631\u06cc\u062a\u0645\u0647\u0627\u06cc \u0628\u062f\u0646 \u0627\u0646\u0633\u0627\u0646 \u0634\u0646\u0627\u062e\u062a\u0647 \u0645\u06cc\u0634\u0647 \u0628\u0631\u0627\u0633\u0627\u0633 \u0646\u0638\u0631\u064a\u0647 \u0628\u064a\u0648\u0631\u064a\u062a\u0645 \u0633\u0637\u0648\u062d \u0645\u062e\u062a\u0644\u0641\u06cc \u0627\u0632 \u0627\u0646\u0631\u0698\u06cc \u0627\u0632 \u0647\u0645\u0627\u0646 \u0627\u0628\u062a\u062f\u0627\u06cc \u062a\u0648\u0644\u062f \u062f\u0631 \u0627\u0646\u0633\u0627\u0646 \u0648\u062c\u0648\u062f \u062f\u0627\u0631\u0647 \u062f\u0631 \u0648\u0627\u0642\u0639 \u0634\u0631\u0648\u0639 \u0648 \u067e\u0627\u06cc\u0627\u0646 \u0647\u0631 \u0686\u0631\u062e\u0647 \u0628\u0631 \u0627\u0633\u0627\u0633 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f \u0641\u0631\u062f \u062a\u0639\u06cc\u06cc\u0646 \u0645\u06cc\u0634\u0647 \u0627\u06cc\u0646 \u0627\u0646\u0631\u0698\u06cc \u062f\u0631 \u06cc\u06a9 \u0628\u0627\u0632\u0647 \u0632\u0645\u0627\u0646\u06cc \u0645\u0634\u062e\u0635 \u06a9\u0645 \u0648 \u0632\u06cc\u0627\u062f \u0645\u06cc\u0634\u0647 \u0648 \u0631\u0648\u06cc \u0631\u0641\u062a\u0627\u0631 \u0648 \u062d\u0627\u0644\u0627\u062a \u0627\u0646\u0633\u0627\u0646 \u062a\u0623\u062b\u06cc\u0631 \u0645\u06cc\u0630\u0627\u0631\u0647. \n\n1- \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc ( Physical ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0647\u0631 \u06f2\u06f3 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u0627\u062a\u0641\u0627\u0642 \u0645\u06cc\u0627\u0641\u062a\u062f \u0632\u0645\u0627\u0646\u06cc \u06a9\u0647 \u062f\u0631 \u0627\u0648\u062c \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631\u06cc \u0627\u0639\u062a\u0645\u0627\u062f \u0628\u0647 \u0646\u0641\u0633 \u060c \u0627\u0646\u0631\u0698\u06cc \u0648 ... \u062f\u0627\u0631\u06cc\u062f . \u0627\u06cc\u0646 \u062f\u0631 \u062d\u0627\u0644\u06cc \u0627\u0633\u062a \u06a9\u0647 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0628\u06cc\u0634\u062a\u0631 \u062a\u062d\u062a \u062a\u0623\u062b\u06cc\u0631 \u0628\u06cc\u0645\u0627\u0631\u06cc \u0647\u0627 \u0642\u0631\u0627\u0631 \u0645\u06cc \u06af\u06cc\u0631\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0641\u06cc\u0632\u06cc\u06a9\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0627\u0633\u062a \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n\n\u06f2- \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc ( Emotional ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u06f2\u06f8 \u0631\u0648\u0632\u0647 \u0627\u0633\u062a \u0648\u0642\u062a\u06cc \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u0631\u0627\u0631 \u062f\u0627\u0631\u06cc\u062f \u0627\u062d\u0633\u0627\u0633 \u0645\u06cc\u06a9\u0646\u06cc\u062f \u0628\u06cc\u0634 \u0627\u0632 \u0647\u0631 \u0632\u0645\u0627\u0646 \u062f\u06cc\u06af\u0631 \u0634\u0627\u062f \u0648 \u0628\u0627\u0637\u0631\u0627\u0648\u062a \u0647\u0633\u062a\u06cc\u062f . \u062f\u0631 \u0645\u0642\u0627\u0628\u0644 \u0622\u0646 \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0628\u062d\u0631\u0627\u0646\u06cc \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u062a\u062d\u0631\u06cc\u06a9 \u067e\u0630\u06cc\u0631\u06cc \u0628\u0627\u0644\u0627\u06cc\u06cc \u062f\u0627\u0631\u06cc\u062f \u061b \u0627\u062d\u062a\u0645\u0627\u0644\u0627 \u0647\u0645\u0627\u0646 \u0631\u0648\u0632\u0647\u0627\u06cc\u06cc \u0627\u0633\u062a \u06a9\u0647 \u0645\u062b\u0644\u0627 \u0645\u06cc\u06af\u0648\u06cc\u06cc\u062f \u062d\u0648\u0635\u0644\u0647 \u0646\u062f\u0627\u0631\u0645 \u0648\u0644\u0645 \u06a9\u0646\u06cc\u062f \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0627\u062d\u0633\u0627\u0633\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631\u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0631\u0648\u062d\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc\u062f .\n \n\u06f3- \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc ( Intellectual ) \n\u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u0631\u0627 \u0647\u0631 \u0663\u0663 \u0631\u0648\u0632 \u06cc\u06a9\u0628\u0627\u0631 \u062a\u062c\u0631\u0628\u0647 \u0645\u06cc.\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0648\u062c \u0627\u06cc\u0646 \u062f\u0648\u0631\u0647 \u0642\u062f\u0631\u062a \u062a\u0635\u0645\u06cc\u0645 \u06af\u06cc\u0631\u06cc \u062e\u0648\u0628\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u0628\u0647 \u0631\u0627\u062d\u062a\u06cc \u0645\u06cc \u062a\u0648\u0627\u0646\u06cc\u062f \u0645\u0633\u0627\u0626\u0644 \u0648 \u0645\u0634\u06a9\u0644\u0627\u062a \u0631\u0627 \u062d\u0644 \u0648 \u0645\u062f\u06cc\u0631\u06cc\u062a .\u06a9\u0646\u06cc\u062f \u062f\u0631 \u0631\u0648\u0632\u0647\u0627\u06cc \u0627\u0641\u0648\u0644 \u0627\u06cc\u0646 \u0686\u0631\u062e\u0647 \u062a\u0645\u0631\u06a9\u0632 \u0628\u0633\u06cc\u0627\u0631 \u06a9\u0645\u06cc \u062f\u0627\u0631\u06cc\u062f \u0648 \u062d\u062a\u06cc \u0634\u0627\u06cc\u062f \u062a\u0648\u0627\u0646 \u0627\u0646\u062c\u0627\u0645 \u062f\u0627\u062f\u0646 \u06a9\u0627\u0631\u0647\u0627\u06cc\u06cc \u06a9\u0647 \u0642\u0628\u0644\u0627 \u062f\u0627\u0634\u062a\u06cc\u062f \u0631\u0627 \u0646\u062f\u0627\u0634\u062a\u0647 \u0628\u0627\u0634\u06cc\u062f . \n\u0639\u062f\u062f \u0628\u06cc\u0648\u0631\u06cc\u062a\u0645 \u0686\u0631\u062e\u0647 \u0630\u0647\u0646\u06cc\u060c \u0627\u0632 \u0645\u0646\u0641\u06cc 100 \u062a\u0627 \u0645\u062b\u0628\u062a 100 \u0647\u0633\u062a\u0634 \u06a9\u0647 \u0647\u0631 \u0686\u0642\u062f\u0631 \u0627\u06cc\u0646 \u0639\u062f\u062f \u0628\u0647 \u0645\u062b\u0628\u062a 100 \u0646\u0632\u062f\u06cc\u06a9 \u062a\u0631 \u0628\u0627\u0634\u0647 \u0648\u0636\u0639\u06cc\u062a\u062a \u0630\u0647\u0646\u06cc \u0628\u0647\u062a\u0631\u06cc \u062f\u0627\u0631\u06cc. \n"
@@ -6546,7 +6500,7 @@ function PlasmicBioritm2__RenderFunc(props: {
               ])}
             >
               <div
-                className={classNames(projectcss.all, sty.freeBox__g9MPg, {
+                className={classNames("all", sty.freeBox__g9MPg, {
                   [sty.freeBoxferstTimepage__g9MPgGb6Kk]: hasVariant(
                     $state,
                     "ferstTimepage",
@@ -6555,11 +6509,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ypcb
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__ypcb)}
                 >
                   {
                     "\u0627\u0646\u062a\u062e\u0627\u0628 \u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"
@@ -6623,7 +6573,7 @@ function PlasmicBioritm2__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__bNrx1, {
+                  className={classNames("all", sty.freeBox__bNrx1, {
                     [sty.freeBoxferstTimepage__bNrx1Gb6Kk]: hasVariant(
                       $state,
                       "ferstTimepage",
@@ -6945,8 +6895,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__sqbf6
                       )}
                     >
@@ -7057,8 +7007,8 @@ function PlasmicBioritm2__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__tV0Si
                       )}
                     >
@@ -7311,9 +7261,10 @@ export const PlasmicBioritm2 = Object.assign(
     internalArgProps: PlasmicBioritm2__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/Biorhythm",
       pagePath: "/Biorhythm",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

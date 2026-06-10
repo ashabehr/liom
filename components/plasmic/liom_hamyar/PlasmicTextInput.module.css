@@ -14,13 +14,13 @@
 .rooterror {
   padding: 0px;
 }
-.root:focus-within {
+.root:focus-within:focus-within {
   outline: none;
 }
 .root___focusVisibleWithin {
   outline: none;
 }
-.rootstyle2_cycle:focus-within {
+.rootstyle2_cycle:focus-within:focus-within {
   outline: none;
 }
 .freeBox {

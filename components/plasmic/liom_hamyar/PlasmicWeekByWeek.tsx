@@ -75,7 +75,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicWeekByWeek.module.css"; // plasmic-import: RNdVvXH9pAWv/css
 
 const emptyProxy: any = new Proxy(() => "", {
@@ -93,11 +92,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -173,12 +179,6 @@ function PlasmicWeekByWeek__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -506,6 +506,13 @@ function PlasmicWeekByWeek__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -516,7 +523,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -531,17 +538,17 @@ function PlasmicWeekByWeek__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             { [sty.rootdark]: hasVariant($state, "dark", "dark") }
@@ -674,7 +681,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__zfkAg)}>
+            <div className={classNames("all", sty.freeBox__zfkAg)}>
               <LottieWrapper
                 data-plasmic-name={"lottie"}
                 data-plasmic-override={overrides.lottie}
@@ -1203,7 +1210,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__qDyNj)}>
+            <div className={classNames("all", sty.freeBox__qDyNj)}>
               {(() => {
                 try {
                   return (() => {
@@ -1222,7 +1229,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__w2AiY, {
+                  className={classNames("all", sty.freeBox__w2AiY, {
                     [sty.freeBoxdark__w2AiYXyRv7]: hasVariant(
                       $state,
                       "dark",
@@ -1231,7 +1238,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__gcfAt)}
+                    className={classNames("all", sty.freeBox__gcfAt)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -1290,8 +1297,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__sUv9I,
                         {
                           [sty.textdark__sUv9IXyRv7]: hasVariant(
@@ -1309,10 +1316,10 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   </div>
                 </div>
               ) : null}
-              <div className={classNames(projectcss.all, sty.freeBox___9BnK7)}>
+              <div className={classNames("all", sty.freeBox___9BnK7)}>
                 <div
                   className={classNames(
-                    projectcss.all,
+                    "all",
                     sty.freeBox__khEUf,
                     "my-scroll-list"
                   )}
@@ -1536,18 +1543,13 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__cqBd,
-                    {
-                      [sty.textdark__cqBdXyRv7]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__cqBd, {
+                    [sty.textdark__cqBdXyRv7]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
                   onClick={async event => {
                     const $steps = {};
 
@@ -1599,9 +1601,9 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   }
                 </div>
               ) : null}
-              <div className={classNames(projectcss.all, sty.freeBox__skdKs)}>
+              <div className={classNames("all", sty.freeBox__skdKs)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__p84Rg, {
+                  className={classNames("all", sty.freeBox__p84Rg, {
                     [sty.freeBoxdark__p84RgXyRv7]: hasVariant(
                       $state,
                       "dark",
@@ -1610,7 +1612,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__r6HVe, {
+                    className={classNames("all", sty.freeBox__r6HVe, {
                       [sty.freeBoxdark__r6HVeXyRv7]: hasVariant(
                         $state,
                         "dark",
@@ -1618,9 +1620,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       )
                     })}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__uySe8)}
-                    >
+                    <div className={classNames("all", sty.freeBox__uySe8)}>
                       <PlasmicImg__
                         alt={""}
                         className={classNames(sty.img__irMrV)}
@@ -1668,9 +1668,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       />
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__qlqYc)}
-                  >
+                  <div className={classNames("all", sty.freeBox__qlqYc)}>
                     {(() => {
                       try {
                         return true;
@@ -1684,16 +1682,11 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         throw e;
                       }
                     })() ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__gtrCt
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__gtrCt)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___3Aqi
                           )}
                         >
@@ -1701,8 +1694,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__o6Jcb,
                             {
                               [sty.textdark__o6JcbXyRv7]: hasVariant(
@@ -1736,13 +1729,11 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         </div>
                       </div>
                     ) : null}
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__tSlBm)}
-                    >
+                    <div className={classNames("all", sty.freeBox__tSlBm)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__pmB
                         )}
                       >
@@ -1750,8 +1741,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__gPoKb,
                           {
                             [sty.textdark__gPoKbXyRv7]: hasVariant(
@@ -1782,13 +1773,11 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__q9GLq)}
-                    >
+                    <div className={classNames("all", sty.freeBox__q9GLq)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__frIaN
                         )}
                       >
@@ -1796,8 +1785,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__zr2Df,
                           {
                             [sty.textdark__zr2DfXyRv7]: hasVariant(
@@ -1818,12 +1807,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           })()}
                         </React.Fragment>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__yyw9J
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__yyw9J)}>
                         <AntdModal
                           data-plasmic-name={"modalDark"}
                           data-plasmic-override={overrides.modalDark}
@@ -1835,17 +1819,14 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             [sty["pcls_AiWk1fWytxZq"]]: true
                           })}
                           defaultStylesClassName={classNames(
-                            projectcss.root_reset,
-                            projectcss.plasmic_default_styles,
-                            projectcss.plasmic_mixins,
+                            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+                            "plasmic_default_styles",
+                            "plasmic_mixins",
                             styleTokensClassNames
                           )}
                           footer={
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__lgyH3
-                              )}
+                              className={classNames("all", sty.freeBox__lgyH3)}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -1875,8 +1856,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__tXkXm
                                 )}
                               >
@@ -1903,15 +1884,15 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           title={
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__aTx0G
                               )}
                             >
                               <React.Fragment>
                                 <span
                                   className={
-                                    "plasmic_default__all plasmic_default__span"
+                                    "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                                   }
                                   style={{ fontWeight: 700 }}
                                 >
@@ -1922,10 +1903,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           }
                           trigger={
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__kcY97
-                              )}
+                              className={classNames("all", sty.freeBox__kcY97)}
                             />
                           }
                           wrapClassName={classNames({
@@ -1933,15 +1911,12 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           })}
                         >
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__qhc9X
-                            )}
+                            className={classNames("all", sty.freeBox__qhc9X)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text___8K79Z
                               )}
                             >
@@ -1962,17 +1937,14 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             [sty["pcls_1DQ_Zhcin71I"]]: true
                           })}
                           defaultStylesClassName={classNames(
-                            projectcss.root_reset,
-                            projectcss.plasmic_default_styles,
-                            projectcss.plasmic_mixins,
+                            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+                            "plasmic_default_styles",
+                            "plasmic_mixins",
                             styleTokensClassNames
                           )}
                           footer={
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__vw52N
-                              )}
+                              className={classNames("all", sty.freeBox__vw52N)}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -2004,8 +1976,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__gTdJu
                                 )}
                               >
@@ -2032,15 +2004,15 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           title={
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__v2Kpk
                               )}
                             >
                               <React.Fragment>
                                 <span
                                   className={
-                                    "plasmic_default__all plasmic_default__span"
+                                    "plasmic_default__all plasmic_default__span plasmic_default__span__suVPi"
                                   }
                                   style={{ fontWeight: 700 }}
                                 >
@@ -2051,10 +2023,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           }
                           trigger={
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ov3Ed
-                              )}
+                              className={classNames("all", sty.freeBox__ov3Ed)}
                             />
                           }
                           wrapClassName={classNames({
@@ -2062,15 +2031,12 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                           })}
                         >
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__egFqK
-                            )}
+                            className={classNames("all", sty.freeBox__egFqK)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text___9Knjt
                               )}
                             >
@@ -2082,10 +2048,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                         </AntdModal>
                       </div>
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___66Tdp
-                        )}
+                        className={classNames("all", sty.freeBox___66Tdp)}
                         onClick={async event => {
                           const $steps = {};
 
@@ -2171,8 +2134,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__fN9Y
                           )}
                         >
@@ -2186,7 +2149,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 </div>
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox__gt682)}
+                className={classNames("all", sty.freeBox__gt682)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -2227,7 +2190,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__krpDp, {
+                  className={classNames("all", sty.freeBox__krpDp, {
                     [sty.freeBoxdark__krpDpXyRv7]: hasVariant(
                       $state,
                       "dark",
@@ -2286,8 +2249,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
 
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__vsqeh,
                       {
                         [sty.textdark__vsqehXyRv7]: hasVariant(
@@ -2302,7 +2265,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__xriI1, {
+                  className={classNames("all", sty.freeBox__xriI1, {
                     [sty.freeBoxdark__xriI1XyRv7]: hasVariant(
                       $state,
                       "dark",
@@ -2361,8 +2324,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
 
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__dpZt6,
                       {
                         [sty.textdark__dpZt6XyRv7]: hasVariant(
@@ -2379,7 +2342,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__hjoy3, {
+                  className={classNames("all", sty.freeBox__hjoy3, {
                     [sty.freeBoxdark__hjoy3XyRv7]: hasVariant(
                       $state,
                       "dark",
@@ -2437,8 +2400,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
 
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__rV3MI,
                       {
                         [sty.textdark__rV3MIXyRv7]: hasVariant(
@@ -2454,7 +2417,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 </div>
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox__abCtx, {
+                className={classNames("all", sty.freeBox__abCtx, {
                   [sty.freeBoxdark__abCtxXyRv7]: hasVariant(
                     $state,
                     "dark",
@@ -2463,7 +2426,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__mfTy, {
+                  className={classNames("all", sty.freeBox__mfTy, {
                     [sty.freeBoxdark__mfTyXyRv7]: hasVariant(
                       $state,
                       "dark",
@@ -2556,8 +2519,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       label2: (
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__wmaWs,
                             {
                               [sty.textdark__wmaWsXyRv7]: hasVariant(
@@ -2679,8 +2642,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___5RMnx,
                             {
                               [sty.textdark___5RMnxXyRv7]: hasVariant(
@@ -2712,7 +2675,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   })()}
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox___5Onyb, {
+                  className={classNames("all", sty.freeBox___5Onyb, {
                     [sty.freeBoxdark___5OnybXyRv7]: hasVariant(
                       $state,
                       "dark",
@@ -2805,8 +2768,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       label2: (
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___5RsNt,
                             {
                               [sty.textdark___5RsNtXyRv7]: hasVariant(
@@ -2942,8 +2905,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__zdabM,
                             {
                               [sty.textdark__zdabMXyRv7]: hasVariant(
@@ -2977,7 +2940,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   })()}
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__lsYmp, {
+                  className={classNames("all", sty.freeBox__lsYmp, {
                     [sty.freeBoxdark__lsYmpXyRv7]: hasVariant(
                       $state,
                       "dark",
@@ -3070,8 +3033,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       label2: (
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___2OsqI,
                             {
                               [sty.textdark___2OsqIXyRv7]: hasVariant(
@@ -3193,8 +3156,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__fA154,
                             {
                               [sty.textdark__fA154XyRv7]: hasVariant(
@@ -3228,7 +3191,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                   })()}
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__arqS1)}
+                  className={classNames("all", sty.freeBox__arqS1)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -3260,8 +3223,8 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___5KNhh
                     )}
                   >
@@ -3270,11 +3233,7 @@ function PlasmicWeekByWeek__RenderFunc(props: {
                     }
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__hUuxZ
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__hUuxZ)}
                   >
                     {
                       "\u0644\u06cc\u0648\u0645\u060c \u0627\u0628\u0632\u0627\u0631\u06cc \u0647\u0648\u0634\u0645\u0646\u062f \u0628\u0631\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a \u067e\u0631\u06cc\u0648\u062f \u0648 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u0627\u0633\u062a \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u06cc\u0646\u062c\u0627 \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f."
@@ -3435,9 +3394,10 @@ export const PlasmicWeekByWeek = Object.assign(
     internalArgProps: PlasmicWeekByWeek__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/weekByWeek",
       pagePath: "/weekByWeek",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

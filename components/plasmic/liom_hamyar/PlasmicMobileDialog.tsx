@@ -72,7 +72,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMobileDialog.module.css"; // plasmic-import: h7ceF9lBthFF/css
 
 import Icon157Icon from "./icons/PlasmicIcon__Icon157"; // plasmic-import: pYMHtMPOTSpB/icon
@@ -176,12 +175,6 @@ function PlasmicMobileDialog__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -439,6 +432,13 @@ function PlasmicMobileDialog__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -456,10 +456,10 @@ function PlasmicMobileDialog__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -538,19 +538,15 @@ function PlasmicMobileDialog__RenderFunc(props: {
             effect={"fade"}
             triggerOnce={true}
           >
-            <div className={classNames(projectcss.all, sty.freeBox___8Et9V)}>
-              <div className={classNames(projectcss.all, sty.freeBox___9Upw)}>
+            <div className={classNames("all", sty.freeBox___8Et9V)}>
+              <div className={classNames("all", sty.freeBox___9Upw)}>
                 <Icon157Icon
-                  className={classNames(projectcss.all, sty.svg___4TkLy)}
+                  className={classNames("all", sty.svg___4TkLy)}
                   role={"img"}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xfyiC
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__xfyiC)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -569,24 +565,16 @@ function PlasmicMobileDialog__RenderFunc(props: {
                   </React.Fragment>
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__d9Fmj)}>
+              <div className={classNames("all", sty.freeBox__d9Fmj)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xBjX
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__xBjX)}
                 >
                   {
                     "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__oUlC,
-                    "negative"
-                  )}
+                  className={classNames("all", sty.freeBox__oUlC, "negative")}
                 >
                   <TextInput
                     data-plasmic-name={"textInput"}
@@ -638,16 +626,13 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     endIcon={
                       <React.Fragment>
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__h9Yns
-                          )}
+                          className={classNames("all", sty.freeBox__h9Yns)}
                         />
 
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__vyaz9,
                             "negative"
                           )}
@@ -655,7 +640,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                           {"+98 "}
                         </div>
                         <Icon111Icon
-                          className={classNames(projectcss.all, sty.svg__jBddZ)}
+                          className={classNames("all", sty.svg__jBddZ)}
                           role={"img"}
                         />
                       </React.Fragment>
@@ -690,9 +675,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                   />
                 </div>
               </div>
-              <section
-                className={classNames(projectcss.all, sty.section___6JIru)}
-              >
+              <section className={classNames("all", sty.section___6JIru)}>
                 <Button
                   data-plasmic-name={"button9"}
                   data-plasmic-override={overrides.button9}
@@ -700,7 +683,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button9", "color"])}
                   endIcon={
                     <Icon115Icon
-                      className={classNames(projectcss.all, sty.svg__wy4Lx)}
+                      className={classNames("all", sty.svg__wy4Lx)}
                       role={"img"}
                     />
                   }
@@ -1086,11 +1069,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__zoyc4
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__zoyc4)}
                   >
                     {
                       "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0627\u062f\u0627\u0645\u0647"
@@ -1121,13 +1100,13 @@ function PlasmicMobileDialog__RenderFunc(props: {
             effect={"fade"}
             triggerOnce={true}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__mqb6)}>
-              <div className={classNames(projectcss.all, sty.freeBox__tNvUu)}>
-                <div className={classNames(projectcss.all, sty.freeBox__d7Hkr)}>
+            <div className={classNames("all", sty.freeBox__mqb6)}>
+              <div className={classNames("all", sty.freeBox__tNvUu)}>
+                <div className={classNames("all", sty.freeBox__d7Hkr)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___8QpuF
                     )}
                   >
@@ -1136,11 +1115,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     }
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__d0J18
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__d0J18)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -1185,11 +1160,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__mSxQp,
-                    "negative"
-                  )}
+                  className={classNames("all", sty.freeBox__mSxQp, "negative")}
                 >
                   <TextInput
                     data-plasmic-name={"textInput3"}
@@ -1240,16 +1211,13 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     endIcon={
                       <React.Fragment>
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__mrgVe
-                          )}
+                          className={classNames("all", sty.freeBox__mrgVe)}
                         />
 
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__vr5Dj,
                             "negative"
                           )}
@@ -1257,7 +1225,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                           {"+98 "}
                         </div>
                         <Icon111Icon
-                          className={classNames(projectcss.all, sty.svg__peleq)}
+                          className={classNames("all", sty.svg__peleq)}
                           role={"img"}
                         />
                       </React.Fragment>
@@ -1291,7 +1259,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     }
                   />
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__e3NXd)}>
+                <div className={classNames("all", sty.freeBox__e3NXd)}>
                   <Embed
                     data-plasmic-name={"embedHtml"}
                     data-plasmic-override={overrides.embedHtml}
@@ -1314,13 +1282,11 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__ogvCb)}
-                  >
+                  <div className={classNames("all", sty.freeBox__ogvCb)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text___6Mor2
                       )}
                     >
@@ -1342,8 +1308,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__oyGuB
                       )}
                     >
@@ -1411,9 +1377,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__cf3KY)}
-                  >
+                  <div className={classNames("all", sty.freeBox__cf3KY)}>
                     <Button
                       data-plasmic-name={"button11"}
                       data-plasmic-override={overrides.button11}
@@ -1424,10 +1388,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                       ])}
                       endIcon={
                         <Icon115Icon
-                          className={classNames(
-                            projectcss.all,
-                            sty.svg___3Fjcf
-                          )}
+                          className={classNames("all", sty.svg___3Fjcf)}
                           role={"img"}
                         />
                       }
@@ -1748,8 +1709,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__zyndu
                         )}
                       >
@@ -1761,11 +1722,9 @@ function PlasmicMobileDialog__RenderFunc(props: {
                   </div>
                 ) : null}
               </div>
-              <section
-                className={classNames(projectcss.all, sty.section___3Xn7C)}
-              >
+              <section className={classNames("all", sty.section___3Xn7C)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__yQKsa)}
+                  className={classNames("all", sty.freeBox__yQKsa)}
                   id={"codeButten"}
                 >
                   <Button
@@ -1778,7 +1737,7 @@ function PlasmicMobileDialog__RenderFunc(props: {
                     ])}
                     endIcon={
                       <Icon115Icon
-                        className={classNames(projectcss.all, sty.svg__goTpn)}
+                        className={classNames("all", sty.svg__goTpn)}
                         role={"img"}
                       />
                     }
@@ -2125,8 +2084,8 @@ function PlasmicMobileDialog__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__qgDvm
                       )}
                     >

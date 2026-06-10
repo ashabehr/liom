@@ -67,7 +67,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHamyarAddComponent.module.css"; // plasmic-import: RArtpE5tE0Da/css
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
@@ -171,10 +170,6 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -267,6 +262,11 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -284,10 +284,10 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -295,10 +295,10 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
       <section
         data-plasmic-name={"section"}
         data-plasmic-override={overrides.section}
-        className={classNames(projectcss.all, sty.section)}
+        className={classNames("all", sty.section)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox___4TcwS)}>
-          <div className={classNames(projectcss.all, sty.freeBox__vYz1X)}>
+        <div className={classNames("all", sty.freeBox___4TcwS)}>
+          <div className={classNames("all", sty.freeBox__vYz1X)}>
             <PlasmicImg__
               data-plasmic-name={"img"}
               data-plasmic-override={overrides.img}
@@ -319,37 +319,23 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
               }}
             />
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__l1SbY)}>
-            <div className={classNames(projectcss.all, sty.freeBox__p68Yo)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__owf7T
-                )}
-              >
+          <div className={classNames("all", sty.freeBox__l1SbY)}>
+            <div className={classNames("all", sty.freeBox__p68Yo)}>
+              <div className={classNames("all", "__wab_text", sty.text__owf7T)}>
                 {
                   "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__lnTt5)}>
+              <div className={classNames("all", sty.freeBox__lnTt5)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bZf3
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__bZf3)}
                 >
                   {
                     "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__s9NLf,
-                    "negative"
-                  )}
+                  className={classNames("all", sty.freeBox__s9NLf, "negative")}
                 >
                   <TextInput
                     data-plasmic-name={"textInput"}
@@ -453,16 +439,13 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
                     endIcon={
                       <React.Fragment>
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__ziwC8
-                          )}
+                          className={classNames("all", sty.freeBox__ziwC8)}
                         />
 
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__uScU1,
                             "negative"
                           )}
@@ -472,7 +455,7 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
                         <Icon111Icon
                           data-plasmic-name={"svg"}
                           data-plasmic-override={overrides.svg}
-                          className={classNames(projectcss.all, sty.svg)}
+                          className={classNames("all", sty.svg)}
                           role={"img"}
                         />
                       </React.Fragment>
@@ -512,14 +495,10 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
                   />
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__riMmE)}>
-                <div className={classNames(projectcss.all, sty.freeBox___1PJL)}>
+              <div className={classNames("all", sty.freeBox__riMmE)}>
+                <div className={classNames("all", sty.freeBox___1PJL)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__esRp2
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__esRp2)}
                   >
                     {
                       "\u0646\u0627\u0645 \u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
@@ -527,7 +506,7 @@ function PlasmicHamyarAddComponent__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox__mKuph,
                       "negative"
                     )}

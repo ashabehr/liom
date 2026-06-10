@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicIntroComponent.module.css"; // plasmic-import: Bw86EHWi2EN9/css
 
 createPlasmicElementProxy;
@@ -154,10 +153,10 @@ function PlasmicIntroComponent__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -165,10 +164,10 @@ function PlasmicIntroComponent__RenderFunc(props: {
       <section
         data-plasmic-name={"section"}
         data-plasmic-override={overrides.section}
-        className={classNames(projectcss.all, sty.section)}
+        className={classNames("all", sty.section)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__jLmE)}>
-          <div className={classNames(projectcss.all, sty.freeBox__sX5)}>
+        <div className={classNames("all", sty.freeBox__jLmE)}>
+          <div className={classNames("all", sty.freeBox__sX5)}>
             <PlasmicImg__
               data-plasmic-name={"img"}
               data-plasmic-override={overrides.img}
@@ -201,14 +200,8 @@ function PlasmicIntroComponent__RenderFunc(props: {
               })()}
             />
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__pqIQ)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__jutxo
-              )}
-            >
+          <div className={classNames("all", sty.freeBox__pqIQ)}>
+            <div className={classNames("all", "__wab_text", sty.text__jutxo)}>
               <React.Fragment>
                 {(() => {
                   try {
@@ -225,13 +218,7 @@ function PlasmicIntroComponent__RenderFunc(props: {
                 })()}
               </React.Fragment>
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ymWG
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__ymWG)}>
               <React.Fragment>
                 {(() => {
                   try {

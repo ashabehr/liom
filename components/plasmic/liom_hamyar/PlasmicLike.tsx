@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicLike.module.css"; // plasmic-import: ARJf0DiYhPbe/css
 
 import LogoPwaSvgrepoComSvgIcon from "./icons/PlasmicIcon__LogoPwaSvgrepoComSvg"; // plasmic-import: xd3icqtlIdjI/icon
@@ -178,12 +177,6 @@ function PlasmicLike__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -247,6 +240,13 @@ function PlasmicLike__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -264,10 +264,10 @@ function PlasmicLike__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -282,7 +282,7 @@ function PlasmicLike__RenderFunc(props: {
         className={classNames("__wab_instance", sty.modal)}
         closeIcon={
           <XIcon
-            className={classNames(projectcss.all, sty.svg__mSxo1)}
+            className={classNames("all", sty.svg__mSxo1)}
             onClick={async event => {
               const $steps = {};
 
@@ -319,9 +319,9 @@ function PlasmicLike__RenderFunc(props: {
           />
         }
         defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
         hideFooter={true}
@@ -334,7 +334,7 @@ function PlasmicLike__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["modal", "open"])}
         title={
-          <div className={classNames(projectcss.all, sty.freeBox__hTf1M)}>
+          <div className={classNames("all", sty.freeBox__hTf1M)}>
             <PlasmicImg__
               data-plasmic-name={"img"}
               data-plasmic-override={overrides.img}
@@ -355,13 +355,7 @@ function PlasmicLike__RenderFunc(props: {
               }}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__rmXa
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__rmXa)}>
               {
                 "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062e\u0648\u0627\u06cc \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc \u0628\u0627\u06cc\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0631\u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc.\r\n\u0647\u0631\u06a9\u062f\u0648\u0645 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u06a9\u0647 \u0628\u0627\u0647\u0627\u0634 \u0631\u0627\u062d\u062a \u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646 \u0648 \u0628\u0639\u062f \u0628\u0647 \u062c\u0645\u0639 \u062f\u062e\u062a\u0631\u0648\u0646\u0647 \u06cc \u0645\u0627\u0627\u0636\u0627\u0641\u0647 \u0634\u0648\ud83d\ude0d"
               }
@@ -370,10 +364,10 @@ function PlasmicLike__RenderFunc(props: {
         }
         trigger={null}
       >
-        <div className={classNames(projectcss.all, sty.freeBox___7TaIm)}>
-          <div className={classNames(projectcss.all, sty.freeBox__wsyyi)}>
+        <div className={classNames("all", sty.freeBox___7TaIm)}>
+          <div className={classNames("all", sty.freeBox__wsyyi)}>
             <div
-              className={classNames(projectcss.all, sty.freeBox__quPu8)}
+              className={classNames("all", sty.freeBox__quPu8)}
               onClick={async event => {
                 const $steps = {};
 
@@ -418,24 +412,18 @@ function PlasmicLike__RenderFunc(props: {
               }}
             >
               <LogoPwaSvgrepoComSvgIcon
-                className={classNames(projectcss.all, sty.svg__soiId)}
+                className={classNames("all", sty.svg__soiId)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__uZvrB
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__uZvrB)}>
                 {
                   "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
                 }
               </div>
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox___3Lzms)}
+              className={classNames("all", sty.freeBox___3Lzms)}
               onClick={async event => {
                 const $steps = {};
 
@@ -482,26 +470,20 @@ function PlasmicLike__RenderFunc(props: {
               }}
             >
               <IconSvgIcon
-                className={classNames(projectcss.all, sty.svg__fP5W)}
+                className={classNames("all", sty.svg__fP5W)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yjBrz
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__yjBrz)}>
                 {
                   "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
                 }
               </div>
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__oKkBn)}>
+          <div className={classNames("all", sty.freeBox__oKkBn)}>
             <div
-              className={classNames(projectcss.all, sty.freeBox___4Mph)}
+              className={classNames("all", sty.freeBox___4Mph)}
               onClick={async event => {
                 const $steps = {};
 
@@ -548,24 +530,18 @@ function PlasmicLike__RenderFunc(props: {
               }}
             >
               <CafeBazaarLogoSvgIcon
-                className={classNames(projectcss.all, sty.svg___9JeEy)}
+                className={classNames("all", sty.svg___9JeEy)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__v47Hn
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__v47Hn)}>
                 {
                   "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
                 }
               </div>
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__ntd6W)}
+              className={classNames("all", sty.freeBox__ntd6W)}
               onClick={async event => {
                 const $steps = {};
 
@@ -612,17 +588,11 @@ function PlasmicLike__RenderFunc(props: {
               }}
             >
               <BrokenLink2SvgrepoComSvgIcon
-                className={classNames(projectcss.all, sty.svg__hmZde)}
+                className={classNames("all", sty.svg__hmZde)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__i6GE
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__i6GE)}>
                 {
                   "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
                 }
@@ -632,7 +602,7 @@ function PlasmicLike__RenderFunc(props: {
         </div>
       </AntdModal>
       <div
-        className={classNames(projectcss.all, sty.freeBox__waP5W, {
+        className={classNames("all", sty.freeBox__waP5W, {
           [sty.freeBoxislike__waP5WM2Mbn]: hasVariant(
             $state,
             "islike",
@@ -845,7 +815,7 @@ function PlasmicLike__RenderFunc(props: {
           PlasmicIconType={
             hasVariant($state, "islike", "islike") ? Icon43Icon : Icon237Icon
           }
-          className={classNames(projectcss.all, sty.svg__vsNmA, {
+          className={classNames("all", sty.svg__vsNmA, {
             [sty.svgislike__vsNmAm2Mbn]: hasVariant($state, "islike", "islike"),
             [sty.svgmain__vsNmAn9Zts]: hasVariant($state, "main", "main")
           })}
@@ -853,19 +823,14 @@ function PlasmicLike__RenderFunc(props: {
         />
 
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__moiNk,
-            {
-              [sty.textislike__moiNkM2Mbn]: hasVariant(
-                $state,
-                "islike",
-                "islike"
-              ),
-              [sty.textmain__moiNkn9Zts]: hasVariant($state, "main", "main")
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text__moiNk, {
+            [sty.textislike__moiNkM2Mbn]: hasVariant(
+              $state,
+              "islike",
+              "islike"
+            ),
+            [sty.textmain__moiNkn9Zts]: hasVariant($state, "main", "main")
+          })}
         >
           <React.Fragment>
             {(() => {

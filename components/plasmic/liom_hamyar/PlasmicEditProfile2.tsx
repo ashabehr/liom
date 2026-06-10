@@ -77,7 +77,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicEditProfile2.module.css"; // plasmic-import: BZ95kklWU6Jb/css
 
 import SearchSvgIcon from "./icons/PlasmicIcon__SearchSvg"; // plasmic-import: Hrcd2gLhG27X/icon
@@ -239,12 +238,6 @@ function PlasmicEditProfile2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -945,6 +938,13 @@ function PlasmicEditProfile2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -962,10 +962,10 @@ function PlasmicEditProfile2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         { [sty.roothamyar]: hasVariant($state, "hamyar", "hamyar") }
@@ -989,18 +989,18 @@ function PlasmicEditProfile2__RenderFunc(props: {
           <div
             data-plasmic-name={"verticalIdentity2"}
             data-plasmic-override={overrides.verticalIdentity2}
-            className={classNames(projectcss.all, sty.verticalIdentity2)}
+            className={classNames("all", sty.verticalIdentity2)}
           >
             <div
               data-plasmic-name={"verticalForNameInput2"}
               data-plasmic-override={overrides.verticalForNameInput2}
-              className={classNames(projectcss.all, sty.verticalForNameInput2)}
+              className={classNames("all", sty.verticalForNameInput2)}
             >
               <div
                 data-plasmic-name={"verticalForNameInput3"}
                 data-plasmic-override={overrides.verticalForNameInput3}
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.verticalForNameInput3,
                   "shimmer"
                 )}
@@ -1010,7 +1010,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 data-plasmic-name={"verticalForNameInput4"}
                 data-plasmic-override={overrides.verticalForNameInput4}
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.verticalForNameInput4,
                   "shimmer"
                 )}
@@ -1019,13 +1019,13 @@ function PlasmicEditProfile2__RenderFunc(props: {
             <div
               data-plasmic-name={"verticalForNameInput5"}
               data-plasmic-override={overrides.verticalForNameInput5}
-              className={classNames(projectcss.all, sty.verticalForNameInput5)}
+              className={classNames("all", sty.verticalForNameInput5)}
             >
               <div
                 data-plasmic-name={"verticalForNameInput6"}
                 data-plasmic-override={overrides.verticalForNameInput6}
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.verticalForNameInput6,
                   "shimmer"
                 )}
@@ -1035,7 +1035,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 data-plasmic-name={"verticalForNameInput7"}
                 data-plasmic-override={overrides.verticalForNameInput7}
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.verticalForNameInput7,
                   "shimmer"
                 )}
@@ -1044,24 +1044,24 @@ function PlasmicEditProfile2__RenderFunc(props: {
             <div
               data-plasmic-name={"verticalForNameInput8"}
               data-plasmic-override={overrides.verticalForNameInput8}
-              className={classNames(projectcss.all, sty.verticalForNameInput8)}
+              className={classNames("all", sty.verticalForNameInput8)}
             >
               <div
                 data-plasmic-name={"verticalForNameInput9"}
                 data-plasmic-override={overrides.verticalForNameInput9}
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.verticalForNameInput9,
                   "shimmer"
                 )}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox___0EtMm)}>
+              <div className={classNames("all", sty.freeBox___0EtMm)}>
                 <div
                   data-plasmic-name={"verticalForNameInput10"}
                   data-plasmic-override={overrides.verticalForNameInput10}
                   className={classNames(
-                    projectcss.all,
+                    "all",
                     sty.verticalForNameInput10,
                     "shimmer"
                   )}
@@ -1071,7 +1071,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   data-plasmic-name={"verticalForNameInput11"}
                   data-plasmic-override={overrides.verticalForNameInput11}
                   className={classNames(
-                    projectcss.all,
+                    "all",
                     sty.verticalForNameInput11,
                     "shimmer"
                   )}
@@ -1081,24 +1081,24 @@ function PlasmicEditProfile2__RenderFunc(props: {
             <div
               data-plasmic-name={"verticalForNameInput12"}
               data-plasmic-override={overrides.verticalForNameInput12}
-              className={classNames(projectcss.all, sty.verticalForNameInput12)}
+              className={classNames("all", sty.verticalForNameInput12)}
             >
               <div
                 data-plasmic-name={"verticalForNameInput13"}
                 data-plasmic-override={overrides.verticalForNameInput13}
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.verticalForNameInput13,
                   "shimmer"
                 )}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__hSsX)}>
+              <div className={classNames("all", sty.freeBox__hSsX)}>
                 <div
                   data-plasmic-name={"verticalForNameInput14"}
                   data-plasmic-override={overrides.verticalForNameInput14}
                   className={classNames(
-                    projectcss.all,
+                    "all",
                     sty.verticalForNameInput14,
                     "shimmer"
                   )}
@@ -1108,7 +1108,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   data-plasmic-name={"verticalForNameInput15"}
                   data-plasmic-override={overrides.verticalForNameInput15}
                   className={classNames(
-                    projectcss.all,
+                    "all",
                     sty.verticalForNameInput15,
                     "shimmer"
                   )}
@@ -1118,24 +1118,24 @@ function PlasmicEditProfile2__RenderFunc(props: {
             <div
               data-plasmic-name={"verticalForNameInput16"}
               data-plasmic-override={overrides.verticalForNameInput16}
-              className={classNames(projectcss.all, sty.verticalForNameInput16)}
+              className={classNames("all", sty.verticalForNameInput16)}
             >
               <div
                 data-plasmic-name={"verticalForNameInput17"}
                 data-plasmic-override={overrides.verticalForNameInput17}
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.verticalForNameInput17,
                   "shimmer"
                 )}
               />
 
-              <div className={classNames(projectcss.all, sty.freeBox__aWq34)}>
+              <div className={classNames("all", sty.freeBox__aWq34)}>
                 <div
                   data-plasmic-name={"verticalForNameInput18"}
                   data-plasmic-override={overrides.verticalForNameInput18}
                   className={classNames(
-                    projectcss.all,
+                    "all",
                     sty.verticalForNameInput18,
                     "shimmer"
                   )}
@@ -1145,7 +1145,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   data-plasmic-name={"verticalForNameInput19"}
                   data-plasmic-override={overrides.verticalForNameInput19}
                   className={classNames(
-                    projectcss.all,
+                    "all",
                     sty.verticalForNameInput19,
                     "shimmer"
                   )}
@@ -1155,13 +1155,13 @@ function PlasmicEditProfile2__RenderFunc(props: {
             <div
               data-plasmic-name={"verticalForNameInput20"}
               data-plasmic-override={overrides.verticalForNameInput20}
-              className={classNames(projectcss.all, sty.verticalForNameInput20)}
+              className={classNames("all", sty.verticalForNameInput20)}
             >
               <div
                 data-plasmic-name={"verticalForNameInput21"}
                 data-plasmic-override={overrides.verticalForNameInput21}
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.verticalForNameInput21,
                   "shimmer"
                 )}
@@ -1171,7 +1171,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 data-plasmic-name={"verticalForNameInput22"}
                 data-plasmic-override={overrides.verticalForNameInput22}
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.verticalForNameInput22,
                   "shimmer"
                 )}
@@ -1239,20 +1239,14 @@ function PlasmicEditProfile2__RenderFunc(props: {
         <div
           data-plasmic-name={"verticalIdentity"}
           data-plasmic-override={overrides.verticalIdentity}
-          className={classNames(projectcss.all, sty.verticalIdentity)}
+          className={classNames("all", sty.verticalIdentity)}
         >
           <div
             data-plasmic-name={"verticalForNameInput"}
             data-plasmic-override={overrides.verticalForNameInput}
-            className={classNames(projectcss.all, sty.verticalForNameInput)}
+            className={classNames("all", sty.verticalForNameInput)}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___1ZF
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text___1ZF)}>
               {"\u0646\u0627\u0645"}
             </div>
             <TextInput
@@ -1338,7 +1332,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               className={classNames("__wab_instance", sty.nameInput)}
               endIcon={
                 <CheckSvgIcon
-                  className={classNames(projectcss.all, sty.svg__xkTjE)}
+                  className={classNames("all", sty.svg__xkTjE)}
                   role={"img"}
                 />
               }
@@ -1414,7 +1408,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               showEndIcon={true}
               startIcon={
                 <SearchSvgIcon
-                  className={classNames(projectcss.all, sty.svg__bGwtC)}
+                  className={classNames("all", sty.svg__bGwtC)}
                   role={"img"}
                 />
               }
@@ -1427,19 +1421,13 @@ function PlasmicEditProfile2__RenderFunc(props: {
           <div
             data-plasmic-name={"verticalForDateInput"}
             data-plasmic-override={overrides.verticalForDateInput}
-            className={classNames(projectcss.all, sty.verticalForDateInput)}
+            className={classNames("all", sty.verticalForDateInput)}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__eoDI
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__eoDI)}>
               {"\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f "}
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__xsOn3)}
+              className={classNames("all", sty.freeBox__xsOn3)}
               onClick={async event => {
                 const $steps = {};
 
@@ -1480,11 +1468,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               }}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___6Ku25
-                )}
+                className={classNames("all", "__wab_text", sty.text___6Ku25)}
               >
                 <React.Fragment>
                   {(() => {
@@ -1505,7 +1489,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 </React.Fragment>
               </div>
               <CalenderOutlinedIcSvgIcon
-                className={classNames(projectcss.all, sty.svg__nwVtZ)}
+                className={classNames("all", sty.svg__nwVtZ)}
                 role={"img"}
               />
             </div>
@@ -1513,21 +1497,15 @@ function PlasmicEditProfile2__RenderFunc(props: {
           <div
             data-plasmic-name={"verticalForSelection"}
             data-plasmic-override={overrides.verticalForSelection}
-            className={classNames(projectcss.all, sty.verticalForSelection)}
+            className={classNames("all", sty.verticalForSelection)}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__cQlUp
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__cQlUp)}>
               {"\u0634\u063a\u0644"}
             </div>
             <div
               data-plasmic-name={"horizontalForButton"}
               data-plasmic-override={overrides.horizontalForButton}
-              className={classNames(projectcss.all, sty.horizontalForButton)}
+              className={classNames("all", sty.horizontalForButton)}
             >
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
@@ -1653,19 +1631,13 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 );
               })}
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__oqz89
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__oqz89)}>
               {"\u0648\u0636\u0639\u06cc\u062a \u062a\u0627\u0647\u0644"}
             </div>
             <div
               data-plasmic-name={"horizontalForButton2"}
               data-plasmic-override={overrides.horizontalForButton2}
-              className={classNames(projectcss.all, sty.horizontalForButton2)}
+              className={classNames("all", sty.horizontalForButton2)}
             >
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
@@ -1766,19 +1738,13 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 );
               })}
             </div>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__oKvjq
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__oKvjq)}>
               {"\u062a\u062d\u0635\u06cc\u0644\u0627\u062a "}
             </div>
             <div
               data-plasmic-name={"horizontalForButton3"}
               data-plasmic-override={overrides.horizontalForButton3}
-              className={classNames(projectcss.all, sty.horizontalForButton3)}
+              className={classNames("all", sty.horizontalForButton3)}
             >
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
@@ -1889,7 +1855,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               overrides.verticalForProbabilityOfGettingPregnant
             }
             className={classNames(
-              projectcss.all,
+              "all",
               sty.verticalForProbabilityOfGettingPregnant,
               {
                 [sty.verticalForProbabilityOfGettingPregnanthamyar]: hasVariant(
@@ -1901,7 +1867,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
             )}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__hatS, {
+              className={classNames("all", sty.freeBox__hatS, {
                 [sty.freeBoxhamyar__hatSW6MiH]: hasVariant(
                   $state,
                   "hamyar",
@@ -1909,18 +1875,14 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 )
               })}
             >
-              <div className={classNames(projectcss.all, sty.freeBox___7M62A)}>
+              <div className={classNames("all", sty.freeBox___7M62A)}>
                 <Icon67Icon
-                  className={classNames(projectcss.all, sty.svg__pUwQ0)}
+                  className={classNames("all", sty.svg__pUwQ0)}
                   role={"img"}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__motmB
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__motmB)}
                 >
                   {
                     "\u0646\u0645\u0627\u06cc\u0634 \u0627\u062d\u062a\u0645\u0627\u0644 \u0628\u0627\u0631\u062f\u0627\u0631 \u0634\u062f\u0646 \u062f\u0631  \u0647\u0631 \u0631\u0648\u0632 "
@@ -2015,13 +1977,9 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   }}
                 />
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__tyElq)}>
+              <div className={classNames("all", sty.freeBox__tyElq)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__eiRnp
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__eiRnp)}
                 >
                   {
                     '\u0627\u06cc\u0646 \u062f\u0631\u0635\u062f \u062f\u0631 \u0637\u0631\u0627\u062d\u06cc  \u06a9\u0627\u0631\u0628\u0631\u062f\u06cc \u0628\u062e\u0634 \u0642\u0627\u0639\u062f\u06af\u06cc \u062f\u0631 \u0642\u0633\u0645\u062a "\u062f\u0648\u0631\u0647 \u062c\u0627\u0631\u06cc \u062f\u0631\u06cc\u06a9 \u0646\u06af\u0627\u0647"\u0646\u0645\u0627\u06cc\u0634 \u062f\u0627\u062f\u0647 \u0645\u06cc\u0634\u0648\u062f'
@@ -2033,42 +1991,23 @@ function PlasmicEditProfile2__RenderFunc(props: {
           <div
             data-plasmic-name={"verticalForMenstrualCycle"}
             data-plasmic-override={overrides.verticalForMenstrualCycle}
-            className={classNames(
-              projectcss.all,
-              sty.verticalForMenstrualCycle,
-              {
-                [sty.verticalForMenstrualCyclehamyar]: hasVariant(
-                  $state,
-                  "hamyar",
-                  "hamyar"
-                )
-              }
-            )}
+            className={classNames("all", sty.verticalForMenstrualCycle, {
+              [sty.verticalForMenstrualCyclehamyar]: hasVariant(
+                $state,
+                "hamyar",
+                "hamyar"
+              )
+            })}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__rx2NG
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__rx2NG)}>
               {"\u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"}
             </div>
             <div
               data-plasmic-name={"numberOfDaysOfBleeding2"}
               data-plasmic-override={overrides.numberOfDaysOfBleeding2}
-              className={classNames(
-                projectcss.all,
-                sty.numberOfDaysOfBleeding2
-              )}
+              className={classNames("all", sty.numberOfDaysOfBleeding2)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__cwQod
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__cwQod)}>
                 {
                   "\u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"
                 }
@@ -2076,10 +2015,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               <div
                 data-plasmic-name={"numberOfDaysOfBleeding3"}
                 data-plasmic-override={overrides.numberOfDaysOfBleeding3}
-                className={classNames(
-                  projectcss.all,
-                  sty.numberOfDaysOfBleeding3
-                )}
+                className={classNames("all", sty.numberOfDaysOfBleeding3)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -2130,8 +2066,8 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   antdInput2={
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__wDth2
                       )}
                     >
@@ -2155,7 +2091,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.nameInput2)}
                   endIcon={
                     <CheckSvgIcon
-                      className={classNames(projectcss.all, sty.svg__cxUn3)}
+                      className={classNames("all", sty.svg__cxUn3)}
                       role={"img"}
                     />
                   }
@@ -2233,7 +2169,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   showEndIcon={true}
                   startIcon={
                     <SearchSvgIcon
-                      className={classNames(projectcss.all, sty.svg__ttv61)}
+                      className={classNames("all", sty.svg__ttv61)}
                       role={"img"}
                     />
                   }
@@ -2245,20 +2181,14 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 />
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__mUqvm)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oy5N
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__mUqvm)}>
+              <div className={classNames("all", "__wab_text", sty.text__oy5N)}>
                 {
                   "\u0637\u0648\u0644 \u0633\u06cc\u06a9\u0644 \u067e\u0631\u06cc\u0648\u062f"
                 }
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox__rjiiy)}
+                className={classNames("all", sty.freeBox__rjiiy)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -2313,8 +2243,8 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   antdInput2={
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__oDdNq
                       )}
                     >
@@ -2338,7 +2268,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.nameInput3)}
                   endIcon={
                     <CheckSvgIcon
-                      className={classNames(projectcss.all, sty.svg__wxvvU)}
+                      className={classNames("all", sty.svg__wxvvU)}
                       role={"img"}
                     />
                   }
@@ -2416,7 +2346,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   showEndIcon={true}
                   startIcon={
                     <SearchSvgIcon
-                      className={classNames(projectcss.all, sty.svg__eWjtE)}
+                      className={classNames("all", sty.svg__eWjtE)}
                       role={"img"}
                     />
                   }
@@ -2427,32 +2357,20 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   }
                 />
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__i3Mle
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__i3Mle)}>
                 {
                   "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632  \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a (\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc)  \u0631\u0648 \u0647\u0645  \u062c\u0633\u0627\u0628 \u06a9\u0646\u06cc."
                 }
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__btqIo)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__y1Mb
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__btqIo)}>
+              <div className={classNames("all", "__wab_text", sty.text__y1Mb)}>
                 {
                   "\u062a\u0627\u0631\u06cc\u062e \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0627\u0632 \u0627\u062e\u0631\u06cc\u0646 \u0642\u0627\u0639\u062f\u06af\u06cc \u0634\u0645\u0627"
                 }
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox__hLcw7)}
+                className={classNames("all", sty.freeBox__hLcw7)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -2513,8 +2431,8 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   antdInput2={
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__pTt43
                       )}
                     >
@@ -2540,7 +2458,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.nameInput4)}
                   endIcon={
                     <CheckSvgIcon
-                      className={classNames(projectcss.all, sty.svg__clLbg)}
+                      className={classNames("all", sty.svg__clLbg)}
                       role={"img"}
                     />
                   }
@@ -2617,7 +2535,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   showEndIcon={true}
                   startIcon={
                     <SearchSvgIcon
-                      className={classNames(projectcss.all, sty.svg__plHui)}
+                      className={classNames("all", sty.svg__plHui)}
                       role={"img"}
                     />
                   }
@@ -2633,20 +2551,14 @@ function PlasmicEditProfile2__RenderFunc(props: {
           <div
             data-plasmic-name={"heightAndWeight"}
             data-plasmic-override={overrides.heightAndWeight}
-            className={classNames(projectcss.all, sty.heightAndWeight)}
+            className={classNames("all", sty.heightAndWeight)}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__vJkCe)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__jbkw9
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__vJkCe)}>
+              <div className={classNames("all", "__wab_text", sty.text__jbkw9)}>
                 {"\u0642\u062f"}
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox__yzgBs)}
+                className={classNames("all", sty.freeBox__yzgBs)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -2689,11 +2601,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__g49Mf
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__g49Mf)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -2712,7 +2620,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   </React.Fragment>
                 </div>
                 <RulerIcSvgIcon
-                  className={classNames(projectcss.all, sty.svg__innD9)}
+                  className={classNames("all", sty.svg__innD9)}
                   role={"img"}
                 />
               </div>
@@ -2720,21 +2628,15 @@ function PlasmicEditProfile2__RenderFunc(props: {
             <div
               data-plasmic-name={"weight"}
               data-plasmic-override={overrides.weight}
-              className={classNames(projectcss.all, sty.weight)}
+              className={classNames("all", sty.weight)}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pqmYb
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__pqmYb)}>
                 {"\u0648\u0632\u0646"}
               </div>
               <div
                 data-plasmic-name={"weight2"}
                 data-plasmic-override={overrides.weight2}
-                className={classNames(projectcss.all, sty.weight2)}
+                className={classNames("all", sty.weight2)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -2777,11 +2679,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__eQTeL
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__eQTeL)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -2800,14 +2698,14 @@ function PlasmicEditProfile2__RenderFunc(props: {
                   </React.Fragment>
                 </div>
                 <WeightmeterIcSvgIcon
-                  className={classNames(projectcss.all, sty.svg__zZkBo)}
+                  className={classNames("all", sty.svg__zZkBo)}
                   role={"img"}
                 />
               </div>
             </div>
           </div>
-          <section className={classNames(projectcss.all, sty.section__qOrM)}>
-            <div className={classNames(projectcss.all, sty.freeBox__c3Zf)}>
+          <section className={classNames("all", sty.section__qOrM)}>
+            <div className={classNames("all", sty.freeBox__c3Zf)}>
               <Button
                 data-plasmic-name={"button19"}
                 data-plasmic-override={overrides.button19}
@@ -3131,11 +3029,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___90Nh
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___90Nh)}
                 >
                   {"\u0630\u062e\u06cc\u0631\u0647"}
                 </div>
@@ -3144,14 +3038,14 @@ function PlasmicEditProfile2__RenderFunc(props: {
           </section>
         </div>
       </ApiRequest>
-      <section className={classNames(projectcss.all, sty.section__tMaqk)}>
+      <section className={classNames("all", sty.section__tMaqk)}>
         <HeaderLiom
           data-plasmic-name={"headerLiom"}
           data-plasmic-override={overrides.headerLiom}
           className={classNames("__wab_instance", sty.headerLiom)}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__nQHcD)}
+            className={classNames("all", sty.freeBox__nQHcD)}
             onClick={async event => {
               const $steps = {};
 
@@ -3173,7 +3067,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
             }}
           >
             <XIcon
-              className={classNames(projectcss.all, sty.svg__aEFb)}
+              className={classNames("all", sty.svg__aEFb)}
               onClick={async event => {
                 const $steps = {};
 
@@ -3202,13 +3096,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__a128L
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__a128L)}>
               {
                 "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u067e\u0631\u0648\u0641\u0627\u06cc\u0644"
               }
@@ -3242,14 +3130,8 @@ function PlasmicEditProfile2__RenderFunc(props: {
           "opendialog"
         ])}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__h3XMm)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__hk3Tv
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__h3XMm)}>
+          <div className={classNames("all", "__wab_text", sty.text__hk3Tv)}>
             {
               "\u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u0647\u0627\u06cc \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc"
             }
@@ -3414,13 +3296,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               }
             }}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__dfX7
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__dfX7)}>
               {"\u0627\u0646\u062a\u062e\u0627\u0628"}
             </div>
           </Button>
@@ -3449,17 +3325,11 @@ function PlasmicEditProfile2__RenderFunc(props: {
           "opendialog"
         ])}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__qaM1P)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__mBaGd
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__qaM1P)}>
+          <div className={classNames("all", "__wab_text", sty.text__mBaGd)}>
             {"\u062a\u0627\u0631\u06cc\u062e \u062a\u0648\u0644\u062f"}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox___4BcOj)}>
+          <div className={classNames("all", sty.freeBox___4BcOj)}>
             <DatePickers
               data-plasmic-name={"datePickersBirthDay"}
               data-plasmic-override={overrides.datePickersBirthDay}
@@ -3517,7 +3387,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               ])}
             />
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__qu2Yw)}>
+          <div className={classNames("all", sty.freeBox__qu2Yw)}>
             <Button
               data-plasmic-name={"button3"}
               data-plasmic-override={overrides.button3}
@@ -3653,18 +3523,12 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 }
               }}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xQyR6
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__xQyR6)}>
                 {"\u0627\u0646\u062a\u062e\u0627\u0628"}
               </div>
             </Button>
             <div
-              className={classNames(projectcss.all, sty.freeBox___7Yxuu)}
+              className={classNames("all", sty.freeBox___7Yxuu)}
               onClick={async event => {
                 const $steps = {};
 
@@ -3706,13 +3570,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
                 }
               }}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vIiMk
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__vIiMk)}>
                 {"\u0628\u0631\u06af\u0634\u062a"}
               </div>
             </div>
@@ -3742,19 +3600,13 @@ function PlasmicEditProfile2__RenderFunc(props: {
           "opendialog"
         ])}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__nig0M)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__kwF35
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__nig0M)}>
+          <div className={classNames("all", "__wab_text", sty.text__kwF35)}>
             {
               "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632  \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u06cc\u062a (\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc)  \u0631\u0648 \u0647\u0645  \u062c\u0633\u0627\u0628 \u06a9\u0646\u06cc."
             }
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__b5OWu)}>
+          <div className={classNames("all", sty.freeBox__b5OWu)}>
             <Pickers
               data-plasmic-name={"pickersForPeriodCycleLength"}
               data-plasmic-override={overrides.pickersForPeriodCycleLength}
@@ -3911,13 +3763,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               }
             }}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__grC3F
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__grC3F)}>
               {"\u0627\u0646\u062a\u062e\u0627\u0628"}
             </div>
           </Button>
@@ -3946,8 +3792,8 @@ function PlasmicEditProfile2__RenderFunc(props: {
           "opendialog"
         ])}
       >
-        <div className={classNames(projectcss.all, sty.freeBox___8ZXfJ)}>
-          <div className={classNames(projectcss.all, sty.freeBox__kgfog)}>
+        <div className={classNames("all", sty.freeBox___8ZXfJ)}>
+          <div className={classNames("all", sty.freeBox__kgfog)}>
             <Pickers
               data-plasmic-name={"pickersForHeight"}
               data-plasmic-override={overrides.pickersForHeight}
@@ -4096,13 +3942,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               }
             }}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__qZmxA
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__qZmxA)}>
               {"\u0627\u0646\u062a\u062e\u0627\u0628"}
             </div>
           </Button>
@@ -4131,8 +3971,8 @@ function PlasmicEditProfile2__RenderFunc(props: {
           "opendialog"
         ])}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__el43A)}>
-          <div className={classNames(projectcss.all, sty.freeBox___0GRzj)}>
+        <div className={classNames("all", sty.freeBox__el43A)}>
+          <div className={classNames("all", sty.freeBox___0GRzj)}>
             <Pickers
               data-plasmic-name={"pickersForWeight"}
               data-plasmic-override={overrides.pickersForWeight}
@@ -4284,13 +4124,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               }
             }}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__bobOu
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__bobOu)}>
               {"\u0627\u0646\u062a\u062e\u0627\u0628"}
             </div>
           </Button>
@@ -4324,8 +4158,8 @@ function PlasmicEditProfile2__RenderFunc(props: {
           "opendialog"
         ])}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__lXIr)}>
-          <div className={classNames(projectcss.all, sty.freeBox__w5NiJ)}>
+        <div className={classNames("all", sty.freeBox__lXIr)}>
+          <div className={classNames("all", sty.freeBox__w5NiJ)}>
             <Pickers
               data-plasmic-name={
                 "pickersForTheDateOfTheFirstDayOfYourLastPeriod"
@@ -4482,13 +4316,7 @@ function PlasmicEditProfile2__RenderFunc(props: {
               }
             }}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fcKYw
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__fcKYw)}>
               {"\u0627\u0646\u062a\u062e\u0627\u0628"}
             </div>
           </Button>

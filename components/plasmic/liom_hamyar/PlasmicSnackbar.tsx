@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSnackbar.module.css"; // plasmic-import: DESzdq_iEiZG/css
 
 import ChevronRightIcon from "./icons/PlasmicIcon__ChevronRight"; // plasmic-import: Wm-tjDMQJVfn/icon
@@ -176,10 +175,6 @@ function PlasmicSnackbar__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -252,6 +247,11 @@ function PlasmicSnackbar__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -270,9 +270,9 @@ function PlasmicSnackbar__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       className={classNames(
         "__wab_instance",
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.dialog3,
         {
@@ -343,9 +343,9 @@ function PlasmicSnackbar__RenderFunc(props: {
         [sty["pcls_p4m4vNRh4fq_"]]: true
       })}
       themeResetClass={classNames(
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames
       )}
       triggerSlot={
@@ -356,7 +356,7 @@ function PlasmicSnackbar__RenderFunc(props: {
           color={generateStateValueProp($state, ["button3", "color"])}
           endIcon={
             <ChevronLeftIcon
-              className={classNames(projectcss.all, sty.svg__fbR9)}
+              className={classNames("all", sty.svg__fbR9)}
               role={"img"}
             />
           }
@@ -409,7 +409,7 @@ function PlasmicSnackbar__RenderFunc(props: {
           }}
           startIcon={
             <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__d2RD4)}
+              className={classNames("all", sty.svg__d2RD4)}
               role={"img"}
             />
           }
@@ -433,9 +433,9 @@ function PlasmicSnackbar__RenderFunc(props: {
         }
         exitDuration={0.5}
         themeResetClass={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
       >
@@ -447,17 +447,13 @@ function PlasmicSnackbar__RenderFunc(props: {
           <div
             data-plasmic-name={"text"}
             data-plasmic-override={overrides.text}
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text
-            )}
+            className={classNames("all", "__wab_text", sty.text)}
           >
             {"Sheet title"}
           </div>
         </DialogTitle>
         <div
-          className={classNames(projectcss.all, sty.freeBox__l4NEg, {
+          className={classNames("all", sty.freeBox__l4NEg, {
             [sty.freeBoxtype_success__l4NEg4CmAq]: hasVariant(
               $state,
               "type",
@@ -466,7 +462,7 @@ function PlasmicSnackbar__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox___6Pj1Z, {
+            className={classNames("all", sty.freeBox___6Pj1Z, {
               [sty.freeBoxtype_success___6Pj1Z4CmAq]: hasVariant(
                 $state,
                 "type",
@@ -476,7 +472,7 @@ function PlasmicSnackbar__RenderFunc(props: {
           >
             <div
               className={classNames(
-                projectcss.all,
+                "all",
                 sty.freeBox__vzlyN,
                 hasVariant($state, "type", "info")
                   ? "fabi"
@@ -512,7 +508,7 @@ function PlasmicSnackbar__RenderFunc(props: {
                       ? Icon342Icon
                       : Icon341Icon
                 }
-                className={classNames(projectcss.all, sty.svg___73Syu, {
+                className={classNames("all", sty.svg___73Syu, {
                   [sty.svgtype_info___73SyujCZd]: hasVariant(
                     $state,
                     "type",
@@ -534,7 +530,7 @@ function PlasmicSnackbar__RenderFunc(props: {
             </div>
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__v8N0R, {
+            className={classNames("all", sty.freeBox__v8N0R, {
               [sty.freeBoxtype_warning__v8N0RHrXfZ]: hasVariant(
                 $state,
                 "type",
@@ -554,14 +550,14 @@ function PlasmicSnackbar__RenderFunc(props: {
               })
             })}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__usgrk)}>
+          <div className={classNames("all", sty.freeBox__usgrk)}>
             {renderPlasmicSlot({
               defaultContents: "Enter some text",
               value: args.slot2,
               className: classNames(sty.slotTargetSlot2)
             })}
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__kjigm)}>
+          <div className={classNames("all", sty.freeBox__kjigm)}>
             {renderPlasmicSlot({
               defaultContents: (
                 <Button
@@ -574,7 +570,7 @@ function PlasmicSnackbar__RenderFunc(props: {
           </div>
         </div>
         <Icon228Icon
-          className={classNames(projectcss.all, sty.svg__rD3D)}
+          className={classNames("all", sty.svg__rD3D)}
           onClick={async event => {
             const $steps = {};
 

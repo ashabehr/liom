@@ -74,7 +74,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSettingCycle3.module.css"; // plasmic-import: BH6xU50P1m4G/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -95,11 +94,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -186,12 +192,6 @@ function PlasmicSettingCycle3__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -889,6 +889,13 @@ function PlasmicSettingCycle3__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -899,7 +906,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -914,17 +921,17 @@ function PlasmicSettingCycle3__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             { [sty.rootdark]: hasVariant($state, "dark", "dark") }
@@ -978,7 +985,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
             }}
           />
 
-          <div className={classNames(projectcss.all, sty.freeBox__orcb)}>
+          <div className={classNames("all", sty.freeBox__orcb)}>
             {(() => {
               try {
                 return $ctx.query.inApp != "true";
@@ -993,7 +1000,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
               }
             })() ? (
               <div
-                className={classNames(projectcss.all, sty.freeBox___8TyA0, {
+                className={classNames("all", sty.freeBox___8TyA0, {
                   [sty.freeBoxdark___8TyA0ICcOl]: hasVariant(
                     $state,
                     "dark",
@@ -1002,7 +1009,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__uvIK)}
+                  className={classNames("all", sty.freeBox__uvIK)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -1053,8 +1060,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
 
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__pwryH,
                       {
                         [sty.textdark__pwryHiCcOl]: hasVariant(
@@ -1069,7 +1076,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__rhS4Q, {
+                  className={classNames("all", sty.freeBox__rhS4Q, {
                     [sty.freeBoxdark__rhS4QICcOl]: hasVariant(
                       $state,
                       "dark",
@@ -1078,7 +1085,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                   })}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__gIcb2)}
+                    className={classNames("all", sty.freeBox__gIcb2)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -1806,8 +1813,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__tbPe,
                         {
                           [sty.textdark__tbPeICcOl]: hasVariant(
@@ -1826,9 +1833,9 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 </div>
               </div>
             ) : null}
-            <div className={classNames(projectcss.all, sty.freeBox___6MBpL)}>
+            <div className={classNames("all", sty.freeBox___6MBpL)}>
               <div
-                className={classNames(projectcss.all, sty.freeBox__sdIjp, {
+                className={classNames("all", sty.freeBox__sdIjp, {
                   [sty.freeBoxdark__sdIjpICcOl]: hasVariant(
                     $state,
                     "dark",
@@ -1837,37 +1844,27 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__bMlx6,
-                    {
-                      [sty.textdark__bMlx6ICcOl]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__bMlx6, {
+                    [sty.textdark__bMlx6ICcOl]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
                 >
                   {
                     '\u0628\u0631\u0627\u06cc \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc "\u062a\u0642\u0648\u06cc\u0645 \u067e\u0631\u06cc\u0648\u062f" \u0644\u0637\u0641\u0627 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0632\u06cc\u0631 \u0631\u0627 \u067e\u0631 \u06a9\u0646\u06cc\u062f.'
                   }
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__jdv7O)}>
+                <div className={classNames("all", sty.freeBox__jdv7O)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__kT3A,
-                      {
-                        [sty.textdark__kT3AICcOl]: hasVariant(
-                          $state,
-                          "dark",
-                          "dark"
-                        )
-                      }
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__kT3A, {
+                      [sty.textdark__kT3AICcOl]: hasVariant(
+                        $state,
+                        "dark",
+                        "dark"
+                      )
+                    })}
                   >
                     {
                       "\u0645\u0639\u0645\u0648\u0644\u0627 \u0686\u0646\u062f \u0631\u0648\u0632 \u062e\u0648\u0646\u0631\u06cc\u0632\u06cc \u062f\u0627\u0631\u06cc\u061f"
@@ -1875,7 +1872,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox__fDhb0,
                       hasVariant($state, "dark", "dark") ? "input-dark" : ``,
                       {
@@ -1979,11 +1976,11 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     })()}
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__mGkQ)}>
+                <div className={classNames("all", sty.freeBox__mGkQ)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__mgig5,
                       {
                         [sty.textdark__mgig5ICcOl]: hasVariant(
@@ -2000,7 +1997,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox__yBWxr,
                       hasVariant($state, "dark", "dark") ? "input-dark" : ``,
                       {
@@ -2104,8 +2101,8 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__lzxua,
                       {
                         [sty.textdark__lzxuaiCcOl]: hasVariant(
@@ -2121,11 +2118,11 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     }
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__mpnNl)}>
+                <div className={classNames("all", sty.freeBox__mpnNl)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__qKdYq,
                       {
                         [sty.textdark__qKdYqICcOl]: hasVariant(
@@ -2142,7 +2139,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox__wzUWj,
                       hasVariant($state, "dark", "dark") ? "input-dark" : ``,
                       {
@@ -2296,13 +2293,11 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__hJhYb)}
-                  >
+                  <div className={classNames("all", sty.freeBox__hJhYb)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__evy6Y,
                         {
                           [sty.textdark__evy6YiCcOl]: hasVariant(
@@ -2319,7 +2314,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__aGbYq,
                         hasVariant($state, "dark", "dark") ? "input-dark" : ``,
                         {
@@ -2465,15 +2460,13 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 ) : null}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__cGkK)}>
+            <div className={classNames("all", sty.freeBox__cGkK)}>
               <section
                 data-plasmic-name={"section"}
                 data-plasmic-override={overrides.section}
-                className={classNames(projectcss.all, sty.section)}
+                className={classNames("all", sty.section)}
               >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___8KbuI)}
-                >
+                <div className={classNames("all", sty.freeBox___8KbuI)}>
                   <Button
                     data-plasmic-name={"button3"}
                     data-plasmic-override={overrides.button3}
@@ -2820,14 +2813,9 @@ function PlasmicSettingCycle3__RenderFunc(props: {
             ])}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__nKr2A,
-                {
-                  [sty.textdark__nKr2AiCcOl]: hasVariant($state, "dark", "dark")
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__nKr2A, {
+                [sty.textdark__nKr2AiCcOl]: hasVariant($state, "dark", "dark")
+              })}
             >
               {
                 "\u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632\u200c\u0647\u0627\u06cc \u062e\u0648\u0646 \u0631\u06cc\u0632\u06cc"
@@ -2910,7 +2898,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 />
               );
             })()}
-            <div className={classNames(projectcss.all, sty.freeBox__iThE)}>
+            <div className={classNames("all", sty.freeBox__iThE)}>
               <Button
                 data-plasmic-name={"button2"}
                 data-plasmic-override={overrides.button2}
@@ -3040,7 +3028,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 {"\u062a\u0627\u06cc\u06cc\u062f"}
               </Button>
               <div
-                className={classNames(projectcss.all, sty.freeBox__faI6R)}
+                className={classNames("all", sty.freeBox__faI6R)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -3081,11 +3069,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__zxESm
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__zxESm)}
                 >
                   {"\u0628\u0633\u062a\u0646"}
                 </div>
@@ -3115,13 +3099,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
               "opendialog"
             ])}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__dLmVx
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__dLmVx)}>
               {
                 "\u0641\u0627\u0635\u0644\u0647 \u0627\u0648\u0644\u06cc\u0646 \u0631\u0648\u0632 \u0642\u0627\u0639\u062f\u06af\u06cc \u062a\u0627 \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a \u0627\u0633\u062a.\n(\u062d\u0648\u0627\u0633\u062a \u0628\u0627\u0634\u0647 \u06a9\u0647 \u062a\u0639\u062f\u0627\u062f \u0631\u0648\u0632 \u067e\u0631\u06cc\u0648\u062f\u062a(\u062e\u0648\u0646\u0631\u06cc\u0632\u06cc) \u0631\u0648 \u0647\u0645 \u062d\u0633\u0627\u0628 \u06a9\u0646\u06cc)"
               }
@@ -3203,7 +3181,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 />
               );
             })()}
-            <div className={classNames(projectcss.all, sty.freeBox__woCmI)}>
+            <div className={classNames("all", sty.freeBox__woCmI)}>
               <Button
                 data-plasmic-name={"button4"}
                 data-plasmic-override={overrides.button4}
@@ -3333,7 +3311,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 {"\u062a\u0627\u06cc\u06cc\u062f"}
               </Button>
               <div
-                className={classNames(projectcss.all, sty.freeBox__bh9WN)}
+                className={classNames("all", sty.freeBox__bh9WN)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -3374,11 +3352,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__krSi3
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__krSi3)}
                 >
                   {"\u0628\u0633\u062a\u0646"}
                 </div>
@@ -3408,13 +3382,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
               "opendialog"
             ])}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__bsXaK
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__bsXaK)}>
               {
                 "\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639 \u0642\u0627\u0639\u062f\u06af\u06cc \u0628\u0639\u062f\u06cc\u062a"
               }
@@ -3466,7 +3434,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
               }}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__dm7V1)}>
+            <div className={classNames("all", sty.freeBox__dm7V1)}>
               <Button
                 data-plasmic-name={"button5"}
                 data-plasmic-override={overrides.button5}
@@ -3716,7 +3684,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 {"\u062a\u0627\u06cc\u06cc\u062f"}
               </Button>
               <div
-                className={classNames(projectcss.all, sty.freeBox___4Q89D)}
+                className={classNames("all", sty.freeBox___4Q89D)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -3757,11 +3725,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xxNCd
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__xxNCd)}
                 >
                   {"\u0628\u0633\u062a\u0646"}
                 </div>
@@ -3791,13 +3755,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
               "opendialog"
             ])}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__dhVd4
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__dhVd4)}>
               {
                 "\u062a\u0627\u0631\u06cc\u062e \u0634\u0631\u0648\u0639 \u0622\u062e\u0631\u06cc\u0646 \u062f\u0648\u0631\u0647 \u067e\u0631\u06cc\u0648\u062f\u06cc"
               }
@@ -3847,7 +3805,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
               }}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox___5JeJk)}>
+            <div className={classNames("all", sty.freeBox___5JeJk)}>
               <Button
                 data-plasmic-name={"button6"}
                 data-plasmic-override={overrides.button6}
@@ -4021,7 +3979,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 {"\u062a\u0627\u06cc\u06cc\u062f"}
               </Button>
               <div
-                className={classNames(projectcss.all, sty.freeBox__nqWCe)}
+                className={classNames("all", sty.freeBox__nqWCe)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -4062,11 +4020,7 @@ function PlasmicSettingCycle3__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kQfqR
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__kQfqR)}
                 >
                   {"\u0628\u0633\u062a\u0646"}
                 </div>
@@ -4268,9 +4222,10 @@ export const PlasmicSettingCycle3 = Object.assign(
     internalArgProps: PlasmicSettingCycle3__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/setting-cycle",
       pagePath: "/setting-cycle",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

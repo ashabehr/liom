@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicCard.module.css"; // plasmic-import: YNaBK8DkP1Hu/css
 
 createPlasmicElementProxy;
@@ -141,10 +140,6 @@ function PlasmicCard__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -156,6 +151,11 @@ function PlasmicCard__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -173,10 +173,10 @@ function PlasmicCard__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -184,14 +184,14 @@ function PlasmicCard__RenderFunc(props: {
       <div
         data-plasmic-name={"header"}
         data-plasmic-override={overrides.header}
-        className={classNames(projectcss.all, sty.header, {
+        className={classNames("all", sty.header, {
           [sty.headernoTitle]: hasVariant($state, "noTitle", "noTitle")
         })}
       >
         <div
           data-plasmic-name={"freeBox"}
           data-plasmic-override={overrides.freeBox}
-          className={classNames(projectcss.all, sty.freeBox, {
+          className={classNames("all", sty.freeBox, {
             [sty.freeBoxnoTitle]: hasVariant($state, "noTitle", "noTitle")
           })}
         >
@@ -205,28 +205,18 @@ function PlasmicCard__RenderFunc(props: {
       <div
         data-plasmic-name={"body"}
         data-plasmic-override={overrides.body}
-        className={classNames(projectcss.all, sty.body, {
+        className={classNames("all", sty.body, {
           [sty.bodynoTitle]: hasVariant($state, "noTitle", "noTitle")
         })}
       >
         {renderPlasmicSlot({
           defaultContents: (
             <React.Fragment>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yypab
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__yypab)}>
                 {"something here"}
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___4JjBj
-                )}
+                className={classNames("all", "__wab_text", sty.text___4JjBj)}
               >
                 {"something here"}
               </div>

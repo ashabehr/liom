@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicRadioGrop.module.css"; // plasmic-import: mcNKMbL_6N75/css
 
 import Icon339Icon from "./icons/PlasmicIcon__Icon339"; // plasmic-import: 9akTBdz--z4Y/icon
@@ -192,10 +191,6 @@ function PlasmicRadioGrop__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -274,6 +269,11 @@ function PlasmicRadioGrop__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -291,10 +291,10 @@ function PlasmicRadioGrop__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -419,7 +419,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
         ? renderPlasmicSlot({
             defaultContents: (
               <svg
-                className={classNames(projectcss.all, sty.svg__fC0D, {
+                className={classNames("all", sty.svg__fC0D, {
                   [sty.svgdirection_v__fC0DBOLb6]: hasVariant(
                     $state,
                     "direction",
@@ -436,7 +436,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
       <div
         data-plasmic-name={"freeBox"}
         data-plasmic-override={overrides.freeBox}
-        className={classNames(projectcss.all, sty.freeBox, {
+        className={classNames("all", sty.freeBox, {
           [sty.freeBoxchoise]: hasVariant($state, "choise", "choise"),
           [sty.freeBoxchoise_selected]:
             hasVariant($state, "choise", "choise") &&
@@ -468,7 +468,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
               ? Icon340Icon
               : Icon339Icon
           }
-          className={classNames(projectcss.all, sty.svg__bBffU, {
+          className={classNames("all", sty.svg__bBffU, {
             [sty.svgstyle3_radio__bBffUbPzba]: hasVariant(
               $state,
               "style3",
@@ -533,7 +533,7 @@ function PlasmicRadioGrop__RenderFunc(props: {
           })
         })}
         <Icon326Icon
-          className={classNames(projectcss.all, sty.svg__mjZCn, {
+          className={classNames("all", sty.svg__mjZCn, {
             [sty.svgdirection_v__mjZCnbOLb6]: hasVariant(
               $state,
               "direction",

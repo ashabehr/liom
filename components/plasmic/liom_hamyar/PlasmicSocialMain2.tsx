@@ -75,7 +75,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSocialMain2.module.css"; // plasmic-import: uOqGf3XNWlCH/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
@@ -163,12 +162,6 @@ function PlasmicSocialMain2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -398,6 +391,13 @@ function PlasmicSocialMain2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -415,15 +415,15 @@ function PlasmicSocialMain2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <section className={classNames(projectcss.all, sty.section__q8Zux)}>
+      <section className={classNames("all", sty.section__q8Zux)}>
         <MainHeader
           data-plasmic-name={"mainHeader"}
           data-plasmic-override={overrides.mainHeader}
@@ -444,37 +444,37 @@ function PlasmicSocialMain2__RenderFunc(props: {
             }
           }}
           slot={
-            <div className={classNames(projectcss.all, sty.freeBox___6Q1I)}>
-              <div className={classNames(projectcss.all, sty.freeBox___8862A)}>
+            <div className={classNames("all", sty.freeBox___6Q1I)}>
+              <div className={classNames("all", sty.freeBox___8862A)}>
                 <Icon222Icon
-                  className={classNames(projectcss.all, sty.svg___09Sul)}
+                  className={classNames("all", sty.svg___09Sul)}
                   role={"img"}
                 />
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__yaxH)}>
+              <div className={classNames("all", sty.freeBox__yaxH)}>
                 <Icon223Icon
-                  className={classNames(projectcss.all, sty.svg___8GTqq)}
+                  className={classNames("all", sty.svg___8GTqq)}
                   role={"img"}
                 />
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__old5B)}>
+              <div className={classNames("all", sty.freeBox__old5B)}>
                 <Icon179Icon
-                  className={classNames(projectcss.all, sty.svg__lOmMg)}
+                  className={classNames("all", sty.svg__lOmMg)}
                   role={"img"}
                 />
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__jssjj)}>
+              <div className={classNames("all", sty.freeBox__jssjj)}>
                 <Icon218Icon
-                  className={classNames(projectcss.all, sty.svg___6ZdE)}
+                  className={classNames("all", sty.svg___6ZdE)}
                   role={"img"}
                 />
               </div>
             </div>
           }
         >
-          <div className={classNames(projectcss.all, sty.freeBox__m3EZr)}>
+          <div className={classNames("all", sty.freeBox__m3EZr)}>
             <Icon185Icon
-              className={classNames(projectcss.all, sty.svg__qS3Qy)}
+              className={classNames("all", sty.svg__qS3Qy)}
               onClick={async event => {
                 const $steps = {};
 
@@ -515,13 +515,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ohNh6
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__ohNh6)}>
               {
                 "\u0627\u0645\u06a9\u0627\u0646\u0627\u062a \u0648\u06cc\u0698\u0647"
               }
@@ -764,14 +758,14 @@ function PlasmicSocialMain2__RenderFunc(props: {
           }}
         />
 
-        <div className={classNames(projectcss.all, sty.freeBox__u9Grc)}>
+        <div className={classNames("all", sty.freeBox__u9Grc)}>
           <ApiRequest
             data-plasmic-name={"getInfo"}
             data-plasmic-override={overrides.getInfo}
             className={classNames("__wab_instance", sty.getInfo)}
             errorDisplay={
               <div
-                className={classNames(projectcss.all, sty.freeBox__k5UdL)}
+                className={classNames("all", sty.freeBox__k5UdL)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -812,22 +806,14 @@ function PlasmicSocialMain2__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__nC9Y
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__nC9Y)}
                 >
                   {
                     "\u062e\u0637\u0627 \u062f\u0631 \u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rthja
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__rthja)}
                 >
                   {
                     "\u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u0648 \u0642\u0635\u0639 \u0628\u0648\u062f\u0646 vpn\u0645\u0637\u0645\u0626\u0646 \u0634\u062f\u0647 \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f"
@@ -891,20 +877,18 @@ function PlasmicSocialMain2__RenderFunc(props: {
                   shape={"rounded"}
                   size={"minimal"}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__kpnlj)}
-                  >
+                  <div className={classNames("all", sty.freeBox__kpnlj)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__ek9G
                       )}
                     >
                       {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
                     </div>
                     <Icon144Icon
-                      className={classNames(projectcss.all, sty.svg__gcXPo)}
+                      className={classNames("all", sty.svg__gcXPo)}
                       role={"img"}
                     />
                   </div>
@@ -912,45 +896,25 @@ function PlasmicSocialMain2__RenderFunc(props: {
               </div>
             }
             loadingDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__nCoft)}>
+              <div className={classNames("all", sty.freeBox__nCoft)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__iMqpF,
-                    "shimmer"
-                  )}
+                  className={classNames("all", sty.freeBox__iMqpF, "shimmer")}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__f4Ks,
-                    "shimmer"
-                  )}
+                  className={classNames("all", sty.freeBox__f4Ks, "shimmer")}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__dzWHl,
-                    "shimmer"
-                  )}
+                  className={classNames("all", sty.freeBox__dzWHl, "shimmer")}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox___02Zh,
-                    "shimmer"
-                  )}
+                  className={classNames("all", sty.freeBox___02Zh, "shimmer")}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__ubeqv,
-                    "shimmer"
-                  )}
+                  className={classNames("all", sty.freeBox__ubeqv, "shimmer")}
                 />
               </div>
             }
@@ -1044,13 +1008,9 @@ function PlasmicSocialMain2__RenderFunc(props: {
             <div
               data-plasmic-name={"groupBy"}
               data-plasmic-override={overrides.groupBy}
-              className={classNames(
-                projectcss.all,
-                sty.groupBy,
-                "container-scroll "
-              )}
+              className={classNames("all", sty.groupBy, "container-scroll ")}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__hEa1O)}>
+              <div className={classNames("all", sty.freeBox__hEa1O)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -1260,16 +1220,12 @@ function PlasmicSocialMain2__RenderFunc(props: {
         </div>
       </section>
       <div
-        className={classNames(
-          projectcss.all,
-          sty.freeBox__l5Y6V,
-          "container-scroll"
-        )}
+        className={classNames("all", sty.freeBox__l5Y6V, "container-scroll")}
       >
         <div
           data-plasmic-name={"story"}
           data-plasmic-override={overrides.story}
-          className={classNames(projectcss.all, sty.story)}
+          className={classNames("all", sty.story)}
           style={(() => {
             try {
               return undefined;
@@ -1536,45 +1492,27 @@ function PlasmicSocialMain2__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <div className={classNames(projectcss.all, sty.freeBox__kDmG6)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text___1QHwg
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__kDmG6)}>
+          <div className={classNames("all", "__wab_text", sty.text___1QHwg)}>
             {
               "\u062f\u0631 \u062d\u0627\u0644 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc ..."
             }
           </div>
           <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__lufoJ,
-              "line-container"
-            )}
+            className={classNames("all", sty.freeBox__lufoJ, "line-container")}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__vx0Zc,
-                "line line-1"
-              )}
+              className={classNames("all", sty.freeBox__vx0Zc, "line line-1")}
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__djfoC,
-                "line line-2"
-              )}
+              className={classNames("all", sty.freeBox__djfoC, "line line-2")}
             />
           </div>
         </div>
       ) : null}
-      <div className={classNames(projectcss.all, sty.freeBox__hLcE4)}>
-        <div className={classNames(projectcss.all, sty.freeBox__th8Zk)}>
+      <div className={classNames("all", sty.freeBox__hLcE4)}>
+        <div className={classNames("all", sty.freeBox__th8Zk)}>
           <ApiRequest
             data-plasmic-name={"postPostesInfo"}
             data-plasmic-override={overrides.postPostesInfo}
@@ -1601,7 +1539,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
             className={classNames("__wab_instance", sty.postPostesInfo)}
             errorDisplay={
               <div
-                className={classNames(projectcss.all, sty.freeBox__bNedw)}
+                className={classNames("all", sty.freeBox__bNedw)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -1642,22 +1580,14 @@ function PlasmicSocialMain2__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__tylb
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__tylb)}
                 >
                   {
                     "\u062e\u0637\u0627 \u062f\u0631 \u0627\u062a\u0635\u0627\u0644 \u0628\u0647 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__m0Tl3
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__m0Tl3)}
                 >
                   {
                     "\u0627\u0632 \u0627\u062a\u0635\u0627\u0644 \u0627\u06cc\u0646\u062a\u0631\u0646\u062a \u0648 \u0642\u0635\u0639 \u0628\u0648\u062f\u0646 vpn\u0645\u0637\u0645\u0626\u0646 \u0634\u062f\u0647 \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u062a\u0644\u0627\u0634 \u06a9\u0646\u06cc\u062f"
@@ -1721,20 +1651,18 @@ function PlasmicSocialMain2__RenderFunc(props: {
                   shape={"rounded"}
                   size={"minimal"}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__uFxJx)}
-                  >
+                  <div className={classNames("all", sty.freeBox__uFxJx)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__pD7G
                       )}
                     >
                       {"\u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f"}
                     </div>
                     <Icon144Icon
-                      className={classNames(projectcss.all, sty.svg__zagPw)}
+                      className={classNames("all", sty.svg__zagPw)}
                       role={"img"}
                     />
                   </div>
@@ -1742,7 +1670,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
               </div>
             }
             loadingDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__cj8V8)}>
+              <div className={classNames("all", sty.freeBox__cj8V8)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))([
                   2, 3, 4
                 ]).map((__plasmic_item_0, __plasmic_idx_0) => {
@@ -1750,38 +1678,25 @@ function PlasmicSocialMain2__RenderFunc(props: {
                   const currentIndex = __plasmic_idx_0;
                   return (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__y1Zpj)}
+                      className={classNames("all", sty.freeBox__y1Zpj)}
                       key={currentIndex}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__ijyHw
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__nbkoz
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__ijyHw)}>
+                        <div className={classNames("all", sty.freeBox__nbkoz)}>
                           <div
                             className={classNames(
-                              projectcss.all,
+                              "all",
                               sty.freeBox___4I50K,
                               "shimmer"
                             )}
                           />
 
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox___6Luup
-                            )}
+                            className={classNames("all", sty.freeBox___6Luup)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
+                                "all",
                                 sty.freeBox__j8E44,
                                 "shimmer"
                               )}
@@ -1789,28 +1704,20 @@ function PlasmicSocialMain2__RenderFunc(props: {
 
                             <div
                               className={classNames(
-                                projectcss.all,
+                                "all",
                                 sty.freeBox___6Cbiv,
                                 "shimmer"
                               )}
                             />
                           </div>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__wom5J
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__wom5J)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__of0Ex
-                            )}
+                            className={classNames("all", sty.freeBox__of0Ex)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
+                                "all",
                                 sty.freeBox__itFk8,
                                 "shimmer"
                               )}
@@ -1818,21 +1725,11 @@ function PlasmicSocialMain2__RenderFunc(props: {
                           </div>
                         </div>
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___0LUeE
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__ty74L
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox___0LUeE)}>
+                        <div className={classNames("all", sty.freeBox__ty74L)}>
                           <div
                             className={classNames(
-                              projectcss.all,
+                              "all",
                               sty.freeBox__pXigM,
                               "shimmer"
                             )}
@@ -1840,7 +1737,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
 
                           <div
                             className={classNames(
-                              projectcss.all,
+                              "all",
                               sty.freeBox__plCe,
                               "shimmer"
                             )}
@@ -1848,7 +1745,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
 
                           <div
                             className={classNames(
-                              projectcss.all,
+                              "all",
                               sty.freeBox__cqBcn,
                               "shimmer"
                             )}
@@ -1856,7 +1753,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
 
                           <div
                             className={classNames(
-                              projectcss.all,
+                              "all",
                               sty.freeBox__vtiE7,
                               "shimmer"
                             )}
@@ -1864,7 +1761,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
+                            "all",
                             sty.freeBox___7FGiw,
                             "shimmer"
                           )}
@@ -1920,13 +1817,13 @@ function PlasmicSocialMain2__RenderFunc(props: {
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__xGtGk
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox___2ULzO
                                     )}
                                     onClick={async event => {
@@ -1957,7 +1854,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
                                   >
                                     <Icon239Icon
                                       className={classNames(
-                                        projectcss.all,
+                                        "all",
                                         sty.svg___0Nzq
                                       )}
                                       role={"img"}
@@ -1965,8 +1862,8 @@ function PlasmicSocialMain2__RenderFunc(props: {
 
                                     <div
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
+                                        "all",
+                                        "__wab_text",
                                         sty.text___0Fk2Z
                                       )}
                                     >
@@ -2116,7 +2013,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
             })()}
             url={"https://n8n.staas.ir/webhook/rest/social"}
           >
-            <div className={classNames(projectcss.all, sty.freeBox___3RhXt)}>
+            <div className={classNames("all", sty.freeBox___3RhXt)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -2136,7 +2033,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__wDkDc)}
+                    className={classNames("all", sty.freeBox__wDkDc)}
                     key={currentIndex}
                     onClick={async event => {
                       const $steps = {};
@@ -2447,39 +2344,25 @@ function PlasmicSocialMain2__RenderFunc(props: {
             throw e;
           }
         })() ? (
-          <div className={classNames(projectcss.all, sty.freeBox___70O3M)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__woWSg
-              )}
-            >
+          <div className={classNames("all", sty.freeBox___70O3M)}>
+            <div className={classNames("all", "__wab_text", sty.text__woWSg)}>
               {
                 "\u062f\u0631 \u062d\u0627\u0644 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc ..."
               }
             </div>
             <div
               className={classNames(
-                projectcss.all,
+                "all",
                 sty.freeBox___1JJuv,
                 "line-container"
               )}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__fGpDa,
-                  "line line-1"
-                )}
+                className={classNames("all", sty.freeBox__fGpDa, "line line-1")}
               />
 
               <div
-                className={classNames(
-                  projectcss.all,
-                  sty.freeBox__olGZw,
-                  "line line-2"
-                )}
+                className={classNames("all", sty.freeBox__olGZw, "line line-2")}
               />
             </div>
           </div>
@@ -2520,7 +2403,7 @@ function PlasmicSocialMain2__RenderFunc(props: {
         open={generateStateValueProp($state, ["comingSoon", "open"])}
       />
 
-      <section className={classNames(projectcss.all, sty.section__tvCN)}>
+      <section className={classNames("all", sty.section__tvCN)}>
         <PlasmicImg__
           data-plasmic-name={"img"}
           data-plasmic-override={overrides.img}

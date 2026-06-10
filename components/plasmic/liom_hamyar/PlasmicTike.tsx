@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicTike.module.css"; // plasmic-import: YpsVoceQGCjG/css
 
 import Icon284Icon from "./icons/PlasmicIcon__Icon284"; // plasmic-import: xsNSEkdrx0wC/icon
@@ -134,10 +133,6 @@ function PlasmicTike__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -149,6 +144,11 @@ function PlasmicTike__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -166,10 +166,10 @@ function PlasmicTike__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         { [sty.roottike]: hasVariant($state, "tike", "tike") }
@@ -181,7 +181,7 @@ function PlasmicTike__RenderFunc(props: {
         PlasmicIconType={
           hasVariant($state, "tike", "tike") ? Icon285Icon : Icon284Icon
         }
-        className={classNames(projectcss.all, sty.svg, {
+        className={classNames("all", sty.svg, {
           [sty.svgtike]: hasVariant($state, "tike", "tike")
         })}
         role={"img"}

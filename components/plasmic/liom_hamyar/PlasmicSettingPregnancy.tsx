@@ -77,7 +77,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSettingPregnancy.module.css"; // plasmic-import: hNNKSE58t6pp/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -98,11 +97,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -180,12 +186,6 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -435,6 +435,13 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -445,7 +452,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -460,17 +467,17 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             {
@@ -642,7 +649,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
             }
           })() ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox__ytDOx, {
+              className={classNames("all", sty.freeBox__ytDOx, {
                 [sty.freeBoxdark__ytDOxbkz05]: hasVariant(
                   $state,
                   "dark",
@@ -651,7 +658,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
               })}
             >
               <div
-                className={classNames(projectcss.all, sty.freeBox___3O4C8)}
+                className={classNames("all", sty.freeBox___3O4C8)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -701,18 +708,13 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pmZGg,
-                    {
-                      [sty.textdark__pmZGgbkz05]: hasVariant(
-                        $state,
-                        "dark",
-                        "dark"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__pmZGg, {
+                    [sty.textdark__pmZGgbkz05]: hasVariant(
+                      $state,
+                      "dark",
+                      "dark"
+                    )
+                  })}
                 >
                   {"\u062a\u0646\u0638\u06cc\u0645\u0627\u062a"}
                 </div>
@@ -720,7 +722,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
             </div>
           ) : null}
           <div
-            className={classNames(projectcss.all, sty.freeBox__ikTgu, {
+            className={classNames("all", sty.freeBox__ikTgu, {
               [sty.freeBoxglobal_newView_newView__ikTgu0DHva]: hasVariant(
                 globalVariants,
                 "newView",
@@ -728,10 +730,10 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
               )
             })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__iW6Ev)}>
-              <div className={classNames(projectcss.all, sty.freeBox__rckdR)}>
+            <div className={classNames("all", sty.freeBox__iW6Ev)}>
+              <div className={classNames("all", sty.freeBox__rckdR)}>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__xUcow, {
+                  className={classNames("all", sty.freeBox__xUcow, {
                     [sty.freeBoxdark__xUcowbkz05]: hasVariant(
                       $state,
                       "dark",
@@ -779,7 +781,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__epUv4,
                         hasVariant($state, "dark", "dark") ? "picker-dark" : ``,
                         {
@@ -804,32 +806,21 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__wjIxG
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__wjIxG)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__kRjRh
-                            )}
+                            className={classNames("all", sty.freeBox__kRjRh)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__hSbHy
                               )}
                             >
                               {"\u0647\u0641\u062a\u0647"}
                             </div>
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__bXcJv
-                              )}
+                              className={classNames("all", sty.freeBox__bXcJv)}
                             >
                               <Pickers
                                 data-plasmic-name={"week2"}
@@ -862,25 +853,19 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             </div>
                           </div>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__ygSxx
-                            )}
+                            className={classNames("all", sty.freeBox__ygSxx)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__rFRg
                               )}
                             >
                               {"\u0631\u0648\u0632"}
                             </div>
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__ldvI
-                              )}
+                              className={classNames("all", sty.freeBox__ldvI)}
                             >
                               <Pickers
                                 data-plasmic-name={"day2"}
@@ -974,9 +959,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         />
                       ) : null}
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__r4OB)}
-                    >
+                    <div className={classNames("all", sty.freeBox__r4OB)}>
                       <Button
                         data-plasmic-name={"button"}
                         data-plasmic-override={overrides.button}
@@ -1632,10 +1615,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                         {"\u062a\u0627\u06cc\u06cc\u062f"}
                       </Button>
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__z4LTn
-                        )}
+                        className={classNames("all", sty.freeBox__z4LTn)}
                         onClick={async event => {
                           const $steps = {};
 
@@ -1679,8 +1659,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__xQvCh
                           )}
                         >
@@ -1691,8 +1671,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   </SlideinModal>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__pd8Nv,
                       {
                         [sty.textdark__pd8Nvbkz05]: hasVariant(
@@ -1709,8 +1689,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___9MdlR
                     )}
                   >
@@ -1737,11 +1717,9 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       })()}
                     </React.Fragment>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__jxVCa)}
-                  >
+                  <div className={classNames("all", sty.freeBox__jxVCa)}>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__oCsPb)}
+                      className={classNames("all", sty.freeBox__oCsPb)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1784,8 +1762,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___1YyBe,
                           {
                             [sty.textglobal_newView_newView___1YyBe0DHva]:
@@ -1841,8 +1819,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__nGHhe
                         )}
                       >
@@ -1852,7 +1830,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       </div>
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__lhcX)}
+                      className={classNames("all", sty.freeBox__lhcX)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1895,8 +1873,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__vjiLz,
                           {
                             [sty.textglobal_newView_newView__vjiLz0DHva]:
@@ -1928,8 +1906,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__kOt0T
                         )}
                       >
@@ -1939,7 +1917,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       </div>
                     </div>
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__ytjUr)}
+                      className={classNames("all", sty.freeBox__ytjUr)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -1982,8 +1960,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__xj4By
                         )}
                         style={(() => {
@@ -2019,8 +1997,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__y2YJ7
                         )}
                       >
@@ -2043,13 +2021,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__b8Ran)}
-                    >
+                    <div className={classNames("all", sty.freeBox__b8Ran)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__jhTi,
                           {
                             [sty.textdark__jhTibkz05]: hasVariant(
@@ -2066,7 +2042,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox___1FrZr,
                           hasVariant($state, "dark", "dark")
                             ? "input-dark"
@@ -2210,7 +2186,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     </div>
                   ) : null}
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__t0Jql, {
+                    className={classNames("all", sty.freeBox__t0Jql, {
                       [sty.freeBoxdark__t0JqLbkz05]: hasVariant(
                         $state,
                         "dark",
@@ -2220,8 +2196,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__tThr
                       )}
                     >
@@ -2229,8 +2205,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__iKyjT
                       )}
                     >
@@ -2238,8 +2214,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__lp1Bw
                       )}
                     >
@@ -2259,13 +2235,11 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       throw e;
                     }
                   })() ? (
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__buwcy)}
-                    >
+                    <div className={classNames("all", sty.freeBox__buwcy)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__hxpdj,
                           {
                             [sty.textdark__hxpdJbkz05]: hasVariant(
@@ -2282,7 +2256,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__lChI,
                           hasVariant($state, "dark", "dark")
                             ? "input-dark"
@@ -2438,14 +2412,10 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__otCka,
-                        {
-                          [sty.freeBoxglobal_newView_newView__otCka0DHva]:
-                            hasVariant(globalVariants, "newView", "newView")
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox__otCka, {
+                        [sty.freeBoxglobal_newView_newView__otCka0DHva]:
+                          hasVariant(globalVariants, "newView", "newView")
+                      })}
                       onClick={async event => {
                         const $steps = {};
 
@@ -2488,8 +2458,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___1Snno,
                           {
                             [sty.textdark___1SnnObkz05]: hasVariant(
@@ -2504,37 +2474,24 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                           "\u0647\u0641\u062a\u0647 \u0648 \u0631\u0648\u0632 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646:"
                         }
                       </div>
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__mfAv5
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__zg24T
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__mfAv5)}>
+                        <div className={classNames("all", sty.freeBox__zg24T)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__wn8Ry
                             )}
                           >
                             {"\u0647\u0641\u062a\u0647"}
                           </div>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__jy9Bs
-                            )}
+                            className={classNames("all", sty.freeBox__jy9Bs)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__uUBb
                               )}
                             >
@@ -2542,31 +2499,23 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                             </div>
                           </div>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__jLonn
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__jLonn)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__l1Ehf
                             )}
                           >
                             {"\u0631\u0648\u0632"}
                           </div>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__nD7AD
-                            )}
+                            className={classNames("all", sty.freeBox__nD7AD)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__h1Rd
                               )}
                             >
@@ -2579,8 +2528,8 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
                   ) : null}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___8T2M)}>
-                <div className={classNames(projectcss.all, sty.freeBox__q9EfV)}>
+              <div className={classNames("all", sty.freeBox___8T2M)}>
+                <div className={classNames("all", sty.freeBox__q9EfV)}>
                   <Button
                     data-plasmic-name={"button3"}
                     data-plasmic-override={overrides.button3}
@@ -3050,7 +2999,7 @@ function PlasmicSettingPregnancy__RenderFunc(props: {
               </div>
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__lzt2L)}>
+          <div className={classNames("all", sty.freeBox__lzt2L)}>
             {(() => {
               try {
                 return true;
@@ -3732,9 +3681,10 @@ export const PlasmicSettingPregnancy = Object.assign(
     internalArgProps: PlasmicSettingPregnancy__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/setting-pregnancy",
       pagePath: "/setting-pregnancy",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

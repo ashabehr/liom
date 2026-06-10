@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReminderCategory.module.css"; // plasmic-import: ndgNxvaF00At/css
 
 import Icon55Icon from "./icons/PlasmicIcon__Icon55"; // plasmic-import: PmmFWvjFbwTw/icon
@@ -171,12 +170,6 @@ function PlasmicReminderCategory__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -306,6 +299,13 @@ function PlasmicReminderCategory__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -323,10 +323,10 @@ function PlasmicReminderCategory__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         "fade-in"
@@ -415,14 +415,15 @@ function PlasmicReminderCategory__RenderFunc(props: {
         const $steps = {};
       }}
     >
-      <div className={classNames(projectcss.all, sty.freeBox__qiL2)}>
-        <div className={classNames(projectcss.all, sty.freeBox__kUlDd)}>
+      <div className={classNames("all", sty.freeBox__qiL2)}>
+        <div className={classNames("all", sty.freeBox__kUlDd)}>
           <input
             data-plasmic-name={"htmlInput"}
             data-plasmic-override={overrides.htmlInput}
             className={classNames(
-              projectcss.all,
-              projectcss.input,
+              "all",
+              "input",
+              "input__suVPi",
               sty.htmlInput
             )}
             id={"titleCategory"}
@@ -493,28 +494,18 @@ function PlasmicReminderCategory__RenderFunc(props: {
             <Icon55Icon
               data-plasmic-name={"svg"}
               data-plasmic-override={overrides.svg}
-              className={classNames(projectcss.all, sty.svg)}
+              className={classNames("all", sty.svg)}
               role={"img"}
             />
           </Reveal>
         </div>
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___266Yl
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text___266Yl)}>
           {
             "\u0646\u0648\u0639 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0645\u0648\u0631\u062f\u0646\u0638\u0631\u062a \u0631\u0648 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646"
           }
         </div>
         <div
-          className={classNames(
-            projectcss.all,
-            sty.freeBox__xYEpS,
-            "container-scroll"
-          )}
+          className={classNames("all", sty.freeBox__xYEpS, "container-scroll")}
         >
           <RadioGroupLiom
             data-plasmic-name={"sort"}
@@ -653,11 +644,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
         </div>
       </div>
       <div
-        className={classNames(
-          projectcss.all,
-          sty.freeBox__kuwFr,
-          "container-scroll"
-        )}
+        className={classNames("all", sty.freeBox__kuwFr, "container-scroll")}
         id={"scrollSection"}
         onScroll={async event => {
           const $steps = {};
@@ -727,11 +714,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
           const currentIndex = __plasmic_idx_0;
           return (
             <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox___4D4Y,
-                "section"
-              )}
+              className={classNames("all", sty.freeBox___4D4Y, "section")}
               id={(() => {
                 try {
                   return currentItem.category_name;
@@ -747,13 +730,9 @@ function PlasmicReminderCategory__RenderFunc(props: {
               })()}
               key={currentIndex}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__j3Dgd)}>
+              <div className={classNames("all", sty.freeBox__j3Dgd)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__xGlTn
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__xGlTn)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -774,7 +753,7 @@ function PlasmicReminderCategory__RenderFunc(props: {
               </div>
               <div
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.freeBox__a5IIo,
                   "container-scroll"
                 )}

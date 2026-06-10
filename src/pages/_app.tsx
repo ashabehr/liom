@@ -1,13 +1,12 @@
+import "../../components/plasmic/liom_hamyar/plasmic.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import "@/styles/globals.css";
 import "@/styles/date-picker.css";
-
 import { PlasmicRootProvider } from "@plasmicapp/react-web";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import NotificationToast from "../../components/NotificationToast";
 import { initFcm } from "../firebase/fcm";
-
 import React from "react";
 import { NewViewContextProvider } from "../../components/plasmic/liom_hamyar/PlasmicGlobalVariant__NewView";
 
@@ -18,28 +17,29 @@ const sendErrorLog = (error: any, extra?: any) => {
     stack: error?.stack || null,
     ...extra
   };
-  
   fetch("https://n7n.staas.ir/webhook/error/log", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify(payload)
   }).catch(console.error);
 };
 
 // کامپوننت Error Boundary
-class ErrorCatcher extends React.Component<{children:any}> {
+class ErrorCatcher extends React.Component<{
+  children: any;
+}> {
   componentDidCatch(error: any, info: any) {
     console.error("💥 Error caught by boundary:", error, info);
     sendErrorLog(error, {
       componentStack: info?.componentStack || null
     });
   }
-
   render() {
     return this.props.children;
   }
 }
-
 export default function MyApp({ Component, pageProps }: AppProps) {
   const [newView, setNewView] = useState<"newView" | undefined>(undefined);
   const [modalData, setModalData] = useState<{
@@ -47,7 +47,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     body: string;
     action?: string | null;
   } | null>(null);
-
   useEffect(() => {
     initFcm();
 
@@ -55,7 +54,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     if (typeof window !== "undefined") {
       const exists = document.cookie.includes("newView=");
       if (exists) {
-        localStorage.setItem("newView","true");
+        localStorage.setItem("newView", "true");
         setNewView("newView");
       } else {
         setNewView(undefined);
@@ -64,11 +63,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       // مخفی کردن loading
       if (document.cookie.includes("loading=true")) {
         const hideLoading = () => {
-          document.cookie = "loading=false; path=/; domain=.liom.app; secure; SameSite=Lax";
+          document.cookie =
+            "loading=false; path=/; domain=.liom.app; secure; SameSite=Lax";
         };
-
         if (document.readyState !== "complete") {
-          window.addEventListener("load", hideLoading, { once: true });
+          window.addEventListener("load", hideLoading, {
+            once: true
+          });
         } else {
           hideLoading();
         }
@@ -79,18 +80,20 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     if (typeof window !== "undefined") {
       window.onerror = (msg, src, line, col, err) => {
         console.error("🔥 Global error:", msg, src, line, col, err);
-        sendErrorLog(err || msg, { src, line: line || null, col: col || null });
+        sendErrorLog(err || msg, {
+          src,
+          line: line || null,
+          col: col || null
+        });
       };
 
       // unhandled promise rejections
-      window.addEventListener("unhandledrejection", (event) => {
+      window.addEventListener("unhandledrejection", event => {
         console.error("❌ Unhandled Promise Rejection:", event.reason);
         sendErrorLog(event.reason);
       });
     }
-
   }, []);
-
   return (
     <>
       <Head>

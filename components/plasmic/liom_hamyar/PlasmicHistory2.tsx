@@ -70,7 +70,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicHistory2.module.css"; // plasmic-import: MXLfJ3MXZIBx/css
 
 createPlasmicElementProxy;
@@ -177,10 +176,6 @@ function PlasmicHistory2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -191,6 +186,11 @@ function PlasmicHistory2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -208,21 +208,15 @@ function PlasmicHistory2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
     >
-      <div
-        className={classNames(
-          projectcss.all,
-          projectcss.__wab_text,
-          sty.text__y4Drx
-        )}
-      >
+      <div className={classNames("all", "__wab_text", sty.text__y4Drx)}>
         {
           "\u067e\u06cc\u0634 \u0628\u06cc\u0646\u06cc \u0686\u0631\u062e\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc"
         }
@@ -289,18 +283,12 @@ function PlasmicHistory2__RenderFunc(props: {
         const moonIndex = __plasmic_idx_0;
         return (
           <div
-            className={classNames(projectcss.all, sty.freeBox__vSNhv)}
+            className={classNames("all", sty.freeBox__vSNhv)}
             key={moonIndex}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__q4APw)} />
+            <div className={classNames("all", sty.freeBox__q4APw)} />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___4X5Dg
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text___4X5Dg)}>
               <React.Fragment>
                 {(() => {
                   try {
@@ -317,7 +305,7 @@ function PlasmicHistory2__RenderFunc(props: {
                 })()}
               </React.Fragment>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__fywiQ)}>
+            <div className={classNames("all", sty.freeBox__fywiQ)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -432,16 +420,11 @@ function PlasmicHistory2__RenderFunc(props: {
                       data-plasmic-override={overrides.ariaRangeSlider}
                       {...child$Props}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wfVs
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__wfVs)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__tihm
                           )}
                         >
@@ -506,8 +489,8 @@ function PlasmicHistory2__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__mzkec
                               )}
                             >
@@ -535,10 +518,7 @@ function PlasmicHistory2__RenderFunc(props: {
                         ) : null}
                       </div>
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox___2HvIs
-                        )}
+                        className={classNames("all", sty.freeBox___2HvIs)}
                         style={(() => {
                           try {
                             return { direction: "ltr" };
@@ -556,7 +536,7 @@ function PlasmicHistory2__RenderFunc(props: {
                         <div
                           data-plasmic-name={"background"}
                           data-plasmic-override={overrides.background}
-                          className={classNames(projectcss.all, sty.background)}
+                          className={classNames("all", sty.background)}
                         >
                           <BaseSliderTrack
                             data-plasmic-name={"ariaSliderTrack"}
@@ -569,14 +549,11 @@ function PlasmicHistory2__RenderFunc(props: {
                               <div
                                 data-plasmic-name={"foreground"}
                                 data-plasmic-override={overrides.foreground}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.foreground
-                                )}
+                                className={classNames("all", sty.foreground)}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__ufjFf
                                   )}
                                 >
@@ -584,8 +561,8 @@ function PlasmicHistory2__RenderFunc(props: {
                                     defaultContents: (
                                       <div
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
+                                          "all",
+                                          "__wab_text",
                                           sty.text__a5Shh
                                         )}
                                       >
@@ -615,7 +592,7 @@ function PlasmicHistory2__RenderFunc(props: {
                                 </div>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__jtiDv
                                   )}
                                 >
@@ -623,8 +600,8 @@ function PlasmicHistory2__RenderFunc(props: {
                                     defaultContents: (
                                       <div
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
+                                          "all",
+                                          "__wab_text",
                                           sty.text___7KMoi
                                         )}
                                       >
@@ -690,7 +667,7 @@ function PlasmicHistory2__RenderFunc(props: {
                                 </div>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__m47Mm
                                   )}
                                 >
@@ -698,8 +675,8 @@ function PlasmicHistory2__RenderFunc(props: {
                                     defaultContents: (
                                       <div
                                         className={classNames(
-                                          projectcss.all,
-                                          projectcss.__wab_text,
+                                          "all",
+                                          "__wab_text",
                                           sty.text__eh1Ho
                                         )}
                                       >
@@ -781,8 +758,8 @@ function PlasmicHistory2__RenderFunc(props: {
                           </BaseSliderTrack>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__aJzRd
                             )}
                             id={"max"}
@@ -806,8 +783,8 @@ function PlasmicHistory2__RenderFunc(props: {
                           </div>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__isXaB
                             )}
                             id={"min"}

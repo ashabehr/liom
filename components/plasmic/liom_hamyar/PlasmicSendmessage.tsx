@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSendmessage.module.css"; // plasmic-import: MCAKqEbtK9Qy/css
 
 import Line3Icon from "./icons/PlasmicIcon__Line3"; // plasmic-import: cDBsZfQFOOWa/icon
@@ -168,10 +167,6 @@ function PlasmicSendmessage__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -309,6 +304,11 @@ function PlasmicSendmessage__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -326,10 +326,10 @@ function PlasmicSendmessage__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.frame49
       )}
@@ -337,28 +337,22 @@ function PlasmicSendmessage__RenderFunc(props: {
       <div
         data-plasmic-name={"frame25"}
         data-plasmic-override={overrides.frame25}
-        className={classNames(projectcss.all, sty.frame25)}
+        className={classNames("all", sty.frame25)}
       >
-        <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text___7Qc37
-          )}
-        >
+        <div className={classNames("all", "__wab_text", sty.text___7Qc37)}>
           {"\u0627\u0631\u0633\u0627\u0644 \u067e\u06cc\u0627\u0645\u06a9"}
         </div>
       </div>
       <div
         data-plasmic-name={"frame48"}
         data-plasmic-override={overrides.frame48}
-        className={classNames(projectcss.all, sty.frame48)}
+        className={classNames("all", sty.frame48)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__e5Rd7)}>
+        <div className={classNames("all", sty.freeBox__e5Rd7)}>
           <Line3Icon
             data-plasmic-name={"svg"}
             data-plasmic-override={overrides.svg}
-            className={classNames(projectcss.all, sty.svg)}
+            className={classNames("all", sty.svg)}
             role={"img"}
           />
         </div>
@@ -366,21 +360,15 @@ function PlasmicSendmessage__RenderFunc(props: {
       <div
         data-plasmic-name={"frame50"}
         data-plasmic-override={overrides.frame50}
-        className={classNames(projectcss.all, sty.frame50)}
+        className={classNames("all", sty.frame50)}
       >
-        <div className={classNames(projectcss.all, sty.freeBox___1CUiz)}>
-          <div className={classNames(projectcss.all, sty.freeBox__mNf9I)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__jWDxd
-              )}
-            >
+        <div className={classNames("all", sty.freeBox___1CUiz)}>
+          <div className={classNames("all", sty.freeBox__mNf9I)}>
+            <div className={classNames("all", "__wab_text", sty.text__jWDxd)}>
               {"\u067e\u06cc\u0627\u0645\u06a9"}
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__jpyX)}>
+          <div className={classNames("all", sty.freeBox__jpyX)}>
             <TextInput
               data-plasmic-name={"textInput"}
               data-plasmic-override={overrides.textInput}
@@ -450,7 +438,7 @@ function PlasmicSendmessage__RenderFunc(props: {
               }
             />
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox___1YrX)}>
+          <div className={classNames("all", sty.freeBox___1YrX)}>
             <Button
               data-plasmic-name={"button"}
               data-plasmic-override={overrides.button}
@@ -586,20 +574,14 @@ function PlasmicSendmessage__RenderFunc(props: {
                 }
               }}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bQoQ
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__bQoQ)}>
                 {"\u0627\u0646\u062a\u062e\u0627\u0628 \u0639\u06a9\u0633"}
               </div>
             </Button>
           </div>
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__oOgBr)} />
+      <div className={classNames("all", sty.freeBox__oOgBr)} />
 
       {(() => {
         const child$Props = {

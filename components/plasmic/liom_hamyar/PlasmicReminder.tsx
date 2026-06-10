@@ -77,7 +77,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicReminder.module.css"; // plasmic-import: 3v9tn6uUJCPM/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -308,12 +307,6 @@ function PlasmicReminder__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -878,6 +871,13 @@ function PlasmicReminder__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -895,10 +895,10 @@ function PlasmicReminder__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         "fade-in",
@@ -1072,7 +1072,7 @@ function PlasmicReminder__RenderFunc(props: {
       }}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__sSYaM, {
+        className={classNames("all", sty.freeBox__sSYaM, {
           [sty.freeBoxdateMode_slide3_smallReminder__sSYaMi4MdvWyFtQVctK]:
             hasVariant($state, "slide3", "slide3") &&
             hasVariant($state, "smallReminder", "smallReminder") &&
@@ -1247,7 +1247,7 @@ function PlasmicReminder__RenderFunc(props: {
         />
       </div>
       <section
-        className={classNames(projectcss.all, sty.section__wVsy2, {
+        className={classNames("all", sty.section__wVsy2, {
           [sty.sectionslide3__wVsy2WyFt]: hasVariant(
             $state,
             "slide3",
@@ -1284,15 +1284,9 @@ function PlasmicReminder__RenderFunc(props: {
           }}
           opendialog={generateStateValueProp($state, ["dialog", "opendialog"])}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__ka3Jm)}>
-            <div className={classNames(projectcss.all, sty.freeBox__y8LJx)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bijdP
-                )}
-              >
+          <div className={classNames("all", sty.freeBox__ka3Jm)}>
+            <div className={classNames("all", sty.freeBox__y8LJx)}>
+              <div className={classNames("all", "__wab_text", sty.text__bijdP)}>
                 {"\u0639\u0646\u0648\u0627\u0646 "}
               </div>
               <Input
@@ -1312,13 +1306,9 @@ function PlasmicReminder__RenderFunc(props: {
                 value={generateStateValueProp($state, ["input", "value"])}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__hK5R)}>
+            <div className={classNames("all", sty.freeBox__hK5R)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___3JyFy
-                )}
+                className={classNames("all", "__wab_text", sty.text___3JyFy)}
               >
                 {"\u0646\u0648\u0639 "}
               </div>
@@ -1382,20 +1372,16 @@ function PlasmicReminder__RenderFunc(props: {
                 value={generateStateValueProp($state, ["select", "value"])}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__sQJd)}>
+            <div className={classNames("all", sty.freeBox__sQJd)}>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___2RWLw
-                )}
+                className={classNames("all", "__wab_text", sty.text___2RWLw)}
               >
                 {
                   "\u062a\u0627\u0631\u06cc\u062e \u0631\u0648\u06cc\u062f\u0627\u062f"
                 }
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox__ss7CV)}
+                className={classNames("all", sty.freeBox__ss7CV)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -1436,11 +1422,7 @@ function PlasmicReminder__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pdomG
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__pdomG)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -1460,7 +1442,7 @@ function PlasmicReminder__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__v4P1)}>
+            <div className={classNames("all", sty.freeBox__v4P1)}>
               <Switchbest
                 data-plasmic-name={"switchbest3"}
                 data-plasmic-override={overrides.switchbest3}
@@ -1521,11 +1503,7 @@ function PlasmicReminder__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__d1Zl
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__d1Zl)}
                 >
                   {
                     "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc  \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc  \u0628\u0647 \u0635\u0648\u0631\u062a \u067e\u06cc\u0627\u0645\u06a9 \u0648 \u062a\u0644\u06af\u0631\u0627\u0645"
@@ -1800,13 +1778,7 @@ function PlasmicReminder__RenderFunc(props: {
                 }
               }}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__z7Tnh
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__z7Tnh)}>
                 {
                   "\u062a\u0627\u06cc\u06cc\u062f \u0648 \u0630\u062e\u06cc\u0631\u0647"
                 }
@@ -1838,7 +1810,7 @@ function PlasmicReminder__RenderFunc(props: {
           }}
           opendialog={generateStateValueProp($state, ["dialog2", "opendialog"])}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__pNTja)}>
+          <div className={classNames("all", sty.freeBox__pNTja)}>
             <DatePickers
               data-plasmic-name={"datePickers"}
               data-plasmic-override={overrides.datePickers}
@@ -2008,16 +1980,11 @@ function PlasmicReminder__RenderFunc(props: {
               }}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bGhoM,
-                  {
-                    [sty.textslide3_smallReminder__bGhoMWyFtQVctK]:
-                      hasVariant($state, "smallReminder", "smallReminder") &&
-                      hasVariant($state, "slide3", "slide3")
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__bGhoM, {
+                  [sty.textslide3_smallReminder__bGhoMWyFtQVctK]:
+                    hasVariant($state, "smallReminder", "smallReminder") &&
+                    hasVariant($state, "slide3", "slide3")
+                })}
               >
                 {"\u062a\u0627\u06cc\u06cc\u062f"}
               </div>
@@ -2040,7 +2007,7 @@ function PlasmicReminder__RenderFunc(props: {
               color={generateStateValueProp($state, ["button2", "color"])}
               endIcon={
                 <Icon270Icon
-                  className={classNames(projectcss.all, sty.svg__k7GJq)}
+                  className={classNames("all", sty.svg__k7GJq)}
                   role={"img"}
                 />
               }
@@ -2155,13 +2122,7 @@ function PlasmicReminder__RenderFunc(props: {
               showEndIcon={true}
               size={"compact"}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__kiqd2
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__kiqd2)}>
                 {
                   "\u0648\u06cc\u0631\u0627\u06cc\u0634 \u0648 \u062a\u0646\u0638\u06cc\u0645\u0627\u062a"
                 }
@@ -2169,9 +2130,9 @@ function PlasmicReminder__RenderFunc(props: {
             </Button>
           }
         >
-          <div className={classNames(projectcss.all, sty.freeBox__mFarw)}>
+          <div className={classNames("all", sty.freeBox__mFarw)}>
             <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__qTt4T, {
+              className={classNames("all", sty.svg__qTt4T, {
                 [sty.svgslide3__qTt4TWyFt]: hasVariant(
                   $state,
                   "slide3",
@@ -2211,7 +2172,7 @@ function PlasmicReminder__RenderFunc(props: {
             />
 
             <ChevronRightIcon
-              className={classNames(projectcss.all, sty.svg__vwOkj, {
+              className={classNames("all", sty.svg__vwOkj, {
                 [sty.svgslide3__vwOkjWyFt]: hasVariant(
                   $state,
                   "slide3",
@@ -2240,20 +2201,14 @@ function PlasmicReminder__RenderFunc(props: {
               role={"img"}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__yuoPm
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__yuoPm)}>
               {"\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"}
             </div>
           </div>
         </HeaderLiom>
       </section>
       <div
-        className={classNames(projectcss.all, sty.freeBox__xMddU, {
+        className={classNames("all", sty.freeBox__xMddU, {
           [sty.freeBoxhamyar__xMddUxX8Tw]: hasVariant(
             $state,
             "hamyar",
@@ -2367,7 +2322,7 @@ function PlasmicReminder__RenderFunc(props: {
           }
         })() ? (
           <div
-            className={classNames(projectcss.all, sty.freeBox___8U23F, {
+            className={classNames("all", sty.freeBox___8U23F, {
               [sty.freeBoxslide3___8U23FWyFt]: hasVariant(
                 $state,
                 "slide3",
@@ -2375,13 +2330,7 @@ function PlasmicReminder__RenderFunc(props: {
               )
             })}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__kxln7
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__kxln7)}>
               {
                 "\u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627\u06cc  \u067e\u06cc\u0634 \u0631\u0648"
               }
@@ -2402,7 +2351,7 @@ function PlasmicReminder__RenderFunc(props: {
               <div
                 data-plasmic-name={"todayMeeting2"}
                 data-plasmic-override={overrides.todayMeeting2}
-                className={classNames(projectcss.all, sty.todayMeeting2)}
+                className={classNames("all", sty.todayMeeting2)}
               >
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
@@ -2526,7 +2475,7 @@ function PlasmicReminder__RenderFunc(props: {
                     <div
                       data-plasmic-name={"frame22"}
                       data-plasmic-override={overrides.frame22}
-                      className={classNames(projectcss.all, sty.frame22)}
+                      className={classNames("all", sty.frame22)}
                       key={currentIndex}
                     >
                       {(() => {
@@ -2545,45 +2494,39 @@ function PlasmicReminder__RenderFunc(props: {
                         <div
                           data-plasmic-name={"frame23"}
                           data-plasmic-override={overrides.frame23}
-                          className={classNames(projectcss.all, sty.frame23)}
+                          className={classNames("all", sty.frame23)}
                         >
                           <div
                             data-plasmic-name={"frame24"}
                             data-plasmic-override={overrides.frame24}
-                            className={classNames(projectcss.all, sty.frame24)}
+                            className={classNames("all", sty.frame24)}
                           >
                             <div
                               data-plasmic-name={"frame25"}
                               data-plasmic-override={overrides.frame25}
-                              className={classNames(
-                                projectcss.all,
-                                sty.frame25
-                              )}
+                              className={classNames("all", sty.frame25)}
                             >
                               <div
                                 data-plasmic-name={"frame26"}
                                 data-plasmic-override={overrides.frame26}
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.frame26
-                                )}
+                                className={classNames("all", sty.frame26)}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__xyX1M
                                   )}
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox___3Gkze
                                     )}
                                   >
                                     <div
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
+                                        "all",
+                                        "__wab_text",
                                         sty.text___6Fi2N
                                       )}
                                     >
@@ -2637,8 +2580,8 @@ function PlasmicReminder__RenderFunc(props: {
                                     </div>
                                     <div
                                       className={classNames(
-                                        projectcss.all,
-                                        projectcss.__wab_text,
+                                        "all",
+                                        "__wab_text",
                                         sty.text__kf8Ml
                                       )}
                                     >
@@ -2677,7 +2620,7 @@ function PlasmicReminder__RenderFunc(props: {
                                   </div>
                                   <div
                                     className={classNames(
-                                      projectcss.all,
+                                      "all",
                                       sty.freeBox___03FqS
                                     )}
                                   >
@@ -2708,20 +2651,20 @@ function PlasmicReminder__RenderFunc(props: {
                                         return (
                                           <div
                                             className={classNames(
-                                              projectcss.all,
+                                              "all",
                                               sty.freeBox__s65D5
                                             )}
                                             key={currentIndex}
                                           >
                                             <div
                                               className={classNames(
-                                                projectcss.all,
+                                                "all",
                                                 sty.freeBox__iOGk
                                               )}
                                             >
                                               <Oval3Icon
                                                 className={classNames(
-                                                  projectcss.all,
+                                                  "all",
                                                   sty.svg__c0H1J
                                                 )}
                                                 role={"img"}
@@ -2729,8 +2672,8 @@ function PlasmicReminder__RenderFunc(props: {
 
                                               <div
                                                 className={classNames(
-                                                  projectcss.all,
-                                                  projectcss.__wab_text,
+                                                  "all",
+                                                  "__wab_text",
                                                   sty.text___3JjUn
                                                 )}
                                               >
@@ -2771,13 +2714,13 @@ function PlasmicReminder__RenderFunc(props: {
                                             })() ? (
                                               <div
                                                 className={classNames(
-                                                  projectcss.all,
+                                                  "all",
                                                   sty.freeBox__qeK7
                                                 )}
                                               >
                                                 <Icon295Icon
                                                   className={classNames(
-                                                    projectcss.all,
+                                                    "all",
                                                     sty.svg__dlIv8
                                                   )}
                                                   role={"img"}
@@ -2808,30 +2751,16 @@ function PlasmicReminder__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__ezLq
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__ezLq)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__zaVQn
-                            )}
+                            className={classNames("all", sty.freeBox__zaVQn)}
                           />
 
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__r5JEo
-                            )}
+                            className={classNames("all", sty.freeBox__r5JEo)}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___3V3Xh
-                              )}
+                              className={classNames("all", sty.freeBox___3V3Xh)}
                             >
                               {(_par =>
                                 !_par
@@ -2859,8 +2788,8 @@ function PlasmicReminder__RenderFunc(props: {
                                 return (
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__poj8Y
                                     )}
                                     key={currentIndex}
@@ -2888,10 +2817,7 @@ function PlasmicReminder__RenderFunc(props: {
                               })}
                             </div>
                             <Icon322Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg___1Ke
-                              )}
+                              className={classNames("all", sty.svg___1Ke)}
                               role={"img"}
                             />
                           </div>
@@ -2905,23 +2831,14 @@ function PlasmicReminder__RenderFunc(props: {
           </div>
         ) : null}
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__o4PAk,
-            {
-              [sty.textslide3__o4PAkWyFt]: hasVariant(
-                $state,
-                "slide3",
-                "slide3"
-              ),
-              [sty.textsmallReminder__o4PAkqVctK]: hasVariant(
-                $state,
-                "smallReminder",
-                "smallReminder"
-              )
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text__o4PAk, {
+            [sty.textslide3__o4PAkWyFt]: hasVariant($state, "slide3", "slide3"),
+            [sty.textsmallReminder__o4PAkqVctK]: hasVariant(
+              $state,
+              "smallReminder",
+              "smallReminder"
+            )
+          })}
         >
           <React.Fragment>
             {(() => {
@@ -2988,7 +2905,7 @@ function PlasmicReminder__RenderFunc(props: {
           }
         })() ? (
           <div
-            className={classNames(projectcss.all, sty.freeBox___2TeVq, {
+            className={classNames("all", sty.freeBox___2TeVq, {
               [sty.freeBoxsmallReminder___2TeVqqVctK]: hasVariant(
                 $state,
                 "smallReminder",
@@ -3043,23 +2960,18 @@ function PlasmicReminder__RenderFunc(props: {
             />
 
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___4Uf40,
-                {
-                  [sty.textslide3___4Uf40WyFt]: hasVariant(
-                    $state,
-                    "slide3",
-                    "slide3"
-                  ),
-                  [sty.textsmallReminder___4Uf40QVctK]: hasVariant(
-                    $state,
-                    "smallReminder",
-                    "smallReminder"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text___4Uf40, {
+                [sty.textslide3___4Uf40WyFt]: hasVariant(
+                  $state,
+                  "slide3",
+                  "slide3"
+                ),
+                [sty.textsmallReminder___4Uf40QVctK]: hasVariant(
+                  $state,
+                  "smallReminder",
+                  "smallReminder"
+                )
+              })}
             >
               <React.Fragment>
                 {(() => {
@@ -3078,23 +2990,18 @@ function PlasmicReminder__RenderFunc(props: {
               </React.Fragment>
             </div>
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__kc7Tq,
-                {
-                  [sty.textslide3__kc7TqWyFt]: hasVariant(
-                    $state,
-                    "slide3",
-                    "slide3"
-                  ),
-                  [sty.textsmallReminder__kc7TqqVctK]: hasVariant(
-                    $state,
-                    "smallReminder",
-                    "smallReminder"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__kc7Tq, {
+                [sty.textslide3__kc7TqWyFt]: hasVariant(
+                  $state,
+                  "slide3",
+                  "slide3"
+                ),
+                [sty.textsmallReminder__kc7TqqVctK]: hasVariant(
+                  $state,
+                  "smallReminder",
+                  "smallReminder"
+                )
+              })}
             >
               <React.Fragment>
                 {(() => {
@@ -3161,12 +3068,12 @@ function PlasmicReminder__RenderFunc(props: {
             <div
               data-plasmic-name={"frame32"}
               data-plasmic-override={overrides.frame32}
-              className={classNames(projectcss.all, sty.frame32, {
+              className={classNames("all", sty.frame32, {
                 [sty.frame32slide3]: hasVariant($state, "slide3", "slide3")
               })}
               key={currentIndex}
             >
-              <div className={classNames(projectcss.all, sty.freeBox___30GP4)}>
+              <div className={classNames("all", sty.freeBox___30GP4)}>
                 <MenuIcon
                   data-plasmic-name={"menuIcon"}
                   data-plasmic-override={overrides.menuIcon}
@@ -3234,17 +3141,17 @@ function PlasmicReminder__RenderFunc(props: {
               <div
                 data-plasmic-name={"frame33"}
                 data-plasmic-override={overrides.frame33}
-                className={classNames(projectcss.all, sty.frame33)}
+                className={classNames("all", sty.frame33)}
               >
                 <div
                   data-plasmic-name={"frame34"}
                   data-plasmic-override={overrides.frame34}
-                  className={classNames(projectcss.all, sty.frame34)}
+                  className={classNames("all", sty.frame34)}
                 >
                   <div
                     data-plasmic-name={"frame35"}
                     data-plasmic-override={overrides.frame35}
-                    className={classNames(projectcss.all, sty.frame35, {
+                    className={classNames("all", sty.frame35, {
                       [sty.frame35slide3]: hasVariant(
                         $state,
                         "slide3",
@@ -3255,24 +3162,14 @@ function PlasmicReminder__RenderFunc(props: {
                     <div
                       data-plasmic-name={"frame36"}
                       data-plasmic-override={overrides.frame36}
-                      className={classNames(projectcss.all, sty.frame36)}
+                      className={classNames("all", sty.frame36)}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__czZhb
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__yoYac
-                          )}
-                        >
+                      <div className={classNames("all", sty.freeBox__czZhb)}>
+                        <div className={classNames("all", sty.freeBox__yoYac)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__glRVz
                             )}
                           >
@@ -3296,24 +3193,16 @@ function PlasmicReminder__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__e6Ao0
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__e6Ao0)}>
                           <Icon291Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__s9SIs
-                            )}
+                            className={classNames("all", sty.svg__s9SIs)}
                             role={"img"}
                           />
 
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__pRlD7
                             )}
                           >
@@ -3366,7 +3255,7 @@ function PlasmicReminder__RenderFunc(props: {
           }
         })() ? (
           <div
-            className={classNames(projectcss.all, sty.freeBox___1Go7U)}
+            className={classNames("all", sty.freeBox___1Go7U)}
             onClick={async event => {
               const $steps = {};
 
@@ -3995,14 +3884,8 @@ function PlasmicReminder__RenderFunc(props: {
               className={classNames("__wab_instance", sty.lottie)}
             />
 
-            <div className={classNames(projectcss.all, sty.freeBox__cGom)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__vFcq
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__cGom)}>
+              <div className={classNames("all", "__wab_text", sty.text__vFcq)}>
                 {
                   "\u0628\u0631\u0627\u06cc \u0627\u0637\u0644\u0627\u0639 \u0631\u0633\u0627\u0646\u06cc \u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627\u06cc \u0645\u0647\u0645 \u0627\u0632 \u0637\u0631\u06cc\u0642 \u067e\u06cc\u0627\u0645\u06a9 \u06cc\u0627 \u062a\u0644\u06af\u0631\u0627\u0645 \u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0627 \u062a\u0647\u06cc\u0647 \u06a9\u0646\u06cc\u062f."
                 }
@@ -4065,18 +3948,13 @@ function PlasmicReminder__RenderFunc(props: {
               size={"minimal"}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__cGkq,
-                  {
-                    [sty.textslide3__cGkqWyFt]: hasVariant(
-                      $state,
-                      "slide3",
-                      "slide3"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__cGkq, {
+                  [sty.textslide3__cGkqWyFt]: hasVariant(
+                    $state,
+                    "slide3",
+                    "slide3"
+                  )
+                })}
               >
                 {
                   "\u0641\u0639\u0627\u0644 \u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
@@ -4095,7 +3973,7 @@ function PlasmicReminder__RenderFunc(props: {
             : false
       ) ? (
         <section
-          className={classNames(projectcss.all, sty.section__ekiQp, {
+          className={classNames("all", sty.section__ekiQp, {
             [sty.sectionhamyar__ekiQPxX8Tw]: hasVariant(
               $state,
               "hamyar",
@@ -4115,7 +3993,7 @@ function PlasmicReminder__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__xFtDc, {
+            className={classNames("all", sty.freeBox__xFtDc, {
               [sty.freeBoxslide3_smallReminder__xFtDcWyFtQVctK]:
                 hasVariant($state, "smallReminder", "smallReminder") &&
                 hasVariant($state, "slide3", "slide3")
@@ -4223,11 +4101,7 @@ function PlasmicReminder__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__zbXcn
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__zbXcn)}
                 >
                   {"\u062a\u0627\u06cc\u06cc\u062f"}
                 </div>
@@ -4237,7 +4111,7 @@ function PlasmicReminder__RenderFunc(props: {
         </section>
       ) : null}
       <div
-        className={classNames(projectcss.all, sty.freeBox__uUg9N, {
+        className={classNames("all", sty.freeBox__uUg9N, {
           [sty.freeBoxslide3__uUg9NWyFt]: hasVariant(
             $state,
             "slide3",
@@ -4254,7 +4128,7 @@ function PlasmicReminder__RenderFunc(props: {
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__epwed, {
+          className={classNames("all", sty.freeBox__epwed, {
             [sty.freeBoxslide3__epwedWyFt]: hasVariant(
               $state,
               "slide3",
@@ -4271,38 +4145,28 @@ function PlasmicReminder__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__rOniw,
-              {
-                [sty.textslide3__rOniwWyFt]: hasVariant(
-                  $state,
-                  "slide3",
-                  "slide3"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__rOniw, {
+              [sty.textslide3__rOniwWyFt]: hasVariant(
+                $state,
+                "slide3",
+                "slide3"
+              )
+            })}
           >
             {"\u0631\u0648\u06cc\u062f\u0627\u062f \u0647\u0627"}
           </div>
           {(hasVariant($state, "slide3", "slide3") ? true : false) ? (
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__abeZp,
-                {
-                  [sty.textslide3__abeZpWyFt]: hasVariant(
-                    $state,
-                    "slide3",
-                    "slide3"
-                  ),
-                  [sty.textslide3_smallReminder__abeZpWyFtQVctK]:
-                    hasVariant($state, "smallReminder", "smallReminder") &&
-                    hasVariant($state, "slide3", "slide3")
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__abeZp, {
+                [sty.textslide3__abeZpWyFt]: hasVariant(
+                  $state,
+                  "slide3",
+                  "slide3"
+                ),
+                [sty.textslide3_smallReminder__abeZpWyFtQVctK]:
+                  hasVariant($state, "smallReminder", "smallReminder") &&
+                  hasVariant($state, "slide3", "slide3")
+              })}
             >
               {
                 "\u0631\u0648\u06cc\u062f\u0627\u062f\u0647\u0627 \u0631\u0648 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0646 \u0648 \u0646\u0630\u0627\u0631 \u0647\u06cc\u0686 \u0686\u06cc\u0632 \u0641\u0631\u0627\u0645\u0648\u0634 \u0628\u0634\u0647."
@@ -5217,7 +5081,7 @@ function PlasmicReminder__RenderFunc(props: {
         />
       </div>
       <section
-        className={classNames(projectcss.all, sty.section__wBpwR, {
+        className={classNames("all", sty.section__wBpwR, {
           [sty.sectiondateMode_slide3_smallReminder__wBpwRi4MdvWyFtQVctK]:
             hasVariant($state, "dateMode", "dateMode") &&
             hasVariant($state, "smallReminder", "smallReminder") &&
@@ -5247,7 +5111,7 @@ function PlasmicReminder__RenderFunc(props: {
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__nYlDo, {
+          className={classNames("all", sty.freeBox__nYlDo, {
             [sty.freeBoxdateMode_slide3_smallReminder__nYlDoi4MdvWyFtQVctK]:
               hasVariant($state, "dateMode", "dateMode") &&
               hasVariant($state, "smallReminder", "smallReminder") &&
@@ -5265,7 +5129,7 @@ function PlasmicReminder__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox__sjaPa, {
+            className={classNames("all", sty.freeBox__sjaPa, {
               [sty.freeBoxdateMode_slide3_smallReminder__sjaPai4MdvWyFtQVctK]:
                 hasVariant($state, "dateMode", "dateMode") &&
                 hasVariant($state, "smallReminder", "smallReminder") &&
@@ -5281,7 +5145,7 @@ function PlasmicReminder__RenderFunc(props: {
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__pDska, {
+              className={classNames("all", sty.freeBox__pDska, {
                 [sty.freeBoxdateMode_slide3_smallReminder__pDskai4MdvWyFtQVctK]:
                   hasVariant($state, "dateMode", "dateMode") &&
                   hasVariant($state, "smallReminder", "smallReminder") &&
@@ -5424,7 +5288,7 @@ function PlasmicReminder__RenderFunc(props: {
                         : false
                   ) ? (
                     <Icon50Icon
-                      className={classNames(projectcss.all, sty.svg__yeyvw, {
+                      className={classNames("all", sty.svg__yeyvw, {
                         [sty.svgslide3__yeyvwWyFt]: hasVariant(
                           $state,
                           "slide3",
@@ -5445,7 +5309,7 @@ function PlasmicReminder__RenderFunc(props: {
                 }
               >
                 <Icon50Icon
-                  className={classNames(projectcss.all, sty.svg__rSu4, {
+                  className={classNames("all", sty.svg__rSu4, {
                     [sty.svgslide3__rSu4WyFt]: hasVariant(
                       $state,
                       "slide3",
@@ -5464,21 +5328,16 @@ function PlasmicReminder__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__m5IjJ,
-                    {
-                      [sty.textslide3_smallReminder__m5IjJWyFtQVctK]:
-                        hasVariant($state, "slide3", "slide3") &&
-                        hasVariant($state, "smallReminder", "smallReminder"),
-                      [sty.textsmallReminder__m5IjJqVctK]: hasVariant(
-                        $state,
-                        "smallReminder",
-                        "smallReminder"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__m5IjJ, {
+                    [sty.textslide3_smallReminder__m5IjJWyFtQVctK]:
+                      hasVariant($state, "slide3", "slide3") &&
+                      hasVariant($state, "smallReminder", "smallReminder"),
+                    [sty.textsmallReminder__m5IjJqVctK]: hasVariant(
+                      $state,
+                      "smallReminder",
+                      "smallReminder"
+                    )
+                  })}
                 >
                   {hasVariant($state, "slide3", "slide3") &&
                   hasVariant($state, "smallReminder", "smallReminder")
@@ -5539,7 +5398,7 @@ function PlasmicReminder__RenderFunc(props: {
                           ? ChevronLeftIcon
                           : Icon115Icon
                       }
-                      className={classNames(projectcss.all, sty.svg__vKlB3, {
+                      className={classNames("all", sty.svg__vKlB3, {
                         [sty.svgdateMode_slide3_smallReminder__vKlB3I4MdvWyFtQVctK]:
                           hasVariant($state, "dateMode", "dateMode") &&
                           hasVariant(
@@ -5563,7 +5422,7 @@ function PlasmicReminder__RenderFunc(props: {
                     $steps["goToHamyar"] = true
                       ? (() => {
                           const actionArgs = {
-                            destination: `/hamyar/${"reminder"}`
+                            destination: `/hamyar/[[...hamyarPage]]`
                           };
                           return (({ destination }) => {
                             if (
@@ -5665,7 +5524,7 @@ function PlasmicReminder__RenderFunc(props: {
                           : false
                     ) ? (
                       <Icon50Icon
-                        className={classNames(projectcss.all, sty.svg__gyeza, {
+                        className={classNames("all", sty.svg__gyeza, {
                           [sty.svgslide3__gyezaWyFt]: hasVariant(
                             $state,
                             "slide3",
@@ -5690,7 +5549,7 @@ function PlasmicReminder__RenderFunc(props: {
                   }
                 >
                   <Icon50Icon
-                    className={classNames(projectcss.all, sty.svg__nGwh5, {
+                    className={classNames("all", sty.svg__nGwh5, {
                       [sty.svgslide3__nGwh5WyFt]: hasVariant(
                         $state,
                         "slide3",
@@ -5710,8 +5569,8 @@ function PlasmicReminder__RenderFunc(props: {
 
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__cs78W,
                       {
                         [sty.textdateMode_slide3_smallReminder__cs78WI4MdvWyFtQVctK]:
@@ -5763,7 +5622,7 @@ function PlasmicReminder__RenderFunc(props: {
                   : true
               ) ? (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__a3Rmo, {
+                  className={classNames("all", sty.freeBox__a3Rmo, {
                     [sty.freeBoxslide3__a3RmoWyFt]: hasVariant(
                       $state,
                       "slide3",
@@ -5777,7 +5636,7 @@ function PlasmicReminder__RenderFunc(props: {
               ) : null}
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__hzsWm)}>
+          <div className={classNames("all", sty.freeBox__hzsWm)}>
             {(
               hasVariant($state, "slide3", "slide3")
                 ? true
@@ -5807,7 +5666,7 @@ function PlasmicReminder__RenderFunc(props: {
                 color={generateStateValueProp($state, ["button11", "color"])}
                 endIcon={
                   <Icon278Icon
-                    className={classNames(projectcss.all, sty.svg__yEeuG)}
+                    className={classNames("all", sty.svg__yEeuG)}
                     role={"img"}
                   />
                 }
@@ -5988,11 +5847,7 @@ function PlasmicReminder__RenderFunc(props: {
                 showEndIcon={true}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__b1Den
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__b1Den)}
                 >
                   {
                     "\u0645\u062f\u06cc\u0631\u06cc\u062a  \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0647\u0627"
@@ -6004,33 +5859,28 @@ function PlasmicReminder__RenderFunc(props: {
         </div>
       </section>
       <section
-        className={classNames(
-          projectcss.all,
-          sty.section__vml6V,
-          "top-header",
-          {
-            [sty.sectiondateMode_slide3_smallReminder__vml6VI4MdvWyFtQVctK]:
-              hasVariant($state, "smallReminder", "smallReminder") &&
-              hasVariant($state, "slide3", "slide3") &&
-              hasVariant($state, "dateMode", "dateMode"),
-            [sty.sectionslide3__vml6VWyFt]: hasVariant(
-              $state,
-              "slide3",
-              "slide3"
-            ),
-            [sty.sectionslide3_smallReminder__vml6VWyFtQVctK]:
-              hasVariant($state, "smallReminder", "smallReminder") &&
-              hasVariant($state, "slide3", "slide3"),
-            [sty.sectionsmallReminder__vml6VqVctK]: hasVariant(
-              $state,
-              "smallReminder",
-              "smallReminder"
-            )
-          }
-        )}
+        className={classNames("all", sty.section__vml6V, "top-header", {
+          [sty.sectiondateMode_slide3_smallReminder__vml6VI4MdvWyFtQVctK]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3") &&
+            hasVariant($state, "dateMode", "dateMode"),
+          [sty.sectionslide3__vml6VWyFt]: hasVariant(
+            $state,
+            "slide3",
+            "slide3"
+          ),
+          [sty.sectionslide3_smallReminder__vml6VWyFtQVctK]:
+            hasVariant($state, "smallReminder", "smallReminder") &&
+            hasVariant($state, "slide3", "slide3"),
+          [sty.sectionsmallReminder__vml6VqVctK]: hasVariant(
+            $state,
+            "smallReminder",
+            "smallReminder"
+          )
+        })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__x8Ob1, {
+          className={classNames("all", sty.freeBox__x8Ob1, {
             [sty.freeBoxdateMode_slide3_smallReminder__x8Ob1I4MdvWyFtQVctK]:
               hasVariant($state, "smallReminder", "smallReminder") &&
               hasVariant($state, "slide3", "slide3") &&
@@ -6228,7 +6078,7 @@ function PlasmicReminder__RenderFunc(props: {
             size={"minimal"}
           >
             <Icon270Icon
-              className={classNames(projectcss.all, sty.svg___36Xo1)}
+              className={classNames("all", sty.svg___36Xo1)}
               role={"img"}
             />
           </Button>

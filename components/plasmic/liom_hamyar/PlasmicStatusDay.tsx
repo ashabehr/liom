@@ -88,7 +88,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicStatusDay.module.css"; // plasmic-import: PI7WftNbPWTI/css
 
 import XIcon from "./icons/PlasmicIcon__X"; // plasmic-import: oNIrT_jmAMSE/icon
@@ -122,11 +121,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -275,12 +281,6 @@ function PlasmicStatusDay__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -2700,6 +2700,13 @@ function PlasmicStatusDay__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -2710,7 +2717,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -2725,17 +2732,17 @@ function PlasmicStatusDay__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             {
@@ -3053,7 +3060,7 @@ function PlasmicStatusDay__RenderFunc(props: {
             }
           />
 
-          <section className={classNames(projectcss.all, sty.section___4ZTIh)}>
+          <section className={classNames("all", sty.section___4ZTIh)}>
             {(() => {
               try {
                 return (
@@ -3076,9 +3083,9 @@ function PlasmicStatusDay__RenderFunc(props: {
                 data-plasmic-override={overrides.headerLiom}
                 className={classNames("__wab_instance", sty.headerLiom)}
               >
-                <div className={classNames(projectcss.all, sty.freeBox___4N6A)}>
+                <div className={classNames("all", sty.freeBox___4N6A)}>
                   <XIcon
-                    className={classNames(projectcss.all, sty.svg__nal9E)}
+                    className={classNames("all", sty.svg__nal9E)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -3108,11 +3115,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__p77Xf
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__p77Xf)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -3169,9 +3172,9 @@ function PlasmicStatusDay__RenderFunc(props: {
             data-plasmic-override={overrides.number2}
             className={classNames("__wab_instance", sty.number2)}
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={true}
@@ -3187,13 +3190,7 @@ function PlasmicStatusDay__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["number2", "open"])}
             title={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__zAuO8
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__zAuO8)}>
                 {
                   "\u0644\u0637\u0641\u0627 \u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644 \u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u0631\u0648 \u0627\u06cc\u0646\u062c\u0627 \u0648\u0627\u0631\u062f \u06a9\u0646."
                 }
@@ -3202,25 +3199,17 @@ function PlasmicStatusDay__RenderFunc(props: {
             trigger={null}
             wrapClassName={classNames({ [sty["pcls_ojN51dDM9QOL"]]: true })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__zrbwv)}>
-              <div className={classNames(projectcss.all, sty.freeBox__pj7Qm)}>
+            <div className={classNames("all", sty.freeBox__zrbwv)}>
+              <div className={classNames("all", sty.freeBox__pj7Qm)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__slX9Y
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__slX9Y)}
                 >
                   {
                     "\u0634\u0645\u0627\u0631\u0647 \u0645\u0648\u0628\u0627\u06cc\u0644"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__ampoo,
-                    "negative"
-                  )}
+                  className={classNames("all", sty.freeBox__ampoo, "negative")}
                 >
                   <TextInput
                     data-plasmic-name={"textInput"}
@@ -3324,16 +3313,13 @@ function PlasmicStatusDay__RenderFunc(props: {
                     endIcon={
                       <React.Fragment>
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__u7Le6
-                          )}
+                          className={classNames("all", sty.freeBox__u7Le6)}
                         />
 
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__nefLk,
                             "negative"
                           )}
@@ -3341,7 +3327,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                           {"+98 "}
                         </div>
                         <Icon111Icon
-                          className={classNames(projectcss.all, sty.svg__cYArr)}
+                          className={classNames("all", sty.svg__cYArr)}
                           role={"img"}
                         />
                       </React.Fragment>
@@ -3381,7 +3367,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   />
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__e5Qox)}>
+              <div className={classNames("all", sty.freeBox__e5Qox)}>
                 <Button
                   data-plasmic-name={"button2"}
                   data-plasmic-override={overrides.button2}
@@ -3527,11 +3513,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__nGde
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__nGde)}
                   >
                     {"\u062a\u0627\u06cc\u06cc\u062f"}
                   </div>
@@ -3545,92 +3527,58 @@ function PlasmicStatusDay__RenderFunc(props: {
             className={classNames("__wab_instance", sty.getSign)}
             errorDisplay={null}
             loadingDisplay={
-              <div className={classNames(projectcss.all, sty.freeBox__jiSLo)}>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___0UPhx)}
-                >
+              <div className={classNames("all", sty.freeBox__jiSLo)}>
+                <div className={classNames("all", sty.freeBox___0UPhx)}>
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox___0GoxW,
                       "shimmer"
                     )}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__zDo7U,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__zDo7U, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__hN9FN,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__hN9FN, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__kdXez,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__kdXez, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__aDi0X,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__aDi0X, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__vaXcx,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__vaXcx, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__mr6Gm,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__mr6Gm, "shimmer")}
                   />
 
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__j8Mb8,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__j8Mb8, "shimmer")}
                   />
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__ytIqs)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__h4QaM)}
-                  >
+                <div className={classNames("all", sty.freeBox__ytIqs)}>
+                  <div className={classNames("all", sty.freeBox__h4QaM)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__hhNvG,
                         "shimmer"
                       )}
                     />
 
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__flVtA)}
-                    >
+                    <div className={classNames("all", sty.freeBox__flVtA)}>
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__tyd3Y,
                           "shimmer"
                         )}
@@ -3638,7 +3586,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__utlHe,
                           "shimmer"
                         )}
@@ -3646,7 +3594,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__qUmcz,
                           "shimmer"
                         )}
@@ -3654,7 +3602,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__n3Tgr,
                           "shimmer"
                         )}
@@ -3662,30 +3610,26 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__yYfbw,
                           "shimmer"
                         )}
                       />
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__wEkZo)}
-                  >
+                  <div className={classNames("all", sty.freeBox__wEkZo)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__xdZh7,
                         "shimmer"
                       )}
                     />
 
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__dbsc0)}
-                    >
+                    <div className={classNames("all", sty.freeBox__dbsc0)}>
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox___28Qzm,
                           "shimmer"
                         )}
@@ -3693,7 +3637,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox___3YrZy,
                           "shimmer"
                         )}
@@ -3701,7 +3645,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__oueyp,
                           "shimmer"
                         )}
@@ -3709,7 +3653,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__cmDdw,
                           "shimmer"
                         )}
@@ -3717,30 +3661,26 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__rhMv3,
                           "shimmer"
                         )}
                       />
                     </div>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__zg9Vl)}
-                  >
+                  <div className={classNames("all", sty.freeBox__zg9Vl)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__a7Y9C,
                         "shimmer"
                       )}
                     />
 
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__yQsGl)}
-                    >
+                    <div className={classNames("all", sty.freeBox__yQsGl)}>
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__ynPzn,
                           "shimmer"
                         )}
@@ -3748,7 +3688,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__q3VbU,
                           "shimmer"
                         )}
@@ -3756,7 +3696,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__kq1J1,
                           "shimmer"
                         )}
@@ -3764,7 +3704,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__muZOy,
                           "shimmer"
                         )}
@@ -3772,7 +3712,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__zUsXg,
                           "shimmer"
                         )}
@@ -4103,7 +4043,7 @@ function PlasmicStatusDay__RenderFunc(props: {
             })() ? (
               <div
                 className={classNames(
-                  projectcss.all,
+                  "all",
                   sty.freeBox__zFbgt,
                   "container-scroll"
                 )}
@@ -4116,7 +4056,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button14", "color"])}
                   endIcon={
                     <ChevronLeftIcon
-                      className={classNames(projectcss.all, sty.svg__kjov)}
+                      className={classNames("all", sty.svg__kjov)}
                       role={"img"}
                     />
                   }
@@ -4247,17 +4187,13 @@ function PlasmicStatusDay__RenderFunc(props: {
                   size={"compact"}
                   startIcon={
                     <ChevronRightIcon
-                      className={classNames(projectcss.all, sty.svg__n2Svi)}
+                      className={classNames("all", sty.svg__n2Svi)}
                       role={"img"}
                     />
                   }
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__bphj1
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__bphj1)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -4701,8 +4637,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       slot={
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__baZoo
                           )}
                         >
@@ -4839,7 +4775,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   color={generateStateValueProp($state, ["button12", "color"])}
                   endIcon={
                     <ChevronLeftIcon
-                      className={classNames(projectcss.all, sty.svg__glXeh)}
+                      className={classNames("all", sty.svg__glXeh)}
                       role={"img"}
                     />
                   }
@@ -4929,8 +4865,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___8Sq5C
                     )}
                   >
@@ -4973,7 +4909,7 @@ function PlasmicStatusDay__RenderFunc(props: {
               }
             })() ? (
               <div
-                className={classNames(projectcss.all, sty.freeBox__akQn, {
+                className={classNames("all", sty.freeBox__akQn, {
                   [sty.freeBoxglobal_newView_newView__akQn0DHva]: hasVariant(
                     globalVariants,
                     "newView",
@@ -5029,11 +4965,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   }
                 })() ? (
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__gmtcU
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__gmtcU)}
                   >
                     {
                       "\u0628\u0627 \u0627\u06cc\u0646 \u0628\u062e\u0634 \u0645\u06cc\u200c\u062a\u0648\u0646\u06cc \u062d\u0627\u0644\u200c\u0648\u0647\u0648\u0627\u06cc \u0627\u0645\u0631\u0648\u0632\u062a \u0631\u0648 \u062b\u0628\u062a \u06a9\u0646\u06cc \u062a\u0627 \u0631\u0648\u0646\u062f \u0628\u0627\u0631\u062f\u0627\u0631\u06cc\u062a \u0631\u0648 \u062f\u0642\u06cc\u0642\u200c\u062a\u0631 \u0628\u0628\u06cc\u0646\u06cc."
@@ -5056,7 +4988,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox"}
                     data-plasmic-override={overrides.selectionBox}
-                    className={classNames(projectcss.all, sty.selectionBox)}
+                    className={classNames("all", sty.selectionBox)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -5066,8 +4998,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__gXZix
                         )}
                       >
@@ -5201,7 +5133,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox10"}
                     data-plasmic-override={overrides.selectionBox10}
-                    className={classNames(projectcss.all, sty.selectionBox10)}
+                    className={classNames("all", sty.selectionBox10)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -5215,8 +5147,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__lwyBd,
                           {
                             [sty.textglobal_newView_newView__lwyBd0DHva]:
@@ -5363,7 +5295,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox11"}
                     data-plasmic-override={overrides.selectionBox11}
-                    className={classNames(projectcss.all, sty.selectionBox11)}
+                    className={classNames("all", sty.selectionBox11)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -5373,8 +5305,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__vGqtm
                         )}
                       >
@@ -5511,7 +5443,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox12"}
                     data-plasmic-override={overrides.selectionBox12}
-                    className={classNames(projectcss.all, sty.selectionBox12)}
+                    className={classNames("all", sty.selectionBox12)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -5521,8 +5453,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__xHtwo
                         )}
                       >
@@ -5657,7 +5589,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox13"}
                     data-plasmic-override={overrides.selectionBox13}
-                    className={classNames(projectcss.all, sty.selectionBox13)}
+                    className={classNames("all", sty.selectionBox13)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -5667,8 +5599,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__c1Vs0
                         )}
                       >
@@ -5806,7 +5738,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox14"}
                     data-plasmic-override={overrides.selectionBox14}
-                    className={classNames(projectcss.all, sty.selectionBox14)}
+                    className={classNames("all", sty.selectionBox14)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -5816,8 +5748,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__gFUog
                         )}
                       >
@@ -5952,7 +5884,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox15"}
                     data-plasmic-override={overrides.selectionBox15}
-                    className={classNames(projectcss.all, sty.selectionBox15)}
+                    className={classNames("all", sty.selectionBox15)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -5962,8 +5894,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__lxkBw
                         )}
                       >
@@ -6095,7 +6027,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox16"}
                     data-plasmic-override={overrides.selectionBox16}
-                    className={classNames(projectcss.all, sty.selectionBox16)}
+                    className={classNames("all", sty.selectionBox16)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -6105,8 +6037,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__ni8V9
                         )}
                       >
@@ -6243,7 +6175,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox17"}
                     data-plasmic-override={overrides.selectionBox17}
-                    className={classNames(projectcss.all, sty.selectionBox17)}
+                    className={classNames("all", sty.selectionBox17)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -6253,8 +6185,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__rSTz
                         )}
                       >
@@ -6389,7 +6321,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox18"}
                     data-plasmic-override={overrides.selectionBox18}
-                    className={classNames(projectcss.all, sty.selectionBox18)}
+                    className={classNames("all", sty.selectionBox18)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -6399,8 +6331,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__tBqUt
                         )}
                       >
@@ -6535,7 +6467,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox19"}
                     data-plasmic-override={overrides.selectionBox19}
-                    className={classNames(projectcss.all, sty.selectionBox19)}
+                    className={classNames("all", sty.selectionBox19)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -6545,8 +6477,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__hIxz1
                         )}
                       >
@@ -6686,7 +6618,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox20"}
                     data-plasmic-override={overrides.selectionBox20}
-                    className={classNames(projectcss.all, sty.selectionBox20)}
+                    className={classNames("all", sty.selectionBox20)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -6696,8 +6628,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__tbeGg
                         )}
                       >
@@ -6835,7 +6767,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox21"}
                     data-plasmic-override={overrides.selectionBox21}
-                    className={classNames(projectcss.all, sty.selectionBox21)}
+                    className={classNames("all", sty.selectionBox21)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -6845,8 +6777,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__k2TI2
                         )}
                       >
@@ -6981,7 +6913,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   <div
                     data-plasmic-name={"selectionBox2"}
                     data-plasmic-override={overrides.selectionBox2}
-                    className={classNames(projectcss.all, sty.selectionBox2)}
+                    className={classNames("all", sty.selectionBox2)}
                   >
                     <VigetLiom2
                       className={classNames(
@@ -6991,8 +6923,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__bjLOo
                         )}
                       >
@@ -7116,7 +7048,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 <div
                   data-plasmic-name={"selectionBox3"}
                   data-plasmic-override={overrides.selectionBox3}
-                  className={classNames(projectcss.all, sty.selectionBox3)}
+                  className={classNames("all", sty.selectionBox3)}
                 >
                   <VigetLiom2
                     className={classNames(
@@ -7124,13 +7056,11 @@ function PlasmicStatusDay__RenderFunc(props: {
                       sty.vigetLiom2__yiHNi
                     )}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__aMEpq)}
-                    >
+                    <div className={classNames("all", sty.freeBox__aMEpq)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___5Q5Wy
                         )}
                       >
@@ -7138,8 +7068,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__l5Tkb
                         )}
                         onClick={async event => {
@@ -7194,13 +7124,11 @@ function PlasmicStatusDay__RenderFunc(props: {
                       code={"<hr></hr>"}
                     />
 
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__zqctG)}
-                    >
+                    <div className={classNames("all", sty.freeBox__zqctG)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__l8Mwu
                         )}
                       >
@@ -7208,8 +7136,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__eXbqc
                         )}
                       >
@@ -7231,8 +7159,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       </div>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__mvtL
                         )}
                       >
@@ -7241,14 +7169,9 @@ function PlasmicStatusDay__RenderFunc(props: {
                         }
                       </div>
                     </div>
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___2VQbZ
-                      )}
-                    >
+                    <div className={classNames("all", sty.freeBox___2VQbZ)}>
                       <Icon161Icon
-                        className={classNames(projectcss.all, sty.svg___2Eo4)}
+                        className={classNames("all", sty.svg___2Eo4)}
                         onClick={async event => {
                           const $steps = {};
 
@@ -7278,17 +7201,9 @@ function PlasmicStatusDay__RenderFunc(props: {
                         role={"img"}
                       />
 
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__tF89
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__tF89)}>
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__t0Jyx
-                          )}
+                          className={classNames("all", sty.freeBox__t0Jyx)}
                           style={{ direction: "ltr" }}
                         >
                           {(_par =>
@@ -7371,7 +7286,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         </div>
                       </div>
                       <Icon164Icon
-                        className={classNames(projectcss.all, sty.svg__qEMl)}
+                        className={classNames("all", sty.svg__qEMl)}
                         onClick={async event => {
                           const $steps = {};
 
@@ -7406,7 +7321,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 <div
                   data-plasmic-name={"selectionBox4"}
                   data-plasmic-override={overrides.selectionBox4}
-                  className={classNames(projectcss.all, sty.selectionBox4)}
+                  className={classNames("all", sty.selectionBox4)}
                 >
                   <VigetLiom2
                     className={classNames(
@@ -7416,8 +7331,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__gvHt
                       )}
                     >
@@ -7542,7 +7457,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 <div
                   data-plasmic-name={"selectionBox5"}
                   data-plasmic-override={overrides.selectionBox5}
-                  className={classNames(projectcss.all, sty.selectionBox5)}
+                  className={classNames("all", sty.selectionBox5)}
                 >
                   <VigetLiom2
                     className={classNames(
@@ -7552,8 +7467,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__wPfDg
                       )}
                     >
@@ -7667,7 +7582,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 <div
                   data-plasmic-name={"selectionBox6"}
                   data-plasmic-override={overrides.selectionBox6}
-                  className={classNames(projectcss.all, sty.selectionBox6)}
+                  className={classNames("all", sty.selectionBox6)}
                 >
                   <VigetLiom2
                     className={classNames(
@@ -7677,8 +7592,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__pbkec
                       )}
                     >
@@ -7694,9 +7609,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                       code={"<hr></hr>"}
                     />
 
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__gGjaN)}
-                    >
+                    <div className={classNames("all", sty.freeBox__gGjaN)}>
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
@@ -7717,30 +7630,21 @@ function PlasmicStatusDay__RenderFunc(props: {
                         const currentIndex = __plasmic_idx_0;
                         return (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__sjbLy
-                            )}
+                            className={classNames("all", sty.freeBox__sjbLy)}
                             key={currentIndex}
                           >
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__eX3H7
-                              )}
+                              className={classNames("all", sty.freeBox__eX3H7)}
                             >
                               <Icon165Icon
-                                className={classNames(
-                                  projectcss.all,
-                                  sty.svg___1Id8M
-                                )}
+                                className={classNames("all", sty.svg___1Id8M)}
                                 role={"img"}
                               />
 
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__qiNw
                                 )}
                               >
@@ -7777,14 +7681,14 @@ function PlasmicStatusDay__RenderFunc(props: {
                             })() ? (
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__jhpMg
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text___5U3Ty
                                   )}
                                 >
@@ -7807,8 +7711,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                                 </div>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__kqrTl
                                   )}
                                 >
@@ -7822,8 +7726,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__u2Uzp
                       )}
                       onClick={async event => {
@@ -7876,7 +7780,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 <div
                   data-plasmic-name={"selectionBox7"}
                   data-plasmic-override={overrides.selectionBox7}
-                  className={classNames(projectcss.all, sty.selectionBox7)}
+                  className={classNames("all", sty.selectionBox7)}
                 >
                   <VigetLiom2
                     className={classNames(
@@ -7886,8 +7790,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__fO4ED
                       )}
                     >
@@ -7903,9 +7807,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                       code={"<hr></hr>"}
                     />
 
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__rfg5Y)}
-                    >
+                    <div className={classNames("all", sty.freeBox__rfg5Y)}>
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
@@ -7926,10 +7828,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                         const currentIndex = __plasmic_idx_0;
                         return (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__l5KNa
-                            )}
+                            className={classNames("all", sty.freeBox__l5KNa)}
                             key={currentIndex}
                           >
                             {(() => {
@@ -8034,8 +7933,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                                 >
                                   <div
                                     className={classNames(
-                                      projectcss.all,
-                                      projectcss.__wab_text,
+                                      "all",
+                                      "__wab_text",
                                       sty.text__y8Ihm
                                     )}
                                   >
@@ -8060,10 +7959,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                               );
                             })()}
                             <Icon169Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__dt6EV
-                              )}
+                              className={classNames("all", sty.svg__dt6EV)}
                               onClick={async event => {
                                 const $steps = {};
 
@@ -8099,8 +7995,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     </div>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__vdjNw
                       )}
                       onClick={async event => {
@@ -8153,7 +8049,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 <div
                   data-plasmic-name={"selectionBox8"}
                   data-plasmic-override={overrides.selectionBox8}
-                  className={classNames(projectcss.all, sty.selectionBox8)}
+                  className={classNames("all", sty.selectionBox8)}
                 >
                   <VigetLiom2
                     className={classNames(
@@ -8163,8 +8059,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__le6Oc
                       )}
                     >
@@ -8280,7 +8176,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 <div
                   data-plasmic-name={"selectionBox9"}
                   data-plasmic-override={overrides.selectionBox9}
-                  className={classNames(projectcss.all, sty.selectionBox9)}
+                  className={classNames("all", sty.selectionBox9)}
                 >
                   <VigetLiom2
                     className={classNames(
@@ -8290,8 +8186,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__odbSx
                       )}
                     >
@@ -8305,12 +8201,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                       code={"<hr></hr>"}
                     />
 
-                    <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox___9JS7M
-                      )}
-                    >
+                    <div className={classNames("all", sty.freeBox___9JS7M)}>
                       <TextInput
                         data-plasmic-name={"textInput7"}
                         data-plasmic-override={overrides.textInput7}
@@ -8384,12 +8275,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     </div>
                   </VigetLiom2>
                 </div>
-                <section
-                  className={classNames(projectcss.all, sty.section__jr0Da)}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__lwpfQ)}
-                  >
+                <section className={classNames("all", sty.section__jr0Da)}>
+                  <div className={classNames("all", sty.freeBox__lwpfQ)}>
                     <Button
                       data-plasmic-name={"button"}
                       data-plasmic-override={overrides.button}
@@ -8799,8 +8686,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__qgki1
                         )}
                       >
@@ -8826,22 +8713,20 @@ function PlasmicStatusDay__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <div className={classNames(projectcss.all, sty.freeBox__jFx8A)}>
-                <div className={classNames(projectcss.all, sty.freeBox__fVrcT)}>
+              <div className={classNames("all", sty.freeBox__jFx8A)}>
+                <div className={classNames("all", sty.freeBox__fVrcT)}>
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox___4YLem,
                       "shimmer"
                     )}
                   />
 
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__gaHEy)}
-                  >
+                  <div className={classNames("all", sty.freeBox__gaHEy)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox___5ETsy,
                         "shimmer"
                       )}
@@ -8849,7 +8734,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox___6KXex,
                         "shimmer"
                       )}
@@ -8857,7 +8742,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox___4ENa,
                         "shimmer"
                       )}
@@ -8865,7 +8750,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__q6Vie,
                         "shimmer"
                       )}
@@ -8873,28 +8758,22 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__m12E,
                         "shimmer"
                       )}
                     />
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__uDof)}>
+                <div className={classNames("all", sty.freeBox__uDof)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__m9O5M,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__m9O5M, "shimmer")}
                   />
 
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__m6Skz)}
-                  >
+                  <div className={classNames("all", sty.freeBox__m6Skz)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__xb77J,
                         "shimmer"
                       )}
@@ -8902,7 +8781,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__du1WJ,
                         "shimmer"
                       )}
@@ -8910,7 +8789,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__qp3Y6,
                         "shimmer"
                       )}
@@ -8918,7 +8797,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox___6HgBn,
                         "shimmer"
                       )}
@@ -8926,28 +8805,22 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__mpGz2,
                         "shimmer"
                       )}
                     />
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__dUMrG)}>
+                <div className={classNames("all", sty.freeBox__dUMrG)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__n1Gio,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__n1Gio, "shimmer")}
                   />
 
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__kzCZt)}
-                  >
+                  <div className={classNames("all", sty.freeBox__kzCZt)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__nbWhx,
                         "shimmer"
                       )}
@@ -8955,7 +8828,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__e0Yww,
                         "shimmer"
                       )}
@@ -8963,7 +8836,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__cYfvK,
                         "shimmer"
                       )}
@@ -8971,7 +8844,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__oh11,
                         "shimmer"
                       )}
@@ -8979,30 +8852,22 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__wyh0,
                         "shimmer"
                       )}
                     />
                   </div>
                 </div>
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___1S7HG)}
-                >
+                <div className={classNames("all", sty.freeBox___1S7HG)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      sty.freeBox__kzzU,
-                      "shimmer"
-                    )}
+                    className={classNames("all", sty.freeBox__kzzU, "shimmer")}
                   />
 
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__e3Zik)}
-                  >
+                  <div className={classNames("all", sty.freeBox__e3Zik)}>
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__ljegu,
                         "shimmer"
                       )}
@@ -9010,7 +8875,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__asl2,
                         "shimmer"
                       )}
@@ -9018,7 +8883,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__imfHb,
                         "shimmer"
                       )}
@@ -9026,7 +8891,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox__xAdHh,
                         "shimmer"
                       )}
@@ -9034,7 +8899,7 @@ function PlasmicStatusDay__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
+                        "all",
                         sty.freeBox___15PkM,
                         "shimmer"
                       )}
@@ -9049,9 +8914,9 @@ function PlasmicStatusDay__RenderFunc(props: {
             data-plasmic-override={overrides.name2}
             className={classNames("__wab_instance", sty.name2)}
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={true}
@@ -9067,13 +8932,7 @@ function PlasmicStatusDay__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["name2", "open"])}
             title={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__whFE
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__whFE)}>
                 {
                   "\u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0647\u0645\u06cc\u0627\u0631\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
                 }
@@ -9082,25 +8941,17 @@ function PlasmicStatusDay__RenderFunc(props: {
             trigger={null}
             wrapClassName={classNames({ [sty["pcls_nYjJvcyG9mGw"]]: true })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__l0Wjh)}>
-              <div className={classNames(projectcss.all, sty.freeBox___3Dh4K)}>
+            <div className={classNames("all", sty.freeBox__l0Wjh)}>
+              <div className={classNames("all", sty.freeBox___3Dh4K)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___6EdJg
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___6EdJg)}
                 >
                   {
                     "\u0646\u0627\u0645 \u0647\u0645\u06cc\u0627\u0631 \u0642\u0627\u0639\u062f\u06af\u06cc\u062a \u0631\u0648 \u0648\u0627\u0631\u062f \u06a9\u0646"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__mmQsQ,
-                    "negative"
-                  )}
+                  className={classNames("all", sty.freeBox__mmQsQ, "negative")}
                 >
                   <TextInput
                     data-plasmic-name={"textInput2"}
@@ -9236,19 +9087,15 @@ function PlasmicStatusDay__RenderFunc(props: {
                   />
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___0363G)}>
+              <div className={classNames("all", sty.freeBox___0363G)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__ca3J9
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__ca3J9)}
                 >
                   {
                     "\u0686\u0647 \u0646\u0633\u0628\u062a\u06cc \u0628\u0627\u0647\u0645 \u062f\u0627\u0631\u06cc\u062f\u061f"
                   }
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__bpRPp)}>
+                <div className={classNames("all", sty.freeBox__bpRPp)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -9378,8 +9225,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___90Ix
                           )}
                         >
@@ -9404,7 +9251,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   })}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__pq0E)}>
+              <div className={classNames("all", sty.freeBox__pq0E)}>
                 <Button
                   data-plasmic-name={"button3"}
                   data-plasmic-override={overrides.button3}
@@ -9833,11 +9680,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__lm4G
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__lm4G)}
                   >
                     {"\u062a\u0627\u06cc\u06cc\u062f"}
                   </div>
@@ -9850,9 +9693,9 @@ function PlasmicStatusDay__RenderFunc(props: {
             data-plasmic-override={overrides.sms}
             className={classNames("__wab_instance", sty.sms)}
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={true}
@@ -9869,11 +9712,7 @@ function PlasmicStatusDay__RenderFunc(props: {
             open={generateStateValueProp($state, ["sms", "open"])}
             title={
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___0BIhf
-                )}
+                className={classNames("all", "__wab_text", sty.text___0BIhf)}
               >
                 <React.Fragment>
                   {(() => {
@@ -9895,14 +9734,10 @@ function PlasmicStatusDay__RenderFunc(props: {
             trigger={null}
             wrapClassName={classNames({ [sty["pcls_mIIg7azf6T1J"]]: true })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox___7ODu)}>
-              <div className={classNames(projectcss.all, sty.freeBox__hrXb9)}>
+            <div className={classNames("all", sty.freeBox___7ODu)}>
+              <div className={classNames("all", sty.freeBox__hrXb9)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__lSvul
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__lSvul)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -9921,7 +9756,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   </React.Fragment>
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___9OuWb)}>
+              <div className={classNames("all", sty.freeBox___9OuWb)}>
                 <Button
                   data-plasmic-name={"button4"}
                   data-plasmic-override={overrides.button4}
@@ -10015,11 +9850,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__tWRA
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__tWRA)}
                   >
                     {
                       "\u0627\u0634\u062a\u0631\u0627\u06a9 \u06af\u0630\u0627\u0631\u06cc"
@@ -10188,11 +10019,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   size={"compact"}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__qaDif
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__qaDif)}
                   >
                     {
                       "\u0644\u06cc\u0646\u06a9 \u062f\u0639\u0648\u062a \u062a\u0648\u0633\u0637 \u0644\u06cc\u0648\u0645 \u0628\u0631\u0627\u06cc \u0647\u0645\u06cc\u0627\u0631\u0645 \u0627\u0631\u0633\u0627\u0644 \u0634\u0648\u062f  >"
@@ -10207,9 +10034,9 @@ function PlasmicStatusDay__RenderFunc(props: {
             data-plasmic-override={overrides.remove}
             className={classNames("__wab_instance", sty.remove)}
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={true}
@@ -10230,18 +10057,14 @@ function PlasmicStatusDay__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["remove", "open"])}
             title={
-              <div className={classNames(projectcss.all, sty.freeBox__wFu3C)}>
+              <div className={classNames("all", sty.freeBox__wFu3C)}>
                 <Icon157Icon
-                  className={classNames(projectcss.all, sty.svg___9VR8H)}
+                  className={classNames("all", sty.svg___9VR8H)}
                   role={"img"}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__pi1BD
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__pi1BD)}
                 >
                   {"\u062d\u0630\u0641 \u0647\u0645\u06cc\u0627\u0631"}
                 </div>
@@ -10250,19 +10073,13 @@ function PlasmicStatusDay__RenderFunc(props: {
             trigger={null}
             wrapClassName={classNames({ [sty["pcls_cxTEZ_elXKqO"]]: true })}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__ibrIu)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yvelw
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__ibrIu)}>
+              <div className={classNames("all", "__wab_text", sty.text__yvelw)}>
                 {
                   "\u0628\u0627 \u062d\u0630\u0641 \u0647\u0645\u06cc\u0627\u0631\u060c \u062f\u06cc\u06af\u0647 \u067e\u06cc\u0627\u0645\u06a9\u06cc \u0628\u0631\u0627\u0634 \u0627\u0631\u0633\u0627\u0644 \u0646\u0645\u06cc\u0634\u0647. \u0627\u0632 \u0627\u0646\u062c\u0627\u0645 \u0627\u06cc\u0646\u06a9\u0627\u0631 \u0645\u0637\u0645\u0626\u0646\u06cc \u061f"
                 }
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__srpxd)}>
+              <div className={classNames("all", sty.freeBox__srpxd)}>
                 <Button
                   data-plasmic-name={"removeBtn"}
                   data-plasmic-override={overrides.removeBtn}
@@ -10524,11 +10341,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   }
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__p4Rvr
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__p4Rvr)}
                   >
                     {"\u062d\u0630\u0641"}
                   </div>
@@ -10633,11 +10446,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   }
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__r0LkO
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__r0LkO)}
                   >
                     {"\u0641\u0639\u0644\u0627 \u0646\u0647"}
                   </div>
@@ -10645,7 +10454,7 @@ function PlasmicStatusDay__RenderFunc(props: {
               </div>
             </div>
           </AntdModal>
-          <div className={classNames(projectcss.all, sty.freeBox__gxAUj)} />
+          <div className={classNames("all", sty.freeBox__gxAUj)} />
 
           <Dialog
             data-plasmic-name={"dialog"}
@@ -10670,13 +10479,7 @@ function PlasmicStatusDay__RenderFunc(props: {
               "opendialog"
             ])}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__jdHP
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__jdHP)}>
               {
                 "\u0631\u0648\u0632\u0627\u0646\u0647 \u0686\u0646\u062f \u0644\u06cc\u0648\u0627\u0646 \u0622\u0628 \u0645\u06cc\u0646\u0648\u0634\u06cc\u062f\u061f"
               }
@@ -10840,13 +10643,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 }
               }}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__jkghk
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__jkghk)}>
                 {"\u0627\u0646\u062a\u062e\u0627\u0628"}
               </div>
             </Button>
@@ -10874,13 +10671,7 @@ function PlasmicStatusDay__RenderFunc(props: {
               "opendialog"
             ])}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__tjA9G
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__tjA9G)}>
               {
                 "\u0647\u0631 \u062f\u0648\u0631\u0647 \u0686\u0646\u062f\u062a\u0627"
               }
@@ -11044,13 +10835,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 }
               }}
             >
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__bNtrP
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__bNtrP)}>
                 {"\u0627\u0646\u062a\u062e\u0627\u0628"}
               </div>
             </Button>
@@ -11078,19 +10863,15 @@ function PlasmicStatusDay__RenderFunc(props: {
               "opendialog"
             ])}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__s6Mg6)}>
-              <div className={classNames(projectcss.all, sty.freeBox__ppZg)}>
+            <div className={classNames("all", sty.freeBox__s6Mg6)}>
+              <div className={classNames("all", sty.freeBox__ppZg)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__cRzql
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__cRzql)}
                   id={"yourTargetElementId"}
                 >
                   {"\u0627\u0633\u0645 \u062f\u0627\u0631\u0648"}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__o9Run)}>
+                <div className={classNames("all", sty.freeBox__o9Run)}>
                   <TextInput
                     data-plasmic-name={"textInput3"}
                     data-plasmic-override={overrides.textInput3}
@@ -11158,7 +10939,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                     className={classNames("__wab_instance", sty.textInput3)}
                     endIcon={
                       <Icon26Icon
-                        className={classNames(projectcss.all, sty.svg__l9RDy)}
+                        className={classNames("all", sty.svg__l9RDy)}
                         role={"img"}
                         style={(() => {
                           try {
@@ -11204,7 +10985,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   />
 
                   <div
-                    className={classNames(projectcss.all, sty.freeBox___7Qzcy)}
+                    className={classNames("all", sty.freeBox___7Qzcy)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -11497,8 +11278,8 @@ function PlasmicStatusDay__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__as4Ae
                             )}
                           >
@@ -11595,9 +11376,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                     }
                   />
 
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__yBsmM)}
-                  >
+                  <div className={classNames("all", sty.freeBox__yBsmM)}>
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
@@ -11618,10 +11397,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                       const currentIndex = __plasmic_idx_0;
                       return (
                         <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__ooV8S
-                          )}
+                          className={classNames("all", sty.freeBox__ooV8S)}
                           key={currentIndex}
                           onClick={async event => {
                             const $steps = {};
@@ -11703,16 +11479,13 @@ function PlasmicStatusDay__RenderFunc(props: {
                           }}
                         >
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__zKo6
-                            )}
+                            className={classNames("all", sty.freeBox__zKo6)}
                           />
 
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__kt0U1
                             )}
                           >
@@ -11739,17 +11512,13 @@ function PlasmicStatusDay__RenderFunc(props: {
                   </div>
                 </Medisene>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__sjCiW)}>
+              <div className={classNames("all", sty.freeBox__sjCiW)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___5R4Te
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___5R4Te)}
                 >
                   {"\u0686\u0646\u062a\u0627"}
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__vg0Zj)}>
+                <div className={classNames("all", sty.freeBox__vg0Zj)}>
                   <TextInput
                     data-plasmic-name={"textInput4"}
                     data-plasmic-override={overrides.textInput4}
@@ -11827,7 +11596,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                   />
 
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__ycTd)}
+                    className={classNames("all", sty.freeBox__ycTd)}
                     onClick={async event => {
                       const $steps = {};
 
@@ -11871,7 +11640,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__sizzW)}>
+            <div className={classNames("all", sty.freeBox__sizzW)}>
               <Button
                 data-plasmic-name={"button7"}
                 data-plasmic-override={overrides.button7}
@@ -12032,11 +11801,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___2CTkE
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___2CTkE)}
                 >
                   {
                     "\u0630\u062e\u06cc\u0631\u0647 \u062a\u063a\u06cc\u06cc\u0631\u0627\u062a"
@@ -12139,11 +11904,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__oPFt
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__oPFt)}
                 >
                   {"\u0628\u0627\u0632\u06af\u0634\u062a"}
                 </div>
@@ -12173,20 +11934,16 @@ function PlasmicStatusDay__RenderFunc(props: {
               "opendialog"
             ])}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__n8B3Y)}>
-              <div className={classNames(projectcss.all, sty.freeBox__hevRt)}>
+            <div className={classNames("all", sty.freeBox__n8B3Y)}>
+              <div className={classNames("all", sty.freeBox__hevRt)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kvIvk
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__kvIvk)}
                 >
                   {
                     "\u0627\u0641\u0632\u0648\u062f\u0646 \u06a9\u0627\u0631 \u062c\u062f\u06cc\u062f"
                   }
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__caI8E)}>
+                <div className={classNames("all", sty.freeBox__caI8E)}>
                   <TextInput
                     data-plasmic-name={"textInput6"}
                     data-plasmic-override={overrides.textInput6}
@@ -12288,7 +12045,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                     }
                   })() ? (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__ktRL)}
+                      className={classNames("all", sty.freeBox__ktRL)}
                       onClick={async event => {
                         const $steps = {};
 
@@ -12319,7 +12076,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__csmat)}>
+            <div className={classNames("all", sty.freeBox__csmat)}>
               <Button
                 data-plasmic-name={"button13"}
                 data-plasmic-override={overrides.button13}
@@ -12478,11 +12235,7 @@ function PlasmicStatusDay__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__b0JRx
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__b0JRx)}
                 >
                   {"\u0627\u0641\u0632\u0648\u062f\u0646"}
                 </div>
@@ -13009,9 +12762,10 @@ export const PlasmicStatusDay = Object.assign(
     internalArgProps: PlasmicStatusDay__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/status-day",
       pagePath: "/status-day",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

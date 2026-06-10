@@ -69,7 +69,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSelfCare2.module.css"; // plasmic-import: q5NYbKztjYXR/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -149,12 +148,6 @@ function PlasmicSelfCare2__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -322,6 +315,13 @@ function PlasmicSelfCare2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -339,10 +339,10 @@ function PlasmicSelfCare2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -555,8 +555,8 @@ function PlasmicSelfCare2__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <div className={classNames(projectcss.all, sty.freeBox__jCz3N)}>
-          <div className={classNames(projectcss.all, sty.freeBox__pWe4J)}>
+        <div className={classNames("all", sty.freeBox__jCz3N)}>
+          <div className={classNames("all", sty.freeBox__pWe4J)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -578,7 +578,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
               const currentIndex = __plasmic_idx_0;
               return (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__mYyWb)}
+                  className={classNames("all", sty.freeBox__mYyWb)}
                   key={currentIndex}
                   onClick={async event => {
                     const $steps = {};
@@ -771,11 +771,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
                   })()}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__iQmjz
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__iQmjz)}
                     style={(() => {
                       try {
                         return {
@@ -831,8 +827,8 @@ function PlasmicSelfCare2__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__slJMj
                       )}
                       style={(() => {
@@ -968,8 +964,8 @@ function PlasmicSelfCare2__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__xYylk
                           )}
                         >
@@ -1020,7 +1016,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
               code={"<hr></hr>"}
             />
           ) : null}
-          <div className={classNames(projectcss.all, sty.freeBox__kupC8)}>
+          <div className={classNames("all", sty.freeBox__kupC8)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -1042,7 +1038,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
               const currentIndex = __plasmic_idx_0;
               return (
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__mk0Aj)}
+                  className={classNames("all", sty.freeBox__mk0Aj)}
                   key={currentIndex}
                   onClick={async event => {
                     const $steps = {};
@@ -1208,9 +1204,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
                     }
                   }}
                 >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__yzRzQ)}
-                  >
+                  <div className={classNames("all", sty.freeBox__yzRzQ)}>
                     <PlasmicImg__
                       data-plasmic-name={"img"}
                       data-plasmic-override={overrides.img}
@@ -1238,16 +1232,12 @@ function PlasmicSelfCare2__RenderFunc(props: {
                       })()}
                     />
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___1B2I3)}
-                  >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__phkLk)}
-                    >
+                  <div className={classNames("all", sty.freeBox___1B2I3)}>
+                    <div className={classNames("all", sty.freeBox__phkLk)}>
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text___5T1Tr
                         )}
                       >
@@ -1280,16 +1270,11 @@ function PlasmicSelfCare2__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__n0XXy
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__n0XXy)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__p5R3X
                             )}
                           >
@@ -1310,17 +1295,9 @@ function PlasmicSelfCare2__RenderFunc(props: {
                           throw e;
                         }
                       })() ? (
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__of40K
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__of40K)}>
                           <Icon188Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__r4UP1
-                            )}
+                            className={classNames("all", sty.svg__r4UP1)}
                             role={"img"}
                           />
                         </div>
@@ -1349,8 +1326,8 @@ function PlasmicSelfCare2__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__lbwJi
                         )}
                       >
@@ -1373,7 +1350,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
                     </LineClomp>
                   </div>
                   <ChevronLeftIcon
-                    className={classNames(projectcss.all, sty.svg__x9K4M)}
+                    className={classNames("all", sty.svg__x9K4M)}
                     role={"img"}
                   />
                 </div>
@@ -1396,7 +1373,7 @@ function PlasmicSelfCare2__RenderFunc(props: {
         }
       })() ? (
         <div
-          className={classNames(projectcss.all, sty.freeBox__i7LEc)}
+          className={classNames("all", sty.freeBox__i7LEc)}
           style={(() => {
             try {
               return {
@@ -1414,54 +1391,20 @@ function PlasmicSelfCare2__RenderFunc(props: {
             }
           })()}
         >
-          <div className={classNames(projectcss.all, sty.freeBox__nFIuU)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox__qaiLo,
-                "shimmer"
-              )}
-            />
+          <div className={classNames("all", sty.freeBox__nFIuU)}>
+            <div className={classNames("all", sty.freeBox__qaiLo, "shimmer")} />
 
             <div
-              className={classNames(
-                projectcss.all,
-                sty.freeBox___86Idt,
-                "shimmer"
-              )}
+              className={classNames("all", sty.freeBox___86Idt, "shimmer")}
             />
           </div>
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__hHqEh,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__hHqEh, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__bU7Nc,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__bU7Nc, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox___6D6Tq,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox___6D6Tq, "shimmer")} />
 
-          <div
-            className={classNames(
-              projectcss.all,
-              sty.freeBox__naJ1M,
-              "shimmer"
-            )}
-          />
+          <div className={classNames("all", sty.freeBox__naJ1M, "shimmer")} />
         </div>
       ) : null}
       <Load

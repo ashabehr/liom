@@ -87,7 +87,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicChat.module.css"; // plasmic-import: GWUycYOHSME2/css
 
 import ChevronRightIcon from "../fragment_icons/icons/PlasmicIcon__ChevronRight"; // plasmic-import: GHdF3hS-oP_3/icon
@@ -114,11 +113,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -207,12 +213,6 @@ function PlasmicChat__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -554,6 +554,13 @@ function PlasmicChat__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -566,7 +573,7 @@ function PlasmicChat__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -581,17 +588,17 @@ function PlasmicChat__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -1014,15 +1021,15 @@ function PlasmicChat__RenderFunc(props: {
           <div
             data-plasmic-name={"chat"}
             data-plasmic-override={overrides.chat}
-            className={classNames(projectcss.all, sty.chat)}
+            className={classNames("all", sty.chat)}
           >
             <div
               data-plasmic-name={"top"}
               data-plasmic-override={overrides.top}
-              className={classNames(projectcss.all, sty.top)}
+              className={classNames("all", sty.top)}
             >
               <ChevronRightIcon
-                className={classNames(projectcss.all, sty.svg__h4BiE)}
+                className={classNames("all", sty.svg__h4BiE)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -1071,7 +1078,7 @@ function PlasmicChat__RenderFunc(props: {
               <div
                 data-plasmic-name={"image"}
                 data-plasmic-override={overrides.image}
-                className={classNames(projectcss.all, sty.image)}
+                className={classNames("all", sty.image)}
               >
                 <PlasmicImg__
                   data-plasmic-name={"img"}
@@ -1111,11 +1118,7 @@ function PlasmicChat__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__hd0Pr
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__hd0Pr)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -1233,23 +1236,19 @@ function PlasmicChat__RenderFunc(props: {
                 size={"compact"}
                 startIcon={
                   <Icon127Icon
-                    className={classNames(projectcss.all, sty.svg__dzq3Q)}
+                    className={classNames("all", sty.svg__dzq3Q)}
                     role={"img"}
                   />
                 }
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___5KVhV
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___5KVhV)}
                 >
                   {"\u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"}
                 </div>
               </Button>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__tujJc)}>
+            <div className={classNames("all", sty.freeBox__tujJc)}>
               <Reveal
                 className={classNames("__wab_instance", sty.reveal__jSuX)}
                 direction={"up"}
@@ -1472,8 +1471,8 @@ function PlasmicChat__RenderFunc(props: {
                             data-plasmic-name={"helloDoctorIBel"}
                             data-plasmic-override={overrides.helloDoctorIBel}
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.helloDoctorIBel
                             )}
                           >
@@ -1494,12 +1493,7 @@ function PlasmicChat__RenderFunc(props: {
                               })()}
                             </React.Fragment>
                           </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__gH4I
-                            )}
-                          >
+                          <div className={classNames("all", sty.freeBox__gH4I)}>
                             <Seen
                               data-plasmic-name={"seen"}
                               data-plasmic-override={overrides.seen}
@@ -1522,8 +1516,8 @@ function PlasmicChat__RenderFunc(props: {
 
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__eJf9X
                               )}
                             >
@@ -1599,7 +1593,7 @@ function PlasmicChat__RenderFunc(props: {
             <div
               data-plasmic-name={"bottomInput"}
               data-plasmic-override={overrides.bottomInput}
-              className={classNames(projectcss.all, sty.bottomInput)}
+              className={classNames("all", sty.bottomInput)}
               style={(() => {
                 try {
                   return {
@@ -1632,9 +1626,7 @@ function PlasmicChat__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___6F2Zv)}
-                >
+                <div className={classNames("all", sty.freeBox___6F2Zv)}>
                   <Reveal
                     cascade={true}
                     className={classNames("__wab_instance", sty.reveal___77Rhm)}
@@ -1670,7 +1662,7 @@ function PlasmicChat__RenderFunc(props: {
                       }
                     })() ? (
                       <Icon100Icon
-                        className={classNames(projectcss.all, sty.svg__cZhY)}
+                        className={classNames("all", sty.svg__cZhY)}
                         onClick={async event => {
                           const $steps = {};
 
@@ -2121,7 +2113,7 @@ function PlasmicChat__RenderFunc(props: {
                 </div>
               ) : null}
               <Icon93Icon
-                className={classNames(projectcss.all, sty.svg__n0Gzt)}
+                className={classNames("all", sty.svg__n0Gzt)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -2191,11 +2183,7 @@ function PlasmicChat__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__toUa0
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__toUa0)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -2222,14 +2210,14 @@ function PlasmicChat__RenderFunc(props: {
             className={classNames("__wab_instance", sty.modal)}
             closeIcon={
               <ChevronRightIcon
-                className={classNames(projectcss.all, sty.svg__cJgH)}
+                className={classNames("all", sty.svg__cJgH)}
                 role={"img"}
               />
             }
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={true}
@@ -2252,10 +2240,10 @@ function PlasmicChat__RenderFunc(props: {
             <div
               data-plasmic-name={"top2"}
               data-plasmic-override={overrides.top2}
-              className={classNames(projectcss.all, sty.top2)}
+              className={classNames("all", sty.top2)}
             >
               <ChevronRightIcon
-                className={classNames(projectcss.all, sty.svg___1ZRsQ)}
+                className={classNames("all", sty.svg___1ZRsQ)}
                 onClick={async event => {
                   const $steps = {};
 
@@ -2296,28 +2284,20 @@ function PlasmicChat__RenderFunc(props: {
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pKYvm
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__pKYvm)}>
                 {"\u067e\u0631\u0633\u0634\u0646\u0627\u0645\u0647"}
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__wenK)}>
+            <div className={classNames("all", sty.freeBox__wenK)}>
               <ApiRequest
                 data-plasmic-name={"apiRequest"}
                 data-plasmic-override={overrides.apiRequest}
                 className={classNames("__wab_instance", sty.apiRequest)}
                 errorDisplay={null}
                 loadingDisplay={
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__pNaoR)}
-                  >
+                  <div className={classNames("all", sty.freeBox__pNaoR)}>
                     <Icon115Icon
-                      className={classNames(projectcss.all, sty.svg__zZm1E)}
+                      className={classNames("all", sty.svg__zZm1E)}
                       role={"img"}
                     />
                   </div>
@@ -2360,7 +2340,7 @@ function PlasmicChat__RenderFunc(props: {
                 shouldFetch={true}
                 url={"https://n8n.staas.ir/webhook/help/Question"}
               >
-                <div className={classNames(projectcss.all, sty.freeBox__yntRu)}>
+                <div className={classNames("all", sty.freeBox__yntRu)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -2387,8 +2367,8 @@ function PlasmicChat__RenderFunc(props: {
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text___7Ifvm
                           )}
                         >
@@ -2422,10 +2402,7 @@ function PlasmicChat__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__mfIwu
-                            )}
+                            className={classNames("all", sty.freeBox__mfIwu)}
                           >
                             {(() => {
                               const child$Props = {
@@ -2534,10 +2511,7 @@ function PlasmicChat__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__slJht
-                            )}
+                            className={classNames("all", sty.freeBox__slJht)}
                           >
                             {(() => {
                               const child$Props = {
@@ -2661,10 +2635,7 @@ function PlasmicChat__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__oh4QW
-                            )}
+                            className={classNames("all", sty.freeBox__oh4QW)}
                           >
                             {(() => {
                               const child$Props = {
@@ -2777,9 +2748,7 @@ function PlasmicChat__RenderFunc(props: {
                       </Question>
                     );
                   })}
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___03PYq)}
-                  >
+                  <div className={classNames("all", sty.freeBox___03PYq)}>
                     <Button
                       data-plasmic-name={"button"}
                       data-plasmic-override={overrides.button}
@@ -3231,9 +3200,7 @@ function PlasmicChat__RenderFunc(props: {
                       {"\u0627\u0646\u0635\u0631\u0627\u0641"}
                     </Button>
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__mnG0B)}
-                  />
+                  <div className={classNames("all", sty.freeBox__mnG0B)} />
                 </div>
               </ApiRequest>
             </div>
@@ -3243,15 +3210,12 @@ function PlasmicChat__RenderFunc(props: {
             data-plasmic-override={overrides.modal2}
             className={classNames("__wab_instance", sty.modal2)}
             closeIcon={
-              <svg
-                className={classNames(projectcss.all, sty.svg__cvRuu)}
-                role={"img"}
-              />
+              <svg className={classNames("all", sty.svg__cvRuu)} role={"img"} />
             }
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={true}
@@ -3268,13 +3232,7 @@ function PlasmicChat__RenderFunc(props: {
             }}
             open={generateStateValueProp($state, ["modal2", "open"])}
             title={
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__gJfJr
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__gJfJr)}>
                 {
                   "\u0628\u0647 \u0645\u0634\u0627\u0648\u0631 \u0686\u0646\u062f \u0627\u0645\u062a\u06cc\u0627\u0632 \u0645\u06cc\u062f\u06cc\u061f"
                 }
@@ -3282,8 +3240,8 @@ function PlasmicChat__RenderFunc(props: {
             }
             trigger={null}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__eAcJ0)}>
-              <div className={classNames(projectcss.all, sty.freeBox__nCxz4)}>
+            <div className={classNames("all", sty.freeBox__eAcJ0)}>
+              <div className={classNames("all", sty.freeBox__nCxz4)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -3581,11 +3539,7 @@ function PlasmicChat__RenderFunc(props: {
                 size={"compact"}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__a245
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__a245)}
                 >
                   {"\u062b\u0628\u062a \u0627\u0645\u062a\u06cc\u0627\u0632"}
                 </div>
@@ -3616,9 +3570,9 @@ function PlasmicChat__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__jdFgA)}>
+            <div className={classNames("all", sty.freeBox__jdFgA)}>
               <Icon115Icon
-                className={classNames(projectcss.all, sty.svg__hKd4G)}
+                className={classNames("all", sty.svg__hKd4G)}
                 role={"img"}
               />
             </div>
@@ -3636,14 +3590,8 @@ function PlasmicChat__RenderFunc(props: {
               throw e;
             }
           })() ? (
-            <div className={classNames(projectcss.all, sty.freeBox__kpvrj)}>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__b93F2
-                )}
-              >
+            <div className={classNames("all", sty.freeBox__kpvrj)}>
+              <div className={classNames("all", "__wab_text", sty.text__b93F2)}>
                 {
                   "\u0628\u0631\u0627\u06cc \u0634\u0631\u0648\u0639 \u0645\u0634\u0627\u0648\u0631\u0647 \u0633\u0648\u0627\u0644 \u06cc\u0627 \u0645\u0634\u06a9\u0644 \u062e\u0648\u062f \u0631\u0627 \u062f\u0631 \u06a9\u0627\u062f\u0631 \u067e\u0627\u06cc\u06cc\u0646 \u0628\u0646\u0648\u06cc\u0633\u06cc\u062f ."
                 }
@@ -3929,9 +3877,10 @@ export const PlasmicChat = Object.assign(
     internalArgProps: PlasmicChat__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/chat",
       pagePath: "/chat",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

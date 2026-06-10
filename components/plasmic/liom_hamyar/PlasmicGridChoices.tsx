@@ -66,7 +66,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicGridChoices.module.css"; // plasmic-import: njbOGWknOaYk/css
 
 createPlasmicElementProxy;
@@ -203,10 +202,6 @@ function PlasmicGridChoices__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -261,6 +256,11 @@ function PlasmicGridChoices__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -278,10 +278,10 @@ function PlasmicGridChoices__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.choices,
         {
@@ -293,7 +293,7 @@ function PlasmicGridChoices__RenderFunc(props: {
         }
       )}
     >
-      <div className={classNames(projectcss.all, sty.freeBox___5GQxV)}>
+      <div className={classNames("all", sty.freeBox___5GQxV)}>
         {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
           (() => {
             try {
@@ -313,7 +313,7 @@ function PlasmicGridChoices__RenderFunc(props: {
           const currentIndex = __plasmic_idx_0;
           return (
             <div
-              className={classNames(projectcss.all, sty.freeBox__bXdcN, {
+              className={classNames("all", sty.freeBox__bXdcN, {
                 [sty.freeBoxcircl__bXdcNfA7Ca]: hasVariant(
                   $state,
                   "circl",
@@ -497,17 +497,13 @@ function PlasmicGridChoices__RenderFunc(props: {
                   })(),
                   slot: (
                     <div
-                      className={classNames(
-                        projectcss.all,
-                        sty.freeBox__nwx0L,
-                        {
-                          [sty.freeBoxcircl__nwx0LfA7Ca]: hasVariant(
-                            $state,
-                            "circl",
-                            "circl"
-                          )
-                        }
-                      )}
+                      className={classNames("all", sty.freeBox__nwx0L, {
+                        [sty.freeBoxcircl__nwx0LfA7Ca]: hasVariant(
+                          $state,
+                          "circl",
+                          "circl"
+                        )
+                      })}
                     >
                       {(() => {
                         try {
@@ -620,24 +616,13 @@ function PlasmicGridChoices__RenderFunc(props: {
                     data-plasmic-override={overrides.buttonWithNote}
                     {...child$Props}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__im2Jn)}
-                    >
+                    <div className={classNames("all", sty.freeBox__im2Jn)}>
                       <div
                         data-plasmic-name={"text"}
                         data-plasmic-override={overrides.text}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text,
-                          {
-                            [sty.textcircl]: hasVariant(
-                              $state,
-                              "circl",
-                              "circl"
-                            )
-                          }
-                        )}
+                        className={classNames("all", "__wab_text", sty.text, {
+                          [sty.textcircl]: hasVariant($state, "circl", "circl")
+                        })}
                       >
                         <React.Fragment>
                           {(() => {

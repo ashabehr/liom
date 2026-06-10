@@ -76,7 +76,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicDocter.module.css"; // plasmic-import: M0USH3JYYo7O/css
 
 import Icon115Icon from "./icons/PlasmicIcon__Icon115"; // plasmic-import: _FBld6r6XP7e/icon
@@ -104,11 +103,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -199,12 +205,6 @@ function PlasmicDocter__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -575,6 +575,13 @@ function PlasmicDocter__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -585,7 +592,7 @@ function PlasmicDocter__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -600,17 +607,17 @@ function PlasmicDocter__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root
           )}
@@ -683,9 +690,9 @@ function PlasmicDocter__RenderFunc(props: {
               className={classNames("__wab_instance", sty.shop2)}
               errorDisplay={null}
               loadingDisplay={
-                <div className={classNames(projectcss.all, sty.freeBox__yp9FC)}>
+                <div className={classNames("all", sty.freeBox__yp9FC)}>
                   <Icon115Icon
-                    className={classNames(projectcss.all, sty.svg__rOwjZ)}
+                    className={classNames("all", sty.svg__rOwjZ)}
                     role={"img"}
                   />
                 </div>
@@ -728,35 +735,27 @@ function PlasmicDocter__RenderFunc(props: {
               shouldFetch={true}
               url={"https://n8n.staas.ir/webhook/help/shop"}
             >
-              <div className={classNames(projectcss.all, sty.freeBox__pbocO)}>
+              <div className={classNames("all", sty.freeBox__pbocO)}>
                 <EmojiSadSquareSvgrepoComSvgIcon
-                  className={classNames(projectcss.all, sty.svg__eMbHb)}
+                  className={classNames("all", sty.svg__eMbHb)}
                   role={"img"}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__uigNe
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__uigNe)}
                 >
                   {
                     "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___01W3Q
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___01W3Q)}
                 >
                   {
                     "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f . "
                   }
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__qeE92)}>
+                <div className={classNames("all", sty.freeBox__qeE92)}>
                   <Button
                     data-plasmic-name={"button12"}
                     data-plasmic-override={overrides.button12}
@@ -767,7 +766,7 @@ function PlasmicDocter__RenderFunc(props: {
                     ])}
                     endIcon={
                       <Icon12Icon
-                        className={classNames(projectcss.all, sty.svg__xDKX)}
+                        className={classNames("all", sty.svg__xDKX)}
                         role={"img"}
                       />
                     }
@@ -994,8 +993,8 @@ function PlasmicDocter__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__uHovw
                       )}
                     >
@@ -1092,16 +1091,16 @@ function PlasmicDocter__RenderFunc(props: {
               <div
                 data-plasmic-name={"doctorsDetails2"}
                 data-plasmic-override={overrides.doctorsDetails2}
-                className={classNames(projectcss.all, sty.doctorsDetails2)}
+                className={classNames("all", sty.doctorsDetails2)}
               >
                 <div
                   data-plasmic-name={"bg3"}
                   data-plasmic-override={overrides.bg3}
-                  className={classNames(projectcss.all, sty.bg3)}
+                  className={classNames("all", sty.bg3)}
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox__mqEyx,
                       "shimmer "
                     )}
@@ -1109,7 +1108,7 @@ function PlasmicDocter__RenderFunc(props: {
 
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox___784Ql,
                       "shimmer "
                     )}
@@ -1117,26 +1116,20 @@ function PlasmicDocter__RenderFunc(props: {
 
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox__qpVn3,
                       "shimmer "
                     )}
                   />
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__kUtVc,
-                    "shimmer "
-                  )}
+                  className={classNames("all", sty.freeBox__kUtVc, "shimmer ")}
                 />
 
-                <section
-                  className={classNames(projectcss.all, sty.section___7ZkBe)}
-                >
+                <section className={classNames("all", sty.section___7ZkBe)}>
                   <div
                     className={classNames(
-                      projectcss.all,
+                      "all",
                       sty.freeBox__qcGhp,
                       "shimmer "
                     )}
@@ -1171,14 +1164,9 @@ function PlasmicDocter__RenderFunc(props: {
                     className={classNames("__wab_instance", sty.shop3)}
                     errorDisplay={null}
                     loadingDisplay={
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__kdVeS
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__kdVeS)}>
                         <Icon115Icon
-                          className={classNames(projectcss.all, sty.svg__twQks)}
+                          className={classNames("all", sty.svg__twQks)}
                           role={"img"}
                         />
                       </div>
@@ -1221,22 +1209,12 @@ function PlasmicDocter__RenderFunc(props: {
                     shouldFetch={true}
                     url={"https://n8n.staas.ir/webhook/help/shop"}
                   >
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__iLo6)}
-                    >
+                    <div className={classNames("all", sty.freeBox__iLo6)}>
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wmTtF
-                        )}
+                        className={classNames("all", sty.freeBox__wmTtF)}
                         dir={"rtl"}
                       >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__qkFk
-                          )}
-                        />
+                        <div className={classNames("all", sty.freeBox__qkFk)} />
 
                         <DialogTitle
                           data-plasmic-name={"dialogTitle"}
@@ -1250,15 +1228,16 @@ function PlasmicDocter__RenderFunc(props: {
                             data-plasmic-name={"h5"}
                             data-plasmic-override={overrides.h5}
                             className={classNames(
-                              projectcss.all,
-                              projectcss.h5,
+                              "all",
+                              "h5",
+                              "h5__suVPi",
                               sty.h5
                             )}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__pmTbo
                               )}
                             >
@@ -1283,16 +1262,13 @@ function PlasmicDocter__RenderFunc(props: {
                         </DialogTitle>
                       </div>
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__gf9WT
-                        )}
+                        className={classNames("all", sty.freeBox__gf9WT)}
                         dir={"rtl"}
                       >
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__oXfcp
                           )}
                         >
@@ -1312,28 +1288,15 @@ function PlasmicDocter__RenderFunc(props: {
                             })()}
                           </React.Fragment>
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__yRwIp
-                          )}
-                        >
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__jfBb
-                            )}
-                          >
+                        <div className={classNames("all", sty.freeBox__yRwIp)}>
+                          <div className={classNames("all", sty.freeBox__jfBb)}>
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__cMuI7
-                              )}
+                              className={classNames("all", sty.freeBox__cMuI7)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text___8CzkU
                                 )}
                               >
@@ -1343,15 +1306,12 @@ function PlasmicDocter__RenderFunc(props: {
                               </div>
                             </div>
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__xfGzt
-                              )}
+                              className={classNames("all", sty.freeBox__xfGzt)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text___912SO
                                 )}
                               >
@@ -1374,14 +1334,14 @@ function PlasmicDocter__RenderFunc(props: {
                               </div>
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__tzVi2
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__dcprP
                                   )}
                                 >
@@ -1404,8 +1364,8 @@ function PlasmicDocter__RenderFunc(props: {
                                 </div>
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__zPFmF
                                   )}
                                 >
@@ -1432,14 +1392,14 @@ function PlasmicDocter__RenderFunc(props: {
                               </div>
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__maYyr
                                 )}
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__dJSkW
                                   )}
                                 >
@@ -1466,8 +1426,8 @@ function PlasmicDocter__RenderFunc(props: {
                             </div>
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__y0KSm
                               )}
                             >
@@ -1476,14 +1436,11 @@ function PlasmicDocter__RenderFunc(props: {
                               }
                             </div>
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__l34Rx
-                              )}
+                              className={classNames("all", sty.freeBox__l34Rx)}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__zhooo
                                 )}
                               >
@@ -1510,7 +1467,7 @@ function PlasmicDocter__RenderFunc(props: {
                                     prefix: (
                                       <Icon10Icon
                                         className={classNames(
-                                          projectcss.all,
+                                          "all",
                                           sty.svg___18PEg
                                         )}
                                         role={"img"}
@@ -1548,7 +1505,7 @@ function PlasmicDocter__RenderFunc(props: {
                                 })()}
                                 <div
                                   className={classNames(
-                                    projectcss.all,
+                                    "all",
                                     sty.freeBox__tpDq
                                   )}
                                 />
@@ -1623,8 +1580,8 @@ function PlasmicDocter__RenderFunc(props: {
                               >
                                 <div
                                   className={classNames(
-                                    projectcss.all,
-                                    projectcss.__wab_text,
+                                    "all",
+                                    "__wab_text",
                                     sty.text__awa4T
                                   )}
                                 >
@@ -1645,10 +1602,7 @@ function PlasmicDocter__RenderFunc(props: {
                               ])}
                               endIcon={
                                 <Icon12Icon
-                                  className={classNames(
-                                    projectcss.all,
-                                    sty.svg__nUb2L
-                                  )}
+                                  className={classNames("all", sty.svg__nUb2L)}
                                   role={"img"}
                                 />
                               }
@@ -1934,8 +1888,8 @@ function PlasmicDocter__RenderFunc(props: {
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
-                                  projectcss.__wab_text,
+                                  "all",
+                                  "__wab_text",
                                   sty.text__xiSt7
                                 )}
                               >
@@ -1944,9 +1898,10 @@ function PlasmicDocter__RenderFunc(props: {
                             </Button>
                             <p
                               className={classNames(
-                                projectcss.all,
-                                projectcss.p,
-                                projectcss.__wab_text,
+                                "all",
+                                "p",
+                                "p__suVPi",
+                                "__wab_text",
                                 sty.p__u9Ckv
                               )}
                             >
@@ -1956,9 +1911,10 @@ function PlasmicDocter__RenderFunc(props: {
                             </p>
                             <p
                               className={classNames(
-                                projectcss.all,
-                                projectcss.p,
-                                projectcss.__wab_text,
+                                "all",
+                                "p",
+                                "p__suVPi",
+                                "__wab_text",
                                 sty.p__mPqGg
                               )}
                             >
@@ -1999,12 +1955,12 @@ function PlasmicDocter__RenderFunc(props: {
             <div
               data-plasmic-name={"doctorsDetails"}
               data-plasmic-override={overrides.doctorsDetails}
-              className={classNames(projectcss.all, sty.doctorsDetails)}
+              className={classNames("all", sty.doctorsDetails)}
             >
               <div
                 data-plasmic-name={"bg2"}
                 data-plasmic-override={overrides.bg2}
-                className={classNames(projectcss.all, sty.bg2)}
+                className={classNames("all", sty.bg2)}
               >
                 <PlasmicImg__
                   alt={""}
@@ -2031,13 +1987,9 @@ function PlasmicDocter__RenderFunc(props: {
                   })()}
                 />
 
-                <div className={classNames(projectcss.all, sty.freeBox__y8Zj)}>
+                <div className={classNames("all", sty.freeBox__y8Zj)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__mZlKi
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__mZlKi)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -2056,7 +2008,7 @@ function PlasmicDocter__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__prSMn)}>
+                <div className={classNames("all", sty.freeBox__prSMn)}>
                   {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                     (() => {
                       try {
@@ -2079,7 +2031,7 @@ function PlasmicDocter__RenderFunc(props: {
                     const currentIndex = __plasmic_idx_0;
                     return (
                       <Icon77Icon
-                        className={classNames(projectcss.all, sty.svg___8HA0)}
+                        className={classNames("all", sty.svg___8HA0)}
                         key={currentIndex}
                         role={"img"}
                       />
@@ -2087,18 +2039,14 @@ function PlasmicDocter__RenderFunc(props: {
                   })}
                 </div>
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox___04Xxq)}>
+              <div className={classNames("all", sty.freeBox___04Xxq)}>
                 <div
                   data-plasmic-name={"about"}
                   data-plasmic-override={overrides.about}
-                  className={classNames(projectcss.all, sty.about)}
+                  className={classNames("all", sty.about)}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__vlew9
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__vlew9)}
                   >
                     {
                       "\u0622\u0634\u0646\u0627\u06cc\u06cc \u0628\u0627 \u067e\u0632\u0634\u06a9"
@@ -2108,8 +2056,8 @@ function PlasmicDocter__RenderFunc(props: {
                     data-plasmic-name={"drBellamyNicholas"}
                     data-plasmic-override={overrides.drBellamyNicholas}
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.drBellamyNicholas
                     )}
                   >
@@ -2133,28 +2081,22 @@ function PlasmicDocter__RenderFunc(props: {
                 <div
                   data-plasmic-name={"workingTime"}
                   data-plasmic-override={overrides.workingTime}
-                  className={classNames(projectcss.all, sty.workingTime)}
+                  className={classNames("all", sty.workingTime)}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__xx8Pp
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__xx8Pp)}
                   >
                     {
                       "\u0645\u06cc\u0627\u0646\u06af\u06cc\u0646 \u0632\u0645\u0627\u0646 \u067e\u0627\u0633\u062e\u06af\u0648\u06cc\u06cc"
                     }
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__bB2FD)}
-                  >
+                  <div className={classNames("all", sty.freeBox__bB2FD)}>
                     <div
                       data-plasmic-name={"monSat0830Am"}
                       data-plasmic-override={overrides.monSat0830Am}
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.monSat0830Am
                       )}
                     >
@@ -2175,7 +2117,7 @@ function PlasmicDocter__RenderFunc(props: {
                       </React.Fragment>
                     </div>
                     <Icon120Icon
-                      className={classNames(projectcss.all, sty.svg__m6Vw0)}
+                      className={classNames("all", sty.svg__m6Vw0)}
                       role={"img"}
                     />
                   </div>
@@ -2183,22 +2125,16 @@ function PlasmicDocter__RenderFunc(props: {
                 <div
                   data-plasmic-name={"speciality4"}
                   data-plasmic-override={overrides.speciality4}
-                  className={classNames(projectcss.all, sty.speciality4)}
+                  className={classNames("all", sty.speciality4)}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__vmMOi
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__vmMOi)}
                   >
                     {
                       "\u0645\u0634\u0627\u0648\u0631\u0647 \u062f\u0631 \u0627\u0631\u062a\u0628\u0627\u0637 \u0628\u0627 ..."
                     }
                   </div>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__lcYk9)}
-                  >
+                  <div className={classNames("all", sty.freeBox__lcYk9)}>
                     {(_par =>
                       !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                       (() => {
@@ -2221,7 +2157,7 @@ function PlasmicDocter__RenderFunc(props: {
                         <div
                           data-plasmic-name={"card15"}
                           data-plasmic-override={overrides.card15}
-                          className={classNames(projectcss.all, sty.card15)}
+                          className={classNames("all", sty.card15)}
                           key={currentIndex}
                           onClick={async event => {
                             const $steps = {};
@@ -2349,13 +2285,13 @@ function PlasmicDocter__RenderFunc(props: {
                           <div
                             data-plasmic-name={"card16"}
                             data-plasmic-override={overrides.card16}
-                            className={classNames(projectcss.all, sty.card16)}
+                            className={classNames("all", sty.card16)}
                           />
 
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__lgIiO
                             )}
                           >
@@ -2377,10 +2313,7 @@ function PlasmicDocter__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                           <ChevronLeftIcon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__snH1H
-                            )}
+                            className={classNames("all", sty.svg__snH1H)}
                             role={"img"}
                           />
                         </div>
@@ -2389,9 +2322,7 @@ function PlasmicDocter__RenderFunc(props: {
                   </div>
                 </div>
               </div>
-              <section
-                className={classNames(projectcss.all, sty.section__uyIjs)}
-              >
+              <section className={classNames("all", sty.section__uyIjs)}>
                 <Button
                   data-plasmic-name={"button"}
                   data-plasmic-override={overrides.button}
@@ -2568,11 +2499,7 @@ function PlasmicDocter__RenderFunc(props: {
                   }}
                 >
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__uDchx
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__uDchx)}
                   >
                     {hasVariant(globalVariants, "screen", "mobile")
                       ? "\u06af\u0641\u062a\u200c\u0648\u06af\u0648\u06cc \u0622\u0646\u0644\u0627\u06cc\u0646 \u0628\u0627 \u067e\u0632\u0634\u06a9"
@@ -2603,12 +2530,8 @@ function PlasmicDocter__RenderFunc(props: {
                   "opendialog"
                 ])}
               >
-                <div
-                  className={classNames(projectcss.all, sty.freeBox___2KkWm)}
-                >
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox___3Tf8G)}
-                  >
+                <div className={classNames("all", sty.freeBox___2KkWm)}>
+                  <div className={classNames("all", sty.freeBox___3Tf8G)}>
                     <PlasmicImg__
                       alt={""}
                       className={classNames(sty.img___5AKw)}
@@ -2629,8 +2552,8 @@ function PlasmicDocter__RenderFunc(props: {
 
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__awz1C
                       )}
                     >
@@ -2640,13 +2563,13 @@ function PlasmicDocter__RenderFunc(props: {
                     </div>
                   </div>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__pWajn)}
+                    className={classNames("all", sty.freeBox__pWajn)}
                     dir={"rtl"}
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__i5Gid
                       )}
                     >
@@ -2666,25 +2589,13 @@ function PlasmicDocter__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__jupao)}
-                    >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__fh38F
-                        )}
-                      >
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__fadQx
-                          )}
-                        >
+                    <div className={classNames("all", sty.freeBox__jupao)}>
+                      <div className={classNames("all", sty.freeBox__fh38F)}>
+                        <div className={classNames("all", sty.freeBox__fadQx)}>
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__jjEks
                             )}
                           >
@@ -2706,15 +2617,12 @@ function PlasmicDocter__RenderFunc(props: {
                             </React.Fragment>
                           </div>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__o9BZa
-                            )}
+                            className={classNames("all", sty.freeBox__o9BZa)}
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__ghNpU
                               )}
                             >
@@ -2737,8 +2645,8 @@ function PlasmicDocter__RenderFunc(props: {
                             </div>
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__hewf7
                               )}
                             >
@@ -2762,16 +2670,11 @@ function PlasmicDocter__RenderFunc(props: {
                               </React.Fragment>
                             </div>
                           </div>
-                          <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__rvAp
-                            )}
-                          >
+                          <div className={classNames("all", sty.freeBox__rvAp)}>
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__nI4Pj
                               )}
                             >
@@ -2796,8 +2699,8 @@ function PlasmicDocter__RenderFunc(props: {
                         </div>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__yD85
                           )}
                         >
@@ -2805,17 +2708,9 @@ function PlasmicDocter__RenderFunc(props: {
                             "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f"
                           }
                         </div>
-                        <div
-                          className={classNames(
-                            projectcss.all,
-                            sty.freeBox__dyZay
-                          )}
-                        >
+                        <div className={classNames("all", sty.freeBox__dyZay)}>
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__eUmWd
-                            )}
+                            className={classNames("all", sty.freeBox__eUmWd)}
                           >
                             {(() => {
                               const child$Props = {
@@ -2839,10 +2734,7 @@ function PlasmicDocter__RenderFunc(props: {
                                   "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
                                 prefix: (
                                   <Icon10Icon
-                                    className={classNames(
-                                      projectcss.all,
-                                      sty.svg__lFmB
-                                    )}
+                                    className={classNames("all", sty.svg__lFmB)}
                                     role={"img"}
                                   />
                                 ),
@@ -2877,10 +2769,7 @@ function PlasmicDocter__RenderFunc(props: {
                               );
                             })()}
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox__nRQg
-                              )}
+                              className={classNames("all", sty.freeBox__nRQg)}
                             />
                           </div>
                           <Button
@@ -2953,8 +2842,8 @@ function PlasmicDocter__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__eVlM
                               )}
                             >
@@ -2972,10 +2861,7 @@ function PlasmicDocter__RenderFunc(props: {
                           ])}
                           endIcon={
                             <Icon12Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg___2Dijx
-                              )}
+                              className={classNames("all", sty.svg___2Dijx)}
                               role={"img"}
                             />
                           }
@@ -3322,8 +3208,8 @@ function PlasmicDocter__RenderFunc(props: {
                         >
                           <div
                             className={classNames(
-                              projectcss.all,
-                              projectcss.__wab_text,
+                              "all",
+                              "__wab_text",
                               sty.text__yh6Tw
                             )}
                           >
@@ -3332,9 +3218,10 @@ function PlasmicDocter__RenderFunc(props: {
                         </Button>
                         <p
                           className={classNames(
-                            projectcss.all,
-                            projectcss.p,
-                            projectcss.__wab_text,
+                            "all",
+                            "p",
+                            "p__suVPi",
+                            "__wab_text",
                             sty.p__ll111
                           )}
                         >
@@ -3344,9 +3231,10 @@ function PlasmicDocter__RenderFunc(props: {
                         </p>
                         <p
                           className={classNames(
-                            projectcss.all,
-                            projectcss.p,
-                            projectcss.__wab_text,
+                            "all",
+                            "p",
+                            "p__suVPi",
+                            "__wab_text",
                             sty.p___99EVs
                           )}
                         >
@@ -3361,17 +3249,17 @@ function PlasmicDocter__RenderFunc(props: {
               </Dialog>
             </div>
           </ApiRequest>
-          <section className={classNames(projectcss.all, sty.section___9RcgN)}>
+          <section className={classNames("all", sty.section___9RcgN)}>
             <HeaderLiom
               data-plasmic-name={"headerLiom"}
               data-plasmic-override={overrides.headerLiom}
               className={classNames("__wab_instance", sty.headerLiom)}
               slot={
-                <div className={classNames(projectcss.all, sty.freeBox__fhiW)}>
+                <div className={classNames("all", sty.freeBox__fhiW)}>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___6SwGm
                     )}
                   >
@@ -3400,9 +3288,9 @@ function PlasmicDocter__RenderFunc(props: {
                 </div>
               }
             >
-              <div className={classNames(projectcss.all, sty.freeBox__qqt21)}>
+              <div className={classNames("all", sty.freeBox__qqt21)}>
                 <ChevronRightIcon
-                  className={classNames(projectcss.all, sty.svg__abeh4)}
+                  className={classNames("all", sty.svg__abeh4)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -3449,11 +3337,7 @@ function PlasmicDocter__RenderFunc(props: {
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__d2R7
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__d2R7)}
                 >
                   {
                     "\u06a9\u0644\u06cc\u0646\u06cc\u06a9 \u0644\u06cc\u0648\u0645"
@@ -3755,9 +3639,10 @@ export const PlasmicDocter = Object.assign(
     internalArgProps: PlasmicDocter__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/docter",
       pagePath: "/docter",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSave.module.css"; // plasmic-import: _x22uBJ4ZqC9/css
 
 import LogoPwaSvgrepoComSvgIcon from "./icons/PlasmicIcon__LogoPwaSvgrepoComSvg"; // plasmic-import: xd3icqtlIdjI/icon
@@ -174,12 +173,6 @@ function PlasmicSave__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -254,6 +247,13 @@ function PlasmicSave__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -271,10 +271,10 @@ function PlasmicSave__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         { [sty.rootclick]: hasVariant($state, "click", "click") }
@@ -285,15 +285,12 @@ function PlasmicSave__RenderFunc(props: {
         data-plasmic-override={overrides.modal}
         className={classNames("__wab_instance", sty.modal)}
         closeIcon={
-          <XIcon
-            className={classNames(projectcss.all, sty.svg__jl1Vf)}
-            role={"img"}
-          />
+          <XIcon className={classNames("all", sty.svg__jl1Vf)} role={"img"} />
         }
         defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
         hideFooter={true}
@@ -306,7 +303,7 @@ function PlasmicSave__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["modal", "open"])}
         title={
-          <div className={classNames(projectcss.all, sty.freeBox__vUbda)}>
+          <div className={classNames("all", sty.freeBox__vUbda)}>
             <PlasmicImg__
               data-plasmic-name={"img"}
               data-plasmic-override={overrides.img}
@@ -327,13 +324,7 @@ function PlasmicSave__RenderFunc(props: {
               }}
             />
 
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ji6R8
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__ji6R8)}>
               {
                 "\u0628\u0631\u0627\u06cc \u0627\u06cc\u0646\u06a9\u0647 \u0628\u062e\u0648\u0627\u06cc \u0627\u06cc\u0646 \u06a9\u0627\u0631 \u0631\u0648 \u0627\u0646\u062c\u0627\u0645 \u0628\u062f\u06cc \u0628\u0627\u06cc\u062f \u0627\u067e\u0644\u06cc\u06a9\u06cc\u0634\u0646 \u0631\u0648 \u0646\u0635\u0628 \u06a9\u0646\u06cc.\r\n\u0647\u0631\u06a9\u062f\u0648\u0645 \u0627\u0632 \u062f\u06a9\u0645\u0647 \u0647\u0627\u06cc \u0632\u06cc\u0631 \u06a9\u0647 \u0628\u0627\u0647\u0627\u0634 \u0631\u0627\u062d\u062a \u062a\u0631\u06cc \u0628\u0631\u0627\u06cc \u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u06a9\u0646 \u0648 \u0628\u0639\u062f \u0628\u0647 \u062c\u0645\u0639 \u062f\u062e\u062a\u0631\u0648\u0646\u0647 \u06cc \u0645\u0627\u0627\u0636\u0627\u0641\u0647 \u0634\u0648\ud83d\ude0d"
               }
@@ -342,77 +333,53 @@ function PlasmicSave__RenderFunc(props: {
         }
         trigger={null}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__fidol)}>
-          <div className={classNames(projectcss.all, sty.freeBox___9K59D)}>
-            <div className={classNames(projectcss.all, sty.freeBox__t6Jtn)}>
+        <div className={classNames("all", sty.freeBox__fidol)}>
+          <div className={classNames("all", sty.freeBox___9K59D)}>
+            <div className={classNames("all", sty.freeBox__t6Jtn)}>
               <LogoPwaSvgrepoComSvgIcon
-                className={classNames(projectcss.all, sty.svg__lfyPt)}
+                className={classNames("all", sty.svg__lfyPt)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__yjV3C
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__yjV3C)}>
                 {
                   "\u0648\u0631\u0648\u062f \u0628\u0647 \u0646\u0633\u062e\u0647 \u0648\u0628"
                 }
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__pnAv4)}>
+            <div className={classNames("all", sty.freeBox__pnAv4)}>
               <IconSvgIcon
-                className={classNames(projectcss.all, sty.svg__iN8Tb)}
+                className={classNames("all", sty.svg__iN8Tb)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oj9Dg
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__oj9Dg)}>
                 {
                   "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u0645\u0627\u06cc\u06a9\u062a "
                 }
               </div>
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__xdZxn)}>
-            <div className={classNames(projectcss.all, sty.freeBox__lW395)}>
+          <div className={classNames("all", sty.freeBox__xdZxn)}>
+            <div className={classNames("all", sty.freeBox__lW395)}>
               <CafeBazaarLogoSvgIcon
-                className={classNames(projectcss.all, sty.svg__vMJb8)}
+                className={classNames("all", sty.svg__vMJb8)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__wJsqq
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__wJsqq)}>
                 {
                   "\u062f\u0627\u0646\u0644\u0648\u062f \u0627\u0632 \u06a9\u0627\u0641\u0647 \u0628\u0627\u0632\u0627\u0631"
                 }
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__jdm7R)}>
+            <div className={classNames("all", sty.freeBox__jdm7R)}>
               <BrokenLink2SvgrepoComSvgIcon
-                className={classNames(projectcss.all, sty.svg__cHsN9)}
+                className={classNames("all", sty.svg__cHsN9)}
                 role={"img"}
               />
 
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__xejc0
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__xejc0)}>
                 {
                   "\u062f\u0627\u0646\u0644\u0648\u062f \u0628\u0627 \u0644\u06cc\u0646\u06a9 \u0645\u0633\u062a\u0642\u06cc\u0645 "
                 }
@@ -422,7 +389,7 @@ function PlasmicSave__RenderFunc(props: {
         </div>
       </AntdModal>
       <div
-        className={classNames(projectcss.all, sty.freeBox__uoAe3, {
+        className={classNames("all", sty.freeBox__uoAe3, {
           [sty.freeBoxclick__uoAe3JqTmi]: hasVariant($state, "click", "click"),
           [sty.freeBoxmain__uoAe3Xh1Lx]: hasVariant($state, "main", "main")
         })}
@@ -632,7 +599,7 @@ function PlasmicSave__RenderFunc(props: {
           PlasmicIconType={
             hasVariant($state, "click", "click") ? Icon254Icon : Icon238Icon
           }
-          className={classNames(projectcss.all, sty.svg__oSoos, {
+          className={classNames("all", sty.svg__oSoos, {
             [sty.svgclick__oSoosjqTmi]: hasVariant($state, "click", "click"),
             [sty.svgmain__oSoosXh1Lx]: hasVariant($state, "main", "main")
           })}
@@ -640,15 +607,10 @@ function PlasmicSave__RenderFunc(props: {
         />
 
         <div
-          className={classNames(
-            projectcss.all,
-            projectcss.__wab_text,
-            sty.text__alnR6,
-            {
-              [sty.textclick__alnR6JqTmi]: hasVariant($state, "click", "click"),
-              [sty.textmain__alnR6Xh1Lx]: hasVariant($state, "main", "main")
-            }
-          )}
+          className={classNames("all", "__wab_text", sty.text__alnR6, {
+            [sty.textclick__alnR6JqTmi]: hasVariant($state, "click", "click"),
+            [sty.textmain__alnR6Xh1Lx]: hasVariant($state, "main", "main")
+          })}
         >
           {hasVariant($state, "click", "click") ? (
             <React.Fragment>

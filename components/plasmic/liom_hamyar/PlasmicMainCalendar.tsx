@@ -81,7 +81,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicMainCalendar.module.css"; // plasmic-import: K9RuCwPDEAQe/css
 
 import Icon185Icon from "./icons/PlasmicIcon__Icon185"; // plasmic-import: 3QmHdQOUm1zK/icon
@@ -104,11 +103,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -192,12 +198,6 @@ function PlasmicMainCalendar__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -226,7 +226,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
-              return $ctx.params.page?.[0] || "calendar";
+              return $ctx.params.mainPage?.[0] || "calendar";
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1194,7 +1194,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
         initFunc: ({ $props, $state, $queries, $q, $ctx }) =>
           (() => {
             try {
-              return $ctx.params.page[1];
+              return $ctx.params.mainPage[1];
             } catch (e) {
               if (
                 e instanceof TypeError ||
@@ -1227,6 +1227,13 @@ function PlasmicMainCalendar__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -1237,7 +1244,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -1252,17 +1259,17 @@ function PlasmicMainCalendar__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             {
@@ -1299,7 +1306,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
           <div
             data-plasmic-name={"main"}
             data-plasmic-override={overrides.main}
-            className={classNames(projectcss.all, sty.main, {
+            className={classNames("all", sty.main, {
               [sty.mainpage2_cycle]: hasVariant($state, "page2", "cycle"),
               [sty.mainpage2_edit]: hasVariant($state, "page2", "edit"),
               [sty.mainpage2_reminderSetting]: hasVariant(
@@ -1583,7 +1590,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                         destination: `/main/${(() => {
                           try {
                             return (() => {
-                              var s = $ctx.params.page || ["calendar"];
+                              var s = $ctx.params.mainPage || ["calendar"];
                               s.push("setting");
                               return s.join("/");
                             })();
@@ -1652,9 +1659,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <section
-                className={classNames(projectcss.all, sty.section__ajlUx)}
-              >
+              <section className={classNames("all", sty.section__ajlUx)}>
                 {(() => {
                   const child$Props = {
                     className: classNames("__wab_instance", sty.footerMain, {
@@ -1699,7 +1704,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                               const actionArgs = {
                                 destination: `/main/${(() => {
                                   try {
-                                    return $state.footerMain.type || "calendar";
+                                    return $state.footerMain.type;
                                   } catch (e) {
                                     if (
                                       e instanceof TypeError ||
@@ -1746,7 +1751,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                         initFunc: ({ $props, $state, $queries, $q }) =>
                           (() => {
                             try {
-                              return $ctx.params.page?.[0] || "calendar";
+                              return $ctx.params.mainPage?.[0] || "calendar";
                             } catch (e) {
                               if (
                                 e instanceof TypeError ||
@@ -1788,9 +1793,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                 throw e;
               }
             })() ? (
-              <section
-                className={classNames(projectcss.all, sty.section__byo4Z)}
-              >
+              <section className={classNames("all", sty.section__byo4Z)}>
                 {(() => {
                   const child$Props = {
                     className: classNames("__wab_instance", sty.mainHeader, {
@@ -1830,20 +1833,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                           $state.mainHeader.dopen == false
                             ? (() => {
                                 const actionArgs = {
-                                  destination: `/main/${(() => {
-                                    try {
-                                      return $ctx.params.page.join("/");
-                                    } catch (e) {
-                                      if (
-                                        e instanceof TypeError ||
-                                        e?.plasmicType ===
-                                          "PlasmicUndefinedDataError"
-                                      ) {
-                                        return undefined;
-                                      }
-                                      throw e;
-                                    }
-                                  })()}`
+                                  destination: `/main/[[...mainPage]]`
                                 };
                                 return (({ destination }) => {
                                   if (
@@ -1874,24 +1864,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                       $steps["goToMain2"] = true
                         ? (() => {
                             const actionArgs = {
-                              destination: `/main/${(() => {
-                                try {
-                                  return (() => {
-                                    var s = $ctx.params.page;
-                                    s.push("edit");
-                                    return s.join("/");
-                                  })();
-                                } catch (e) {
-                                  if (
-                                    e instanceof TypeError ||
-                                    e?.plasmicType ===
-                                      "PlasmicUndefinedDataError"
-                                  ) {
-                                    return undefined;
-                                  }
-                                  throw e;
-                                }
-                              })()}`
+                              destination: `/main/[[...mainPage]]`
                             };
                             return (({ destination }) => {
                               if (
@@ -2823,8 +2796,8 @@ function PlasmicMainCalendar__RenderFunc(props: {
                           >
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__svDmd
                               )}
                             >
@@ -2848,40 +2821,17 @@ function PlasmicMainCalendar__RenderFunc(props: {
                           }
                         })() ? (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__lt1FT
-                            )}
+                            className={classNames("all", sty.freeBox__lt1FT)}
                           >
                             <Icon270Icon
-                              className={classNames(
-                                projectcss.all,
-                                sty.svg__a4KP
-                              )}
+                              className={classNames("all", sty.svg__a4KP)}
                               onClick={async event => {
                                 const $steps = {};
 
                                 $steps["goToMain2"] = true
                                   ? (() => {
                                       const actionArgs = {
-                                        destination: `/main/${(() => {
-                                          try {
-                                            return (() => {
-                                              var s = $ctx.params.page;
-                                              s.push("reminderSetting");
-                                              return s.join("/");
-                                            })();
-                                          } catch (e) {
-                                            if (
-                                              e instanceof TypeError ||
-                                              e?.plasmicType ===
-                                                "PlasmicUndefinedDataError"
-                                            ) {
-                                              return undefined;
-                                            }
-                                            throw e;
-                                          }
-                                        })()}`
+                                        destination: `/main/[[...mainPage]]`
                                       };
                                       return (({ destination }) => {
                                         if (
@@ -3062,34 +3012,16 @@ function PlasmicMainCalendar__RenderFunc(props: {
                       data-plasmic-override={overrides.mainHeader}
                       {...child$Props}
                     >
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__yWxLk
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__yWxLk)}>
                         <Icon185Icon
-                          className={classNames(projectcss.all, sty.svg__zLLH)}
+                          className={classNames("all", sty.svg__zLLH)}
                           onClick={async event => {
                             const $steps = {};
 
                             $steps["goToMain2"] = true
                               ? (() => {
                                   const actionArgs = {
-                                    destination: `/main/${(() => {
-                                      try {
-                                        return $ctx.params.page.join("/");
-                                      } catch (e) {
-                                        if (
-                                          e instanceof TypeError ||
-                                          e?.plasmicType ===
-                                            "PlasmicUndefinedDataError"
-                                        ) {
-                                          return undefined;
-                                        }
-                                        throw e;
-                                      }
-                                    })()}?menu=${"true"}`
+                                    destination: `/main/[[...mainPage]]?menu=${"true"}`
                                   };
                                   return (({ destination }) => {
                                     if (
@@ -3182,21 +3114,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
-                          try {
-                            return $ctx.params.page
-                              .filter(i => i != "setting")
-                              .join("/");
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}`
+                        destination: `/main/[[...mainPage]]`
                       };
                       return (({ destination }) => {
                         if (
@@ -3382,21 +3300,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
-                          try {
-                            return $ctx.params.page
-                              .filter(i => i != "edit")
-                              .join("/");
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}`
+                        destination: `/main/[[...mainPage]]`
                       };
                       return (({ destination }) => {
                         if (
@@ -3507,21 +3411,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
-                          try {
-                            return $ctx.params.page
-                              .filter(i => i != "cycle")
-                              .join("/");
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}`
+                        destination: `/main/[[...mainPage]]`
                       };
                       return (({ destination }) => {
                         if (
@@ -3561,14 +3451,10 @@ function PlasmicMainCalendar__RenderFunc(props: {
               })}
               slot={
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__aCzkw
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__aCzkw)}
                 >
                   <div
-                    className={projectcss.__wab_expr_html_text}
+                    className={"__wab_expr_html_text"}
                     dangerouslySetInnerHTML={{
                       __html: (() => {
                         try {
@@ -3624,14 +3510,10 @@ function PlasmicMainCalendar__RenderFunc(props: {
               }
               slot2={
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___0IjwU
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___0IjwU)}
                 >
                   <div
-                    className={projectcss.__wab_expr_html_text}
+                    className={"__wab_expr_html_text"}
                     dangerouslySetInnerHTML={{
                       __html: (() => {
                         try {
@@ -3829,21 +3711,7 @@ function PlasmicMainCalendar__RenderFunc(props: {
                 $steps["goToMain2"] = true
                   ? (() => {
                       const actionArgs = {
-                        destination: `/main/${(() => {
-                          try {
-                            return $ctx.params.page
-                              .filter(i => i != "reminderSetting")
-                              .join("/");
-                          } catch (e) {
-                            if (
-                              e instanceof TypeError ||
-                              e?.plasmicType === "PlasmicUndefinedDataError"
-                            ) {
-                              return undefined;
-                            }
-                            throw e;
-                          }
-                        })()}`
+                        destination: `/main/[[...mainPage]]`
                       };
                       return (({ destination }) => {
                         if (
@@ -4911,9 +4779,10 @@ export const PlasmicMainCalendar = Object.assign(
     internalArgProps: PlasmicMainCalendar__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
-      pagePath: "/main/[[...page]]",
-      searchParams: {},
-      params: {}
+      pageRoute: "/main/[[...mainPage]]",
+      pagePath: "/main/[[...mainPage]]",
+      params: {},
+      query: {}
     })
   }
 );

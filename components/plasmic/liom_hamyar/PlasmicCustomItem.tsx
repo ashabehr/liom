@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicCustomItem.module.css"; // plasmic-import: VT2ZBL1VWtAn/css
 
 import Icon294Icon from "./icons/PlasmicIcon__Icon294"; // plasmic-import: xW6pYJfWqycL/icon
@@ -164,10 +163,6 @@ function PlasmicCustomItem__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -245,6 +240,11 @@ function PlasmicCustomItem__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -262,10 +262,10 @@ function PlasmicCustomItem__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         "parent",
@@ -296,7 +296,7 @@ function PlasmicCustomItem__RenderFunc(props: {
       position={``}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__bU7CT, {
+        className={classNames("all", sty.freeBox__bU7CT, {
           [sty.freeBoxverticalBox__bU7CTs8Cq]: hasVariant(
             $state,
             "verticalBox",
@@ -304,9 +304,7 @@ function PlasmicCustomItem__RenderFunc(props: {
           )
         })}
       >
-        <div
-          className={classNames(projectcss.all, sty.freeBox__eUgnr, "shimmer")}
-        >
+        <div className={classNames("all", sty.freeBox__eUgnr, "shimmer")}>
           <PlasmicImg__
             data-plasmic-name={"img"}
             data-plasmic-override={overrides.img}
@@ -373,7 +371,7 @@ function PlasmicCustomItem__RenderFunc(props: {
           />
         </div>
         <div
-          className={classNames(projectcss.all, sty.freeBox__uTcN, {
+          className={classNames("all", sty.freeBox__uTcN, {
             [sty.freeBoxverticalBox__uTcNs8Cq]: hasVariant(
               $state,
               "verticalBox",
@@ -382,21 +380,16 @@ function PlasmicCustomItem__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__znRxc,
-              {
-                [sty.textverticalBox__znRxcs8Cq]: hasVariant(
-                  $state,
-                  "verticalBox",
-                  "verticalBox"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__znRxc, {
+              [sty.textverticalBox__znRxcs8Cq]: hasVariant(
+                $state,
+                "verticalBox",
+                "verticalBox"
+              )
+            })}
           >
             <div
-              className={projectcss.__wab_expr_html_text}
+              className={"__wab_expr_html_text"}
               dangerouslySetInnerHTML={{
                 __html: (() => {
                   try {
@@ -415,30 +408,25 @@ function PlasmicCustomItem__RenderFunc(props: {
             />
           </div>
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__clZsJ,
-              {
-                [sty.textselect_shopBox__clZsJnBxYlUUcIv]:
-                  hasVariant($state, "shopBox", "shopBox") &&
-                  hasVariant($state, "select", "select"),
-                [sty.textshopBox__clZsJuUcIv]: hasVariant(
-                  $state,
-                  "shopBox",
-                  "shopBox"
-                ),
-                [sty.textverticalBox__clZsJs8Cq]: hasVariant(
-                  $state,
-                  "verticalBox",
-                  "verticalBox"
-                )
-              }
-            )}
+            className={classNames("all", "__wab_text", sty.text__clZsJ, {
+              [sty.textselect_shopBox__clZsJnBxYlUUcIv]:
+                hasVariant($state, "shopBox", "shopBox") &&
+                hasVariant($state, "select", "select"),
+              [sty.textshopBox__clZsJuUcIv]: hasVariant(
+                $state,
+                "shopBox",
+                "shopBox"
+              ),
+              [sty.textverticalBox__clZsJs8Cq]: hasVariant(
+                $state,
+                "verticalBox",
+                "verticalBox"
+              )
+            })}
           >
             {hasVariant($state, "shopBox", "shopBox") ? (
               <div
-                className={projectcss.__wab_expr_html_text}
+                className={"__wab_expr_html_text"}
                 dangerouslySetInnerHTML={{
                   __html: (() => {
                     try {
@@ -457,7 +445,7 @@ function PlasmicCustomItem__RenderFunc(props: {
               />
             ) : (
               <div
-                className={projectcss.__wab_expr_html_text}
+                className={"__wab_expr_html_text"}
                 dangerouslySetInnerHTML={{
                   __html: (() => {
                     try {
@@ -478,9 +466,9 @@ function PlasmicCustomItem__RenderFunc(props: {
           </div>
         </div>
       </div>
-      <div className={classNames(projectcss.all, sty.freeBox__rdM86)}>
+      <div className={classNames("all", sty.freeBox__rdM86)}>
         <div
-          className={classNames(projectcss.all, sty.freeBox__avnAo, {
+          className={classNames("all", sty.freeBox__avnAo, {
             [sty.freeBoxshopBox__avnAOuUcIv]: hasVariant(
               $state,
               "shopBox",
@@ -506,7 +494,7 @@ function PlasmicCustomItem__RenderFunc(props: {
                 })()
           ) ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox__dE2Fh, {
+              className={classNames("all", sty.freeBox__dE2Fh, {
                 [sty.freeBoxshopBox__dE2FhuUcIv]: hasVariant(
                   $state,
                   "shopBox",
@@ -515,23 +503,18 @@ function PlasmicCustomItem__RenderFunc(props: {
               })}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__dObvC,
-                  {
-                    [sty.textshopBox__dObvCuUcIv]: hasVariant(
-                      $state,
-                      "shopBox",
-                      "shopBox"
-                    ),
-                    [sty.textverticalBox__dObvCs8Cq]: hasVariant(
-                      $state,
-                      "verticalBox",
-                      "verticalBox"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__dObvC, {
+                  [sty.textshopBox__dObvCuUcIv]: hasVariant(
+                    $state,
+                    "shopBox",
+                    "shopBox"
+                  ),
+                  [sty.textverticalBox__dObvCs8Cq]: hasVariant(
+                    $state,
+                    "verticalBox",
+                    "verticalBox"
+                  )
+                })}
               >
                 <React.Fragment>
                   {(() => {
@@ -552,7 +535,7 @@ function PlasmicCustomItem__RenderFunc(props: {
             </div>
           ) : null}
           <div
-            className={classNames(projectcss.all, sty.freeBox__abuQz, {
+            className={classNames("all", sty.freeBox__abuQz, {
               [sty.freeBoxselect__abuQznBxYl]: hasVariant(
                 $state,
                 "select",
@@ -574,7 +557,7 @@ function PlasmicCustomItem__RenderFunc(props: {
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__l9D5S, {
+              className={classNames("all", sty.freeBox__l9D5S, {
                 [sty.freeBoxselect__l9D5SnBxYl]: hasVariant(
                   $state,
                   "select",
@@ -583,23 +566,18 @@ function PlasmicCustomItem__RenderFunc(props: {
               })}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__e5Ppv,
-                  {
-                    [sty.textselect__e5PpvNBxYl]: hasVariant(
-                      $state,
-                      "select",
-                      "select"
-                    ),
-                    [sty.textshopBox__e5PpvuUcIv]: hasVariant(
-                      $state,
-                      "shopBox",
-                      "shopBox"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__e5Ppv, {
+                  [sty.textselect__e5PpvNBxYl]: hasVariant(
+                    $state,
+                    "select",
+                    "select"
+                  ),
+                  [sty.textshopBox__e5PpvuUcIv]: hasVariant(
+                    $state,
+                    "shopBox",
+                    "shopBox"
+                  )
+                })}
               >
                 <React.Fragment>
                   {(() => {
@@ -617,28 +595,21 @@ function PlasmicCustomItem__RenderFunc(props: {
                   })()}
                 </React.Fragment>
               </div>
-              <div
-                className={classNames(projectcss.all, sty.freeBox___6UhE0)}
-              />
+              <div className={classNames("all", sty.freeBox___6UhE0)} />
             </div>
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__kEoQf,
-                {
-                  [sty.textselect__kEoQfNBxYl]: hasVariant(
-                    $state,
-                    "select",
-                    "select"
-                  ),
-                  [sty.textverticalBox__kEoQfs8Cq]: hasVariant(
-                    $state,
-                    "verticalBox",
-                    "verticalBox"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__kEoQf, {
+                [sty.textselect__kEoQfNBxYl]: hasVariant(
+                  $state,
+                  "select",
+                  "select"
+                ),
+                [sty.textverticalBox__kEoQfs8Cq]: hasVariant(
+                  $state,
+                  "verticalBox",
+                  "verticalBox"
+                )
+              })}
             >
               <React.Fragment>
                 {(() => {
@@ -660,7 +631,7 @@ function PlasmicCustomItem__RenderFunc(props: {
             </div>
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__reTb9, {
+            className={classNames("all", sty.freeBox__reTb9, {
               [sty.freeBoxverticalBox__reTb9S8Cq]: hasVariant(
                 $state,
                 "verticalBox",
@@ -686,18 +657,13 @@ function PlasmicCustomItem__RenderFunc(props: {
                   })()
             ) ? (
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___37ZpM,
-                  {
-                    [sty.textshopBox___37ZpMuUcIv]: hasVariant(
-                      $state,
-                      "shopBox",
-                      "shopBox"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text___37ZpM, {
+                  [sty.textshopBox___37ZpMuUcIv]: hasVariant(
+                    $state,
+                    "shopBox",
+                    "shopBox"
+                  )
+                })}
               >
                 <React.Fragment>
                   {(() => {
@@ -717,7 +683,7 @@ function PlasmicCustomItem__RenderFunc(props: {
               </div>
             ) : null}
             <div
-              className={classNames(projectcss.all, sty.freeBox__uskKn, {
+              className={classNames("all", sty.freeBox__uskKn, {
                 [sty.freeBoxverticalBox__uskKNs8Cq]: hasVariant(
                   $state,
                   "verticalBox",
@@ -850,7 +816,7 @@ function PlasmicCustomItem__RenderFunc(props: {
                   startIcon={null}
                 >
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__zOm1Q, {
+                    className={classNames("all", sty.freeBox__zOm1Q, {
                       [sty.freeBoxselect__zOm1QnBxYl]: hasVariant(
                         $state,
                         "select",
@@ -859,7 +825,7 @@ function PlasmicCustomItem__RenderFunc(props: {
                     })}
                   >
                     <Icon294Icon
-                      className={classNames(projectcss.all, sty.svg__e82Ys, {
+                      className={classNames("all", sty.svg__e82Ys, {
                         [sty.svgselect__e82YsnBxYl]: hasVariant(
                           $state,
                           "select",
@@ -974,7 +940,7 @@ function PlasmicCustomItem__RenderFunc(props: {
                 startIcon={null}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__aIlW8, {
+                  className={classNames("all", sty.freeBox__aIlW8, {
                     [sty.freeBoxselect__aIlW8NBxYl]: hasVariant(
                       $state,
                       "select",
@@ -983,7 +949,7 @@ function PlasmicCustomItem__RenderFunc(props: {
                   })}
                 >
                   <Icon155Icon
-                    className={classNames(projectcss.all, sty.svg__lFjmF, {
+                    className={classNames("all", sty.svg__lFjmF, {
                       [sty.svgselect__lFjmFnBxYl]: hasVariant(
                         $state,
                         "select",
@@ -1062,17 +1028,13 @@ function PlasmicCustomItem__RenderFunc(props: {
                 size={"compact"}
                 startIcon={
                   <Icon49Icon
-                    className={classNames(projectcss.all, sty.svg__pDclw)}
+                    className={classNames("all", sty.svg__pDclw)}
                     role={"img"}
                   />
                 }
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rGdMq
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__rGdMq)}
                 >
                   {"\u0627\u0641\u0632\u0648\u062f\u0646"}
                 </div>

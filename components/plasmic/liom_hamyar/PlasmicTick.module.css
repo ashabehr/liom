@@ -13,6 +13,6 @@
 .rootclick {
   color: #7444bc;
 }
-.root:hover {
+.root:hover:hover {
   transform: scale3d(1.2, 1.2, 1);
 }

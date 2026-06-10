@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicComingSoon.module.css"; // plasmic-import: -rGZlxMT1IH0/css
 
 import CheckSvgIcon from "./icons/PlasmicIcon__CheckSvg"; // plasmic-import: rMWZc9fpVIkj/icon
@@ -163,10 +162,6 @@ function PlasmicComingSoon__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -308,6 +303,11 @@ function PlasmicComingSoon__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -325,10 +325,10 @@ function PlasmicComingSoon__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -407,8 +407,8 @@ function PlasmicComingSoon__RenderFunc(props: {
             effect={"fade"}
             triggerOnce={true}
           >
-            <div className={classNames(projectcss.all, sty.freeBox__wAyR1)}>
-              <div className={classNames(projectcss.all, sty.freeBox__gsh6W)}>
+            <div className={classNames("all", sty.freeBox__wAyR1)}>
+              <div className={classNames("all", sty.freeBox__gsh6W)}>
                 <LottieWrapper
                   data-plasmic-name={"lottie"}
                   data-plasmic-override={overrides.lottie}
@@ -1701,31 +1701,13 @@ function PlasmicComingSoon__RenderFunc(props: {
                   className={classNames("__wab_instance", sty.lottie)}
                 />
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__oejga
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__oejga)}>
                 {""}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__u8J2G
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__u8J2G)}>
                 {" \u0628\u0647\u200c\u0632\u0648\u062f\u06cc"}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__cNFhS
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text__cNFhS)}>
                 {
                   "\u0627\u06cc\u0646 \u0642\u0627\u0628\u0644\u06cc\u062a \u0628\u0647 \u0632\u0648\u062f\u06cc \u062f\u0631 \u062f\u0633\u062a\u0631\u0633 \u062e\u0648\u0627\u0647\u062f \u0628\u0648\u062f.\r"
                 }

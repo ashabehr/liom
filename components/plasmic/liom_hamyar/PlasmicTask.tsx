@@ -71,7 +71,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicTask.module.css"; // plasmic-import: TB3wx1w_IrFj/css
 
 createPlasmicElementProxy;
@@ -144,10 +143,6 @@ function PlasmicTask__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -178,6 +173,11 @@ function PlasmicTask__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -197,10 +197,10 @@ function PlasmicTask__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -210,7 +210,7 @@ function PlasmicTask__RenderFunc(props: {
       )}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox___6JiPt, {
+        className={classNames("all", sty.freeBox___6JiPt, {
           [sty.freeBoxstate_editing___6JiPtKi0Nl]: hasVariant(
             $state,
             "state",
@@ -220,7 +220,7 @@ function PlasmicTask__RenderFunc(props: {
       >
         {(hasVariant($state, "state", "editing") ? false : true) ? (
           <div
-            className={classNames(projectcss.all, sty.freeBox__d2YM, {
+            className={classNames("all", sty.freeBox__d2YM, {
               [sty.freeBoxstate_checked__d2YMoQqlV]: hasVariant(
                 $state,
                 "state",
@@ -312,7 +312,7 @@ function PlasmicTask__RenderFunc(props: {
         ) : null}
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__dQcg, {
+        className={classNames("all", sty.freeBox__dQcg, {
           [sty.freeBoxstate_editing__dQcgKi0Nl]: hasVariant(
             $state,
             "state",
@@ -322,7 +322,7 @@ function PlasmicTask__RenderFunc(props: {
       >
         {(hasVariant($state, "state", "editing") ? false : true) ? (
           <div
-            className={classNames(projectcss.all, sty.freeBox__fBi8A, {
+            className={classNames("all", sty.freeBox__fBi8A, {
               [sty.freeBoxstate_checked__fBi8AoQqlV]: hasVariant(
                 $state,
                 "state",
@@ -338,18 +338,9 @@ function PlasmicTask__RenderFunc(props: {
             <div
               data-plasmic-name={"text"}
               data-plasmic-override={overrides.text}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text,
-                {
-                  [sty.textstate_checked]: hasVariant(
-                    $state,
-                    "state",
-                    "checked"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text, {
+                [sty.textstate_checked]: hasVariant($state, "state", "checked")
+              })}
               onDoubleClick={async event => {
                 const $steps = {};
 
@@ -446,18 +437,9 @@ function PlasmicTask__RenderFunc(props: {
           <input
             data-plasmic-name={"textbox"}
             data-plasmic-override={overrides.textbox}
-            className={classNames(
-              projectcss.all,
-              projectcss.input,
-              sty.textbox,
-              {
-                [sty.textboxstate_editing]: hasVariant(
-                  $state,
-                  "state",
-                  "editing"
-                )
-              }
-            )}
+            className={classNames("all", "input", "input__suVPi", sty.textbox, {
+              [sty.textboxstate_editing]: hasVariant($state, "state", "editing")
+            })}
             onBlur={async event => {
               const $steps = {};
 
@@ -545,7 +527,7 @@ function PlasmicTask__RenderFunc(props: {
         ) : null}
         {(hasVariant($state, "state", "editing") ? false : true) ? (
           <div
-            className={classNames(projectcss.all, sty.freeBox___8RsVo, {
+            className={classNames("all", sty.freeBox___8RsVo, {
               [sty.freeBoxstate_editing___8RsVoKi0Nl]: hasVariant(
                 $state,
                 "state",
@@ -557,9 +539,10 @@ function PlasmicTask__RenderFunc(props: {
               data-plasmic-name={"button"}
               data-plasmic-override={overrides.button}
               className={classNames(
-                projectcss.all,
-                projectcss.button,
-                projectcss.__wab_text,
+                "all",
+                "button",
+                "button__suVPi",
+                "__wab_text",
                 sty.button,
                 {
                   [sty.buttonstate_editing]: hasVariant(

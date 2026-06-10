@@ -23,7 +23,7 @@
 .root___focusVisibleWithin {
   outline: none;
 }
-.root:focus-within {
+.root:focus-within:focus-within {
   outline: none;
 }
 .root___focusVisibleWithin_circle {

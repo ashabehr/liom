@@ -68,7 +68,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicToolsComponent.module.css"; // plasmic-import: TGSOhksfnMdG/css
 
 createPlasmicElementProxy;
@@ -144,12 +143,6 @@ function PlasmicToolsComponent__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -433,6 +426,13 @@ function PlasmicToolsComponent__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -450,10 +450,10 @@ function PlasmicToolsComponent__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -471,8 +471,8 @@ function PlasmicToolsComponent__RenderFunc(props: {
           throw e;
         }
       })() ? (
-        <div className={classNames(projectcss.all, sty.freeBox__derEy)}>
-          <div className={classNames(projectcss.all, sty.freeBox__sDcVk)}>
+        <div className={classNames("all", sty.freeBox__derEy)}>
+          <div className={classNames("all", sty.freeBox__sDcVk)}>
             <LottieWrapper
               data-plasmic-name={"lottie"}
               data-plasmic-override={overrides.lottie}
@@ -2024,37 +2024,23 @@ function PlasmicToolsComponent__RenderFunc(props: {
         data-plasmic-override={overrides.getUserInfo}
         className={classNames("__wab_instance", sty.getUserInfo)}
         errorDisplay={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__pwY0R
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__pwY0R)}>
             {"Error fetching data"}
           </div>
         }
         loadingDisplay={
-          <div className={classNames(projectcss.all, sty.freeBox__bzUdq)}>
-            <div className={classNames(projectcss.all, sty.freeBox__cD1Xw)}>
-              <div className={classNames(projectcss.all, sty.freeBox___4T5R)}>
+          <div className={classNames("all", sty.freeBox__bzUdq)}>
+            <div className={classNames("all", sty.freeBox__cD1Xw)}>
+              <div className={classNames("all", sty.freeBox___4T5R)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__dmXxO,
-                    "shimmer"
-                  )}
+                  className={classNames("all", sty.freeBox__dmXxO, "shimmer")}
                 />
 
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    sty.freeBox__smM4R,
-                    "shimmer"
-                  )}
+                  className={classNames("all", sty.freeBox__smM4R, "shimmer")}
                 />
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__kLkS6)}>
+              <div className={classNames("all", sty.freeBox__kLkS6)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -2074,23 +2060,18 @@ function PlasmicToolsComponent__RenderFunc(props: {
                   const currentIndex = __plasmic_idx_0;
                   return (
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__nutSr)}
+                      className={classNames("all", sty.freeBox__nutSr)}
                       key={currentIndex}
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
+                          "all",
                           sty.freeBox__yE5Q,
                           "shimmer"
                         )}
                       />
 
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__r5Zzw
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__r5Zzw)}>
                         {(_par =>
                           !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                           (() => {
@@ -2111,15 +2092,12 @@ function PlasmicToolsComponent__RenderFunc(props: {
                           const currentIndex = __plasmic_idx_1;
                           return (
                             <div
-                              className={classNames(
-                                projectcss.all,
-                                sty.freeBox___9IMj
-                              )}
+                              className={classNames("all", sty.freeBox___9IMj)}
                               key={currentIndex}
                             >
                               <div
                                 className={classNames(
-                                  projectcss.all,
+                                  "all",
                                   sty.freeBox__kjAws,
                                   "shimmer"
                                 )}
@@ -2174,10 +2152,10 @@ function PlasmicToolsComponent__RenderFunc(props: {
         shouldFetch={true}
         url={"https://n8n.staas.ir/webhook/userInfo_v2"}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__n8BaS)}>
-          <div className={classNames(projectcss.all, sty.freeBox__djpR)}>
-            <div className={classNames(projectcss.all, sty.freeBox__vZrTl)}>
-              <div className={classNames(projectcss.all, sty.freeBox__gnQiY)}>
+        <div className={classNames("all", sty.freeBox__n8BaS)}>
+          <div className={classNames("all", sty.freeBox__djpR)}>
+            <div className={classNames("all", sty.freeBox__vZrTl)}>
+              <div className={classNames("all", sty.freeBox__gnQiY)}>
                 {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                   (() => {
                     try {
@@ -2271,11 +2249,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                   );
                 })}
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qnb4X
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__qnb4X)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -2336,11 +2310,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                   {"\u0645\u0627\u062f\u0631"}
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__hj9D
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__hj9D)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -2402,7 +2372,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                 </div>
               </div>
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__e95J2)}>
+            <div className={classNames("all", sty.freeBox__e95J2)}>
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
                   try {
@@ -2427,13 +2397,13 @@ function PlasmicToolsComponent__RenderFunc(props: {
                 const currentIndex = __plasmic_idx_0;
                 return (
                   <div
-                    className={classNames(projectcss.all, sty.freeBox__gKw8B)}
+                    className={classNames("all", sty.freeBox__gKw8B)}
                     key={currentIndex}
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__wPzap
                       )}
                     >
@@ -2453,9 +2423,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                         })()}
                       </React.Fragment>
                     </div>
-                    <div
-                      className={classNames(projectcss.all, sty.freeBox__vxmTb)}
-                    >
+                    <div className={classNames("all", sty.freeBox__vxmTb)}>
                       {(_par =>
                         !_par ? [] : Array.isArray(_par) ? _par : [_par])(
                         (() => {
@@ -2478,10 +2446,7 @@ function PlasmicToolsComponent__RenderFunc(props: {
                         const currentIndex = __plasmic_idx_1;
                         return (
                           <div
-                            className={classNames(
-                              projectcss.all,
-                              sty.freeBox__tk15X
-                            )}
+                            className={classNames("all", sty.freeBox__tk15X)}
                             key={currentIndex}
                             onClick={async event => {
                               const $steps = {};
@@ -2723,8 +2688,8 @@ function PlasmicToolsComponent__RenderFunc(props: {
 
                             <div
                               className={classNames(
-                                projectcss.all,
-                                projectcss.__wab_text,
+                                "all",
+                                "__wab_text",
                                 sty.text__pqhTg
                               )}
                             >

@@ -71,7 +71,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShopResult.module.css"; // plasmic-import: 9CvmaDZqnu-C/css
 
 import EmojiHappySquareSvgrepoComSvg2Icon from "./icons/PlasmicIcon__EmojiHappySquareSvgrepoComSvg2"; // plasmic-import: xOMaWtcuO4fo/icon
@@ -97,11 +96,18 @@ function wrapQueriesWithLoadingProxy($q: any): any {
   });
 }
 
-export function generateDynamicMetadata($q: any, $ctx: any) {
+export type PageCtx = {
+  pageRoute: string;
+  pagePath: string;
+  params: Record<string, string | string[] | undefined>;
+  query: Record<string, string | string[] | undefined>;
+};
+
+export function generateDynamicMetadata($q: any, $ctx: PageCtx) {
   return {
     openGraph: {},
     twitter: {
-      card: "summary"
+      card: "summary" as const
     }
   };
 }
@@ -180,12 +186,6 @@ function PlasmicShopResult__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -378,6 +378,13 @@ function PlasmicShopResult__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -388,7 +395,7 @@ function PlasmicShopResult__RenderFunc(props: {
 
   const pageMetadata = generateDynamicMetadata(
     wrapQueriesWithLoadingProxy({}),
-    $ctx
+    $ctx as PageCtx
   );
 
   const styleTokensClassNames = _useStyleTokens();
@@ -403,17 +410,17 @@ function PlasmicShopResult__RenderFunc(props: {
         }
       `}</style>
 
-      <div className={projectcss.plasmic_page_wrapper}>
+      <div className={"plasmic_page_wrapper"}>
         <div
           data-plasmic-name={"root"}
           data-plasmic-override={overrides.root}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           className={classNames(
-            projectcss.all,
-            projectcss.root_reset,
-            projectcss.plasmic_default_styles,
-            projectcss.plasmic_mixins,
+            "all",
+            "root_reset_suVPi77vb6vv9K5rYJwyxC",
+            "plasmic_default_styles",
+            "plasmic_mixins",
             styleTokensClassNames,
             sty.root,
             {
@@ -476,7 +483,7 @@ function PlasmicShopResult__RenderFunc(props: {
           />
 
           <div
-            className={classNames(projectcss.all, sty.freeBox__zoAdj, {
+            className={classNames("all", sty.freeBox__zoAdj, {
               [sty.freeBoxfailed__zoAdj1GaC]: hasVariant(
                 $state,
                 "failed",
@@ -490,7 +497,7 @@ function PlasmicShopResult__RenderFunc(props: {
             })}
           >
             <EmojiHappySquareSvgrepoComSvg2Icon
-              className={classNames(projectcss.all, sty.svg__ep8Ay, {
+              className={classNames("all", sty.svg__ep8Ay, {
                 [sty.svgfailed_successful__ep8Ay1GaCO3MxK]:
                   hasVariant($state, "successful", "successful") &&
                   hasVariant($state, "failed", "failed"),
@@ -504,7 +511,7 @@ function PlasmicShopResult__RenderFunc(props: {
             />
 
             <div
-              className={classNames(projectcss.all, sty.freeBox__izJuu, {
+              className={classNames("all", sty.freeBox__izJuu, {
                 [sty.freeBoxfailed__izJuu1GaC]: hasVariant(
                   $state,
                   "failed",
@@ -518,87 +525,67 @@ function PlasmicShopResult__RenderFunc(props: {
               })}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__nnLwh,
-                  {
-                    [sty.textfailed__nnLwh1GaC]: hasVariant(
-                      $state,
-                      "failed",
-                      "failed"
-                    ),
-                    [sty.textsuccessful__nnLwho3MxK]: hasVariant(
-                      $state,
-                      "successful",
-                      "successful"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__nnLwh, {
+                  [sty.textfailed__nnLwh1GaC]: hasVariant(
+                    $state,
+                    "failed",
+                    "failed"
+                  ),
+                  [sty.textsuccessful__nnLwho3MxK]: hasVariant(
+                    $state,
+                    "successful",
+                    "successful"
+                  )
+                })}
               >
                 {
                   "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642"
                 }
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__a9Faf,
-                  {
-                    [sty.textfailed__a9Faf1GaC]: hasVariant(
-                      $state,
-                      "failed",
-                      "failed"
-                    ),
-                    [sty.textsuccessful__a9FafO3MxK]: hasVariant(
-                      $state,
-                      "successful",
-                      "successful"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__a9Faf, {
+                  [sty.textfailed__a9Faf1GaC]: hasVariant(
+                    $state,
+                    "failed",
+                    "failed"
+                  ),
+                  [sty.textsuccessful__a9FafO3MxK]: hasVariant(
+                    $state,
+                    "successful",
+                    "successful"
+                  )
+                })}
               >
                 {hasVariant($state, "failed", "failed")
                   ? "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f."
                   : "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f. \u0627\u06af\u0631 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0631\u0627\u0647\u0646\u0645\u0627\u06cc\u06cc \u062f\u0627\u0634\u062a\u06cc\u062f\u060c \u0645\u0627 \u0627\u06cc\u0646\u062c\u0627\u06cc\u06cc\u0645 \u062a\u0627 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u06cc\u0645."}
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__tYGx,
-                  {
-                    [sty.textsuccessful__tYGxo3MxK]: hasVariant(
-                      $state,
-                      "successful",
-                      "successful"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__tYGx, {
+                  [sty.textsuccessful__tYGxo3MxK]: hasVariant(
+                    $state,
+                    "successful",
+                    "successful"
+                  )
+                })}
               >
                 {
                   "\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642"
                 }
               </div>
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__ke8Uh,
-                  {
-                    [sty.textfailed__ke8Uh1GaC]: hasVariant(
-                      $state,
-                      "failed",
-                      "failed"
-                    ),
-                    [sty.textsuccessful__ke8UhO3MxK]: hasVariant(
-                      $state,
-                      "successful",
-                      "successful"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__ke8Uh, {
+                  [sty.textfailed__ke8Uh1GaC]: hasVariant(
+                    $state,
+                    "failed",
+                    "failed"
+                  ),
+                  [sty.textsuccessful__ke8UhO3MxK]: hasVariant(
+                    $state,
+                    "successful",
+                    "successful"
+                  )
+                })}
               >
                 {hasVariant($state, "successful", "successful")
                   ? "\u0627\u0632 \u062e\u0631\u06cc\u062f \u0634\u0645\u0627 \u0633\u067e\u0627\u0633\u06af\u0632\u0627\u0631\u06cc\u0645. \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u06a9\u0646\u0648\u0646 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a \u0648 \u0627\u0632 \u0627\u06cc\u0646 \u067e\u0633 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0645\u0631\u062a\u0628\u0637 \u0628\u0627 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a\u0627\u0646 \u0631\u0627 \u0627\u0632 \u0644\u06cc\u0648\u0645 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f."
@@ -606,39 +593,29 @@ function PlasmicShopResult__RenderFunc(props: {
               </div>
             </div>
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__ff4I,
-                {
-                  [sty.textsuccessful__ff4IO3MxK]: hasVariant(
-                    $state,
-                    "successful",
-                    "successful"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text__ff4I, {
+                [sty.textsuccessful__ff4IO3MxK]: hasVariant(
+                  $state,
+                  "successful",
+                  "successful"
+                )
+              })}
             >
               {"\u067e\u0631\u062f\u0627\u062e\u062a \u0645\u0648\u0641\u0642"}
             </div>
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___5ZiK2,
-                {
-                  [sty.textfailed___5ZiK21GaC]: hasVariant(
-                    $state,
-                    "failed",
-                    "failed"
-                  ),
-                  [sty.textsuccessful___5ZiK2O3MxK]: hasVariant(
-                    $state,
-                    "successful",
-                    "successful"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text___5ZiK2, {
+                [sty.textfailed___5ZiK21GaC]: hasVariant(
+                  $state,
+                  "failed",
+                  "failed"
+                ),
+                [sty.textsuccessful___5ZiK2O3MxK]: hasVariant(
+                  $state,
+                  "successful",
+                  "successful"
+                )
+              })}
             >
               {hasVariant($state, "successful", "successful")
                 ? "\u0627\u0632 \u0627\u0646\u062a\u062e\u0627\u0628 \u0634\u0645\u0627 \u0633\u067e\u0627\u0633\u06af\u0632\u0627\u0631\u06cc\u0645. \u0627\u0634\u062a\u0631\u0627\u06a9 \u0634\u0645\u0627 \u0627\u06a9\u0646\u0648\u0646 \u0641\u0639\u0627\u0644 \u0627\u0633\u062a \u0648 \u0627\u0632 \u0627\u06cc\u0646 \u067e\u0633 \u0645\u06cc\u200c\u062a\u0648\u0627\u0646\u06cc\u062f \u067e\u06cc\u0627\u0645\u06a9\u200c\u0647\u0627\u06cc \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc \u0645\u0631\u062a\u0628\u0637 \u0628\u0627 \u062f\u0648\u0631\u0647 \u0642\u0627\u0639\u062f\u06af\u06cc \u0647\u0645\u06cc\u0627\u0631\u062a\u0627\u0646 \u0631\u0627 \u0627\u0632 \u0644\u06cc\u0648\u0645 \u062f\u0631\u06cc\u0627\u0641\u062a \u06a9\u0646\u06cc\u062f."
@@ -891,11 +868,7 @@ function PlasmicShopResult__RenderFunc(props: {
               }}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___4GcQr
-                )}
+                className={classNames("all", "__wab_text", sty.text___4GcQr)}
               >
                 {"\u062a\u0627\u06cc\u06cc\u062f"}
               </div>
@@ -903,7 +876,7 @@ function PlasmicShopResult__RenderFunc(props: {
           </div>
           {(hasVariant($state, "failed", "failed") ? true : false) ? (
             <div
-              className={classNames(projectcss.all, sty.freeBox___7YdS, {
+              className={classNames("all", sty.freeBox___7YdS, {
                 [sty.freeBoxfailed___7YdS1GaC]: hasVariant(
                   $state,
                   "failed",
@@ -917,7 +890,7 @@ function PlasmicShopResult__RenderFunc(props: {
               })}
             >
               <div
-                className={classNames(projectcss.all, sty.freeBox___4MDsQ, {
+                className={classNames("all", sty.freeBox___4MDsQ, {
                   [sty.freeBoxfailed___4MDsQ1GaC]: hasVariant(
                     $state,
                     "failed",
@@ -926,7 +899,7 @@ function PlasmicShopResult__RenderFunc(props: {
                 })}
               >
                 <EmojiSadSquareSvgrepoComSvgIcon
-                  className={classNames(projectcss.all, sty.svg__lbPmL, {
+                  className={classNames("all", sty.svg__lbPmL, {
                     [sty.svgfailed__lbPmL1GaC]: hasVariant(
                       $state,
                       "failed",
@@ -940,7 +913,7 @@ function PlasmicShopResult__RenderFunc(props: {
                 />
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox__iEvrb, {
+                className={classNames("all", sty.freeBox__iEvrb, {
                   [sty.freeBoxfailed__iEvrb1GaC]: hasVariant(
                     $state,
                     "failed",
@@ -949,57 +922,42 @@ function PlasmicShopResult__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__kGoPd,
-                    {
-                      [sty.textfailed__kGoPd1GaC]: hasVariant(
-                        $state,
-                        "failed",
-                        "failed"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__kGoPd, {
+                    [sty.textfailed__kGoPd1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    )
+                  })}
                 >
                   {
                     "\u067e\u0631\u062f\u0627\u062e\u062a \u0646\u0627\u0645\u0648\u0641\u0642"
                   }
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__rd3K,
-                    {
-                      [sty.textfailed__rd3K1GaC]: hasVariant(
-                        $state,
-                        "failed",
-                        "failed"
-                      ),
-                      [sty.textfailed_successful__rd3K1GaCO3MxK]:
-                        hasVariant($state, "successful", "successful") &&
-                        hasVariant($state, "failed", "failed")
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__rd3K, {
+                    [sty.textfailed__rd3K1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    ),
+                    [sty.textfailed_successful__rd3K1GaCO3MxK]:
+                      hasVariant($state, "successful", "successful") &&
+                      hasVariant($state, "failed", "failed")
+                  })}
                 >
                   {hasVariant($state, "failed", "failed")
                     ? "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0631\u0648\u06cc \u062f\u06a9\u0645\u0647 \u062a\u0644\u0627\u0634 \u0645\u062c\u062f\u062f \u06a9\u0644\u06cc\u06a9 \u06a9\u0646\u06cc\u062f . "
                     : "\u0628\u0647 \u0646\u0638\u0631 \u0645\u06cc\u0627\u062f \u0645\u0634\u06a9\u0644\u06cc \u067e\u06cc\u0634 \u0627\u0648\u0645\u062f\u0647 \u0648 \u062a\u0631\u0627\u06a9\u0646\u0634 \u062a\u06a9\u0645\u06cc\u0644 \u0646\u0634\u062f\u0647. \u0644\u0637\u0641\u0627\u064b \u06cc\u0647 \u0628\u0627\u0631 \u062f\u06cc\u06af\u0647 \u0627\u0637\u0644\u0627\u0639\u0627\u062a \u0631\u0648 \u0628\u0631\u0631\u0633\u06cc \u0648 \u062f\u0648\u0628\u0627\u0631\u0647 \u0627\u0645\u062a\u062d\u0627\u0646 \u06a9\u0646\u06cc\u062f. \u0627\u06af\u0631 \u0646\u06cc\u0627\u0632 \u0628\u0647 \u0631\u0627\u0647\u0646\u0645\u0627\u06cc\u06cc \u062f\u0627\u0634\u062a\u06cc\u062f\u060c \u0645\u0627 \u0627\u06cc\u0646\u062c\u0627\u06cc\u06cc\u0645 \u062a\u0627 \u06a9\u0645\u06a9\u062a\u0648\u0646 \u06a9\u0646\u06cc\u0645."}
                 </div>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__gZWvF,
-                    {
-                      [sty.textfailed__gZWvF1GaC]: hasVariant(
-                        $state,
-                        "failed",
-                        "failed"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__gZWvF, {
+                    [sty.textfailed__gZWvF1GaC]: hasVariant(
+                      $state,
+                      "failed",
+                      "failed"
+                    )
+                  })}
                 >
                   {hasVariant($state, "failed", "failed") &&
                   hasVariant(globalVariants, "screen", "mobile")
@@ -1008,7 +966,7 @@ function PlasmicShopResult__RenderFunc(props: {
                 </div>
               </div>
               <div
-                className={classNames(projectcss.all, sty.freeBox___4SVt1, {
+                className={classNames("all", sty.freeBox___4SVt1, {
                   [sty.freeBoxfailed___4SVt11GaC]: hasVariant(
                     $state,
                     "failed",
@@ -1038,7 +996,7 @@ function PlasmicShopResult__RenderFunc(props: {
                           ? Icon12Icon
                           : Icon11Icon
                       }
-                      className={classNames(projectcss.all, sty.svg__tgQk, {
+                      className={classNames("all", sty.svg__tgQk, {
                         [sty.svgfailed__tgQk1GaC]: hasVariant(
                           $state,
                           "failed",
@@ -1322,8 +1280,8 @@ function PlasmicShopResult__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___18V2G,
                       {
                         [sty.textfailed___18V2G1GaC]: hasVariant(
@@ -1591,8 +1549,8 @@ function PlasmicShopResult__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__dR1Ba,
                       {
                         [sty.textfailed__dR1Ba1GaC]: hasVariant(
@@ -4130,7 +4088,7 @@ function PlasmicShopResult__RenderFunc(props: {
           />
 
           <Icon115Icon
-            className={classNames(projectcss.all, sty.svg__acKmp, {
+            className={classNames("all", sty.svg__acKmp, {
               [sty.svgfailed__acKmp1GaC]: hasVariant(
                 $state,
                 "failed",
@@ -4233,18 +4191,13 @@ function PlasmicShopResult__RenderFunc(props: {
             }}
           >
             <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text___9KCfa,
-                {
-                  [sty.textfailed___9KCfa1GaC]: hasVariant(
-                    $state,
-                    "failed",
-                    "failed"
-                  )
-                }
-              )}
+              className={classNames("all", "__wab_text", sty.text___9KCfa, {
+                [sty.textfailed___9KCfa1GaC]: hasVariant(
+                  $state,
+                  "failed",
+                  "failed"
+                )
+              })}
             >
               {
                 "\u062e\u0631\u06cc\u062f\u0645 \u0646\u0627\u0645\u0648\u0641\u0642 \u0634\u062f \u0648 \u0627\u0634\u062a\u0631\u0627\u06a9\u0645 \u0641\u0639\u0627\u0644 \u0646\u0634\u062f , \u0686\u06cc\u06a9\u0627\u0631 \u06a9\u0646\u0645 \u061f"
@@ -4265,7 +4218,7 @@ function PlasmicShopResult__RenderFunc(props: {
             closeIcon={
               (hasVariant($state, "failed", "failed") ? true : false) ? (
                 <XIcon
-                  className={classNames(projectcss.all, sty.svg__ghHTq, {
+                  className={classNames("all", sty.svg__ghHTq, {
                     [sty.svgfailed__ghHTq1GaC]: hasVariant(
                       $state,
                       "failed",
@@ -4277,9 +4230,9 @@ function PlasmicShopResult__RenderFunc(props: {
               ) : null
             }
             defaultStylesClassName={classNames(
-              projectcss.root_reset,
-              projectcss.plasmic_default_styles,
-              projectcss.plasmic_mixins,
+              "root_reset_suVPi77vb6vv9K5rYJwyxC",
+              "plasmic_default_styles",
+              "plasmic_mixins",
               styleTokensClassNames
             )}
             hideFooter={
@@ -4298,18 +4251,13 @@ function PlasmicShopResult__RenderFunc(props: {
             open={generateStateValueProp($state, ["modal", "open"])}
             title={
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text__pdnS,
-                  {
-                    [sty.textfailed__pdnS1GaC]: hasVariant(
-                      $state,
-                      "failed",
-                      "failed"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text__pdnS, {
+                  [sty.textfailed__pdnS1GaC]: hasVariant(
+                    $state,
+                    "failed",
+                    "failed"
+                  )
+                })}
               >
                 {hasVariant($state, "failed", "failed") ? "" : "Modal title"}
               </div>
@@ -4318,7 +4266,7 @@ function PlasmicShopResult__RenderFunc(props: {
             width={hasVariant($state, "failed", "failed") ? "100vw" : ``}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__xP9, {
+              className={classNames("all", sty.freeBox__xP9, {
                 [sty.freeBoxfailed__xP91GaC]: hasVariant(
                   $state,
                   "failed",
@@ -4327,18 +4275,13 @@ function PlasmicShopResult__RenderFunc(props: {
               })}
             >
               <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___1Mb5J,
-                  {
-                    [sty.textfailed___1Mb5J1GaC]: hasVariant(
-                      $state,
-                      "failed",
-                      "failed"
-                    )
-                  }
-                )}
+                className={classNames("all", "__wab_text", sty.text___1Mb5J, {
+                  [sty.textfailed___1Mb5J1GaC]: hasVariant(
+                    $state,
+                    "failed",
+                    "failed"
+                  )
+                })}
               >
                 {hasVariant($state, "failed", "failed")
                   ? "\u062e\u0637\u0627\u200c\u0647\u0627\u06cc \u0645\u062a\u062f\u0627\u0648\u0644 \u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9"
@@ -4348,12 +4291,12 @@ function PlasmicShopResult__RenderFunc(props: {
             <section
               data-plasmic-name={"section"}
               data-plasmic-override={overrides.section}
-              className={classNames(projectcss.all, sty.section, {
+              className={classNames("all", sty.section, {
                 [sty.sectionfailed]: hasVariant($state, "failed", "failed")
               })}
             >
               <div
-                className={classNames(projectcss.all, sty.freeBox__eXol, {
+                className={classNames("all", sty.freeBox__eXol, {
                   [sty.freeBoxfailed__eXol1GaC]: hasVariant(
                     $state,
                     "failed",
@@ -4362,7 +4305,7 @@ function PlasmicShopResult__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__bzwOn, {
+                  className={classNames("all", sty.freeBox__bzwOn, {
                     [sty.freeBoxfailed__bzwOn1GaC]: hasVariant(
                       $state,
                       "failed",
@@ -4372,8 +4315,8 @@ function PlasmicShopResult__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__nynC7,
                       {
                         [sty.textfailed__nynC71GaC]: hasVariant(
@@ -4390,8 +4333,8 @@ function PlasmicShopResult__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__cNfZi,
                       {
                         [sty.textfailed__cNfZi1GaC]: hasVariant(
@@ -4404,7 +4347,7 @@ function PlasmicShopResult__RenderFunc(props: {
                   >
                     {hasVariant($state, "failed", "failed") ? (
                       <div
-                        className={projectcss.__wab_expr_html_text}
+                        className={"__wab_expr_html_text"}
                         dangerouslySetInnerHTML={{
                           __html: (() => {
                             try {
@@ -4435,7 +4378,7 @@ function PlasmicShopResult__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__uWqiw, {
+                  className={classNames("all", sty.freeBox__uWqiw, {
                     [sty.freeBoxfailed__uWqiw1GaC]: hasVariant(
                       $state,
                       "failed",
@@ -4445,8 +4388,8 @@ function PlasmicShopResult__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text___10ZCc,
                       {
                         [sty.textfailed___10ZCc1GaC]: hasVariant(
@@ -4463,8 +4406,8 @@ function PlasmicShopResult__RenderFunc(props: {
                   </div>
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__gVmLw,
                       {
                         [sty.textfailed__gVmLw1GaC]: hasVariant(
@@ -4477,7 +4420,7 @@ function PlasmicShopResult__RenderFunc(props: {
                   >
                     {hasVariant($state, "failed", "failed") ? (
                       <div
-                        className={projectcss.__wab_expr_html_text}
+                        className={"__wab_expr_html_text"}
                         dangerouslySetInnerHTML={{
                           __html: (() => {
                             try {
@@ -4505,7 +4448,7 @@ function PlasmicShopResult__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__wwQEz, {
+                  className={classNames("all", sty.freeBox__wwQEz, {
                     [sty.freeBoxfailed__wwQEz1GaC]: hasVariant(
                       $state,
                       "failed",
@@ -4515,8 +4458,8 @@ function PlasmicShopResult__RenderFunc(props: {
                 >
                   <div
                     className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
+                      "all",
+                      "__wab_text",
                       sty.text__mEgPr,
                       {
                         [sty.textfailed__mEgPr1GaC]: hasVariant(
@@ -4532,7 +4475,7 @@ function PlasmicShopResult__RenderFunc(props: {
                       : "Enter some text"}
                   </div>
                   <div
-                    className={classNames(projectcss.all, sty.freeBox___9LVeq, {
+                    className={classNames("all", sty.freeBox___9LVeq, {
                       [sty.freeBoxfailed___9LVeq1GaC]: hasVariant(
                         $state,
                         "failed",
@@ -4761,8 +4704,8 @@ function PlasmicShopResult__RenderFunc(props: {
                     >
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__zk4Wf,
                           {
                             [sty.textfailed__zk4Wf1GaC]: hasVariant(
@@ -4781,7 +4724,7 @@ function PlasmicShopResult__RenderFunc(props: {
                   </div>
                 </div>
                 <div
-                  className={classNames(projectcss.all, sty.freeBox__soPTb, {
+                  className={classNames("all", sty.freeBox__soPTb, {
                     [sty.freeBoxfailed__soPTb1GaC]: hasVariant(
                       $state,
                       "failed",
@@ -4943,9 +4886,10 @@ export const PlasmicShopResult = Object.assign(
     internalArgProps: PlasmicShopResult__ArgProps,
 
     pageMetadata: generateDynamicMetadata(wrapQueriesWithLoadingProxy({}), {
+      pageRoute: "/shop-result",
       pagePath: "/shop-result",
-      searchParams: {},
-      params: {}
+      params: {},
+      query: {}
     })
   }
 );

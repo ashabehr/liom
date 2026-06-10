@@ -64,7 +64,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicSlideinModal.module.css"; // plasmic-import: Y_p0qKIshDe1/css
 
 createPlasmicElementProxy;
@@ -152,10 +151,6 @@ function PlasmicSlideinModal__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -188,6 +183,11 @@ function PlasmicSlideinModal__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -206,10 +206,10 @@ function PlasmicSlideinModal__RenderFunc(props: {
       data-plasmic-for-node={forNode}
       aria-hidden={hasVariant($state, "click", "click") ? "false" : "true"}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         {
@@ -222,13 +222,13 @@ function PlasmicSlideinModal__RenderFunc(props: {
       }}
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox__kd9A, {
+        className={classNames("all", sty.freeBox__kd9A, {
           [sty.freeBoxclick__kd9A6HzP8]: hasVariant($state, "click", "click"),
           [sty.freeBoxdark2__kd9AAfN4I]: hasVariant($state, "dark2", "dark2")
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__oeonh, {
+          className={classNames("all", sty.freeBox__oeonh, {
             [sty.freeBoxclick__oeonh6HzP8]: hasVariant(
               $state,
               "click",
@@ -240,7 +240,7 @@ function PlasmicSlideinModal__RenderFunc(props: {
           {renderPlasmicSlot({
             defaultContents: (
               <div
-                className={classNames(projectcss.all, sty.freeBox__nuZnL, {
+                className={classNames("all", sty.freeBox__nuZnL, {
                   [sty.freeBoxclick__nuZnL6HzP8]: hasVariant(
                     $state,
                     "click",
@@ -255,7 +255,7 @@ function PlasmicSlideinModal__RenderFunc(props: {
         </div>
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__jFopY, {
+        className={classNames("all", sty.freeBox__jFopY, {
           [sty.freeBoxclick__jFopY6HzP8]: hasVariant($state, "click", "click")
         })}
         onClick={async event => {

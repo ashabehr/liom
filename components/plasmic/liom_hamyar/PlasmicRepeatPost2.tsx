@@ -72,7 +72,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicRepeatPost2.module.css"; // plasmic-import: GCktZfOzFzbJ/css
 
 import Icon244Icon from "./icons/PlasmicIcon__Icon244"; // plasmic-import: xGc0UtorNcAW/icon
@@ -187,10 +186,6 @@ function PlasmicRepeatPost2__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -262,6 +257,11 @@ function PlasmicRepeatPost2__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -279,10 +279,10 @@ function PlasmicRepeatPost2__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root,
         { [sty.roottype_admin]: hasVariant($state, "type", "admin") }
@@ -310,7 +310,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
       }
     >
       <div
-        className={classNames(projectcss.all, sty.freeBox___4Xnj5, {
+        className={classNames("all", sty.freeBox___4Xnj5, {
           [sty.freeBoxtype_admin___4Xnj5WnK]: hasVariant(
             $state,
             "type",
@@ -319,7 +319,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__iPnQv, {
+          className={classNames("all", sty.freeBox__iPnQv, {
             [sty.freeBoxmain__iPnQvn7Uvj]: hasVariant($state, "main", "main"),
             [sty.freeBoxtype_admin__iPnQvWnK]: hasVariant(
               $state,
@@ -329,7 +329,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
           })}
         >
           <div
-            className={classNames(projectcss.all, sty.freeBox___4FUx1, {
+            className={classNames("all", sty.freeBox___4FUx1, {
               [sty.freeBoxtype_admin___4FUx1WnK]: hasVariant(
                 $state,
                 "type",
@@ -338,7 +338,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__sgkzB, {
+              className={classNames("all", sty.freeBox__sgkzB, {
                 [sty.freeBoxtype_admin__sgkzBWnK]: hasVariant(
                   $state,
                   "type",
@@ -380,7 +380,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
               />
             </div>
             <div
-              className={classNames(projectcss.all, sty.freeBox__bNaDh, {
+              className={classNames("all", sty.freeBox__bNaDh, {
                 [sty.freeBoxtype_admin__bNaDhWnK]: hasVariant(
                   $state,
                   "type",
@@ -389,7 +389,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
               })}
             >
               <div
-                className={classNames(projectcss.all, sty.freeBox___94NM2, {
+                className={classNames("all", sty.freeBox___94NM2, {
                   [sty.freeBoxtype_admin___94NM2WnK]: hasVariant(
                     $state,
                     "type",
@@ -398,18 +398,13 @@ function PlasmicRepeatPost2__RenderFunc(props: {
                 })}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text___68L9,
-                    {
-                      [sty.texttype_admin___68L9WnK]: hasVariant(
-                        $state,
-                        "type",
-                        "admin"
-                      )
-                    }
-                  )}
+                  className={classNames("all", "__wab_text", sty.text___68L9, {
+                    [sty.texttype_admin___68L9WnK]: hasVariant(
+                      $state,
+                      "type",
+                      "admin"
+                    )
+                  })}
                 >
                   <React.Fragment>
                     {(() => {
@@ -502,13 +497,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
                   />
                 ) : null}
               </div>
-              <div
-                className={classNames(
-                  projectcss.all,
-                  projectcss.__wab_text,
-                  sty.text___7Jz
-                )}
-              >
+              <div className={classNames("all", "__wab_text", sty.text___7Jz)}>
                 <React.Fragment>
                   {(() => {
                     try {
@@ -528,7 +517,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
             </div>
           </div>
           <div
-            className={classNames(projectcss.all, sty.freeBox__fDjo, {
+            className={classNames("all", sty.freeBox__fDjo, {
               [sty.freeBoxtype_admin__fDjoWnK]: hasVariant(
                 $state,
                 "type",
@@ -537,7 +526,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
             })}
           >
             <div
-              className={classNames(projectcss.all, sty.freeBox__iwDcY, {
+              className={classNames("all", sty.freeBox__iwDcY, {
                 [sty.freeBoxtype_admin__iwDcYWnK]: hasVariant(
                   $state,
                   "type",
@@ -600,7 +589,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
                 })()}
               />
             </div>
-            <div className={classNames(projectcss.all, sty.freeBox__wkz8)}>
+            <div className={classNames("all", sty.freeBox__wkz8)}>
               {(() => {
                 try {
                   return $props.postData.post.pin;
@@ -614,20 +603,15 @@ function PlasmicRepeatPost2__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__ceA3X)}>
+                <div className={classNames("all", sty.freeBox__ceA3X)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__ltPu,
-                      {
-                        [sty.texttype_admin__ltPuWnK]: hasVariant(
-                          $state,
-                          "type",
-                          "admin"
-                        )
-                      }
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__ltPu, {
+                      [sty.texttype_admin__ltPuWnK]: hasVariant(
+                        $state,
+                        "type",
+                        "admin"
+                      )
+                    })}
                   >
                     {hasVariant($state, "type", "admin") ? (
                       <React.Fragment>
@@ -726,7 +710,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
                   />
 
                   <Icon244Icon
-                    className={classNames(projectcss.all, sty.svg__mqBgz)}
+                    className={classNames("all", sty.svg__mqBgz)}
                     role={"img"}
                   />
                 </div>
@@ -744,9 +728,9 @@ function PlasmicRepeatPost2__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__ihgDl)}>
+                <div className={classNames("all", sty.freeBox__ihgDl)}>
                   <Icon246Icon
-                    className={classNames(projectcss.all, sty.svg__cqCo5)}
+                    className={classNames("all", sty.svg__cqCo5)}
                     role={"img"}
                   />
                 </div>
@@ -756,7 +740,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
         </div>
       </div>
       <div
-        className={classNames(projectcss.all, sty.freeBox__thBzR, {
+        className={classNames("all", sty.freeBox__thBzR, {
           [sty.freeBoxmain__thBzRn7Uvj]: hasVariant($state, "main", "main"),
           [sty.freeBoxtype_admin__thBzRWnK]: hasVariant($state, "type", "admin")
         })}
@@ -1148,26 +1132,23 @@ function PlasmicRepeatPost2__RenderFunc(props: {
         />
 
         <div
-          className={classNames(projectcss.all, sty.freeBox__bo5, {
+          className={classNames("all", sty.freeBox__bo5, {
             [sty.freeBoxmain__bo5N7Uvj]: hasVariant($state, "main", "main"),
             [sty.freeBoxtype_admin__bo5WnK]: hasVariant($state, "type", "admin")
           })}
           onClick={args.onClickShere}
         >
           <Icon149Icon
-            className={classNames(projectcss.all, sty.svg___8HN3, {
+            className={classNames("all", sty.svg___8HN3, {
               [sty.svgmain___8HN3N7Uvj]: hasVariant($state, "main", "main")
             })}
             role={"img"}
           />
 
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__afh8,
-              { [sty.textmain__afh8N7Uvj]: hasVariant($state, "main", "main") }
-            )}
+            className={classNames("all", "__wab_text", sty.text__afh8, {
+              [sty.textmain__afh8N7Uvj]: hasVariant($state, "main", "main")
+            })}
           >
             <React.Fragment>
               {(() => {
@@ -1290,7 +1271,7 @@ function PlasmicRepeatPost2__RenderFunc(props: {
         />
 
         <div
-          className={classNames(projectcss.all, sty.freeBox__oHo7W, {
+          className={classNames("all", sty.freeBox__oHo7W, {
             [sty.freeBoxmain__oHo7Wn7Uvj]: hasVariant($state, "main", "main")
           })}
           onClick={async event => {
@@ -1337,19 +1318,16 @@ function PlasmicRepeatPost2__RenderFunc(props: {
           }}
         >
           <Icon147Icon
-            className={classNames(projectcss.all, sty.svg___3Uqp6, {
+            className={classNames("all", sty.svg___3Uqp6, {
               [sty.svgmain___3Uqp6N7Uvj]: hasVariant($state, "main", "main")
             })}
             role={"img"}
           />
 
           <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__j0Vsn,
-              { [sty.textmain__j0Vsnn7Uvj]: hasVariant($state, "main", "main") }
-            )}
+            className={classNames("all", "__wab_text", sty.text__j0Vsn, {
+              [sty.textmain__j0Vsnn7Uvj]: hasVariant($state, "main", "main")
+            })}
           >
             <React.Fragment>
               {(() => {

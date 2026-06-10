@@ -71,7 +71,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicShopOfferBox.module.css"; // plasmic-import: w_9X12-Cs5Eb/css
 
 import Icon272Icon from "./icons/PlasmicIcon__Icon272"; // plasmic-import: HLKs0puyq9Ra/icon
@@ -168,12 +167,6 @@ function PlasmicShopOfferBox__RenderFunc(props: {
   const $ctx = useDataEnv?.() || {};
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
-
-  const globalVariants = _useGlobalVariants();
-
-  const $globalActions = useGlobalActions?.();
-
-  const currentUser = useCurrentUser?.() || {};
 
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
@@ -437,6 +430,13 @@ function PlasmicShopOfferBox__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const $globalActions = useGlobalActions?.();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -454,10 +454,10 @@ function PlasmicShopOfferBox__RenderFunc(props: {
       data-plasmic-root={true}
       data-plasmic-for-node={forNode}
       className={classNames(
-        projectcss.all,
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "all",
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.root
       )}
@@ -543,9 +543,9 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         data-plasmic-override={overrides.shop}
         className={classNames("__wab_instance", sty.shop)}
         defaultStylesClassName={classNames(
-          projectcss.root_reset,
-          projectcss.plasmic_default_styles,
-          projectcss.plasmic_mixins,
+          "root_reset_suVPi77vb6vv9K5rYJwyxC",
+          "plasmic_default_styles",
+          "plasmic_mixins",
           styleTokensClassNames
         )}
         hideFooter={true}
@@ -558,13 +558,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         }}
         open={generateStateValueProp($state, ["shop", "open"])}
         title={
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__mf4Sj
-            )}
-          >
+          <div className={classNames("all", "__wab_text", sty.text__mf4Sj)}>
             <React.Fragment>
               {(() => {
                 try {
@@ -584,14 +578,8 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         }
         trigger={null}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__xvMIo)}>
-          <div
-            className={classNames(
-              projectcss.all,
-              projectcss.__wab_text,
-              sty.text__usPh
-            )}
-          >
+        <div className={classNames("all", sty.freeBox__xvMIo)}>
+          <div className={classNames("all", "__wab_text", sty.text__usPh)}>
             <React.Fragment>
               {(() => {
                 try {
@@ -610,26 +598,20 @@ function PlasmicShopOfferBox__RenderFunc(props: {
           </div>
         </div>
       </AntdModal>
-      <div className={classNames(projectcss.all, sty.freeBox___9N4WC)}>
-        <div className={classNames(projectcss.all, sty.freeBox__tbg39)}>
-          <div className={classNames(projectcss.all, sty.freeBox__zUuii)}>
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__fAs35
-              )}
-            >
+      <div className={classNames("all", sty.freeBox___9N4WC)}>
+        <div className={classNames("all", sty.freeBox__tbg39)}>
+          <div className={classNames("all", sty.freeBox__zUuii)}>
+            <div className={classNames("all", "__wab_text", sty.text__fAs35)}>
               {hasVariant(globalVariants, "screen", "mobile")
                 ? "\u0627\u0634\u062a\u0631\u0627\u06a9 \u0648\u06cc\u0698\u0647 \u0631\u0648 \u0641\u0639\u0627\u0644 \u06a9\u0646 \u062a\u0627 \u0627\u06cc\u0646 \u0648\u06cc\u0698\u06af\u06cc \u0647\u0627 \u0631\u0648 \u0628\u062f\u0633\u062a \u0628\u06cc\u0627\u0631\u06cc"
                 : "\u0647\u0645\u0647 \u0646\u06a9\u0627\u062a \u0648 \u06cc\u0627\u062f\u0622\u0648\u0631\u06cc\u200c\u0647\u0627\u06cc \u0628\u0627\u0631\u062f\u0627\u0631\u06cc \u062f\u0631 \u06cc\u06a9 \u0627\u0634\u062a\u0631\u0627\u06a9"}
             </div>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__nOv00)}>
+          <div className={classNames("all", sty.freeBox__nOv00)}>
             <ul
               data-plasmic-name={"ul"}
               data-plasmic-override={overrides.ul}
-              className={classNames(projectcss.all, projectcss.ul, sty.ul)}
+              className={classNames("all", "ul", "ul__suVPi", sty.ul)}
             >
               {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
                 (() => {
@@ -652,11 +634,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   <li
                     data-plasmic-name={"li"}
                     data-plasmic-override={overrides.li}
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.li,
-                      sty.li
-                    )}
+                    className={classNames("all", "li", "li__suVPi", sty.li)}
                     key={currentIndex}
                     onClick={async event => {
                       const $steps = {};
@@ -733,7 +711,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     }}
                   >
                     <div
-                      className={classNames(projectcss.all, sty.freeBox__uP0R3)}
+                      className={classNames("all", sty.freeBox__uP0R3)}
                       style={(() => {
                         try {
                           return {
@@ -754,14 +732,14 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                       })()}
                     >
                       <Icon272Icon
-                        className={classNames(projectcss.all, sty.svg__hDn0U)}
+                        className={classNames("all", sty.svg__hDn0U)}
                         role={"img"}
                       />
 
                       <div
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
+                          "all",
+                          "__wab_text",
                           sty.text__bf4Sy
                         )}
                       >
@@ -782,7 +760,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                         </React.Fragment>
                       </div>
                       <Icon142Icon
-                        className={classNames(projectcss.all, sty.svg__fJZ)}
+                        className={classNames("all", sty.svg__fJZ)}
                         role={"img"}
                       />
                     </div>
@@ -791,8 +769,8 @@ function PlasmicShopOfferBox__RenderFunc(props: {
               })}
             </ul>
           </div>
-          <div className={classNames(projectcss.all, sty.freeBox__qECdD)}>
-            <div className={classNames(projectcss.all, sty.freeBox__ayhNs)}>
+          <div className={classNames("all", sty.freeBox__qECdD)}>
+            <div className={classNames("all", sty.freeBox__ayhNs)}>
               {(() => {
                 try {
                   return $state.shapData.result.find(
@@ -810,13 +788,9 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox__beK0B)}>
+                <div className={classNames("all", sty.freeBox__beK0B)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__qrfgQ
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__qrfgQ)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -838,13 +812,9 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   </div>
                 </div>
               ) : null}
-              <div className={classNames(projectcss.all, sty.freeBox__s7S1F)}>
+              <div className={classNames("all", sty.freeBox__s7S1F)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__sR692
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__sR692)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -883,13 +853,11 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     throw e;
                   }
                 })() ? (
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__cmMA)}
-                  >
+                  <div className={classNames("all", sty.freeBox__cmMA)}>
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__dIc4A
                       )}
                     >
@@ -914,13 +882,9 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   </div>
                 ) : null}
               </div>
-              <div className={classNames(projectcss.all, sty.freeBox__yAwz0)}>
+              <div className={classNames("all", sty.freeBox__yAwz0)}>
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__slo3
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__slo3)}
                 >
                   <React.Fragment>
                     {(() => {
@@ -940,13 +904,9 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     })()}
                   </React.Fragment>
                 </div>
-                <div className={classNames(projectcss.all, sty.freeBox__au4X)}>
+                <div className={classNames("all", sty.freeBox__au4X)}>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__r5Vaw
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__r5Vaw)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -969,11 +929,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     </React.Fragment>
                   </div>
                   <div
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.__wab_text,
-                      sty.text__limi8
-                    )}
+                    className={classNames("all", "__wab_text", sty.text__limi8)}
                   >
                     <React.Fragment>
                       {(() => {
@@ -1009,11 +965,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                 }
               })() ? (
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__nemmg
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__nemmg)}
                   onClick={async event => {
                     const $steps = {};
 
@@ -1071,10 +1023,8 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   throw e;
                 }
               })() ? (
-                <div className={classNames(projectcss.all, sty.freeBox___6QiH)}>
-                  <div
-                    className={classNames(projectcss.all, sty.freeBox__gbd3Y)}
-                  >
+                <div className={classNames("all", sty.freeBox___6QiH)}>
+                  <div className={classNames("all", sty.freeBox__gbd3Y)}>
                     {(() => {
                       const child$Props = {
                         allowClear: hasVariant(
@@ -1110,10 +1060,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                           "\u06a9\u062f \u062a\u062e\u0641\u06cc\u0641 \u062f\u0627\u0631\u06cc\u062f\u061f",
                         prefix: (
                           <Icon10Icon
-                            className={classNames(
-                              projectcss.all,
-                              sty.svg__q07XM
-                            )}
+                            className={classNames("all", sty.svg__q07XM)}
                             role={"img"}
                           />
                         ),
@@ -1165,10 +1112,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                       }
                     })() ? (
                       <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__wztoY
-                        )}
+                        className={classNames("all", sty.freeBox__wztoY)}
                         onClick={async event => {
                           const $steps = {};
 
@@ -1359,8 +1303,8 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                   >
                     <div
                       className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
+                        "all",
+                        "__wab_text",
                         sty.text__gYl45
                       )}
                     >
@@ -1381,7 +1325,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                         ? Icon12Icon
                         : Icon12Icon
                     }
-                    className={classNames(projectcss.all, sty.svg___7VrxD)}
+                    className={classNames("all", sty.svg___7VrxD)}
                     role={"img"}
                   />
                 }
@@ -1682,11 +1626,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                 }}
               >
                 <div
-                  className={classNames(
-                    projectcss.all,
-                    projectcss.__wab_text,
-                    sty.text__qa3Ot
-                  )}
+                  className={classNames("all", "__wab_text", sty.text__qa3Ot)}
                 >
                   {
                     "\u0641\u0639\u0627\u0644\u0633\u0627\u0632\u06cc \u0627\u0634\u062a\u0631\u0627\u06a9 \u06a9\u0627\u0645\u0644 \u0628\u0627\u0631\u062f\u0627\u0631\u06cc"
@@ -1695,9 +1635,10 @@ function PlasmicShopOfferBox__RenderFunc(props: {
               </Button>
               <p
                 className={classNames(
-                  projectcss.all,
-                  projectcss.p,
-                  projectcss.__wab_text,
+                  "all",
+                  "p",
+                  "p__suVPi",
+                  "__wab_text",
                   sty.p___8NoGw
                 )}
                 onClick={async event => {
@@ -1807,9 +1748,10 @@ function PlasmicShopOfferBox__RenderFunc(props: {
               {false ? (
                 <p
                   className={classNames(
-                    projectcss.all,
-                    projectcss.p,
-                    projectcss.__wab_text,
+                    "all",
+                    "p",
+                    "p__suVPi",
+                    "__wab_text",
                     sty.p__bGIm
                   )}
                 >
@@ -1842,8 +1784,8 @@ function PlasmicShopOfferBox__RenderFunc(props: {
         }}
         opendialog={generateStateValueProp($state, ["moreShop", "opendialog"])}
       >
-        <div className={classNames(projectcss.all, sty.freeBox__kyT49)}>
-          <div className={classNames(projectcss.all, sty.freeBox__eSmWx)}>
+        <div className={classNames("all", sty.freeBox__kyT49)}>
+          <div className={classNames("all", sty.freeBox__eSmWx)}>
             {(_par => (!_par ? [] : Array.isArray(_par) ? _par : [_par]))(
               (() => {
                 try {
@@ -2121,16 +2063,11 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                             }
                           })()
                     ) ? (
-                      <div
-                        className={classNames(
-                          projectcss.all,
-                          sty.freeBox__mzWzQ
-                        )}
-                      >
+                      <div className={classNames("all", sty.freeBox__mzWzQ)}>
                         <div
                           className={classNames(
-                            projectcss.all,
-                            projectcss.__wab_text,
+                            "all",
+                            "__wab_text",
                             sty.text__pjZnq
                           )}
                         >
@@ -2169,7 +2106,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
                     ? Icon12Icon
                     : Icon12Icon
                 }
-                className={classNames(projectcss.all, sty.svg__rSmjX)}
+                className={classNames("all", sty.svg__rSmjX)}
                 role={"img"}
               />
             }
@@ -2410,13 +2347,7 @@ function PlasmicShopOfferBox__RenderFunc(props: {
               }
             }}
           >
-            <div
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text__vzgut
-              )}
-            >
+            <div className={classNames("all", "__wab_text", sty.text__vzgut)}>
               <React.Fragment>
                 {(() => {
                   try {

@@ -65,7 +65,6 @@ import { _useStyleTokens } from "./PlasmicStyleTokensProvider"; // plasmic-impor
 
 import "@plasmicapp/react-web/lib/plasmic.css";
 
-import projectcss from "./plasmic.module.css"; // plasmic-import: suVPi77vb6vv9K5rYJwyxC/projectcss
 import sty from "./PlasmicRadio.module.css"; // plasmic-import: hOINlBYPAtM2/css
 
 import Icon89Icon from "./icons/PlasmicIcon__Icon89"; // plasmic-import: OfTKeJGQP7Nu/icon
@@ -151,10 +150,6 @@ function PlasmicRadio__RenderFunc(props: {
   const refsRef = React.useRef({});
   const $refs = refsRef.current;
 
-  const globalVariants = _useGlobalVariants();
-
-  const currentUser = useCurrentUser?.() || {};
-
   const stateSpecs: Parameters<typeof useDollarState>[0] = React.useMemo(
     () => [
       {
@@ -166,6 +161,11 @@ function PlasmicRadio__RenderFunc(props: {
     ],
     [$props, $ctx, $refs]
   );
+
+  const globalVariants = _useGlobalVariants();
+
+  const currentUser = useCurrentUser?.() || {};
+
   const $state = useDollarState(stateSpecs, {
     $props,
     $ctx,
@@ -209,9 +209,9 @@ function PlasmicRadio__RenderFunc(props: {
       autoFocus={args.autoFocus}
       className={classNames(
         "__wab_instance",
-        projectcss.root_reset,
-        projectcss.plasmic_default_styles,
-        projectcss.plasmic_mixins,
+        "root_reset_suVPi77vb6vv9K5rYJwyxC",
+        "plasmic_default_styles",
+        "plasmic_mixins",
         styleTokensClassNames,
         sty.ariaRadio,
         { [sty.ariaRadiocustom]: hasVariant($state, "custom", "custom") }
@@ -228,7 +228,7 @@ function PlasmicRadio__RenderFunc(props: {
         })
       })}
       <div
-        className={classNames(projectcss.all, sty.freeBox__he5At, {
+        className={classNames("all", sty.freeBox__he5At, {
           [sty.freeBoxcustom__he5AtPrpqq]: hasVariant(
             $state,
             "custom",
@@ -237,7 +237,7 @@ function PlasmicRadio__RenderFunc(props: {
         })}
       >
         <div
-          className={classNames(projectcss.all, sty.freeBox__yXu6, {
+          className={classNames("all", sty.freeBox__yXu6, {
             [sty.freeBoxcustom__yXu6Prpqq]: hasVariant(
               $state,
               "custom",
@@ -249,7 +249,7 @@ function PlasmicRadio__RenderFunc(props: {
         <Icon89Icon
           data-plasmic-name={"svg"}
           data-plasmic-override={overrides.svg}
-          className={classNames(projectcss.all, sty.svg, {
+          className={classNames("all", sty.svg, {
             [sty.svgcustom]: hasVariant($state, "custom", "custom")
           })}
           role={"img"}
