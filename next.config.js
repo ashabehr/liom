@@ -5,16 +5,6 @@ const nextConfig = {
   },
   trailingSlash: true,
 
-  swcMinify: false, // swc ممکنه syntax جدید نگه داره
-  transpilePackages: [],
-
-  experimental: {
-    legacyBrowsers: true,
-    modern: false,
-    forceSwcTransforms: true,
-  },
-  // output: 'export',
-
   async headers() {
     return [
       {
